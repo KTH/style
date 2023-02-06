@@ -2,14 +2,21 @@
   "name": "@kth/style",
   "version": "0.0.0",
   "description": "KTH's official Design System",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
   },
+  "files": [
+    "dist"
+  ],
   "keywords": [],
   "author": "KTH Royal Institute of Technology",
   "license": "MIT",
   "devDependencies": {
     "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "react": "^18.2.0"
   }
 }
