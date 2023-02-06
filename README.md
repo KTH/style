@@ -7,4 +7,3 @@
 - `/@kth` directory contains the packages that are published in npm under the `@kth` namespace
   - `/@kth/style` is the main libray
 - `apps/web` is the KTH Style website
-- `packages/cms` is the KTH Style CMS

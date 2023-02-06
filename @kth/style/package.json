@@ -8,5 +8,8 @@
   },
   "keywords": [],
   "author": "KTH Royal Institute of Technology",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  }
 }
