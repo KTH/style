@@ -9,10 +9,11 @@
     "dev": "tsc -w --preserveWatchOutput"
   },
   "exports": {
-    "./components/*": "./dist/components/*/index.js"
+    "./components/*": "./dist/components/*.js"
   },
   "files": [
-    "dist"
+    "dist",
+    "scss"
   ],
   "keywords": [],
   "author": "KTH Royal Institute of Technology",
