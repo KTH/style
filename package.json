@@ -5,6 +5,9 @@
     "@kth/*",
     "apps/*"
   ],
+  "scripts": {
+    "dev": "lerna run dev --stream --parallel"
+  },
   "devDependencies": {
     "lerna": "^6.4.1"
   }

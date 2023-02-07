@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "./page.module.css";
-import { Dropdown } from "@kth/style/dist/components/Dropdown";
+import { Dropdown } from "@kth/style/components/Dropdown";
 
 const inter = Inter({ subsets: ["latin"] });
 
