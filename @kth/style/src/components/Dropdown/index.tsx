@@ -1,5 +1,5 @@
 import React from "react";
 
 export function Dropdown() {
-  return <div>This is a dropdown</div>;
+  return <div className="kth-0-dropdown">This is a dropdown</div>;
 }

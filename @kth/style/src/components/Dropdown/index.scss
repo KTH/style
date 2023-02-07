@@ -1,0 +1,12 @@
+$global-prefix: "kth-0";
+$with-class: true !default;
+
+@mixin dropdown {
+  background-color: blue;
+}
+
+@if $with-class {
+  .#{$global-prefix}-dropdown {
+    @include dropdown();
+  }
+}
