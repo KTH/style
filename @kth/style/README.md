@@ -15,6 +15,22 @@ Styles and components used across KTH. Components are written in Sass (SCSS) and
    npm i @kth/style
    ```
 
-2.
+2. TypeScript/JavaScript. Create a component:
 
-[ UNDER CONSTRUCTION ]
+   ```ts
+   import { Button } from "@kth/style/components/Button";
+
+   export function HelloWorld() {
+     return <Button>Hello World</Button>;
+   }
+   ```
+
+3. Sass. Import the Sass files
+
+   ```scss
+   @use "node_modules/@kth/style/scss/components/Button";
+   ```
+
+## Contribute to KTH Style
+
+Read [CONTRIBUTING.md](./CONTRIBUTING.md)
