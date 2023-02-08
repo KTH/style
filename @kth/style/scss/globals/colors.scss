@@ -1,0 +1,31 @@
+/**
+Colors for KTH Style
+
+Colors follow the name scheme `<color>-<number>`, where number is higher if the
+color is darker.
+*/
+$gray-700: #65656c;
+$gray-300: #d4d4d4;
+$gray-100: #f6f6f6;
+
+$blue-900: #005e80;
+$blue-700: #007fae;
+$blue-600: #006cb7;
+
+$pink: #d02f80;
+
+$green-900: #3f6600;
+$green-700: #528400;
+$green-100: #dff0d8;
+
+$red-900: #b52c17; // #8e0b18;
+$red-700: #d4351c; // #b10e1e;
+$red-100: #f5e6e6;
+
+$yellow-600: #fab919;
+$yellow-100: #fcf8e3;
+
+$black: #000;
+$white: #fff;
+
+$black-04: rgba(0, 0, 0, 0.04);

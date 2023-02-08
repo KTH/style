@@ -1,0 +1,98 @@
+@use "../globals.scss" as g;
+
+// Variants of Button
+// - Intensity: primary, secondary, tertiary, success, danger
+// - State: hover, active
+// - Size: normal, small
+@mixin primary {
+  background: g.$blue-700;
+  color: g.$white;
+  border: none;
+
+  &:hover {
+    background: g.$blue-900;
+  }
+}
+
+@mixin secondary {
+  background: g.$white;
+  color: g.$black;
+  border: g.$black g.rem(1) solid;
+
+  &:hover {
+    background: g.$gray-100;
+  }
+}
+
+@mixin tertiary {
+  background: transparent;
+  color: g.$black;
+  border: none;
+  margin-inline: calc(var(--#{g.$prefix}-button-padding-inline, 0) / -1);
+
+  &:hover {
+    background: g.$black-04;
+  }
+}
+
+@mixin success {
+  background: g.$green-700;
+  color: g.$white;
+  border: none;
+
+  &:hover {
+    background: g.$green-900;
+  }
+}
+
+@mixin danger {
+  background: g.$red-700;
+  color: g.$white;
+  border: none;
+
+  &:hover {
+    background: g.$red-900;
+  }
+}
+
+@mixin medium {
+  --#{g.$prefix}-button-padding-inline: g.rem(16);
+  border-radius: 0.5rem;
+  padding-block: g.rem(8);
+  padding-inline: var(--#{g.$prefix}-button-padding-inline);
+}
+
+@mixin small {
+  --#{g.$prefix}-button-padding-inline: g.rem(12);
+  border-radius: 0.5rem;
+  padding-block: g.rem(4);
+  padding-inline: var(--#{g.$prefix}-button-padding-inline);
+}
+
+// TODO. Future feature: Set to false if you only want to use the mixin
+// $with-class: true !default;
+.#{g.$prefix}-button {
+  font-family: g.$font-sans;
+  font-size: 1rem;
+  line-height: 1.5;
+
+  &.primary {
+    @include primary();
+  }
+
+  &.secondary {
+    @include secondary();
+  }
+
+  &.tertiary {
+    @include tertiary();
+  }
+
+  &.medium {
+    @include medium();
+  }
+
+  &.small {
+    @include small();
+  }
+}
