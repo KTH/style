@@ -1,4 +1,5 @@
 @use "sass:list";
+@use "sass:math";
 
 // All valid spacing values.
 $_spaces: 1, 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96, 112, 128, 160, 192,
@@ -14,7 +15,7 @@ $_spaces: 1, 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96, 112, 128, 160, 192
     @error "#{$px} is not a valid spacing. Use one of the following instead: #{$spaces}";
   }
 
-  @return $px / 16 * 1rem;
+  @return math.div($px, 16) * 1rem;
 }
 
 /** Converts a given list of pixels to a list of rem */

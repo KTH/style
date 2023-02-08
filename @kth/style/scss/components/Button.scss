@@ -56,14 +56,14 @@
 }
 
 @mixin medium {
-  --#{g.$prefix}-button-padding-inline: g.rem(16);
+  --#{g.$prefix}-button-padding-inline: #{g.rem(16)};
   border-radius: 0.5rem;
   padding-block: g.rem(8);
   padding-inline: var(--#{g.$prefix}-button-padding-inline);
 }
 
 @mixin small {
-  --#{g.$prefix}-button-padding-inline: g.rem(12);
+  --#{g.$prefix}-button-padding-inline: #{g.rem(12)};
   border-radius: 0.5rem;
   padding-block: g.rem(4);
   padding-inline: var(--#{g.$prefix}-button-padding-inline);
@@ -86,6 +86,14 @@
 
   &.tertiary {
     @include tertiary();
+  }
+
+  &.success {
+    @include success();
+  }
+
+  &.danger {
+    @include danger();
   }
 
   &.medium {
