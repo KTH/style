@@ -1,14 +1,11 @@
 import React from "react";
-
-function ChevronDown() {
-  return <div>TODO</div>;
-}
+import { ExpandMore } from "../icons";
 
 export function DropdownButton() {
   return (
     <button className="kth-0-button">
-      <span>Administrera kurs</span>
-      <ChevronDown />
+      <div>Administrera kurs</div>
+      <ExpandMore />
     </button>
   );
 }
@@ -26,5 +23,9 @@ export function DropdownElement() {
 }
 
 export function Dropdown() {
-  return <div className="kth-0-dropdown">This is a dropdown</div>;
+  return (
+    <div className="kth-0-dropdown">
+      <DropdownButton />
+    </div>
+  );
 }
