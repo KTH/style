@@ -21,6 +21,7 @@
   "devDependencies": {
     "@material-symbols/svg-400": "^0.4.3",
     "@svgr/core": "^6.5.1",
+    "@types/react": "^18.0.27",
     "prettier": "^2.8.3",
     "react": "*",
     "typescript": "^4.9.5"
