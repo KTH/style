@@ -39,7 +39,7 @@ export function Dropdown({ children }: { children?: React.ReactNode }) {
 }
 
 /** An item in the dropdown */
-export function DropdownItem() {
+export function DropdownLink() {
   return (
     <li>
       <a href="#">Link 1</a>
