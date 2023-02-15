@@ -15,10 +15,7 @@ export function Dropdown() {
     null
   );
   const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
-  const [arrowElement, setArrowElement] = useState<HTMLElement | null>(null);
-  const { styles, attributes } = usePopper(referenceElement, popperElement, {
-    modifiers: [{ name: "arrow", options: { element: arrowElement } }],
-  });
+  const { styles, attributes } = usePopper(referenceElement, popperElement);
 
   return (
     <>
@@ -31,7 +28,6 @@ export function Dropdown() {
       </BaseButton>
       <div ref={setPopperElement} style={styles.popper} {...attributes.popper}>
         Popper element
-        <div ref={setArrowElement} style={styles.arrow} />
       </div>
     </>
   );
