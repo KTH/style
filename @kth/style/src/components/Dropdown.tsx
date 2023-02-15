@@ -2,15 +2,22 @@ import React, { useState } from "react";
 import { usePopper } from "react-popper";
 import { BaseButton } from "./Button";
 
-const DropdownContext = React.createContext("");
+interface DropdownLinkProps {
+  children?: React.ReactNode;
+  href: string;
+}
+
+interface DropdownGroupProps {
+  children?: React.ReactNode;
+  label?: string;
+}
+
+interface DropdownProps {
+  children?: React.ReactNode;
+}
 
 /** Dropdown component with links */
-export function Dropdown({ children }: { children?: React.ReactNode }) {
-  // - Dropdown button
-  // - Popper.js-powered area
-  // - A backdrop when the menu is shown in small screens
-  // - List of groups and items
-
+export function Dropdown({ children }: DropdownProps) {
   const [referenceElement, setReferenceElement] = useState<HTMLElement | null>(
     null
   );
@@ -39,19 +46,19 @@ export function Dropdown({ children }: { children?: React.ReactNode }) {
 }
 
 /** An item in the dropdown */
-export function DropdownLink() {
+export function DropdownLink({ href, children }: DropdownLinkProps) {
   return (
     <li>
-      <a href="#">Link 1</a>
+      <a href={href}>{children}</a>
     </li>
   );
 }
 
 /** A group of items in a dropdown */
-export function DropdownGroup({ children }: { children?: React.ReactNode }) {
+export function DropdownGroup({ children, label }: DropdownGroupProps) {
   return (
     <section className="group">
-      <div className="group-name"></div>
+      <div className="group-name">{label}</div>
       <ul>{children}</ul>
     </section>
   );
