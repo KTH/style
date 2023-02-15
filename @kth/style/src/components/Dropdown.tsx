@@ -33,6 +33,15 @@ export function Dropdown({
   const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
   const { styles, attributes } = usePopper(referenceElement, popperElement, {
     placement: "bottom-end",
+    modifiers: [
+      {
+        name: "preventOverflow",
+        options: {
+          mainAxis: true,
+          altAxis: true,
+        },
+      },
+    ],
   });
 
   return (

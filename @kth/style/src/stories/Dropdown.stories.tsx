@@ -16,20 +16,30 @@ export default meta;
 export const Example1 = {
   render() {
     return (
-      <Dropdown label="Alla kursrum" size="medium" appearance="primary">
-        <DropdownGroup label="2023">
-          <DropdownLink href="#">Link 1</DropdownLink>
-          <DropdownLink href="#">Link 1</DropdownLink>
-        </DropdownGroup>
-        <DropdownGroup label="2022">
-          <DropdownLink href="#">Link 1</DropdownLink>
-          <DropdownLink href="#">Link 1</DropdownLink>
-          <DropdownLink href="#">Link 1</DropdownLink>
-          <DropdownLink href="#">Link 1</DropdownLink>
-          <DropdownLink href="#">Link 1</DropdownLink>
-          <DropdownLink href="#">Link 1</DropdownLink>
-        </DropdownGroup>
-      </Dropdown>
+      <div
+        style={{
+          border: "1px solid red",
+          width: "400px",
+          height: "200px",
+          position: "relative",
+          overflow: "auto",
+        }}
+      >
+        <Dropdown label="Alla kursrum" size="medium" appearance="primary">
+          <DropdownGroup label="2023">
+            <DropdownLink href="#">Link 1</DropdownLink>
+            <DropdownLink href="#">Link 1</DropdownLink>
+          </DropdownGroup>
+          <DropdownGroup label="2022">
+            <DropdownLink href="#">Link 1</DropdownLink>
+            <DropdownLink href="#">Link 1</DropdownLink>
+            <DropdownLink href="#">Link 1</DropdownLink>
+            <DropdownLink href="#">Link 1</DropdownLink>
+            <DropdownLink href="#">Link 1</DropdownLink>
+            <DropdownLink href="#">Link 1</DropdownLink>
+          </DropdownGroup>
+        </Dropdown>
+      </div>
     );
   },
 };
