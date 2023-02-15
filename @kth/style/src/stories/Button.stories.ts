@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Button } from "../components/Button";
+import "../../scss/reset.scss";
 import "../../scss/components/Button.scss";
 
 // More on how to set up stories at: https://storybook.js.org/docs/7.0/react/writing-stories/introduction
@@ -17,6 +18,7 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     appearance: "primary",
-    label: "Button",
+    withIcon: false,
+    children: "Hello world",
   },
 };

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { ButtonWithIcon } from "../components/BaseButton";
+import { ButtonWithIcon } from "../components/XBaseButton";
 import "../../scss/reset.scss";
 import "../../scss/components/Button.scss";
 

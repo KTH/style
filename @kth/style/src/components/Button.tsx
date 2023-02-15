@@ -1,37 +1,37 @@
-import React from "react";
+import React, { ButtonHTMLAttributes } from "react";
 
-export interface ButtonProps {
-  /**
-   * Appearance of the component
-   */
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  /** Appearance of the component */
   appearance: "primary" | "secondary" | "tertiary" | "success" | "danger";
-  /**
-   * How large should the button be?
-   */
+
+  /** How large should the button be? */
   size?: "small" | "medium";
-  /**
-   * Button contents
-   */
-  label: string;
-  /**
-   * Optional click handler
-   */
-  onClick?: () => void;
+
+  /** Does it have an icon? */
+  withIcon: boolean;
 }
 
 /**
- * Primary UI component for user interaction
+ * Base Primary UI component for user interaction
+ *
+ * Should not be used as it is, but extended and limited somehow
  */
 export const Button = ({
   appearance = "primary",
   size = "medium",
-  label,
+  withIcon,
+  children,
   ...props
 }: ButtonProps) => {
-  const className = ["kth-0-button", appearance, size].join(" ");
+  const className = [
+    "kth-0-button",
+    appearance,
+    size,
+    withIcon ? "with-icon" : "",
+  ].join(" ");
   return (
     <button type="button" className={className} {...props}>
-      {label}
+      {children}
     </button>
   );
 };
