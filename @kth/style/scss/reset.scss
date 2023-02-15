@@ -29,7 +29,7 @@ body {
  */
 
 h1 {
-  @include h1;
+  // @include g.h1;
 }
 
 /* Grouping content
@@ -154,7 +154,7 @@ select,
 textarea {
   font-family: inherit; /* 1 */
   font-size: 100%; /* 1 */
-  line-height: $line-height; /* 1 */
+  line-height: g.$line-height; /* 1 */
   margin: 0; /* 2 */
 }
 
