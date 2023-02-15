@@ -15,12 +15,14 @@ html {
 /* Sections
    ========================================================================== */
 
-/**
- * Remove the margin in all browsers.
- */
-
+// Body
+// 1. Remove the margin in all browsers
+// 2. Default fonts
 body {
   margin: 0;
+  font-family: g.$font-sans;
+  font-weight: g.$font-weight;
+  line-height: g.$line-height;
 }
 
 /**
