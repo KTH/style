@@ -17,7 +17,11 @@ export const Example1 = {
   render() {
     return (
       <Dropdown>
-        <DropdownGroup>
+        <DropdownGroup label="2023">
+          <DropdownLink href="#">Link 1</DropdownLink>
+          <DropdownLink href="#">Link 1</DropdownLink>
+        </DropdownGroup>
+        <DropdownGroup label="2022">
           <DropdownLink href="#">Link 1</DropdownLink>
           <DropdownLink href="#">Link 1</DropdownLink>
           <DropdownLink href="#">Link 1</DropdownLink>
