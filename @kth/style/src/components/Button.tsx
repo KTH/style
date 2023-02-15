@@ -30,13 +30,16 @@ type ButtonProps = CommonButtonProps & {
  *
  * Should not be used as it is, but extended
  */
-export function BaseButton({
-  appearance = "primary",
-  size = "medium",
-  withIcon,
-  children,
-  ...props
-}: BaseButtonProps) {
+export const BaseButton = React.forwardRef(function _BaseButton(
+  {
+    appearance = "primary",
+    size = "medium",
+    withIcon,
+    children,
+    ...props
+  }: BaseButtonProps,
+  ref: React.LegacyRef<HTMLButtonElement>
+) {
   const className = [
     "kth-0-button",
     appearance,
@@ -45,11 +48,11 @@ export function BaseButton({
   ].join(" ");
 
   return (
-    <button type="button" className={className} {...props}>
+    <button ref={ref} type="button" className={className} {...props}>
       {children}
     </button>
   );
-}
+});
 
 /** Primary UI component for user interaction. Supports only text */
 export function Button({

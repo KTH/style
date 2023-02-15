@@ -22,9 +22,13 @@ export function Dropdown() {
 
   return (
     <>
-      <button ref={setReferenceElement}>
+      <BaseButton
+        appearance="tertiary"
+        withIcon={false}
+        ref={setReferenceElement}
+      >
         Xklfjalkfjalksjflk asfklajs laksjf
-      </button>
+      </BaseButton>
       <div ref={setPopperElement} style={styles.popper} {...attributes.popper}>
         Popper element
         <div ref={setArrowElement} style={styles.arrow} />
