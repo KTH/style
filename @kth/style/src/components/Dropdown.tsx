@@ -26,8 +26,22 @@ export function Dropdown() {
       >
         Xklfjalkfjalksjflk asfklajs laksjf
       </BaseButton>
-      <div ref={setPopperElement} style={styles.popper} {...attributes.popper}>
-        Popper element
+      <div
+        className="kth-0-dropdown"
+        ref={setPopperElement}
+        style={styles.popper}
+        {...attributes.popper}
+      >
+        <div className="container">
+          <section className="group">
+            <div className="group-name"></div>
+            <ul>
+              <li>
+                <a href="#">Link 1</a>
+              </li>
+            </ul>
+          </section>
+        </div>
       </div>
     </>
   );

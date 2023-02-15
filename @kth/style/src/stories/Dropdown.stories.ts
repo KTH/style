@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Dropdown } from "../components/Dropdown";
 import "../../scss/reset.scss";
 import "../../scss/components/Button.scss";
+import "../../scss/components/Dropdown.scss";
 
 // More on how to set up stories at: https://storybook.js.org/docs/7.0/react/writing-stories/introduction
 const meta = {
