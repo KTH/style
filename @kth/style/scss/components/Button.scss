@@ -72,10 +72,6 @@
 // TODO. Future feature: Set to false if you only want to use the mixin
 // $with-class: true !default;
 .#{g.$prefix}-button {
-  font-family: g.$font-sans;
-  font-size: 1rem;
-  line-height: 1.5;
-
   &.primary {
     @include primary();
   }
@@ -102,5 +98,21 @@
 
   &.small {
     @include small();
+  }
+}
+
+.#{g.$prefix}-button-with-icon {
+  @include primary();
+  @include medium();
+  display: flex;
+  gap: g.rem(8);
+
+  .icon {
+    height: g.rem(24);
+  }
+
+  svg {
+    width: g.rem(24);
+    height: g.rem(24);
   }
 }
