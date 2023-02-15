@@ -10,7 +10,7 @@ interface CommonButtonProps {
 }
 
 /** Props supported by the `BaseButton` component */
-type BaseButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
+export type BaseButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
   CommonButtonProps & {
     /** Does it have an icon? */
     withIcon: boolean;

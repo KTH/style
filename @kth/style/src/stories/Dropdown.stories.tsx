@@ -16,7 +16,7 @@ export default meta;
 export const Example1 = {
   render() {
     return (
-      <Dropdown>
+      <Dropdown label="Alla kursrum" size="medium" appearance="primary">
         <DropdownGroup label="2023">
           <DropdownLink href="#">Link 1</DropdownLink>
           <DropdownLink href="#">Link 1</DropdownLink>

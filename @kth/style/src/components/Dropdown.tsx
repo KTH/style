@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { usePopper } from "react-popper";
-import { BaseButton } from "./Button";
+import { ExpandMore } from "../icons";
+import { BaseButton, type BaseButtonProps } from "./Button";
 
 interface DropdownLinkProps {
   children?: React.ReactNode;
@@ -14,24 +15,36 @@ interface DropdownGroupProps {
 
 interface DropdownProps {
   children?: React.ReactNode;
+  label: string;
+  size?: BaseButtonProps["size"];
+  appearance: BaseButtonProps["appearance"];
 }
 
 /** Dropdown component with links */
-export function Dropdown({ children }: DropdownProps) {
+export function Dropdown({
+  children,
+  label,
+  size,
+  appearance = "tertiary",
+}: DropdownProps) {
   const [referenceElement, setReferenceElement] = useState<HTMLElement | null>(
     null
   );
   const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
-  const { styles, attributes } = usePopper(referenceElement, popperElement);
+  const { styles, attributes } = usePopper(referenceElement, popperElement, {
+    placement: "bottom-end",
+  });
 
   return (
     <>
       <BaseButton
-        appearance="tertiary"
-        withIcon={false}
+        appearance={appearance}
+        size={size}
+        withIcon={true}
         ref={setReferenceElement}
       >
-        Xklfjalkfjalksjflk asfklajs laksjf
+        <span>{label}</span>
+        <ExpandMore />
       </BaseButton>
       <div
         className="kth-0-dropdown"
