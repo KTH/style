@@ -5,7 +5,7 @@ import { BaseButton } from "./Button";
 const DropdownContext = React.createContext("");
 
 /** Dropdown component with links */
-export function Dropdown() {
+export function Dropdown({ children }: { children?: React.ReactNode }) {
   // - Dropdown button
   // - Popper.js-powered area
   // - A backdrop when the menu is shown in small screens
@@ -32,23 +32,27 @@ export function Dropdown() {
         style={styles.popper}
         {...attributes.popper}
       >
-        <div className="container">
-          <section className="group">
-            <div className="group-name"></div>
-            <ul>
-              <li>
-                <a href="#">Link 1</a>
-              </li>
-            </ul>
-          </section>
-        </div>
+        <div className="container">{children}</div>
       </div>
     </>
   );
 }
 
 /** An item in the dropdown */
-export function DropdownItem() {}
+export function DropdownItem() {
+  return (
+    <li>
+      <a href="#">Link 1</a>
+    </li>
+  );
+}
 
 /** A group of items in a dropdown */
-export function DropdownGroup() {}
+export function DropdownGroup({ children }: { children?: React.ReactNode }) {
+  return (
+    <section className="group">
+      <div className="group-name"></div>
+      <ul>{children}</ul>
+    </section>
+  );
+}
