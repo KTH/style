@@ -1,5 +1,6 @@
-import React from "react";
-import { Button } from "./Button";
+import React, { useState } from "react";
+import { usePopper } from "react-popper";
+import { BaseButton } from "./Button";
 
 const DropdownContext = React.createContext("");
 
@@ -10,7 +11,26 @@ export function Dropdown() {
   // - A backdrop when the menu is shown in small screens
   // - List of groups and items
 
-  return <Button appearance="tertiary" label="X" />;
+  const [referenceElement, setReferenceElement] = useState<HTMLElement | null>(
+    null
+  );
+  const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
+  const [arrowElement, setArrowElement] = useState<HTMLElement | null>(null);
+  const { styles, attributes } = usePopper(referenceElement, popperElement, {
+    modifiers: [{ name: "arrow", options: { element: arrowElement } }],
+  });
+
+  return (
+    <>
+      <button ref={setReferenceElement}>
+        Xklfjalkfjalksjflk asfklajs laksjf
+      </button>
+      <div ref={setPopperElement} style={styles.popper} {...attributes.popper}>
+        Popper element
+        <div ref={setArrowElement} style={styles.arrow} />
+      </div>
+    </>
+  );
 }
 
 /** An item in the dropdown */
