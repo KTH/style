@@ -27,6 +27,7 @@ export function Dropdown({
   size,
   appearance = "tertiary",
 }: DropdownProps) {
+  const [visible, setVisible] = useState(false);
   const [referenceElement, setReferenceElement] = useState<HTMLElement | null>(
     null
   );
@@ -51,18 +52,21 @@ export function Dropdown({
         size={size}
         withIcon={true}
         ref={setReferenceElement}
+        onClick={() => setVisible(!visible)}
       >
         <span>{label}</span>
         <ExpandMore />
       </BaseButton>
-      <div
-        className="kth-0-dropdown"
-        ref={setPopperElement}
-        style={styles.popper}
-        {...attributes.popper}
-      >
-        <div className="container">{children}</div>
-      </div>
+      {visible && (
+        <div
+          className="kth-0-dropdown"
+          ref={setPopperElement}
+          style={styles.popper}
+          {...attributes.popper}
+        >
+          <div className="container">{children}</div>
+        </div>
+      )}
     </>
   );
 }
