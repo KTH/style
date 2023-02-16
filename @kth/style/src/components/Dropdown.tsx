@@ -8,7 +8,7 @@
 import React, { useState } from "react";
 import { usePopper } from "react-popper";
 import { ExpandMore } from "../icons";
-import { BaseButton, type BaseButtonProps } from "./Button";
+import { type Appearance, BaseButton, type Size } from "./Button";
 import { LinkLi, LinkUl } from "./LinkList";
 
 interface DropdownLinkProps {
@@ -25,8 +25,8 @@ interface DropdownGroupProps {
 interface DropdownProps {
   children?: React.ReactNode;
   label: string;
-  size?: BaseButtonProps["size"];
-  appearance: BaseButtonProps["appearance"];
+  size?: Size;
+  appearance: Appearance;
   id: string;
 }
 
@@ -34,7 +34,7 @@ interface DropdownProps {
 export function Dropdown({
   children,
   label,
-  size,
+  size = "inherit",
   appearance = "tertiary",
   id,
 }: DropdownProps) {

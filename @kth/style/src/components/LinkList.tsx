@@ -1,8 +1,9 @@
 import React from "react";
+import { type Size } from "./Button";
 
 interface LinkUlProps {
   children: React.ReactNode;
-  size?: "medium" | "small" | "";
+  size?: Size;
 }
 
 interface LinkLiProps {
@@ -10,7 +11,7 @@ interface LinkLiProps {
   href: string;
 }
 
-export function LinkUl({ children, size = "" }: LinkUlProps) {
+export function LinkUl({ children, size = "inherit" }: LinkUlProps) {
   const className = ["kth-0-link-list", `kth-0-${size}`].join(" ");
   return <ul className={className}>{children}</ul>;
 }

@@ -1,12 +1,22 @@
 import React, { ButtonHTMLAttributes } from "react";
 
+/** Size options for interactive elements */
+export type Size = "small" | "medium" | "inherit";
+
+export type Appearance =
+  | "primary"
+  | "secondary"
+  | "tertiary"
+  | "success"
+  | "danger";
+
 /** Props added by us included in all types of buttons */
 interface CommonButtonProps {
   /** Appearance of the component */
-  appearance: "primary" | "secondary" | "tertiary" | "success" | "danger";
+  appearance: Appearance;
 
   /** How large should the button be? */
-  size?: "small" | "medium" | "";
+  size?: Size;
 }
 
 /** Props supported by the `BaseButton` component */
@@ -33,7 +43,7 @@ type ButtonProps = CommonButtonProps & {
 export const BaseButton = React.forwardRef(function _BaseButton(
   {
     appearance = "primary",
-    size = "",
+    size = "inherit",
     withIcon,
     children,
     ...props
