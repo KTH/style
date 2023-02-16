@@ -16,15 +16,7 @@ export default meta;
 export const Example1 = {
   render() {
     return (
-      <div
-        style={{
-          border: "1px solid red",
-          width: "400px",
-          height: "200px",
-          position: "relative",
-          overflow: "auto",
-        }}
-      >
+      <div>
         <Dropdown label="Alla kursrum" size="medium" appearance="primary">
           <DropdownGroup label="2023">
             <DropdownLink href="#">Link 1</DropdownLink>

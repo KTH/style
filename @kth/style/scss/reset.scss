@@ -61,12 +61,14 @@ pre {
 /* Text-level semantics
    ========================================================================== */
 
-/**
- * Remove the gray background on active links in IE 10.
- */
-
+// Links. No special need to unify browsers
 a {
-  background-color: transparent;
+  color: g.$blue-600;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 /**
