@@ -1,8 +1,15 @@
+/**
+ * Dropdown component.
+ * Show and hide a dropdown list of links.
+ *
+ * Also called Disclosure Navigation Menu.
+ * @see accessibility practices for this component: https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/
+ */
 import React, { useState } from "react";
 import { usePopper } from "react-popper";
 import { ExpandMore } from "../icons";
 import { BaseButton, type BaseButtonProps } from "./Button";
-import { LinkUl } from "./LinkList";
+import { LinkLi, LinkUl } from "./LinkList";
 
 interface DropdownLinkProps {
   children?: React.ReactNode;
@@ -91,17 +98,17 @@ export function Dropdown({
 /** An item in the dropdown */
 export function DropdownLink({ href, children }: DropdownLinkProps) {
   return (
-    <li>
-      <a href={href}>{children}</a>
-    </li>
+    <LinkLi size="medium" href={href}>
+      {children}
+    </LinkLi>
   );
 }
 
 /** A group of items in a dropdown */
 export function DropdownGroup({ children, label, id }: DropdownGroupProps) {
   return (
-    <section className="group" aria-labelledby={id}>
-      <div className="group-name" id={id}>
+    <section className="group medium" aria-labelledby={id}>
+      <div className="group-label medium" id={id}>
         {label}
       </div>
       <LinkUl>{children}</LinkUl>

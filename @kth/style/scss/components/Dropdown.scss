@@ -15,11 +15,12 @@
   }
 
   .group {
-    margin-block-start: g.rem(4);
-    margin-block-end: g.rem(8);
+    margin-block-end: g.rem(16);
   }
 
-  .group-name {
+  .group-label {
     font-weight: 600;
+    margin-block-start: g.rem(4);
+    margin-block-end: g.rem(2);
   }
 }
