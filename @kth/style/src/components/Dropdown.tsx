@@ -11,6 +11,7 @@ interface DropdownLinkProps {
 interface DropdownGroupProps {
   children?: React.ReactNode;
   label?: string;
+  id: string;
 }
 
 interface DropdownProps {
@@ -97,10 +98,12 @@ export function DropdownLink({ href, children }: DropdownLinkProps) {
 }
 
 /** A group of items in a dropdown */
-export function DropdownGroup({ children, label }: DropdownGroupProps) {
+export function DropdownGroup({ children, label, id }: DropdownGroupProps) {
   return (
-    <section className="group">
-      <div className="group-name">{label}</div>
+    <section className="group" aria-labelledby={id}>
+      <div className="group-name" id={id}>
+        {label}
+      </div>
       <ul>{children}</ul>
     </section>
   );

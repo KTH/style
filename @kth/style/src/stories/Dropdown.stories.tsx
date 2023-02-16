@@ -23,11 +23,11 @@ export const Example1 = {
           size="medium"
           appearance="primary"
         >
-          <DropdownGroup label="2023">
+          <DropdownGroup id="alla-kursrum-2023" label="2023">
             <DropdownLink href="#">Link 1</DropdownLink>
             <DropdownLink href="#">Link 1</DropdownLink>
           </DropdownGroup>
-          <DropdownGroup label="2022">
+          <DropdownGroup id="alla-kursrum-2022" label="2022">
             <DropdownLink href="#">Link 1</DropdownLink>
             <DropdownLink href="#">Link 1</DropdownLink>
             <DropdownLink href="#">Link 1</DropdownLink>
