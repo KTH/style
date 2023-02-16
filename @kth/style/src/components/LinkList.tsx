@@ -2,7 +2,7 @@ import React from "react";
 
 interface LinkUlProps {
   children: React.ReactNode;
-  size?: "medium" | "small";
+  size?: "medium" | "small" | "";
 }
 
 interface LinkLiProps {
@@ -10,7 +10,7 @@ interface LinkLiProps {
   href: string;
 }
 
-export function LinkUl({ children, size = "medium" }: LinkUlProps) {
+export function LinkUl({ children, size = "" }: LinkUlProps) {
   const className = ["kth-0-link-list", `kth-0-${size}`].join(" ");
   return <ul className={className}>{children}</ul>;
 }

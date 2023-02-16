@@ -55,6 +55,7 @@ export function Dropdown({
       },
     ],
   });
+  const containerClassName = ["kth-0-dropdown", `kth-0-${size}`].join(" ");
 
   return (
     <>
@@ -73,7 +74,7 @@ export function Dropdown({
       {expanded && (
         <div
           id={id}
-          className="kth-0-dropdown"
+          className={containerClassName}
           ref={setPopperElement}
           style={styles.popper}
           onKeyDown={(event) => {
@@ -97,18 +98,14 @@ export function Dropdown({
 
 /** An item in the dropdown */
 export function DropdownLink({ href, children }: DropdownLinkProps) {
-  return (
-    <LinkLi size="medium" href={href}>
-      {children}
-    </LinkLi>
-  );
+  return <LinkLi href={href}>{children}</LinkLi>;
 }
 
 /** A group of items in a dropdown */
 export function DropdownGroup({ children, label, id }: DropdownGroupProps) {
   return (
-    <section className="group medium" aria-labelledby={id}>
-      <div className="group-label medium" id={id}>
+    <section className="group" aria-labelledby={id}>
+      <div className="group-label" id={id}>
         {label}
       </div>
       <LinkUl>{children}</LinkUl>

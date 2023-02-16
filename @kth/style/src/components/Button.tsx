@@ -6,7 +6,7 @@ interface CommonButtonProps {
   appearance: "primary" | "secondary" | "tertiary" | "success" | "danger";
 
   /** How large should the button be? */
-  size?: "small" | "medium";
+  size?: "small" | "medium" | "";
 }
 
 /** Props supported by the `BaseButton` component */
@@ -33,7 +33,7 @@ type ButtonProps = CommonButtonProps & {
 export const BaseButton = React.forwardRef(function _BaseButton(
   {
     appearance = "primary",
-    size = "medium",
+    size = "",
     withIcon,
     children,
     ...props
