@@ -67,6 +67,16 @@ export function Dropdown({
           className="kth-0-dropdown"
           ref={setPopperElement}
           style={styles.popper}
+          onKeyDown={(event) => {
+            if (event.defaultPrevented) {
+              return;
+            }
+
+            if (event.key === "Escape") {
+              referenceElement?.focus();
+              setExpanded(false);
+            }
+          }}
           {...attributes.popper}
         >
           <div className="container">{children}</div>
