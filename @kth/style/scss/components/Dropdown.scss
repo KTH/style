@@ -1,7 +1,9 @@
 @use "../globals.scss" as g;
 @use "./Button.scss";
+@use "./LinkList.scss";
 
 .#{g.$prefix}-dropdown {
+  min-width: g.rem(160);
   max-width: 100%;
   max-height: 100%;
   overflow: auto;
@@ -19,16 +21,5 @@
 
   .group-name {
     font-weight: 600;
-  }
-
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  a {
-    display: block;
-    padding-block: g.rem(4);
   }
 }

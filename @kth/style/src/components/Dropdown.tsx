@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { usePopper } from "react-popper";
 import { ExpandMore } from "../icons";
 import { BaseButton, type BaseButtonProps } from "./Button";
+import { LinkUl } from "./LinkList";
 
 interface DropdownLinkProps {
   children?: React.ReactNode;
@@ -89,7 +90,6 @@ export function Dropdown({
 
 /** An item in the dropdown */
 export function DropdownLink({ href, children }: DropdownLinkProps) {
-  // TODO. A11y: Sets `aria-current="page"` if the current page is this link
   return (
     <li>
       <a href={href}>{children}</a>
@@ -104,7 +104,7 @@ export function DropdownGroup({ children, label, id }: DropdownGroupProps) {
       <div className="group-name" id={id}>
         {label}
       </div>
-      <ul>{children}</ul>
+      <LinkUl>{children}</LinkUl>
     </section>
   );
 }

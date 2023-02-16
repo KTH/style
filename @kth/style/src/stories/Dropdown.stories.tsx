@@ -1,7 +1,8 @@
 import React from "react";
 import type { Meta } from "@storybook/react";
 
-import { Dropdown, DropdownGroup, DropdownLink } from "../components/Dropdown";
+import { Dropdown, DropdownGroup } from "../components/Dropdown";
+import { LinkLi } from "../components/LinkList";
 import "../../scss/reset.scss";
 import "../../scss/components/Button.scss";
 import "../../scss/components/Dropdown.scss";
@@ -24,16 +25,16 @@ export const Example1 = {
           appearance="primary"
         >
           <DropdownGroup id="alla-kursrum-2023" label="2023">
-            <DropdownLink href="#">Link 1</DropdownLink>
-            <DropdownLink href="#">Link 1</DropdownLink>
+            <LinkLi href="#">Link 1</LinkLi>
+            <LinkLi href="#">Link 1</LinkLi>
           </DropdownGroup>
           <DropdownGroup id="alla-kursrum-2022" label="2022">
-            <DropdownLink href="#">Link 1</DropdownLink>
-            <DropdownLink href="#">Link 1</DropdownLink>
-            <DropdownLink href="#">Link 1</DropdownLink>
-            <DropdownLink href="#">Link 1</DropdownLink>
-            <DropdownLink href="#">Link 1</DropdownLink>
-            <DropdownLink href="#">Link 1</DropdownLink>
+            <LinkLi href="#">Link 1</LinkLi>
+            <LinkLi href="#">Link 1</LinkLi>
+            <LinkLi href="#">Link 1</LinkLi>
+            <LinkLi href="#">Link 1</LinkLi>
+            <LinkLi href="#">Link 1</LinkLi>
+            <LinkLi href="#">Link 1</LinkLi>
           </DropdownGroup>
         </Dropdown>
       </div>
