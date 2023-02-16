@@ -1,0 +1,11 @@
+@use "globals" as g;
+
+.#{g.$prefix}-medium {
+  --interactive-padding-block: #{g.rem(8)};
+  --interactive-padding-inline: #{g.rem(16)};
+}
+
+.#{g.$prefix}-small {
+  --interactive-padding-block: #{g.rem(4)};
+  --interactive-padding-inline: #{g.rem(12)};
+}

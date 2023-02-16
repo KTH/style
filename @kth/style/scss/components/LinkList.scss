@@ -1,30 +1,13 @@
 @use "../globals.scss" as g;
-
-@mixin medium {
-  padding-block: g.rem(8);
-}
-
-@mixin small {
-  padding-block: g.rem(4);
-}
+@use "../variants";
 
 .#{g.$prefix}-link-list {
   list-style: none;
   margin: 0;
   padding: 0;
 
-  &.medium {
-    a {
-      @include medium();
-    }
-  }
-  &.small {
-    a {
-      @include small();
-    }
-  }
-
   a {
+    padding-block: var(--interactive-padding-block, 0);
     display: block;
   }
 }

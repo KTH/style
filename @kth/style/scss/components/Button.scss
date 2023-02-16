@@ -29,10 +29,10 @@
   background: transparent;
   color: g.$black;
   border: none;
-  margin-inline: calc(var(--#{g.$prefix}-button-padding-inline, 0) / -1);
+  --interactive-padding-inline: 0;
 
   &:hover {
-    background: g.$black-04;
+    text-decoration: underline;
   }
 }
 
@@ -58,20 +58,6 @@
   }
 }
 
-@mixin medium {
-  --#{g.$prefix}-button-padding-inline: #{g.rem(16)};
-  border-radius: 0.5rem;
-  padding-block: g.rem(8);
-  padding-inline: var(--#{g.$prefix}-button-padding-inline);
-}
-
-@mixin small {
-  --#{g.$prefix}-button-padding-inline: #{g.rem(12)};
-  border-radius: 0.5rem;
-  padding-block: g.rem(4);
-  padding-inline: var(--#{g.$prefix}-button-padding-inline);
-}
-
 @mixin with-icon {
   display: flex;
   gap: g.rem(8);
@@ -87,6 +73,10 @@
 // TODO. Future feature: Set to false if you only want to use the mixin
 // $with-class: true !default;
 .#{g.$prefix}-button {
+  border-radius: g.rem(8);
+  padding-block: var(--interactive-padding-block, 0);
+  padding-inline: var(--interactive-padding-inline, 0);
+
   &.primary {
     @include primary();
   }
@@ -105,14 +95,6 @@
 
   &.danger {
     @include danger();
-  }
-
-  &.medium {
-    @include medium();
-  }
-
-  &.small {
-    @include small();
   }
 
   &.with-icon {

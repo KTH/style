@@ -11,7 +11,7 @@ interface LinkLiProps {
 }
 
 export function LinkUl({ children, size = "medium" }: LinkUlProps) {
-  const className = ["kth-0-link-list", size].join(" ");
+  const className = ["kth-0-link-list", `kth-0-${size}`].join(" ");
   return <ul className={className}>{children}</ul>;
 }
 

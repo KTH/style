@@ -43,7 +43,7 @@ export const BaseButton = React.forwardRef(function _BaseButton(
   const className = [
     "kth-0-button",
     appearance,
-    size,
+    `kth-0-${size}`,
     withIcon ? "with-icon" : "",
   ].join(" ");
 
