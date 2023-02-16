@@ -18,6 +18,7 @@ interface DropdownProps {
   label: string;
   size?: BaseButtonProps["size"];
   appearance: BaseButtonProps["appearance"];
+  id: string;
 }
 
 /** Dropdown component with links */
@@ -26,8 +27,9 @@ export function Dropdown({
   label,
   size,
   appearance = "tertiary",
+  id,
 }: DropdownProps) {
-  const [visible, setVisible] = useState(false);
+  const [expanded, setExpanded] = useState(false);
   const [referenceElement, setReferenceElement] = useState<HTMLElement | null>(
     null
   );
@@ -48,17 +50,20 @@ export function Dropdown({
   return (
     <>
       <BaseButton
+        aria-controls={id}
+        aria-expanded={expanded}
         appearance={appearance}
         size={size}
         withIcon={true}
         ref={setReferenceElement}
-        onClick={() => setVisible(!visible)}
+        onClick={() => setExpanded(!expanded)}
       >
         <span>{label}</span>
         <ExpandMore />
       </BaseButton>
-      {visible && (
+      {expanded && (
         <div
+          id={id}
           className="kth-0-dropdown"
           ref={setPopperElement}
           style={styles.popper}
@@ -73,6 +78,7 @@ export function Dropdown({
 
 /** An item in the dropdown */
 export function DropdownLink({ href, children }: DropdownLinkProps) {
+  // TODO. A11y: Sets `aria-current="page"` if the current page is this link
   return (
     <li>
       <a href={href}>{children}</a>
