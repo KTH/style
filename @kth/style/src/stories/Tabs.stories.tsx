@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { TabContainer, TabList, TabPanel } from "../components/Tabs";
 import "../../scss/reset.scss";
+import "../../scss/components/Tabs.scss";
 
 const meta = {
   title: "Test/Tabs",
@@ -19,13 +20,20 @@ export const ShortList: Story = {
     children: (
       <>
         <TabList
+          appearance="secondary"
           tabs={[
-            { id: "tab1", label: "Tab 1" },
-            { id: "tab2", label: "Tab 2" },
+            { id: "tab1", label: "Innehåll och lärandemål" },
+            { id: "tab2", label: "Förberedelser inför kursstart" },
+            { id: "tab3", label: "Examination och slutförande" },
+            { id: "tab4", label: "Ytterligare information" },
+            { id: "tab5", label: "Kontakter" },
           ]}
         />
         <TabPanel id="tab1">This is a tab 1</TabPanel>
         <TabPanel id="tab2">This is a tab 2</TabPanel>
+        <TabPanel id="tab3">This is a tab 3</TabPanel>
+        <TabPanel id="tab4">This is a tab 4</TabPanel>
+        <TabPanel id="tab5">This is a tab 5</TabPanel>
       </>
     ),
   },
