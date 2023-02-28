@@ -2,13 +2,13 @@ import React from "react";
 
 interface TabContainerProps {
   // id: string;
-  // appearance: "secondary" | "tertiary";
   // size: "medium" | "small";
   children: React.ReactNode;
   // url: "query" | "hash" | "none";
 }
 
 interface TabListProps {
+  appearance: "secondary" | "tertiary";
   tabs: {
     id: string;
     label: string;
@@ -34,15 +34,16 @@ export function TabContainer({ children }: TabContainerProps) {
 
   return (
     <TabContext.Provider value={{ activeTab, setActiveTab }}>
-      <div className="kth-0-tabs">{children}</div>
+      <div>{children}</div>
     </TabContext.Provider>
   );
 }
 
-export function TabList({ tabs }: TabListProps) {
+export function TabList({ tabs, appearance }: TabListProps) {
   const { activeTab, setActiveTab } = React.useContext(TabContext);
   const currentIndex = tabs.findIndex((t) => t.id === activeTab);
   const ref = React.createRef<HTMLUListElement>();
+  const className = ["kth-0-tab-list", appearance].join(" ");
 
   React.useEffect(() => {
     setActiveTab(tabs[0]?.id || "");
@@ -69,7 +70,7 @@ export function TabList({ tabs }: TabListProps) {
   }
 
   return (
-    <ul ref={ref} onKeyDown={handleKeyDown}>
+    <ul className={className} ref={ref} onKeyDown={handleKeyDown}>
       {tabs.map((tab) => (
         <li role="presentation" key={tab.id}>
           <a
