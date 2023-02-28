@@ -1,7 +1,7 @@
 # KTH Style library
 
-Styles and components used across KTH. Components are written in Sass (SCSS) and React with TypeScript.
+**Work in progress**. Styles and components used across KTH. Components are written in Sass (SCSS) and React with TypeScript.
 
-## Contribute to `@kth/style` package:
+## Getting started
 
-Read [CONTRIBUTING.md](./CONTRIBUTING.md)
+**TODO**. Instructions will be included when the package is available in npm
