@@ -25,7 +25,7 @@ $border-secondary: 1px solid g.$black;
     white-space: nowrap;
 
     &[aria-selected="false"] {
-      background: g.$gray-300;
+      background: g.$gray-2;
       padding: g.rem(8 16);
       border-bottom: $border-secondary;
     }
