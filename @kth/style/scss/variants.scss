@@ -1,11 +1,25 @@
+/// This file defines size variants for "UI" elements, elements that can accept
+/// user interaction.
+///
+/// Two size variants are defined: `medium` and `small`
+///
+/// - Size medium is 44 x 44
+/// - Size small is 32 x 32
+///
+/// Size medium passes WCAG SC 2.5.5. Target Size (Enhanced) (AAA) https://www.w3.org/WAI/WCAG22/Understanding/target-size-enhanced
+/// Size small passes WCAG SC 2.5.8. Target Size (Minimum) (AA) https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum
 @use "globals" as g;
 
 .#{g.$prefix}-medium {
-  --interactive-padding-block: #{g.rem(8)};
-  --interactive-padding-inline: #{g.rem(16)};
+  --#{g.$prefix}-ui-min-height: #{g.rem(44)};
+  --#{g.$prefix}-ui-min-width: #{g.rem(44)};
+  --#{g.$prefix}-ui-padding-block: #{g.rem(8)};
+  --#{g.$prefix}-ui-padding-inline: #{g.rem(16)};
 }
 
 .#{g.$prefix}-small {
-  --interactive-padding-block: #{g.rem(4)};
-  --interactive-padding-inline: #{g.rem(12)};
+  --#{g.$prefix}-ui-min-height: #{g.rem(32)};
+  --#{g.$prefix}-ui-min-width: #{g.rem(32)};
+  --#{g.$prefix}-ui-padding-block: #{g.rem(4)};
+  --#{g.$prefix}-ui-padding-inline: #{g.rem(12)};
 }
