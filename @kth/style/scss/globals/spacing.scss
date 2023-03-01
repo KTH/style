@@ -2,8 +2,8 @@
 @use "sass:math";
 
 // All valid spacing values.
-$_spaces: 1, 2, 4, 8, 12, 16, 20, 24, 32, 40, 44, 48, 64, 80, 96, 112, 128, 160,
-  192, 240, 256, 320, -4, -8, -12, -16;
+$_spaces: 0, 1, 2, 4, 8, 12, 16, 20, 24, 32, 40, 44, 48, 64, 80, 96, 112, 128,
+  160, 192, 240, 256, 320, -4, -8, -12, -16;
 
 /// Converts a single value of px to rem.
 /// Throws an Error if the argument is not part of the valid spaces
