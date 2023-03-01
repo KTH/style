@@ -1,0 +1,54 @@
+@use "../globals.scss" as g;
+
+// TODO: refactor "1px solid g.$black" somehow
+$border-secondary: 1px solid g.$black;
+@mixin secondary {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    border-bottom: $border-secondary;
+  }
+
+  > li > a[role="tab"] {
+    color: g.$black;
+    border-left: $border-secondary;
+    border-right: $border-secondary;
+    border-top: $border-secondary;
+    border-radius: g.rem(8 8 0 0);
+    display: block;
+    white-space: nowrap;
+
+    &[aria-selected="false"] {
+      background: g.$gray-300;
+      padding: g.rem(8 16);
+      border-bottom: $border-secondary;
+    }
+
+    &[aria-selected="true"] {
+      background: g.$white;
+      padding: g.rem(16 16 8 16);
+      border-bottom: 1px solid g.$white;
+    }
+  }
+}
+
+.#{g.$prefix}-tab-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 0;
+  margin: 0;
+  align-items: end;
+  gap: g.rem(4);
+  overflow-x: auto;
+
+  &.secondary {
+    @include secondary();
+  }
+}
