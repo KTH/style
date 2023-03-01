@@ -8,6 +8,7 @@
 import React, { useState } from "react";
 import { usePopper } from "react-popper";
 import { ExpandMore } from "../icons";
+import { useClickOutside } from "../utils/hooks";
 import { type Appearance, BaseButton, type Size } from "./Button";
 import { LinkLi, LinkUl } from "./LinkList";
 
@@ -56,6 +57,10 @@ export function Dropdown({
     ],
   });
   const containerClassName = ["kth-0-dropdown", `kth-0-${size}`].join(" ");
+
+  useClickOutside([referenceElement, popperElement], () => {
+    setExpanded(false);
+  });
 
   return (
     <>
