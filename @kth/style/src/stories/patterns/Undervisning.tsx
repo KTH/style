@@ -30,7 +30,7 @@ export function Undervisning() {
 
   return (
     <div className="kth-0-patterns-undervisning">
-      <div>
+      <div className="shortcuts">
         <div>Senaste kursrum i Canvas</div>
         <ul>
           {latestRooms.map((room) => (
