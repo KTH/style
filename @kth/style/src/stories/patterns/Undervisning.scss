@@ -1,0 +1,11 @@
+@use "../../../scss/reset.scss";
+@use "../../../scss/components/Dropdown.scss";
+@use "../../../scss/globals.scss" as g;
+
+.kth-0-patterns-undervisning {
+  .all-rooms {
+    display: flex;
+    gap: g.rem(4) g.rem(16);
+    flex-wrap: wrap;
+  }
+}
