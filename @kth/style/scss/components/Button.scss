@@ -30,7 +30,7 @@
   background: transparent;
   color: g.$black;
   border: none;
-  --interactive-padding-inline: 0;
+  --#{g.$prefix}-ui-padding-inline: 0;
 
   &:hover {
     text-decoration: underline;

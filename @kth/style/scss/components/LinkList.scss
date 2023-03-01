@@ -11,8 +11,6 @@
     min-height: var(--#{g.$prefix}-ui-min-height);
     min-width: var(--#{g.$prefix}-ui-min-width);
     padding-block: var(--#{g.$prefix}-ui-padding-block, 0);
-    padding-inline: var(--#{g.$prefix}-ui-padding-inline, 0);
-    margin-inline: calc(var(--#{g.$prefix}-ui-padding-inline, 0) * -1);
     display: flex;
     align-items: center;
   }
