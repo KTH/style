@@ -4,13 +4,14 @@
 $border-secondary: 1px solid g.$black;
 @mixin secondary {
   position: relative;
+  padding: g.rem(4);
 
   &::after {
     content: "";
     position: absolute;
     width: 100%;
     z-index: -1;
-    bottom: 0;
+    bottom: g.rem(4);
     left: 0;
     border-bottom: $border-secondary;
   }
