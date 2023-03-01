@@ -50,15 +50,22 @@ export function TabList({ tabs, appearance }: TabListProps) {
   }, []);
 
   React.useEffect(() => {
-    ref.current?.querySelector<HTMLAnchorElement>(`#${activeTab}-tab`)?.focus();
+    const newTab = ref.current?.querySelector<HTMLAnchorElement>(
+      `#${activeTab}-tab`
+    );
+
+    newTab?.scrollIntoView();
+    newTab?.focus();
   }, [activeTab]);
 
   function handleKeyDown(event: React.KeyboardEvent) {
     switch (event.code) {
       case "ArrowRight":
+        event.preventDefault();
         setActiveTab(tabs[Math.min(currentIndex + 1, tabs.length - 1)].id);
         break;
       case "ArrowLeft":
+        event.preventDefault();
         setActiveTab(tabs[Math.max(currentIndex - 1, 0)].id);
         break;
     }
