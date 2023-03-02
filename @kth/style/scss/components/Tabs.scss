@@ -17,18 +17,20 @@ $border-secondary: 1px solid g.$black;
     border-top: $border-secondary;
     border-radius: g.rem(8 8 0 0);
     margin-bottom: -1px;
-    padding-inline: g.rem(16);
 
     &[aria-selected="false"] {
       background: g.$gray-2;
-      padding-block: 9px;
+      padding-block: var(--#{g.$prefix}-ui-padding-block);
       border-bottom: $border-secondary;
     }
 
     &[aria-selected="true"] {
       background: g.$white;
-      padding-block-start: 17px;
-      padding-block-end: 9px;
+      min-height: calc(var(--#{g.$prefix}-ui-min-height) + #{g.rem(8)});
+      padding-block-start: calc(
+        var(--#{g.$prefix}-ui-padding-block) + #{g.rem(8)}
+      );
+      padding-block-end: var(--#{g.$prefix}-ui-padding-block);
       border-bottom: 1px solid g.$white;
     }
   }
@@ -43,17 +45,16 @@ $border-secondary: 1px solid g.$black;
   }
 
   a[role="tab"] {
-    padding-inline: g.rem(16);
     margin-bottom: -1px;
 
     &[aria-selected="false"] {
       color: g.$black;
-      padding-block: 10px;
+      padding-block: var(--#{g.$prefix}-ui-padding-block);
     }
 
     &[aria-selected="true"] {
-      padding-block-start: 10px;
-      padding-block-end: 7px;
+      padding-block-start: var(--#{g.$prefix}-ui-padding-block);
+      padding-block-end: calc(var(--#{g.$prefix}-ui-padding-block) - 3px);
       border-bottom: 3px solid g.$blue-5;
     }
   }
@@ -73,8 +74,12 @@ $border-secondary: 1px solid g.$black;
   }
 
   a[role="tab"] {
+    box-sizing: border-box;
+    padding-inline: var(--#{g.$prefix}-ui-padding-inline);
+    min-height: var(--#{g.$prefix}-ui-min-height);
     white-space: nowrap;
-    display: block;
+    display: flex;
+    align-items: center;
     white-space: nowrap;
   }
 

@@ -2,13 +2,13 @@ import React from "react";
 
 interface TabContainerProps {
   // id: string;
-  // size: "medium" | "small";
   children: React.ReactNode;
   // url: "query" | "hash" | "none";
 }
 
 interface TabListProps {
   appearance: "secondary" | "tertiary";
+  size?: "medium" | "small" | "inherit";
   tabs: {
     id: string;
     label: string;
@@ -39,11 +39,15 @@ export function TabContainer({ children }: TabContainerProps) {
   );
 }
 
-export function TabList({ tabs, appearance }: TabListProps) {
+export function TabList({ tabs, appearance, size = "inherit" }: TabListProps) {
   const { activeTab, setActiveTab } = React.useContext(TabContext);
   const currentIndex = tabs.findIndex((t) => t.id === activeTab);
   const ref = React.createRef<HTMLUListElement>();
-  const className = ["kth-0-tab-list", appearance].join(" ");
+  const className = [
+    "kth-0-tab-list",
+    appearance,
+    size === "inherit" ? "" : `kth-0-${size}`,
+  ].join(" ");
 
   React.useEffect(() => {
     setActiveTab(tabs[0]?.id || "");

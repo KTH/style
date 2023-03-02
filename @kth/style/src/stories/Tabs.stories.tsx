@@ -21,6 +21,7 @@ export const ShortList: Story = {
       <>
         <TabList
           appearance="secondary"
+          size="medium"
           tabs={[
             { id: "tab1", label: "Innehåll och lärandemål" },
             { id: "tab2", label: "Förberedelser inför kursstart" },
@@ -45,6 +46,7 @@ export const Tertiary: Story = {
       <>
         <TabList
           appearance="tertiary"
+          size="small"
           tabs={[
             { id: "tab1", label: "Innehåll och lärandemål" },
             { id: "tab2", label: "Förberedelser inför kursstart" },
