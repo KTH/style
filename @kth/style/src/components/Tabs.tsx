@@ -58,7 +58,7 @@ export function TabList({ tabs, appearance, size = "inherit" }: TabListProps) {
       `#${activeTab}-tab`
     );
 
-    newTab?.scrollIntoView();
+    newTab?.scrollIntoView({ block: "nearest", inline: "nearest" });
     newTab?.focus();
   }, [activeTab]);
 
