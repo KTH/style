@@ -2,17 +2,20 @@
 
 // TODO: refactor "1px solid g.$black" somehow
 $border-secondary: 1px solid g.$black;
-@mixin secondary {
-  border-bottom: $border-secondary;
 
-  > li > a[role="tab"] {
+@mixin secondary {
+  padding: 4px;
+  ul[role="tablist"] {
+    min-width: 100%;
+    border-bottom: $border-secondary;
+  }
+
+  a[role="tab"] {
     color: g.$black;
     border-left: $border-secondary;
     border-right: $border-secondary;
     border-top: $border-secondary;
     border-radius: g.rem(8 8 0 0);
-    display: block;
-    white-space: nowrap;
     margin-bottom: -1px;
     padding-inline: g.rem(16);
 
@@ -32,11 +35,14 @@ $border-secondary: 1px solid g.$black;
 }
 
 @mixin tertiary {
-  border-bottom: $border-secondary;
+  padding: 4px;
 
-  > li > a[role="tab"] {
-    white-space: nowrap;
-    display: block;
+  ul[role="tablist"] {
+    min-width: 100%;
+    border-bottom: $border-secondary;
+  }
+
+  a[role="tab"] {
     padding-inline: g.rem(16);
     margin-bottom: -1px;
 
@@ -54,13 +60,23 @@ $border-secondary: 1px solid g.$black;
 }
 
 .#{g.$prefix}-tab-list {
-  list-style: none;
-  display: inline-flex;
-  flex-wrap: nowrap;
-  padding: 0;
-  margin: 0;
-  align-items: end;
-  gap: g.rem(4);
+  overflow: auto;
+
+  ul[role="tablist"] {
+    list-style: none;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    padding: 0;
+    margin: 0;
+    align-items: end;
+    gap: g.rem(4);
+  }
+
+  a[role="tab"] {
+    white-space: nowrap;
+    display: block;
+    white-space: nowrap;
+  }
 
   &.secondary {
     @include secondary();

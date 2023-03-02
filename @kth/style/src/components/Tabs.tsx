@@ -77,22 +77,25 @@ export function TabList({ tabs, appearance }: TabListProps) {
   }
 
   return (
-    <ul className={className} ref={ref} onKeyDown={handleKeyDown}>
-      {tabs.map((tab) => (
-        <li role="presentation" key={tab.id}>
-          <a
-            onClick={(event) => handleClick(tab.id, event)}
-            id={tab.id + "-tab"}
-            href={"#" + tab.id}
-            role="tab"
-            tabIndex={tab.id === activeTab ? 0 : -1}
-            aria-selected={tab.id === activeTab ? "true" : "false"}
-          >
-            {tab.label}
-          </a>
-        </li>
-      ))}
-    </ul>
+    <div className={className}>
+      <ul ref={ref} onKeyDown={handleKeyDown} role="tablist">
+        {tabs.map((tab) => (
+          <li role="presentation" key={tab.id}>
+            <a
+              onClick={(event) => handleClick(tab.id, event)}
+              id={tab.id + "-tab"}
+              href={"#" + tab.id}
+              role="tab"
+              tabIndex={tab.id === activeTab ? 0 : -1}
+              aria-selected={tab.id === activeTab ? "true" : "false"}
+              aria-controls={tab.id}
+            >
+              {tab.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
