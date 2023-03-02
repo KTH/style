@@ -3,18 +3,7 @@
 // TODO: refactor "1px solid g.$black" somehow
 $border-secondary: 1px solid g.$black;
 @mixin secondary {
-  position: relative;
-  padding: g.rem(4);
-
-  &::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    z-index: -1;
-    bottom: g.rem(4);
-    left: 0;
-    border-bottom: $border-secondary;
-  }
+  border-bottom: $border-secondary;
 
   > li > a[role="tab"] {
     color: g.$black;
@@ -24,32 +13,60 @@ $border-secondary: 1px solid g.$black;
     border-radius: g.rem(8 8 0 0);
     display: block;
     white-space: nowrap;
+    margin-bottom: -1px;
+    padding-inline: g.rem(16);
 
     &[aria-selected="false"] {
       background: g.$gray-2;
-      padding: g.rem(8 16);
+      padding-block: 9px;
       border-bottom: $border-secondary;
     }
 
     &[aria-selected="true"] {
       background: g.$white;
-      padding: g.rem(16 16 8 16);
+      padding-block-start: 17px;
+      padding-block-end: 9px;
       border-bottom: 1px solid g.$white;
+    }
+  }
+}
+
+@mixin tertiary {
+  border-bottom: $border-secondary;
+
+  > li > a[role="tab"] {
+    white-space: nowrap;
+    display: block;
+    padding-inline: g.rem(16);
+    margin-bottom: -1px;
+
+    &[aria-selected="false"] {
+      color: g.$black;
+      padding-block: 10px;
+    }
+
+    &[aria-selected="true"] {
+      padding-block-start: 10px;
+      padding-block-end: 7px;
+      border-bottom: 3px solid g.$blue-5;
     }
   }
 }
 
 .#{g.$prefix}-tab-list {
   list-style: none;
-  display: flex;
+  display: inline-flex;
   flex-wrap: nowrap;
   padding: 0;
   margin: 0;
   align-items: end;
   gap: g.rem(4);
-  overflow-x: auto;
 
   &.secondary {
     @include secondary();
+  }
+
+  &.tertiary {
+    @include tertiary();
   }
 }
