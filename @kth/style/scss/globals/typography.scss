@@ -5,42 +5,46 @@ $font-size: 1rem;
 $font-weight: 400;
 $line-height: 1.5;
 
-// TODO: enable these globals
-// @mixin body-short {
-//   font-weight: 400;
-//   font-size: g.rem(16);
-//   line-height: g.rem(24);
-// }
-// @mixin body-copy {
-//   font-family: $font-serif;
-//   font-weight: 400;
-//   font-size: g.rem(18);
-//   line-height: g.rem(28);
-// }
-// @mixin body-lead {
-//   font-family: $font-serif;
-//   font-weight: 400;
-//   font-size: g.rem(22);
-//   line-height: g.rem(32);
-// }
+@mixin font-body-short {
+  font-weight: 400;
+  font-size: g.rem(16);
+  line-height: g.rem(24);
+}
+@mixin font-body-copy {
+  font-family: $font-serif;
+  font-weight: 400;
+  font-size: g.rem(18);
+  line-height: g.rem(28);
+}
+@mixin font-body-lead {
+  font-family: $font-serif;
+  font-weight: 400;
+  font-size: g.rem(22);
+  line-height: g.rem(32);
+}
 
-// @mixin h1 {
-//   font-weight: 600;
-//   font-size: g.rem(44);
-//   line-height: g.rem(64);
-// }
-// @mixin h2 {
-//   font-weight: 600;
-//   font-size: g.rem(30);
-//   line-height: g.rem(48);
-// }
-// @mixin h3 {
-//   font-weight: 600;
-//   font-size: g.rem(24);
-//   line-height: g.rem(36);
-// }
-// @mixin h4 {
-//   font-weight: 600;
-//   font-size: g.rem(20);
-//   line-height: g.rem(32);
-// }
+@mixin font-h1 {
+  font-weight: 600;
+  font-size: g.rem(44);
+  line-height: g.rem(64);
+}
+@mixin font-h2 {
+  font-weight: 600;
+  font-size: g.rem(30);
+  line-height: g.rem(48);
+}
+@mixin font-h3 {
+  font-weight: 600;
+  font-size: g.rem(24);
+  line-height: g.rem(36);
+}
+@mixin font-h4 {
+  font-weight: 600;
+  font-size: g.rem(20);
+  line-height: g.rem(32);
+}
+@mixin font-h5 {
+  font-weight: 600;
+  font-size: g.rem(16);
+  line-height: g.rem(24);
+}

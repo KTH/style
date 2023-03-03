@@ -33,27 +33,24 @@
   }
 
   h1 {
-    @include g.h1;
+    @include g.font-h1;
   }
 
   h2 {
-    @include g.h2;
+    @include g.font-h2;
   }
 
   h3 {
-    @include g.h3;
+    @include g.font-h3;
   }
 
   h4 {
-    @include g.h4;
+    @include g.font-h4;
   }
 
-  h5 {
-    @include g.h5;
-  }
-
+  h5,
   h6 {
-    @include g.h6;
+    @include g.font-h5;
   }
 
   /* Grouping content
