@@ -1,0 +1,89 @@
+@use "../../../../scss/reset.scss";
+@use "../../../../scss/components/Dropdown.scss";
+@use "../../../../scss/globals.scss" as g;
+
+.kth-0-patterns-a-course {
+  box-sizing: border-box;
+  padding-bottom: 7px;
+  border-bottom: 1px solid g.$gray-2;
+
+  .course-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: g.rem(8);
+
+    .course-identifier {
+      margin: 0;
+      padding: 4px 0;
+      font-size: 1rem;
+      font-weight: 600;
+
+      display: flex;
+      max-width: 100%;
+      align-items: start;
+      gap: g.rem(0) g.rem(16);
+    }
+
+    .course-code,
+    .course-name {
+      font-weight: 600;
+    }
+
+    .course-code {
+      flex: 1 0 auto;
+      width: g.rem(64);
+    }
+
+    .course-name {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .course-links {
+      a {
+        display: inline-block;
+        margin: 4px 0;
+      }
+
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: g.rem(0) g.rem(16);
+    }
+  }
+
+  .course-canvas {
+    display: flex;
+    gap: g.rem(0) g.rem(16);
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .shortcuts {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: g.rem(0) g.rem(16);
+
+      ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        display: flex;
+        gap: g.rem(0) g.rem(16);
+        flex-wrap: wrap;
+      }
+
+      a {
+        display: inline-block;
+        margin: 4px 0;
+      }
+    }
+    .all-rooms {
+      display: flex;
+      gap: g.rem(0) g.rem(16);
+      flex-wrap: wrap;
+    }
+  }
+}
