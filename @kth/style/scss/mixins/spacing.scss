@@ -1,17 +1,19 @@
+/// KTH Style spacing tokens
+/// Definition of values for properties `margin`, `padding` and `gap`
+///
+/// Name convention: `space-<number>`
+/// where `<number>` represents the value in 1/16 rem
 @use "sass:list";
 @use "sass:math";
-
-// All valid spacing values.
-$_spaces: 0, 1, 2, 4, 8, 12, 16, 20, 24, 32, 40, 44, 48, 64, 80, 96, 112, 128,
-  160, 192, 240, 256, 320, -4, -8, -12, -16;
+@use "../tokens/index.scss" as t;
 
 /// Converts a single value of px to rem.
 /// Throws an Error if the argument is not part of the valid spaces
 ///
 /// This function is used internally. You should use `rem()` instead
 @function _px_to_rem($px) {
-  @if list.index($_spaces, $px) == null {
-    @error "#{$px} is not a valid spacing. Use one of the following instead: #{$_spaces}";
+  @if list.index(t.$spaces, $px) == null {
+    @error "#{$px} is not a valid spacing. Use one of the following instead: #{t.$spaces}";
   }
 
   @return math.div($px, 16) * 1rem;
@@ -19,7 +21,7 @@ $_spaces: 0, 1, 2, 4, 8, 12, 16, 20, 24, 32, 40, 44, 48, 64, 80, 96, 112, 128,
 
 /// Converts a list of `px` values to `rem`.
 /// Throws an Error if any element is not valid
-@function rem($list-of-px) {
+@function space($list-of-px) {
   $list-of-rem: ();
 
   @each $element in $list-of-px {

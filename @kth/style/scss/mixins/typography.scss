@@ -1,0 +1,15 @@
+@use "../tokens/index.scss" as t;
+
+@mixin font-body-copy {
+  font-family: $font-serif;
+  font-weight: 400;
+  font-size: g.rem(18);
+  line-height: g.rem(28);
+}
+
+@mixin font-body-lead {
+  font-family: $font-serif;
+  font-weight: 400;
+  font-size: g.rem(22);
+  line-height: g.rem(32);
+}

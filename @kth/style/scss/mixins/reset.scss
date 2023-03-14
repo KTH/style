@@ -1,4 +1,4 @@
-@use "globals" as g;
+@use "../tokens/index.scss" as t;
 
 /// Adaptation of normalize.css v8.0.1
 /// github.com/necolas/normalize.css
@@ -15,7 +15,7 @@
   // HTML
   // 1. Prevent adjustments of font size after orientation changes in iOS.
   html {
-    line-height: g.$line-height;
+    line-height: t.$line-height;
     -webkit-text-size-adjust: 100%; /* 1 */
   }
 
@@ -27,30 +27,30 @@
   // 2. Default fonts
   body {
     margin: 0;
-    font-family: g.$font-sans;
-    font-weight: g.$font-weight;
-    line-height: g.$line-height;
+    font-family: t.$font-family-sans;
+    font-weight: t.$font-weight-normal;
+    line-height: t.$font-lh-base;
   }
 
   h1 {
-    @include g.font-h1;
+    @include t.font-h1();
   }
 
   h2 {
-    @include g.font-h2;
+    @include t.font-h2();
   }
 
   h3 {
-    @include g.font-h3;
+    @include t.font-h3();
   }
 
   h4 {
-    @include g.font-h4;
+    @include t.font-h4();
   }
 
   h5,
   h6 {
-    @include g.font-h5;
+    @include t.font-h5();
   }
 
   /* Grouping content
@@ -74,7 +74,7 @@
   /* Text-level semantics
    ========================================================================== */
   a {
-    color: g.$blue-5;
+    color: t.$color-blue-5;
     text-decoration: none;
 
     &:hover {
@@ -90,7 +90,7 @@
 
   b,
   strong {
-    font-weight: 600;
+    font-weight: $font-weight-bold;
   }
 
   // 1. Correct the inheritance and scaling of font size in all browsers.
@@ -136,7 +136,7 @@
   textarea {
     font-family: inherit; /* 1 */
     font-size: 100%; /* 1 */
-    line-height: g.$line-height; /* 1 */
+    line-height: t.$line-height; /* 1 */
     margin: 0; /* 2 */
   }
 
@@ -175,6 +175,7 @@
 
   // Correct the padding in Firefox.
   fieldset {
+    // TODO: unifiy with our own values
     padding: 0.35em 0.75em 0.625em;
   }
 
