@@ -1,14 +1,15 @@
 import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "./page.module.css";
-import { Dropdown } from "@kth/style/components/Dropdown";
+import "@stencil/core";
+import "style-wc";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <Dropdown />
+      Hello from Next, yeah! <my-component first="Carlos"></my-component>
     </main>
   );
 }

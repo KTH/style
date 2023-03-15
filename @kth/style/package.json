@@ -4,39 +4,14 @@
   "description": "KTH's official Design System",
   "main": "./dist/index.js",
   "scripts": {
-    "build": "tsc",
-    "dev": "storybook dev -p 6006"
   },
   "files": [
-    "dist",
     "scss"
   ],
   "keywords": [],
   "author": "KTH Royal Institute of Technology",
   "license": "MIT",
   "devDependencies": {
-    "@storybook/addon-essentials": "^7.0.0-beta.45",
-    "@storybook/addon-interactions": "^7.0.0-beta.45",
-    "@storybook/addon-links": "^7.0.0-beta.45",
-    "@storybook/blocks": "^7.0.0-beta.45",
-    "@storybook/react": "^7.0.0-beta.45",
-    "@storybook/react-vite": "^7.0.0-beta.45",
-    "@storybook/testing-library": "^0.0.14-next.1",
-    "@types/react": "^18.0.27",
-    "@types/react-dom": "^18.0.10",
-    "@material-symbols/svg-400": "^0.4.3",
-    "@svgr/core": "^6.5.1",
-    "@vitejs/plugin-react": "^3.1.0",
-    "prop-types": "^15.8.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "sass": "^1.58.0",
-    "storybook": "^7.0.0-beta.45",
-    "typescript": "^4.9.3",
-    "prettier": "^2.8.3",
-    "vite": "^4.1.0"
-  },
-  "peerDependencies": {
-    "react": "^18 || ^17"
+    "sass": "^1.58.0"
   }
 }
