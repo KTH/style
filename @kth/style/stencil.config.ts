@@ -1,7 +1,10 @@
 import { Config } from "@stencil/core";
+import { sass } from "@stencil/sass";
 
 export const config: Config = {
   namespace: "style",
+  globalStyle: "src/global/app.scss",
+  plugins: [sass()],
   outputTargets: [
     // This is required if we intend to ship Web Components in a CDN
     // {
