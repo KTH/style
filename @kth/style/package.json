@@ -11,6 +11,7 @@
   "collection:main": "dist/collection/index.js",
   "scripts": {
     "build": "stencil build",
+    "dev:sass": "sass src/global/app.scss dist/global/app.css --load-path=scss --watch",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
@@ -26,7 +27,7 @@
   "license": "MIT",
   "devDependencies": {
     "@stencil/sass": "^3.0.0",
-    "sass": "^1.58.0"
+    "sass": "^1.59.3"
   },
   "dependencies": {
     "@stencil/core": "^3.2.0"
