@@ -15,7 +15,7 @@
   // HTML
   // 1. Prevent adjustments of font size after orientation changes in iOS.
   html {
-    line-height: t.$line-height;
+    line-height: t.$font-lh-base;
     -webkit-text-size-adjust: 100%; /* 1 */
   }
 
@@ -74,7 +74,7 @@
   /* Text-level semantics
    ========================================================================== */
   a {
-    color: t.$color-blue-5;
+    // color: t.$color-blue-5;
     text-decoration: none;
 
     &:hover {
@@ -90,7 +90,7 @@
 
   b,
   strong {
-    font-weight: $font-weight-bold;
+    font-weight: t.$font-weight-bold;
   }
 
   // 1. Correct the inheritance and scaling of font size in all browsers.
@@ -136,7 +136,7 @@
   textarea {
     font-family: inherit; /* 1 */
     font-size: 100%; /* 1 */
-    line-height: t.$line-height; /* 1 */
+    line-height: t.$font-lh-base; /* 1 */
     margin: 0; /* 2 */
   }
 

@@ -26,33 +26,33 @@ $font-weight-bold: 600;
 
 // 2.5. Combinations of font size, line height and font weight
 @mixin font-h1 {
-  font-weight: t.$font-weight-bold;
-  font-size: t.$font-size-3xl;
-  line-height: t.$font-lh-3xl;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-3xl;
+  line-height: $font-lh-3xl;
 }
 
 @mixin font-h2 {
-  font-weight: t.$font-weight-bold;
-  font-size: t.$font-size-2xl;
-  line-height: t.$font-lh-2xl;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-2xl;
+  line-height: $font-lh-2xl;
 }
 
 @mixin font-h3 {
-  font-weight: t.$font-weight-bold;
-  font-size: t.$font-size-xl;
-  line-height: t.$font-lh-xl;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-xl;
+  line-height: $font-lh-xl;
 }
 
 @mixin font-h4 {
-  font-weight: t.$font-weight-bold;
-  font-size: t.$font-size-l;
-  line-height: t.$font-lh-l;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-l;
+  line-height: $font-lh-l;
 }
 
 @mixin font-h5 {
-  font-weight: t.$font-weight-bold;
-  font-size: t.$font-size-base;
-  line-height: t.$font-lh-base;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-base;
+  line-height: $font-lh-base;
 }
 
 @mixin font-body-copy {
