@@ -3,15 +3,31 @@
   "version": "0.0.0",
   "description": "KTH's official Design System",
   "main": "./dist/index.js",
+  "module": "dist/components/index.js",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/types/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
   "scripts": {
+    "build": "stencil build",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "clean": "rm -rf dist loader www",
+    "generate": "stencil generate"
   },
   "files": [
-    "scss"
+    "scss",
+    "dist"
   ],
   "keywords": [],
   "author": "KTH Royal Institute of Technology",
   "license": "MIT",
   "devDependencies": {
     "sass": "^1.58.0"
+  },
+  "dependencies": {
+    "@stencil/core": "^3.2.0"
   }
 }
