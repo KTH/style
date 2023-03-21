@@ -1,3 +1,11 @@
 /// List of all KTH Style Design Tokens
 @forward "./typography";
 @forward "./spacing";
+
+@use "./spacing" as spacing;
+
+// Declare "sizing" variables
+:root {
+  --kth-0-button-padding-block: #{spacing.$space-8};
+  --kth-0-button-padding-inline: #{spacing.$space-16};
+}

@@ -1,18 +1,16 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, h } from "@stencil/core";
 
 @Component({
-  tag: 'kth-button',
-  styleUrl: 'kth-button.css',
-  shadow: true,
+  tag: "kth-button",
+  styleUrl: "kth-button.scss",
+  shadow: false,
 })
 export class KthButton {
-
   render() {
     return (
-      <Host>
+      <button>
         <slot></slot>
-      </Host>
+      </button>
     );
   }
-
 }
