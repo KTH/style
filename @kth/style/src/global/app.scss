@@ -2,8 +2,19 @@
 @use "../../scss/tokens/index.scss" as t;
 @include reset.reset();
 
-// Declare "sizing" variables
+// Declare and document variables
 :root {
+  // Padding (block and inline axis) for clickable elements
   --kth-0-button-padding-block: #{t.$space-8};
   --kth-0-button-padding-inline: #{t.$space-16};
+}
+
+.kth-0-normal {
+  --kth-0-button-padding-block: #{t.$space-8};
+  --kth-0-button-padding-inline: #{t.$space-16};
+}
+
+.kth-0-compact {
+  --kth-0-button-padding-block: #{t.$space-4};
+  --kth-0-button-padding-inline: #{t.$space-12};
 }

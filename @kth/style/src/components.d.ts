@@ -7,6 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface KthButton {
+        "appearance": "primary" | "secondary" | "tertiary" | undefined;
     }
 }
 declare global {
@@ -22,6 +23,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface KthButton {
+        "appearance"?: "primary" | "secondary" | "tertiary" | undefined;
     }
     interface IntrinsicElements {
         "kth-button": KthButton;
