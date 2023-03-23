@@ -9,6 +9,11 @@ export namespace Components {
     interface KthButton {
         "appearance": "primary" | "secondary" | "tertiary" | undefined;
     }
+    interface KthTab {
+    }
+    interface KthTabs {
+        "appearance": "primary" | "secondary" | "tertiary" | undefined;
+    }
 }
 declare global {
     interface HTMLKthButtonElement extends Components.KthButton, HTMLStencilElement {
@@ -17,16 +22,37 @@ declare global {
         prototype: HTMLKthButtonElement;
         new (): HTMLKthButtonElement;
     };
+    interface HTMLKthTabElement extends Components.KthTab, HTMLStencilElement {
+    }
+    var HTMLKthTabElement: {
+        prototype: HTMLKthTabElement;
+        new (): HTMLKthTabElement;
+    };
+    interface HTMLKthTabsElement extends Components.KthTabs, HTMLStencilElement {
+    }
+    var HTMLKthTabsElement: {
+        prototype: HTMLKthTabsElement;
+        new (): HTMLKthTabsElement;
+    };
     interface HTMLElementTagNameMap {
         "kth-button": HTMLKthButtonElement;
+        "kth-tab": HTMLKthTabElement;
+        "kth-tabs": HTMLKthTabsElement;
     }
 }
 declare namespace LocalJSX {
     interface KthButton {
         "appearance"?: "primary" | "secondary" | "tertiary" | undefined;
     }
+    interface KthTab {
+    }
+    interface KthTabs {
+        "appearance"?: "primary" | "secondary" | "tertiary" | undefined;
+    }
     interface IntrinsicElements {
         "kth-button": KthButton;
+        "kth-tab": KthTab;
+        "kth-tabs": KthTabs;
     }
 }
 export { LocalJSX as JSX };
@@ -34,6 +60,8 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "kth-button": LocalJSX.KthButton & JSXBase.HTMLAttributes<HTMLKthButtonElement>;
+            "kth-tab": LocalJSX.KthTab & JSXBase.HTMLAttributes<HTMLKthTabElement>;
+            "kth-tabs": LocalJSX.KthTabs & JSXBase.HTMLAttributes<HTMLKthTabsElement>;
         }
     }
 }
