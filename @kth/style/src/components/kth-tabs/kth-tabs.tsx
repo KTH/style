@@ -63,25 +63,33 @@ export class KthTabs {
   };
 
   render() {
+    // TODO: set the "kth-0" prefix in one place
+    const className = [
+      "tab-container",
+      this.appearance ? `kth-0-${this.appearance}` : "",
+    ].join(" ");
+
     return (
       <Host>
-        <ul role="tablist" ref={(e) => (this.tabs = e)}>
-          {this.panels.map((t, i) => (
-            <li role="presentation">
-              <a
-                id={`${t.id}-tab`}
-                role="tab"
-                tabindex={i === this.currentIndex ? 0 : -1}
-                aria-selected={i === this.currentIndex ? "true" : "false"}
-                href={"#" + t.id}
-                onClick={(event) => this.handleClick(event, i)}
-                onKeyDown={this.handleKeyDown}
-              >
-                {t.getAttribute("title")}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div class={className}>
+          <ul role="tablist" ref={(e) => (this.tabs = e)}>
+            {this.panels.map((t, i) => (
+              <li role="presentation">
+                <a
+                  id={`${t.id}-tab`}
+                  role="tab"
+                  tabindex={i === this.currentIndex ? 0 : -1}
+                  aria-selected={i === this.currentIndex ? "true" : "false"}
+                  href={"#" + t.id}
+                  onClick={(event) => this.handleClick(event, i)}
+                  onKeyDown={this.handleKeyDown}
+                >
+                  {t.getAttribute("title")}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
         <slot />
       </Host>
     );
