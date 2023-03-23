@@ -1,3 +1,9 @@
 @use "../../scss/utils/reset.scss";
-
+@use "../../scss/tokens/index.scss" as t;
 @include reset.reset();
+
+// Declare "sizing" variables
+:root {
+  --kth-0-button-padding-block: #{t.$space-8};
+  --kth-0-button-padding-inline: #{t.$space-16};
+}

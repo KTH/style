@@ -1,5 +1,9 @@
-kth-button button {
-  padding-block: var(--kth-0-button-padding-block);
-  padding-inline: var(--kth-0-button-padding-inline);
-  border: 0;
+kth-button {
+  display: contents;
+
+  button {
+    padding-block: var(--kth-0-button-padding-block);
+    padding-inline: var(--kth-0-button-padding-inline);
+    border: 0;
+  }
 }
