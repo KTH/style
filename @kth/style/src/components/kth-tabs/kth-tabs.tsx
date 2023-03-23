@@ -65,10 +65,12 @@ export class KthTabs {
   render() {
     return (
       <Host>
-        <ul ref={(e) => (this.tabs = e)}>
+        <ul role="tablist" ref={(e) => (this.tabs = e)}>
           {this.panels.map((t, i) => (
-            <li>
+            <li role="presentation">
               <a
+                id={`${t.id}-tab`}
+                role="tab"
                 tabindex={i === this.currentIndex ? 0 : -1}
                 aria-selected={i === this.currentIndex ? "true" : "false"}
                 href={"#" + t.id}

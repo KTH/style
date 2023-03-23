@@ -10,6 +10,7 @@ export namespace Components {
         "appearance": "primary" | "secondary" | "tertiary" | undefined;
     }
     interface KthTab {
+        "id": string;
     }
     interface KthTabs {
         "appearance": "primary" | "secondary" | "tertiary" | undefined;
@@ -45,6 +46,7 @@ declare namespace LocalJSX {
         "appearance"?: "primary" | "secondary" | "tertiary" | undefined;
     }
     interface KthTab {
+        "id"?: string;
     }
     interface KthTabs {
         "appearance"?: "primary" | "secondary" | "tertiary" | undefined;

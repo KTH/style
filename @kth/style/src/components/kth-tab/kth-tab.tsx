@@ -6,9 +6,11 @@ import { Component, h, Host, Prop } from "@stencil/core";
   shadow: false,
 })
 export class KthTab {
+  @Prop() id: string;
+
   render() {
     return (
-      <Host>
+      <Host role="tabpanel" aria-labelledby={`${this.id}-tab`}>
         <slot></slot>
       </Host>
     );
