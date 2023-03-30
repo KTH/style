@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "ts-node server.ts",
+    "generate:types": "payload generate:types",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

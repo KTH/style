@@ -21,7 +21,10 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "payload/generated-types": [
+        "./cms/payload-types.ts" // Ensure this matches the path to your typescript outputFile
+      ]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
