@@ -1,15 +1,9 @@
-import Image from "next/image";
-import { Inter } from "@next/font/google";
-import styles from "./page.module.css";
-import "@stencil/core";
-import "style-wc";
-
-const inter = Inter({ subsets: ["latin"] });
-
 export default function Home() {
   return (
-    <main className={styles.main}>
-      Hello from Next, yeah! <my-component first="Carlos"></my-component>
+    <main>
+      <h1>Hello from Next.js</h1>
+      <h2>Here we have a message from the CMS</h2>
+      <h2>Here we have a message from the md file</h2>
     </main>
   );
 }
