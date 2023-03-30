@@ -1,8 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  publicRuntimeConfig: {
+    SERVER_URL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
+  },
   experimental: {
     appDir: true,
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
