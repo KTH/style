@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop } from "@stencil/core";
+import { Component, h, Host, Element } from "@stencil/core";
 
 @Component({
   tag: "kth-tab",
@@ -6,11 +6,11 @@ import { Component, h, Host, Prop } from "@stencil/core";
   shadow: false,
 })
 export class KthTab {
-  @Prop() id: string;
+  @Element() el!: HTMLElement;
 
   render() {
     return (
-      <Host role="tabpanel" aria-labelledby={`${this.id}-tab`}>
+      <Host role="tabpanel" aria-labelledby={`${this.el.id}-tab`}>
         <slot></slot>
       </Host>
     );
