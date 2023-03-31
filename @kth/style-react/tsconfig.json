@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "lib": ["dom", "es2015"],
+    "module": "es2015",
+    "declaration": true,
+    "sourceMap": true,
+    "moduleResolution": "node16",
+    "target": "es2015",
+    "skipLibCheck": true,
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["lib"],
+  "exclude": ["node_modules"]
+}
