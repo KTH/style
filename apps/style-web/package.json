@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "ts-node server.ts",
+    "generate:types": "payload generate:types",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -11,7 +12,10 @@
   "dependencies": {
     "@kth/style": "^0.0.0",
     "@next/font": "^13.1.6",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
     "next": "^13.1.6",
+    "payload": "^1.6.28",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -22,6 +26,7 @@
     "eslint": "^8.33.0",
     "eslint-config-next": "^13.1.6",
     "sass": "^1.58.0",
+    "ts-node": "^10.9.1",
     "typescript": "^4.9.5"
   }
 }
