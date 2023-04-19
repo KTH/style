@@ -20,7 +20,8 @@ $border-secondary: 1px solid t.$color-neutral-10;
     border-block-end: $border-secondary;
   }
 
-  a[role="tab"] {
+  [role="tab"] {
+    font: inherit;
     box-sizing: border-box;
     padding-inline: var(--kth-0-button-padding-inline);
     padding-block: var(--kth-0-button-padding-block);
@@ -35,17 +36,16 @@ $border-secondary: 1px solid t.$color-neutral-10;
     }
   }
 
-  .kth-0-secondary a[role="tab"] {
+  .kth-0-secondary [role="tab"] {
     color: t.$color-neutral-10;
     border: $border-secondary;
     border-radius: t.border-radius(8 8 0 0);
 
     @include t.padding-and-border(
-      "-block-start",
+      "-block",
       var(--kth-0-button-padding-block),
       1px
     );
-    padding-block-end: var(--kth-0-button-padding-block);
 
     &[aria-selected="false"] {
       background: t.$color-neutral-2;
@@ -60,7 +60,7 @@ $border-secondary: 1px solid t.$color-neutral-10;
     }
   }
 
-  .kth-0-tertiary a[role="tab"] {
+  .kth-0-tertiary [role="tab"] {
     padding-block-start: var(--kth-0-button-padding-block);
 
     &[aria-selected="false"] {
