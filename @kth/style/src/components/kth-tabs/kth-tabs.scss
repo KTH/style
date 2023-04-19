@@ -28,6 +28,7 @@ $border-secondary: 1px solid t.$color-neutral-10;
     display: block;
     text-decoration: none;
     color: t.$color-neutral-10;
+    margin-block-end: -1px;
 
     &:hover {
       text-decoration: underline;
@@ -38,11 +39,13 @@ $border-secondary: 1px solid t.$color-neutral-10;
     color: t.$color-neutral-10;
     border: $border-secondary;
     border-radius: t.border-radius(8 8 0 0);
-    margin-block-end: -1px;
 
-    // -1 padding because of border
-    padding-block-start: calc(var(--kth-0-button-padding-block) - 1px);
-    padding-block-end: calc(var(--kth-0-button-padding-block));
+    @include t.padding-and-border(
+      "-block-start",
+      var(--kth-0-button-padding-block),
+      1px
+    );
+    padding-block-end: var(--kth-0-button-padding-block);
 
     &[aria-selected="false"] {
       background: t.$color-neutral-2;
@@ -58,10 +61,7 @@ $border-secondary: 1px solid t.$color-neutral-10;
   }
 
   .kth-0-tertiary a[role="tab"] {
-    margin-block-end: -1px;
-
-    // -1 padding because of border
-    padding-block-start: calc(var(--kth-0-button-padding-block) + 1px);
+    padding-block-start: var(--kth-0-button-padding-block);
 
     &[aria-selected="false"] {
       color: t.$color-neutral-10;
@@ -69,8 +69,13 @@ $border-secondary: 1px solid t.$color-neutral-10;
 
     &[aria-selected="true"] {
       color: t.$color-primary-5;
-      padding-block-end: calc(var(--kth-0-button-padding-block) - 3px);
-      border-block-end: 3px solid t.$color-primary-5;
+      @include t.padding-and-border(
+        "-block-end",
+        var(--kth-0-button-padding-block),
+        3px
+      );
+      border-block-end-color: t.$color-primary-5;
+      border-block-end-style: solid;
     }
   }
 }

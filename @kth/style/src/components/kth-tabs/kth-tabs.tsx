@@ -8,6 +8,7 @@ import { HTMLStencilElement, State } from "@stencil/core/internal";
 })
 export class KthTabs {
   @Prop() appearance: "primary" | "secondary" | "tertiary" | undefined;
+  @Prop() size: "small" | "medium" | undefined;
   @Element() host: HTMLStencilElement;
   @State() panels: HTMLElement[];
   @State() currentIndex: number;
@@ -67,6 +68,7 @@ export class KthTabs {
     const className = [
       "tab-container",
       this.appearance ? `kth-0-${this.appearance}` : "",
+      this.size ? `kth-0-${this.size}` : "",
     ].join(" ");
 
     return (
