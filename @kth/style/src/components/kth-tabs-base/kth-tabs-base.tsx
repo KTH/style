@@ -1,5 +1,5 @@
 import { Component, h, Host, Prop, Element } from "@stencil/core";
-import { HTMLStencilElement, State } from "@stencil/core/internal";
+import { HTMLStencilElement, Listen, State } from "@stencil/core/internal";
 
 /**
  * Base component for tabs. This component is not intended to be used directly.
@@ -19,7 +19,8 @@ export class KthTabsBase {
   @State() currentIndex: number;
   tabs: HTMLElement;
 
-  componentWillLoad() {
+  @Listen("popstate", { target: "window" })
+  initializeTab() {
     const url = new URL(window.location.href);
     let currentPanelId = "";
 
@@ -31,12 +32,15 @@ export class KthTabsBase {
         currentPanelId = url.hash.slice(1);
         break;
     }
-
-    this.panels = Array.from(this.host.querySelectorAll(":scope > kth-tab"));
     this.currentIndex =
       currentPanelId === ""
         ? 0
         : this.panels.findIndex((p) => p.id === currentPanelId);
+  }
+
+  componentWillLoad() {
+    this.panels = Array.from(this.host.querySelectorAll(":scope > kth-tab"));
+    this.initializeTab();
   }
 
   componentWillRender() {
@@ -52,7 +56,26 @@ export class KthTabsBase {
 
   switchTab(newTabIndex: number) {
     this.currentIndex = newTabIndex;
-    this.tabs.querySelectorAll("a").item(newTabIndex).focus();
+    this.tabs
+      .querySelectorAll(this.url === "hash" ? "a" : "button")
+      .item(newTabIndex)
+      .focus();
+
+    const panelId = this.panels[newTabIndex].id;
+    let newUrl = "";
+
+    switch (this.url) {
+      case "query":
+        newUrl = `?${this.host.id}=${panelId}`;
+        break;
+      case "hash":
+        newUrl = `#${panelId}`;
+        break;
+    }
+
+    if (newUrl) {
+      window.history.pushState(undefined, "", newUrl);
+    }
   }
 
   handleClick = (event: MouseEvent, newTab: number) => {
@@ -96,17 +119,31 @@ export class KthTabsBase {
           <ul role="tablist" ref={(e) => (this.tabs = e)}>
             {this.panels.map((t, i) => (
               <li role="presentation">
-                <a
-                  id={`${t.id}-tab`}
-                  role="tab"
-                  tabindex={i === this.currentIndex ? 0 : -1}
-                  aria-selected={i === this.currentIndex ? "true" : "false"}
-                  href={"#" + t.id}
-                  onClick={(event) => this.handleClick(event, i)}
-                  onKeyDown={this.handleKeyDown}
-                >
-                  {t.getAttribute("title")}
-                </a>
+                {this.url === "hash" && (
+                  <a
+                    id={`${t.id}-tab`}
+                    role="tab"
+                    tabindex={i === this.currentIndex ? 0 : -1}
+                    aria-selected={i === this.currentIndex ? "true" : "false"}
+                    href={"#" + t.id}
+                    onClick={(event) => this.handleClick(event, i)}
+                    onKeyDown={this.handleKeyDown}
+                  >
+                    {t.getAttribute("title")}
+                  </a>
+                )}
+                {this.url !== "hash" && (
+                  <button
+                    id={`${t.id}-tab`}
+                    role="tab"
+                    tabindex={i === this.currentIndex ? 0 : -1}
+                    aria-selected={i === this.currentIndex ? "true" : "false"}
+                    onClick={(event) => this.handleClick(event, i)}
+                    onKeyDown={this.handleKeyDown}
+                  >
+                    {t.getAttribute("title")}
+                  </button>
+                )}
               </li>
             ))}
           </ul>
