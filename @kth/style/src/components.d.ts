@@ -14,6 +14,7 @@ export namespace Components {
     }
     interface KthTabs {
         "appearance": "primary" | "secondary" | "tertiary" | undefined;
+        "size": "small" | "medium" | undefined;
     }
 }
 declare global {
@@ -50,6 +51,7 @@ declare namespace LocalJSX {
     }
     interface KthTabs {
         "appearance"?: "primary" | "secondary" | "tertiary" | undefined;
+        "size"?: "small" | "medium" | undefined;
     }
     interface IntrinsicElements {
         "kth-button": KthButton;

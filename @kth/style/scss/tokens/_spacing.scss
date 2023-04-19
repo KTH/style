@@ -88,7 +88,7 @@ $_all_spaces: (
 
   $list-of-paddings: ();
 
-  @for $i from 0 through list.length($paddings) {
+  @for $i from 1 through list.length($paddings) {
     $list-of-paddings: list.append(
       $list-of-paddings,
       calc(#{list.nth($paddings, $i)} - #{list.nth($borders, $i)})
@@ -99,7 +99,7 @@ $_all_spaces: (
 }
 
 /// Returns both padding and border values
-@mixin padding-and-border($suffix, $borders, $paddings) {
-  padding#{$suffix}: _padding_minus_border($borders, $paddings);
+@mixin padding-and-border($suffix, $paddings, $borders) {
+  padding#{$suffix}: _padding_minus_border($paddings, $borders);
   border#{$suffix}-width: $borders;
 }
