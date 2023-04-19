@@ -1,22 +1,42 @@
 import { Component, h, Host, Prop, Element } from "@stencil/core";
 import { HTMLStencilElement, State } from "@stencil/core/internal";
 
+/**
+ * Base component for tabs. This component is not intended to be used directly.
+ */
 @Component({
   tag: "kth-tabs",
-  styleUrl: "kth-tabs.scss",
+  styleUrl: "kth-tabs-base.scss",
   shadow: true,
 })
-export class KthTabs {
+export class KthTabsBase {
+  // This component is based on the following article:
+  // https://www.w3.org/TR/wai-aria-practices-1.1/examples/tabs/tabs-1/tabs.html
   @Prop() appearance: "primary" | "secondary" | "tertiary" | undefined;
-  @Prop() size: "small" | "medium" | undefined;
+  @Prop() url: "query" | "hash" | undefined;
   @Element() host: HTMLStencilElement;
   @State() panels: HTMLElement[];
   @State() currentIndex: number;
   tabs: HTMLElement;
 
   componentWillLoad() {
+    const url = new URL(window.location.href);
+    let currentPanelId = "";
+
+    switch (this.url) {
+      case "query":
+        currentPanelId = url.searchParams.get(this.host.id);
+        break;
+      case "hash":
+        currentPanelId = url.hash.slice(1);
+        break;
+    }
+
     this.panels = Array.from(this.host.querySelectorAll(":scope > kth-tab"));
-    this.currentIndex = 0;
+    this.currentIndex =
+      currentPanelId === ""
+        ? 0
+        : this.panels.findIndex((p) => p.id === currentPanelId);
   }
 
   componentWillRender() {
@@ -68,7 +88,6 @@ export class KthTabs {
     const className = [
       "tab-container",
       this.appearance ? `kth-0-${this.appearance}` : "",
-      this.size ? `kth-0-${this.size}` : "",
     ].join(" ");
 
     return (
