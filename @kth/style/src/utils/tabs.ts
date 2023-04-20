@@ -3,11 +3,25 @@
  *
  * @param name Query parameter name. If not provided, will return the hash parameter
  */
-export function getCurrentTabFromUrl(name: string, panels: HTMLElement[]) {
+export function getCurrentTabFromUrl(
+  name: string,
+  panels: HTMLElement[],
+  defaultTab = ""
+) {
   const url = new URL(window.location.href);
   const tabName = name === "" ? url.hash.slice(1) : url.searchParams.get(name);
 
-  return tabName === "" ? 0 : panels.findIndex((p) => p.id === tabName);
+  let index = panels.findIndex((p) => p.id === tabName);
+
+  if (index === -1) {
+    index = panels.findIndex((p) => p.id === defaultTab);
+  }
+
+  if (index === -1) {
+    index = 0;
+  }
+
+  return index;
 }
 
 export function setCurrentTabInUrl(name: string, panel: HTMLElement) {

@@ -11,12 +11,11 @@ export namespace Components {
     }
     interface KthTab {
     }
-    /**
-     * Base component for tabs. This component is not intended to be used directly.
-     */
-    interface KthTabs {
-        "appearance": "primary" | "secondary" | "tertiary" | undefined;
-        "url": "query" | "hash" | undefined;
+    interface KthTabsContent {
+        "defaultTab": string;
+    }
+    interface KthTabsNavigation {
+        "defaultTab": string;
     }
 }
 declare global {
@@ -32,19 +31,23 @@ declare global {
         prototype: HTMLKthTabElement;
         new (): HTMLKthTabElement;
     };
-    /**
-     * Base component for tabs. This component is not intended to be used directly.
-     */
-    interface HTMLKthTabsElement extends Components.KthTabs, HTMLStencilElement {
+    interface HTMLKthTabsContentElement extends Components.KthTabsContent, HTMLStencilElement {
     }
-    var HTMLKthTabsElement: {
-        prototype: HTMLKthTabsElement;
-        new (): HTMLKthTabsElement;
+    var HTMLKthTabsContentElement: {
+        prototype: HTMLKthTabsContentElement;
+        new (): HTMLKthTabsContentElement;
+    };
+    interface HTMLKthTabsNavigationElement extends Components.KthTabsNavigation, HTMLStencilElement {
+    }
+    var HTMLKthTabsNavigationElement: {
+        prototype: HTMLKthTabsNavigationElement;
+        new (): HTMLKthTabsNavigationElement;
     };
     interface HTMLElementTagNameMap {
         "kth-button": HTMLKthButtonElement;
         "kth-tab": HTMLKthTabElement;
-        "kth-tabs": HTMLKthTabsElement;
+        "kth-tabs-content": HTMLKthTabsContentElement;
+        "kth-tabs-navigation": HTMLKthTabsNavigationElement;
     }
 }
 declare namespace LocalJSX {
@@ -53,17 +56,17 @@ declare namespace LocalJSX {
     }
     interface KthTab {
     }
-    /**
-     * Base component for tabs. This component is not intended to be used directly.
-     */
-    interface KthTabs {
-        "appearance"?: "primary" | "secondary" | "tertiary" | undefined;
-        "url"?: "query" | "hash" | undefined;
+    interface KthTabsContent {
+        "defaultTab"?: string;
+    }
+    interface KthTabsNavigation {
+        "defaultTab"?: string;
     }
     interface IntrinsicElements {
         "kth-button": KthButton;
         "kth-tab": KthTab;
-        "kth-tabs": KthTabs;
+        "kth-tabs-content": KthTabsContent;
+        "kth-tabs-navigation": KthTabsNavigation;
     }
 }
 export { LocalJSX as JSX };
@@ -72,10 +75,8 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "kth-button": LocalJSX.KthButton & JSXBase.HTMLAttributes<HTMLKthButtonElement>;
             "kth-tab": LocalJSX.KthTab & JSXBase.HTMLAttributes<HTMLKthTabElement>;
-            /**
-             * Base component for tabs. This component is not intended to be used directly.
-             */
-            "kth-tabs": LocalJSX.KthTabs & JSXBase.HTMLAttributes<HTMLKthTabsElement>;
+            "kth-tabs-content": LocalJSX.KthTabsContent & JSXBase.HTMLAttributes<HTMLKthTabsContentElement>;
+            "kth-tabs-navigation": LocalJSX.KthTabsNavigation & JSXBase.HTMLAttributes<HTMLKthTabsNavigationElement>;
         }
     }
 }

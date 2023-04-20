@@ -1,5 +1,13 @@
-import { Component, h, Host, Element } from "@stencil/core";
-import { HTMLStencilElement, Listen, State } from "@stencil/core/internal";
+import {
+  Component,
+  h,
+  Host,
+  Element,
+  Listen,
+  State,
+  Prop,
+} from "@stencil/core";
+import { HTMLStencilElement } from "@stencil/core/internal";
 import {
   getCurrentTabFromUrl,
   getNewIndex,
@@ -7,7 +15,7 @@ import {
 } from "../../utils/tabs";
 
 @Component({
-  tag: "kth-tabs",
+  tag: "kth-tabs-content",
   styleUrl: "kth-tabs-content.scss",
   shadow: true,
 })
@@ -17,11 +25,12 @@ export class KthTabsContent {
   @Element() host: HTMLStencilElement;
   @State() panels: HTMLElement[];
   @State() currentIndex: number;
+  @Prop() defaultTab: string;
   tabs: HTMLElement;
 
   @Listen("popstate", { target: "window" })
   initializeTab() {
-    this.currentIndex = getCurrentTabFromUrl("ajk", this.panels);
+    this.currentIndex = getCurrentTabFromUrl("", this.panels, this.defaultTab);
   }
 
   componentWillLoad() {
@@ -37,12 +46,11 @@ export class KthTabsContent {
     this.currentIndex = newTabIndex;
     this.tabs.querySelectorAll("a").item(newTabIndex).focus();
 
+    const url = new URL(window.location.href);
     const panelId = this.panels[newTabIndex].id;
-    const newUrl = `#${panelId}`;
+    url.hash = `#${panelId}`;
 
-    if (newUrl) {
-      window.history.pushState(undefined, "", newUrl);
-    }
+    window.history.pushState(undefined, "", url);
   }
 
   handleClick = (event: MouseEvent, newTab: number) => {

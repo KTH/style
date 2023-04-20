@@ -1,4 +1,12 @@
-import { Component, Host, Listen, State, h, Element } from "@stencil/core";
+import {
+  Component,
+  Host,
+  Listen,
+  State,
+  h,
+  Element,
+  Prop,
+} from "@stencil/core";
 import { HTMLStencilElement } from "@stencil/core/internal";
 import {
   getCurrentTabFromUrl,
@@ -17,11 +25,16 @@ export class KthTabsNavigation {
   @Element() host: HTMLStencilElement;
   @State() panels: HTMLElement[];
   @State() currentIndex: number;
+  @Prop() defaultTab: string;
   tabs: HTMLElement;
 
   @Listen("popstate", { target: "window" })
   initializeTab() {
-    this.currentIndex = getCurrentTabFromUrl(this.host.id, this.panels);
+    this.currentIndex = getCurrentTabFromUrl(
+      this.host.id,
+      this.panels,
+      this.defaultTab
+    );
   }
 
   componentWillLoad() {
@@ -37,10 +50,11 @@ export class KthTabsNavigation {
     this.currentIndex = newTabIndex;
     this.tabs.querySelectorAll("button").item(newTabIndex).focus();
 
+    const url = new URL(window.location.href);
     const panelId = this.panels[newTabIndex].id;
-    const newUrl = `?${this.host.id}=${panelId}`;
+    url.searchParams.set(this.host.id, panelId);
 
-    window.history.pushState(undefined, "", newUrl);
+    window.history.pushState(undefined, "", url);
   }
 
   handleClick = (event: MouseEvent, newTab: number) => {
