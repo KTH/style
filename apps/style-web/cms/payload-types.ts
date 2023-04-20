@@ -26,13 +26,13 @@ export interface Component {
   id: string;
   title: string;
   purpose: string;
-  'when-to-use': {
+  whenToUse: {
     [k: string]: unknown;
   }[];
-  'when-not-to-use'?: {
+  whenNotToUse?: {
     [k: string]: unknown;
   }[];
-  'how-to-use': {
+  howToUse: {
     [k: string]: unknown;
   }[];
   createdAt: string;

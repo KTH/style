@@ -10,7 +10,19 @@ export default function ComponentPage({ page }: { page: Component }) {
   const router = useRouter();
   const { slug } = router.query;
 
-  return <div>Hello from a component {slug}</div>;
+  return (
+    <main>
+      <h1>{page.title}</h1>
+      <h2>Syfte</h2>
+      {page.purpose}
+      <h2>When to use</h2>
+      {JSON.stringify(page.whenToUse)}
+      <h2>When not to use</h2>
+      {JSON.stringify(page.whenNotToUse)}
+      <h2>How to use</h2>
+      {JSON.stringify(page.howToUse)}
+    </main>
+  );
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
