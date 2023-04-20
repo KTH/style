@@ -8,6 +8,7 @@
 export interface Config {
   collections: {
     examples: Example;
+    components: Component;
     users: User;
   };
   globals: {};
@@ -16,6 +17,22 @@ export interface Example {
   id: string;
   title: string;
   content: {
+    [k: string]: unknown;
+  }[];
+  createdAt: string;
+  updatedAt: string;
+}
+export interface Component {
+  id: string;
+  title: string;
+  purpose: string;
+  'when-to-use': {
+    [k: string]: unknown;
+  }[];
+  'when-not-to-use'?: {
+    [k: string]: unknown;
+  }[];
+  'how-to-use': {
     [k: string]: unknown;
   }[];
   createdAt: string;
