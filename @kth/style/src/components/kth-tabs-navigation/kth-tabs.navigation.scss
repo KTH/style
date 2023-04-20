@@ -34,34 +34,6 @@ $border-secondary: 1px solid t.$color-neutral-10;
     &:hover {
       text-decoration: underline;
     }
-  }
-
-  .kth-0-secondary [role="tab"] {
-    color: t.$color-neutral-10;
-    border: $border-secondary;
-    border-radius: t.border-radius(8 8 0 0);
-
-    @include t.padding-and-border(
-      "-block",
-      var(--kth-0-button-padding-block),
-      1px
-    );
-
-    &[aria-selected="false"] {
-      background: t.$color-neutral-2;
-    }
-
-    &[aria-selected="true"] {
-      background: t.$color-neutral-0;
-      padding-block-start: calc(
-        var(--kth-0-button-padding-block) + #{t.$space-8} - 1px
-      );
-      border-block-end: 1px solid transparent;
-    }
-  }
-
-  .kth-0-tertiary [role="tab"] {
-    padding-block-start: var(--kth-0-button-padding-block);
 
     &[aria-selected="false"] {
       color: t.$color-neutral-10;
