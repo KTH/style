@@ -3,6 +3,10 @@ import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import payload from "payload";
 
+function renderRichText(richText: unknown) {
+  return "this is rich text";
+}
+
 // TODO: Get language from user preference
 const LANGUAGE = "sv";
 
@@ -16,11 +20,11 @@ export default function ComponentPage({ page }: { page: Component }) {
       <h2>Syfte</h2>
       {page.purpose}
       <h2>When to use</h2>
-      {JSON.stringify(page.whenToUse)}
+      {renderRichText(page.whenToUse)}
       <h2>When not to use</h2>
-      {JSON.stringify(page.whenNotToUse)}
+      {renderRichText(page.whenNotToUse)}
       <h2>How to use</h2>
-      {JSON.stringify(page.howToUse)}
+      {renderRichText(page.howToUse)}
     </main>
   );
 }
