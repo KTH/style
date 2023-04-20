@@ -23,15 +23,8 @@ export const Components: CollectionConfig = {
       type: "text",
       required: true,
       localized: true,
-      label: {
-        en: "Purpose",
-        sv: "Syfte",
-      },
       admin: {
-        description: {
-          en: "A sentence that describes the purpose of the component",
-          sv: "En mening som beskriver syftet med komponenten",
-        },
+        description: "A sentence that describes the purpose of the component",
       },
     },
     {
@@ -39,10 +32,7 @@ export const Components: CollectionConfig = {
       type: "richText",
       required: true,
       localized: true,
-      label: {
-        en: "When to use",
-        sv: "När ska man använda",
-      },
+      label: "When to use",
       admin: {
         elements,
       },
@@ -52,10 +42,7 @@ export const Components: CollectionConfig = {
       type: "richText",
       required: false,
       localized: true,
-      label: {
-        en: "When not to use",
-        sv: "När ska man inte använda",
-      },
+      label: "When not to use",
       admin: {
         elements,
       },
@@ -65,10 +52,7 @@ export const Components: CollectionConfig = {
       type: "richText",
       required: true,
       localized: true,
-      label: {
-        en: "How to use",
-        sv: "Hur använder man komponenten",
-      },
+      label: "How to use",
       admin: {
         elements,
       },
