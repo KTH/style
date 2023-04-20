@@ -1,4 +1,7 @@
+import { RichTextElement } from "payload/dist/fields/config/types";
 import { CollectionConfig } from "payload/types";
+
+const elements: RichTextElement[] = ["h1", "h2", "link", "ol", "ul"];
 
 export const Components: CollectionConfig = {
   slug: "components",
@@ -41,7 +44,7 @@ export const Components: CollectionConfig = {
         sv: "När ska man använda",
       },
       admin: {
-        elements: ["h1", "h2", "link", "ol", "ul"],
+        elements,
       },
     },
     {
@@ -54,7 +57,7 @@ export const Components: CollectionConfig = {
         sv: "När ska man inte använda",
       },
       admin: {
-        elements: ["h1", "h2", "link", "ol", "ul"],
+        elements,
       },
     },
     {
@@ -67,7 +70,7 @@ export const Components: CollectionConfig = {
         sv: "Hur använder man komponenten",
       },
       admin: {
-        elements: ["h1", "h2", "link", "ol", "ul"],
+        elements,
       },
     },
   ],
