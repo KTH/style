@@ -1,0 +1,6 @@
+/// List of all KTH Style Design Tokens
+@forward "./typography";
+@forward "./spacing";
+@forward "./colors";
+
+@use "./spacing" as spacing;
