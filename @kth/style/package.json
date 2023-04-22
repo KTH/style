@@ -8,7 +8,8 @@
     "build": "npm run clean && npm run build:components && npm run build:storybook",
     "build:components": "tsc",
     "build:storybook": "storybook build -o ../../apps/style-web/public/storybook",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+    "test": "npm run test:lint",
+    "test:lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
     "react": "^18.2.0",
