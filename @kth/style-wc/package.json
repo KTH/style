@@ -1,5 +1,5 @@
 {
-  "name": "@kth/style",
+  "name": "@kth/style-wc",
   "version": "0.0.0",
   "description": "KTH's official Design System",
   "main": "./dist/index.js",
