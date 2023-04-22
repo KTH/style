@@ -5,6 +5,7 @@
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "module": "CommonJS",
     "skipLibCheck": true,
+    "declaration": true,
     "allowSyntheticDefaultImports": true,
 
     /* Bundler mode */
@@ -20,6 +21,6 @@
 
     "outDir": "dist"
   },
-  "include": ["src"],
+  "include": ["src/components"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

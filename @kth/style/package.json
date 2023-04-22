@@ -3,11 +3,12 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "clean": "rm -rf dist",
-    "build": "tsc",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "clean": "rm -rf dist && rm -rf storybook-static",
+    "dev": "storybook dev -p 6006",
+    "build": "npm run clean && npm run build:components && npm run build:storybook",
+    "build:components": "tsc",
+    "build:storybook": "storybook build",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
     "react": "^18.2.0",
