@@ -1,23 +1,24 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    /* Output */
+    "target": "ES2022",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "module": "ESNext",
+    "module": "CommonJS",
     "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
+    "moduleResolution": "node",
     "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
+    "jsx": "react",
 
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    "outDir": "dist"
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
