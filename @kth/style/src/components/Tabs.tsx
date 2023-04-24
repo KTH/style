@@ -62,6 +62,7 @@ export function NavigationTabs({
   url?: "query" | "none";
   defaultValue?: string;
 }) {
+  const ref = React.useRef<HTMLDivElement | null>(null);
   const [queryTab, setQueryTab] = useUrlQuery(id);
   const [manualTab, setManualTab] = React.useState(defaultValue || "");
 
@@ -71,23 +72,60 @@ export function NavigationTabs({
   if (activeTabIndex === -1) {
     activeTabIndex = 0;
   }
+
+  function setActiveTab(newTab: string) {
+    if (url === "query") {
+      setQueryTab(newTab);
+    } else {
+      setManualTab(newTab);
+    }
+  }
+
+  React.useEffect(() => {
+    const newTab = ref.current?.querySelector<HTMLButtonElement>(
+      `#${activeTab}-tab`
+    );
+    newTab?.scrollIntoView({ block: "nearest", inline: "nearest" });
+    newTab?.focus();
+  });
+
   return (
     <>
-      <div className="kth-navigation-tabs" id={id}>
+      <div ref={ref} className="kth-navigation-tabs" id={id}>
         <ul className="kth-navigation-tabs__tablist">
           {children.map((child, index) => (
             <li key={child.props.id}>
               <button
+                id={`${child.props.id}-tab`}
                 className="kth-navigation-tabs__tab"
+                tabIndex={index === activeTabIndex ? 0 : -1}
+                onKeyDown={(event) => {
+                  event.preventDefault();
+                  switch (event.key) {
+                    case "ArrowLeft":
+                    case "ArrowUp":
+                      if (index > 0) {
+                        setActiveTab(children[index - 1].props.id);
+                      }
+                      break;
+                    case "ArrowRight":
+                    case "ArrowDown":
+                      if (index < children.length - 1) {
+                        setActiveTab(children[index + 1].props.id);
+                      }
+                      break;
+                    case "Home":
+                      setActiveTab(children[0].props.id);
+                      break;
+                    case "End":
+                      setActiveTab(children[children.length - 1].props.id);
+                      break;
+                  }
+                }}
                 aria-selected={index === activeTabIndex}
                 onClick={(event) => {
                   event.preventDefault();
-
-                  if (url === "query") {
-                    setQueryTab(child.props.id);
-                  } else {
-                    setManualTab(child.props.id);
-                  }
+                  setActiveTab(child.props.id);
                 }}
               >
                 {child.props.title}
