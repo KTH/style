@@ -5,12 +5,13 @@ function useUrlHash() {
   const [currentHash, setCurrentHash] = React.useState("");
 
   React.useEffect(() => {
-    function updateValue(event: HashChangeEvent) {
-      const hash = new URL(event.newURL).hash.slice(1);
+    function updateValue(event?: HashChangeEvent) {
+      const hash = new URL(event?.newURL || location.href).hash.slice(1);
       setCurrentHash(hash);
     }
 
     window.addEventListener("hashchange", updateValue);
+    updateValue();
 
     return () => {
       window.removeEventListener("hashchange", updateValue);
@@ -63,38 +64,41 @@ export function NavigationTabs({
 }) {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const [queryTab, setQueryTab] = useUrlQuery(id);
-  const [activeTab, setActiveTab] = React.useState(
-    queryTab || defaultValue || ""
-  );
+  const [manualTab, setManualTab] = React.useState(defaultValue || "");
+
+  const activeTab = url === "query" ? queryTab : manualTab;
 
   let activeTabIndex = children.findIndex((c) => c.props.id === activeTab);
   if (activeTabIndex === -1) {
     activeTabIndex = 0;
   }
   return (
-    <div ref={containerRef} className="kth-tabs" id={id}>
-      <ul className="kth-tabs__tablist">
-        {children.map((child, index) => (
-          <li key={child.props.id}>
-            <button
-              className="kth-tabs__tab"
-              aria-selected={index === activeTabIndex}
-              onClick={(event) => {
-                event.preventDefault();
-                setActiveTab(child.props.id);
+    <>
+      <div ref={containerRef} className="kth-navigation-tabs" id={id}>
+        <ul className="kth-navigation-tabs__tablist">
+          {children.map((child, index) => (
+            <li key={child.props.id}>
+              <button
+                className="kth-navigation-tabs__tab"
+                aria-selected={index === activeTabIndex}
+                onClick={(event) => {
+                  event.preventDefault();
 
-                if (url === "query") {
-                  setQueryTab(child.props.id);
-                }
-              }}
-            >
-              {child.props.title}
-            </button>
-          </li>
-        ))}
-      </ul>
+                  if (url === "query") {
+                    setQueryTab(child.props.id);
+                  } else {
+                    setManualTab(child.props.id);
+                  }
+                }}
+              >
+                {child.props.title}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
       {children[activeTabIndex]}
-    </div>
+    </>
   );
 }
 
@@ -121,33 +125,35 @@ export function ContentTabs({
   }
 
   return (
-    <div ref={containerRef} className="kth-tabs" id={id}>
-      <ul className="kth-tabs__tablist">
-        {children.map((child, index) => (
-          <li key={child.props.id}>
-            <a
-              href={`#${child.props.id}`}
-              className="kth-tabs__tab"
-              aria-selected={index === activeTabIndex}
-              onClick={(event) => {
-                if (url === "none") {
-                  event.preventDefault();
-                  setManualActiveTab(child.props.id);
-                }
-              }}
-            >
-              {child.props.title}
-            </a>
-          </li>
-        ))}
-      </ul>
+    <>
+      <div ref={containerRef} className="kth-content-tabs" id={id}>
+        <ul className="kth-content-tabs__tablist">
+          {children.map((child, index) => (
+            <li key={child.props.id}>
+              <a
+                href={`#${child.props.id}`}
+                className="kth-content-tabs__tab"
+                aria-selected={index === activeTabIndex}
+                onClick={(event) => {
+                  if (url === "none") {
+                    event.preventDefault();
+                    setManualActiveTab(child.props.id);
+                  }
+                }}
+              >
+                {child.props.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
       {children[activeTabIndex]}
-    </div>
+    </>
   );
 }
 
 interface TabProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   id: string;
   title: string;
 }

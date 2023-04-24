@@ -1,0 +1,49 @@
+@use "../tokens/" as t;
+
+$border-secondary: 1px solid t.$color-neutral-10;
+
+@layer kth-style {
+  .kth-navigation-tabs {
+    overflow: auto;
+  }
+
+  .kth-navigation-tabs__tablist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    align-items: end;
+    gap: t.$space-4;
+    min-width: 100%;
+    border-block-end: $border-secondary;
+  }
+
+  .kth-navigation-tabs__tab {
+    font: inherit;
+    background: none;
+    border: none;
+    box-sizing: border-box;
+    padding-inline: var(--kth-0-button-padding-inline);
+    padding-block: var(--kth-0-button-padding-block);
+    white-space: nowrap;
+    display: block;
+    text-decoration: none;
+    color: t.$color-neutral-10;
+    margin-block-end: -1px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &[aria-selected="false"] {
+      color: t.$color-neutral-10;
+    }
+
+    &[aria-selected="true"] {
+      color: t.$color-primary-5;
+      padding-block-end: calc(var(--kth-0-button-padding-block) - 3px);
+      border-block-end: 3px t.$color-primary-5 solid;
+    }
+  }
+}
