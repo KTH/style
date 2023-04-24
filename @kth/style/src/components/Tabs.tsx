@@ -1,58 +1,55 @@
 import React from "react";
 
-/** Get current URL hash */
-function useUrlHash(): [string, (value: string) => void] {
-  const [value, _setValue] = React.useState("");
+function getValueFromUrl(key?: string) {
+  const url = new URL(location.href);
+  if (key) {
+    return url.searchParams.get(key);
+  } else {
+    return url.hash === "" ? null : url.hash.slice(1);
+  }
+}
+
+/**
+ * Sync state with URL hash or query parameter.
+ * @param defaultValue Default state value
+ * @param key Query parameter to use. Hash if empty
+ * @param enableUrl Will sync with URL if true (this function behaves the same
+ * as `React.useState` if false)
+ */
+function useUrlState(
+  defaultValue = "",
+  key = "",
+  enableUrl = false
+): [string, (value: string) => void] {
+  const initialValue = getValueFromUrl(key) || defaultValue;
+  const [value, _setValue] = React.useState(initialValue);
 
   React.useEffect(() => {
     function updateValue() {
-      const hash = new URL(location.href).hash.slice(1);
-      _setValue(hash);
+      if (enableUrl) {
+        _setValue(getValueFromUrl(key) || defaultValue);
+      }
     }
-
     window.addEventListener("popstate", updateValue);
-    updateValue();
 
     return () => {
       window.removeEventListener("popstate", updateValue);
     };
   });
 
-  function setValue(newValue: string) {
+  function setValue(value: string) {
+    _setValue(value);
+
     const url = new URL(location.href);
-    url.hash = "#" + newValue;
-    history.pushState(undefined, "", url);
-
-    _setValue(newValue);
-  }
-
-  return [value, setValue];
-}
-
-/** Keep in sync the value of the query parameter `param` */
-function useUrlQuery(param: string): [string, (value: string) => void] {
-  const [value, _setValue] = React.useState("");
-
-  React.useEffect(() => {
-    function updateValue() {
-      const value = new URL(location.href).searchParams.get(param) || "";
-      _setValue(value);
+    if (key !== "") {
+      url.searchParams.set(key, value);
+    } else {
+      url.hash = "#" + value;
     }
 
-    window.addEventListener("popstate", updateValue);
-    updateValue();
-
-    return () => {
-      window.removeEventListener("popstate", updateValue);
-    };
-  }, [param]);
-
-  function setValue(newValue: string) {
-    const url = new URL(location.href);
-    url.searchParams.set(param, newValue);
-    history.pushState(undefined, "", url);
-
-    _setValue(newValue);
+    if (enableUrl) {
+      history.pushState(undefined, "", url);
+    }
   }
 
   return [value, setValue];
@@ -70,22 +67,15 @@ export function NavigationTabs({
   defaultValue?: string;
 }) {
   const ref = React.useRef<HTMLDivElement | null>(null);
-  const [queryTab, setQueryTab] = useUrlQuery(id);
-  const [manualTab, setManualTab] = React.useState(defaultValue || "");
-
-  const activeTab = url === "query" ? queryTab : manualTab;
+  const [activeTab, setActiveTab] = useUrlState(
+    defaultValue,
+    id,
+    url === "query"
+  );
 
   let activeTabIndex = children.findIndex((c) => c.props.id === activeTab);
   if (activeTabIndex === -1) {
     activeTabIndex = 0;
-  }
-
-  function setActiveTab(newTab: string) {
-    if (url === "query") {
-      setQueryTab(newTab);
-    } else {
-      setManualTab(newTab);
-    }
   }
 
   React.useEffect(() => {
@@ -157,22 +147,15 @@ export function ContentTabs({
   url?: "hash" | "none";
   defaultValue?: string;
 }) {
-  const [hashTab, setHashTab] = useUrlHash();
-  const [manualTab, setManualTab] = React.useState(defaultValue || "");
-
-  const activeTab = url === "hash" ? hashTab : manualTab;
+  const [activeTab, setActiveTab] = useUrlState(
+    defaultValue,
+    "",
+    url === "hash"
+  );
 
   let activeTabIndex = children.findIndex((c) => c.props.id === activeTab);
   if (activeTabIndex === -1) {
     activeTabIndex = 0;
-  }
-
-  function setActiveTab(newTab: string) {
-    if (url === "hash") {
-      setHashTab(newTab);
-    } else {
-      setManualTab(newTab);
-    }
   }
 
   return (
