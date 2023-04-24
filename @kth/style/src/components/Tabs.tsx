@@ -13,14 +13,15 @@ export function NavigationTabs({
       <ul className="kth-tabs__tablist">
         {children.map((child, index) => (
           <li key={child.props.id}>
-            <button
+            <a
               className="kth-tabs__tab"
+              aria-selected={index === activeTab}
               onClick={() => {
                 setActiveTab(index);
               }}
             >
               {child.props.title}
-            </button>
+            </a>
           </li>
         ))}
       </ul>
