@@ -22,11 +22,8 @@ $border-secondary: 1px solid t.$color-neutral-10;
   .kth-tabs__tab {
     box-sizing: border-box;
     padding-inline: var(--kth-0-button-padding-inline);
-    @include t.padding-and-border(
-      "-block",
-      var(--kth-0-button-padding-block),
-      1px
-    );
+    padding-block: calc(var(--kth-0-button-padding-block) - 1px);
+    border-block-width: 1px;
     white-space: nowrap;
     display: block;
     text-decoration: none;

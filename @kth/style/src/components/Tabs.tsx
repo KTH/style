@@ -1,12 +1,39 @@
 import React from "react";
 
-export function NavigationTabs({
+/** Get current URL hash */
+function useUrlHash() {
+  const [currentHash, setCurrentHash] = React.useState("");
+
+  React.useEffect(() => {
+    function updateValue(event: HashChangeEvent) {
+      const hash = new URL(event.newURL).hash.slice(1);
+      setCurrentHash(hash);
+    }
+
+    window.addEventListener("hashchange", updateValue);
+
+    return () => {
+      window.removeEventListener("hashchange", updateValue);
+    };
+  });
+
+  return currentHash;
+}
+
+export function ContentTabs({
   children,
 }: {
   children: React.ReactElement<TabProps>[];
 }) {
   const containerRef = React.useRef<HTMLDivElement>(null);
-  const [activeTab, setActiveTab] = React.useState(0);
+
+  // Use URL as a source of truth
+  const activeTab = useUrlHash();
+
+  let activeTabIndex = children.findIndex((c) => c.props.id === activeTab);
+  if (activeTabIndex === -1) {
+    activeTabIndex = 0;
+  }
 
   return (
     <div ref={containerRef} className="kth-tabs">
@@ -14,11 +41,11 @@ export function NavigationTabs({
         {children.map((child, index) => (
           <li key={child.props.id}>
             <a
-              href="#"
+              href={`#${child.props.id}`}
               className="kth-tabs__tab"
-              aria-selected={index === activeTab}
+              aria-selected={index === activeTabIndex}
               onClick={() => {
-                setActiveTab(index);
+                // setActiveTab(index);
               }}
             >
               {child.props.title}
@@ -26,7 +53,7 @@ export function NavigationTabs({
           </li>
         ))}
       </ul>
-      {children[activeTab]}
+      {children[activeTabIndex]}
     </div>
   );
 }

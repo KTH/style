@@ -1,6 +1,6 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Tab, NavigationTabs } from "../components/Tabs";
+import { Tab, ContentTabs } from "../components/Tabs";
 
 import "../../scss/globals.scss";
 import "../../scss/components/tabs.scss";
@@ -8,9 +8,9 @@ import "../../scss/components/tabs.scss";
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
   title: "KTH Style/Tabs",
-  component: NavigationTabs,
+  component: ContentTabs,
   tags: ["autodocs"],
-} satisfies Meta<typeof NavigationTabs>;
+} satisfies Meta<typeof ContentTabs>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
