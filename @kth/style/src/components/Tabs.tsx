@@ -21,28 +21,81 @@ function useUrlHash() {
 }
 
 /** Get the value of the given `param` in the current URL */
-function useUrlQuery(param: string) {
-  const [value, setValue] = React.useState("");
+function useUrlQuery(param: string): [string, (value: string) => void] {
+  const [value, _setValue] = React.useState("");
 
   React.useEffect(() => {
     function updateValue() {
       const url = new URL(location.href);
-      console.log(url);
       const value = url.searchParams.get(param) || "";
-      setValue(value);
+      _setValue(value);
     }
 
     window.addEventListener("popstate", updateValue);
-    window.addEventListener("pushstate", updateValue);
     updateValue();
 
     return () => {
       window.removeEventListener("popstate", updateValue);
-      window.removeEventListener("pushstate", updateValue);
     };
   }, [param]);
 
-  return value;
+  function setValue(newValue: string) {
+    const url = new URL(location.href);
+    url.searchParams.set(param, newValue);
+    history.pushState(undefined, "", url);
+
+    _setValue(newValue);
+  }
+
+  return [value, setValue];
+}
+
+export function NavigationTabs({
+  id,
+  children,
+  url = "query",
+  defaultValue,
+}: {
+  id: string;
+  children: React.ReactElement<TabProps>[];
+  url?: "query" | "none";
+  defaultValue?: string;
+}) {
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  const [queryTab, setQueryTab] = useUrlQuery(id);
+  const [activeTab, setActiveTab] = React.useState(
+    queryTab || defaultValue || ""
+  );
+
+  let activeTabIndex = children.findIndex((c) => c.props.id === activeTab);
+  if (activeTabIndex === -1) {
+    activeTabIndex = 0;
+  }
+  return (
+    <div ref={containerRef} className="kth-tabs">
+      <ul className="kth-tabs__tablist">
+        {children.map((child, index) => (
+          <li key={child.props.id}>
+            <button
+              className="kth-tabs__tab"
+              aria-selected={index === activeTabIndex}
+              onClick={(event) => {
+                event.preventDefault();
+                setActiveTab(child.props.id);
+
+                if (url === "query") {
+                  setQueryTab(child.props.id);
+                }
+              }}
+            >
+              {child.props.title}
+            </button>
+          </li>
+        ))}
+      </ul>
+      {children[activeTabIndex]}
+    </div>
+  );
 }
 
 export function ContentTabs({
@@ -53,20 +106,17 @@ export function ContentTabs({
 }: {
   id: string;
   children: React.ReactElement<TabProps>[];
-  url?: "hash" | "query" | "none";
+  url?: "hash" | "none";
   defaultValue?: string;
 }) {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const [manualActiveTab, setManualActiveTab] = React.useState("");
   const hashActiveTab = useUrlHash() || defaultValue || "";
-  const queryActiveTab = useUrlQuery(id) || defaultValue || "";
 
   let activeTab = manualActiveTab;
 
   if (url === "hash") {
     activeTab = hashActiveTab;
-  } else if (url === "query") {
-    activeTab = queryActiveTab;
   }
 
   let activeTabIndex = children.findIndex((c) => c.props.id === activeTab);
@@ -91,12 +141,6 @@ export function ContentTabs({
                 if (url === "none") {
                   event.preventDefault();
                   setManualActiveTab(child.props.id);
-                } else if (url === "query") {
-                  event.preventDefault();
-                  const url = new URL(location.href);
-                  url.searchParams.set(id, child.props.id);
-
-                  history.pushState(undefined, "", url);
                 }
               }}
             >
@@ -115,6 +159,6 @@ interface TabProps {
   id: string;
   title: string;
 }
-export function Tab({ children, id, title }: TabProps) {
+export function Tab({ children, id }: TabProps) {
   return <div id={id}>{children}</div>;
 }
