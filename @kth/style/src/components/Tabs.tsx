@@ -22,13 +22,18 @@ function useUrlHash() {
 
 export function ContentTabs({
   children,
+  url = "hash",
+  defaultValue,
 }: {
   children: React.ReactElement<TabProps>[];
+  url?: "hash" | "query" | "none";
+  defaultValue?: string;
 }) {
   const containerRef = React.useRef<HTMLDivElement>(null);
+  const [manualActiveTab, setManualActiveTab] = React.useState("");
+  const hashActiveTab = useUrlHash() || defaultValue;
 
-  // Use URL as a source of truth
-  const activeTab = useUrlHash();
+  const activeTab = url === "hash" ? hashActiveTab : manualActiveTab;
 
   let activeTabIndex = children.findIndex((c) => c.props.id === activeTab);
   if (activeTabIndex === -1) {
@@ -44,8 +49,11 @@ export function ContentTabs({
               href={`#${child.props.id}`}
               className="kth-tabs__tab"
               aria-selected={index === activeTabIndex}
-              onClick={() => {
-                // setActiveTab(index);
+              onClick={(event) => {
+                if (url === "none") {
+                  event.preventDefault();
+                  setManualActiveTab(child.props.id);
+                }
               }}
             >
               {child.props.title}
