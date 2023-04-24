@@ -14,6 +14,7 @@ export function NavigationTabs({
         {children.map((child, index) => (
           <li key={child.props.id}>
             <a
+              href="#"
               className="kth-tabs__tab"
               aria-selected={index === activeTab}
               onClick={() => {
