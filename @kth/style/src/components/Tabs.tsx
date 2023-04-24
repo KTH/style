@@ -62,7 +62,6 @@ export function NavigationTabs({
   url?: "query" | "none";
   defaultValue?: string;
 }) {
-  const containerRef = React.useRef<HTMLDivElement>(null);
   const [queryTab, setQueryTab] = useUrlQuery(id);
   const [manualTab, setManualTab] = React.useState(defaultValue || "");
 
@@ -74,7 +73,7 @@ export function NavigationTabs({
   }
   return (
     <>
-      <div ref={containerRef} className="kth-navigation-tabs" id={id}>
+      <div className="kth-navigation-tabs" id={id}>
         <ul className="kth-navigation-tabs__tablist">
           {children.map((child, index) => (
             <li key={child.props.id}>
@@ -113,7 +112,6 @@ export function ContentTabs({
   url?: "hash" | "none";
   defaultValue?: string;
 }) {
-  const containerRef = React.useRef<HTMLDivElement>(null);
   const [manualActiveTab, setManualActiveTab] = React.useState("");
   const hashActiveTab = useUrlHash() || defaultValue || "";
 
@@ -126,7 +124,7 @@ export function ContentTabs({
 
   return (
     <>
-      <div ref={containerRef} className="kth-content-tabs" id={id}>
+      <div className="kth-content-tabs" id={id}>
         <ul className="kth-content-tabs__tablist">
           {children.map((child, index) => (
             <li key={child.props.id}>

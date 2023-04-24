@@ -5,7 +5,7 @@ $border-secondary: 1px solid t.$color-neutral-10;
 @layer kth-style {
   .kth-content-tabs {
     overflow: auto;
-    padding: t.$space-4;
+    padding-block: t.$space-4;
   }
 
   .kth-content-tabs__tablist {
