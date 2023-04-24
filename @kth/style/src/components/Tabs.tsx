@@ -1,5 +1,33 @@
 import React from "react";
 
+interface TabProps {
+  children?: React.ReactNode;
+  id: string;
+  title: string;
+}
+
+interface GenericTabsProps {
+  classPrefix: string;
+  children: React.ReactElement<TabProps>[];
+  id: string;
+  defaultValue?: string;
+  url: "query" | "hash" | "none";
+}
+
+interface NavigationTabsProps {
+  id: string;
+  children: React.ReactElement<TabProps>[];
+  url?: "query" | "none";
+  defaultValue?: string;
+}
+
+interface ContentTabsProps {
+  id: string;
+  children: React.ReactElement<TabProps>[];
+  url?: "hash" | "none";
+  defaultValue?: string;
+}
+
 function getValueFromUrl(key?: string) {
   const url = new URL(location.href);
   if (key) {
@@ -91,22 +119,22 @@ function useFocus(
   element?.focus();
 }
 
-export function NavigationTabs({
-  id,
+/**
+ * Highly customizable Tabs component made for testing purposes.
+ * You should use {@link NavigationTabs} or {@link ContentTabs} instead.
+ */
+export function GenericTabs({
+  classPrefix,
   children,
-  url = "query",
+  id,
   defaultValue,
-}: {
-  id: string;
-  children: React.ReactElement<TabProps>[];
-  url?: "query" | "none";
-  defaultValue?: string;
-}) {
+  url = "none",
+}: GenericTabsProps) {
   const ref = React.useRef<HTMLDivElement | null>(null);
   const [activeTab, setActiveTab] = useUrlState(
     defaultValue,
-    id,
-    url === "query"
+    url === "query" ? id : "",
+    url === "query" || url === "hash"
   );
 
   let activeTabIndex = children.findIndex((c) => c.props.id === activeTab);
@@ -118,31 +146,59 @@ export function NavigationTabs({
 
   return (
     <>
-      <div ref={ref} className="kth-navigation-tabs" id={id}>
-        <ul className="kth-navigation-tabs__tablist">
+      <div ref={ref} className={`${classPrefix}`} id={id}>
+        <div className={`${classPrefix}__tablist`} role="tablist">
           {children.map((child, index) => (
-            <li key={child.props.id}>
-              <button
-                id={`${child.props.id}-tab`}
-                className="kth-navigation-tabs__tab"
-                tabIndex={index === activeTabIndex ? 0 : -1}
-                onKeyDown={(event) => {
-                  handleKeyDown(event, index, children, setActiveTab);
-                }}
-                aria-selected={index === activeTabIndex}
-                onClick={(event) => {
-                  event.preventDefault();
-                  setActiveTab(child.props.id);
-                }}
-              >
-                {child.props.title}
-              </button>
-            </li>
+            <button
+              key={child.props.id}
+              role="tab"
+              aria-selected={index === activeTabIndex}
+              aria-controls={child.props.id}
+              id={`${child.props.id}-tab`}
+              className={`${classPrefix}__tab`}
+              tabIndex={index === activeTabIndex ? 0 : -1}
+              onKeyDown={(event) => {
+                handleKeyDown(event, index, children, setActiveTab);
+              }}
+              onClick={(event) => {
+                event.preventDefault();
+                setActiveTab(child.props.id);
+              }}
+            >
+              {child.props.title}
+            </button>
           ))}
-        </ul>
+        </div>
       </div>
-      {children[activeTabIndex]}
+      {children.map((child, index) => (
+        <div
+          role="tabpanel"
+          aria-labelledby={`${child.props.id}-tab`}
+          id={child.props.id}
+          key={index}
+          hidden={index !== activeTabIndex}
+        >
+          {child}
+        </div>
+      ))}
     </>
+  );
+}
+
+export function NavigationTabs({
+  id,
+  children,
+  url = "query",
+  defaultValue,
+}: NavigationTabsProps) {
+  return (
+    <GenericTabs
+      id={id}
+      children={children}
+      url={url}
+      defaultValue={defaultValue}
+      classPrefix="kth-navigation-tabs"
+    />
   );
 }
 
@@ -151,61 +207,18 @@ export function ContentTabs({
   children,
   url = "hash",
   defaultValue,
-}: {
-  id: string;
-  children: React.ReactElement<TabProps>[];
-  url?: "hash" | "none";
-  defaultValue?: string;
-}) {
-  const ref = React.useRef<HTMLDivElement | null>(null);
-  const [activeTab, setActiveTab] = useUrlState(
-    defaultValue,
-    "",
-    url === "hash"
-  );
-
-  let activeTabIndex = children.findIndex((c) => c.props.id === activeTab);
-  if (activeTabIndex === -1) {
-    activeTabIndex = 0;
-  }
-
-  useFocus(ref.current?.querySelector<HTMLAnchorElement>(`#${activeTab}-tab`));
-
+}: ContentTabsProps) {
   return (
-    <>
-      <div className="kth-content-tabs" id={id} ref={ref}>
-        <ul className="kth-content-tabs__tablist">
-          {children.map((child, index) => (
-            <li key={child.props.id}>
-              <a
-                href={`#${child.props.id}`}
-                id={`${child.props.id}-tab`}
-                className="kth-content-tabs__tab"
-                aria-selected={index === activeTabIndex}
-                onKeyDown={(event) => {
-                  handleKeyDown(event, index, children, setActiveTab);
-                }}
-                onClick={(event) => {
-                  event.preventDefault();
-                  setActiveTab(child.props.id);
-                }}
-              >
-                {child.props.title}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-      {children[activeTabIndex]}
-    </>
+    <GenericTabs
+      id={id}
+      children={children}
+      url={url}
+      defaultValue={defaultValue}
+      classPrefix="kth-content-tabs"
+    />
   );
 }
 
-interface TabProps {
-  children?: React.ReactNode;
-  id: string;
-  title: string;
-}
-export function Tab({ children, id }: TabProps) {
-  return <div id={id}>{children}</div>;
+export function Tab({ children }: TabProps) {
+  return children;
 }
