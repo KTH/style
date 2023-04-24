@@ -55,6 +55,42 @@ function useUrlState(
   return [value, setValue];
 }
 
+function handleKeyDown(
+  event: React.KeyboardEvent,
+  index: number,
+  tabs: React.ReactElement<{ id: string }>[],
+  setActiveTab: (tab: string) => void
+) {
+  event.preventDefault();
+  switch (event.key) {
+    case "ArrowLeft":
+    case "ArrowUp":
+      if (index > 0) {
+        setActiveTab(tabs[index - 1].props.id);
+      }
+      break;
+    case "ArrowRight":
+    case "ArrowDown":
+      if (index < tabs.length - 1) {
+        setActiveTab(tabs[index + 1].props.id);
+      }
+      break;
+    case "Home":
+      setActiveTab(tabs[0].props.id);
+      break;
+    case "End":
+      setActiveTab(tabs[tabs.length - 1].props.id);
+      break;
+  }
+}
+
+function useFocus(
+  element: HTMLButtonElement | HTMLAnchorElement | null | undefined
+) {
+  element?.scrollIntoView({ block: "nearest", inline: "nearest" });
+  element?.focus();
+}
+
 export function NavigationTabs({
   id,
   children,
@@ -78,13 +114,7 @@ export function NavigationTabs({
     activeTabIndex = 0;
   }
 
-  React.useEffect(() => {
-    const newTab = ref.current?.querySelector<HTMLButtonElement>(
-      `#${activeTab}-tab`
-    );
-    newTab?.scrollIntoView({ block: "nearest", inline: "nearest" });
-    newTab?.focus();
-  });
+  useFocus(ref.current?.querySelector<HTMLButtonElement>(`#${activeTab}-tab`));
 
   return (
     <>
@@ -97,27 +127,7 @@ export function NavigationTabs({
                 className="kth-navigation-tabs__tab"
                 tabIndex={index === activeTabIndex ? 0 : -1}
                 onKeyDown={(event) => {
-                  event.preventDefault();
-                  switch (event.key) {
-                    case "ArrowLeft":
-                    case "ArrowUp":
-                      if (index > 0) {
-                        setActiveTab(children[index - 1].props.id);
-                      }
-                      break;
-                    case "ArrowRight":
-                    case "ArrowDown":
-                      if (index < children.length - 1) {
-                        setActiveTab(children[index + 1].props.id);
-                      }
-                      break;
-                    case "Home":
-                      setActiveTab(children[0].props.id);
-                      break;
-                    case "End":
-                      setActiveTab(children[children.length - 1].props.id);
-                      break;
-                  }
+                  handleKeyDown(event, index, children, setActiveTab);
                 }}
                 aria-selected={index === activeTabIndex}
                 onClick={(event) => {
@@ -147,6 +157,7 @@ export function ContentTabs({
   url?: "hash" | "none";
   defaultValue?: string;
 }) {
+  const ref = React.useRef<HTMLDivElement | null>(null);
   const [activeTab, setActiveTab] = useUrlState(
     defaultValue,
     "",
@@ -158,16 +169,22 @@ export function ContentTabs({
     activeTabIndex = 0;
   }
 
+  useFocus(ref.current?.querySelector<HTMLAnchorElement>(`#${activeTab}-tab`));
+
   return (
     <>
-      <div className="kth-content-tabs" id={id}>
+      <div className="kth-content-tabs" id={id} ref={ref}>
         <ul className="kth-content-tabs__tablist">
           {children.map((child, index) => (
             <li key={child.props.id}>
               <a
                 href={`#${child.props.id}`}
+                id={`${child.props.id}-tab`}
                 className="kth-content-tabs__tab"
                 aria-selected={index === activeTabIndex}
+                onKeyDown={(event) => {
+                  handleKeyDown(event, index, children, setActiveTab);
+                }}
                 onClick={(event) => {
                   event.preventDefault();
                   setActiveTab(child.props.id);
