@@ -1,24 +1,32 @@
 import React from "react";
 
 /** Get current URL hash */
-function useUrlHash() {
-  const [currentHash, setCurrentHash] = React.useState("");
+function useUrlHash(): [string, (value: string) => void] {
+  const [value, _setValue] = React.useState("");
 
   React.useEffect(() => {
-    function updateValue(event?: HashChangeEvent) {
-      const hash = new URL(event?.newURL || location.href).hash.slice(1);
-      setCurrentHash(hash);
+    function updateValue() {
+      const hash = new URL(location.href).hash.slice(1);
+      _setValue(hash);
     }
 
-    window.addEventListener("hashchange", updateValue);
+    window.addEventListener("popstate", updateValue);
     updateValue();
 
     return () => {
-      window.removeEventListener("hashchange", updateValue);
+      window.removeEventListener("popstate", updateValue);
     };
   });
 
-  return currentHash;
+  function setValue(newValue: string) {
+    const url = new URL(location.href);
+    url.hash = "#" + newValue;
+    history.pushState(undefined, "", url);
+
+    _setValue(newValue);
+  }
+
+  return [value, setValue];
 }
 
 /** Keep in sync the value of the query parameter `param` */
@@ -27,8 +35,7 @@ function useUrlQuery(param: string): [string, (value: string) => void] {
 
   React.useEffect(() => {
     function updateValue() {
-      const url = new URL(location.href);
-      const value = url.searchParams.get(param) || "";
+      const value = new URL(location.href).searchParams.get(param) || "";
       _setValue(value);
     }
 
@@ -150,14 +157,22 @@ export function ContentTabs({
   url?: "hash" | "none";
   defaultValue?: string;
 }) {
-  const [manualActiveTab, setManualActiveTab] = React.useState("");
-  const hashActiveTab = useUrlHash() || defaultValue || "";
+  const [hashTab, setHashTab] = useUrlHash();
+  const [manualTab, setManualTab] = React.useState(defaultValue || "");
 
-  const activeTab = url === "hash" ? hashActiveTab : manualActiveTab;
+  const activeTab = url === "hash" ? hashTab : manualTab;
 
   let activeTabIndex = children.findIndex((c) => c.props.id === activeTab);
   if (activeTabIndex === -1) {
     activeTabIndex = 0;
+  }
+
+  function setActiveTab(newTab: string) {
+    if (url === "hash") {
+      setHashTab(newTab);
+    } else {
+      setManualTab(newTab);
+    }
   }
 
   return (
@@ -171,10 +186,8 @@ export function ContentTabs({
                 className="kth-content-tabs__tab"
                 aria-selected={index === activeTabIndex}
                 onClick={(event) => {
-                  if (url === "none") {
-                    event.preventDefault();
-                    setManualActiveTab(child.props.id);
-                  }
+                  event.preventDefault();
+                  setActiveTab(child.props.id);
                 }}
               >
                 {child.props.title}
