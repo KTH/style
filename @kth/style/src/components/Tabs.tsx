@@ -20,7 +20,7 @@ function useUrlHash() {
   return currentHash;
 }
 
-/** Get the value of the given `param` in the current URL */
+/** Keep in sync the value of the query parameter `param` */
 function useUrlQuery(param: string): [string, (value: string) => void] {
   const [value, _setValue] = React.useState("");
 
@@ -72,7 +72,7 @@ export function NavigationTabs({
     activeTabIndex = 0;
   }
   return (
-    <div ref={containerRef} className="kth-tabs">
+    <div ref={containerRef} className="kth-tabs" id={id}>
       <ul className="kth-tabs__tablist">
         {children.map((child, index) => (
           <li key={child.props.id}>
@@ -113,11 +113,7 @@ export function ContentTabs({
   const [manualActiveTab, setManualActiveTab] = React.useState("");
   const hashActiveTab = useUrlHash() || defaultValue || "";
 
-  let activeTab = manualActiveTab;
-
-  if (url === "hash") {
-    activeTab = hashActiveTab;
-  }
+  const activeTab = url === "hash" ? hashActiveTab : manualActiveTab;
 
   let activeTabIndex = children.findIndex((c) => c.props.id === activeTab);
   if (activeTabIndex === -1) {
@@ -125,16 +121,12 @@ export function ContentTabs({
   }
 
   return (
-    <div ref={containerRef} className="kth-tabs">
+    <div ref={containerRef} className="kth-tabs" id={id}>
       <ul className="kth-tabs__tablist">
         {children.map((child, index) => (
           <li key={child.props.id}>
             <a
-              href={
-                url === "hash"
-                  ? `#${child.props.id}`
-                  : `?${id}=${child.props.id}`
-              }
+              href={`#${child.props.id}`}
               className="kth-tabs__tab"
               aria-selected={index === activeTabIndex}
               onClick={(event) => {
