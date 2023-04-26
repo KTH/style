@@ -79,27 +79,3 @@ $_all_spaces: (
 @function border-radius($list) {
   @return _spaces_to_rem($list);
 }
-
-/// Returns a "calc($padding - $border)" for each border and padding
-@function _padding_minus_border($paddings, $borders) {
-  @if list.length($paddings) != list.length($borders) {
-    @error "List of paddings and borders should have same length";
-  }
-
-  $list-of-paddings: ();
-
-  @for $i from 1 through list.length($paddings) {
-    $list-of-paddings: list.append(
-      $list-of-paddings,
-      calc(#{list.nth($paddings, $i)} - #{list.nth($borders, $i)})
-    );
-  }
-
-  @return $list-of-paddings;
-}
-
-/// Returns both padding and border values
-@mixin padding-and-border($suffix, $paddings, $borders) {
-  padding#{$suffix}: _padding_minus_border($paddings, $borders);
-  border#{$suffix}-width: $borders;
-}
