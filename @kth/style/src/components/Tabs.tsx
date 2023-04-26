@@ -147,28 +147,30 @@ export function GenericTabs({
   return (
     <>
       <div ref={ref} className={`${classPrefix}`} id={id}>
-        <div className={`${classPrefix}__tablist`} role="tablist">
+        <ul className={`${classPrefix}__tablist`} role="tablist">
           {children.map((child, index) => (
-            <button
-              key={child.props.id}
-              role="tab"
-              aria-selected={index === activeTabIndex}
-              aria-controls={child.props.id}
-              id={`${child.props.id}-tab`}
-              className={`${classPrefix}__tab`}
-              tabIndex={index === activeTabIndex ? 0 : -1}
-              onKeyDown={(event) => {
-                handleKeyDown(event, index, children, setActiveTab);
-              }}
-              onClick={(event) => {
-                event.preventDefault();
-                setActiveTab(child.props.id);
-              }}
-            >
-              {child.props.title}
-            </button>
+            <li role="presentation">
+              <button
+                key={child.props.id}
+                role="tab"
+                aria-selected={index === activeTabIndex}
+                aria-controls={child.props.id}
+                id={`${child.props.id}-tab`}
+                className={`${classPrefix}__tab`}
+                tabIndex={index === activeTabIndex ? 0 : -1}
+                onKeyDown={(event) => {
+                  handleKeyDown(event, index, children, setActiveTab);
+                }}
+                onClick={(event) => {
+                  event.preventDefault();
+                  setActiveTab(child.props.id);
+                }}
+              >
+                {child.props.title}
+              </button>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
       {children.map((child, index) => (
         <div
@@ -220,5 +222,5 @@ export function ContentTabs({
 }
 
 export function Tab({ children }: TabProps) {
-  return children;
+  return <>{children}</>;
 }
