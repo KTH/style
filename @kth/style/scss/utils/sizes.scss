@@ -3,17 +3,17 @@
 @mixin sizes {
   :root {
     // Padding (block and inline axis) for clickable elements
-    --kth-0-button-padding-block: #{t.$space-8};
-    --kth-0-button-padding-inline: #{t.$space-16};
+    --kth-0-clickable-padding-block: #{t.$space-8};
+    --kth-0-clickable-padding-inline: #{t.$space-16};
   }
 
   .kth-0-normal {
-    --kth-0-button-padding-block: #{t.$space-8};
-    --kth-0-button-padding-inline: #{t.$space-16};
+    --kth-0-clickable-padding-block: #{t.$space-8};
+    --kth-0-clickable-padding-inline: #{t.$space-16};
   }
 
   .kth-0-small {
-    --kth-0-button-padding-block: #{t.$space-4};
-    --kth-0-button-padding-inline: #{t.$space-12};
+    --kth-0-clickable-padding-block: #{t.$space-4};
+    --kth-0-clickable-padding-inline: #{t.$space-12};
   }
 }
