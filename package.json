@@ -12,7 +12,6 @@
     "lerna": "^6.4.1"
   },
   "dependencies": {
-    "@popperjs/core": "^2.11.6",
-    "react-popper": "^2.3.0"
+    "@popperjs/core": "^2.11.6"
   }
 }
