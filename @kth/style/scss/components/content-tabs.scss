@@ -10,6 +10,7 @@ $border-secondary: 1px solid t.$color-neutral-10;
 
   .kth-content-tabs__tablist {
     position: sticky;
+    top: calc(var(--kpm-bar-height, 0) + #{t.$space-16});
     list-style: none;
     padding: 0;
     margin: 0;

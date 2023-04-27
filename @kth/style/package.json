@@ -1,6 +1,6 @@
 {
   "name": "@kth/style",
-  "version": "0.0.1-0",
+  "version": "0.0.1-1",
   "scripts": {
     "clean": "rm -rf dist",
     "dev": "storybook dev -p 6006",
