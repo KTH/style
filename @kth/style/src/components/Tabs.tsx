@@ -149,7 +149,7 @@ export function GenericTabs({
       <div ref={ref} className={`${classPrefix}`} id={id}>
         <ul className={`${classPrefix}__tablist`} role="tablist">
           {children.map((child, index) => (
-            <li role="presentation">
+            <li role="presentation" className={`${classPrefix}__tab-element`}>
               <button
                 key={child.props.id}
                 role="tab"
@@ -174,6 +174,7 @@ export function GenericTabs({
       </div>
       {children.map((child, index) => (
         <div
+          className={`${classPrefix}__tabpanel`}
           role="tabpanel"
           aria-labelledby={`${child.props.id}-tab`}
           id={child.props.id}
