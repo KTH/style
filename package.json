@@ -6,7 +6,8 @@
     "apps/*"
   ],
   "scripts": {
-    "dev": "lerna run dev --stream --parallel --scope=@kth/style"
+    "dev": "lerna run dev --stream --parallel --scope=@kth/style",
+    "build": "lerna run build"
   },
   "devDependencies": {
     "lerna": "^6.4.1"
