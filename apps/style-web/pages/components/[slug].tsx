@@ -1,4 +1,4 @@
-import { Component } from "@/cms/payload-types";
+import { ComponentGuideline } from "@/cms/payload-types";
 import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import payload from "payload";
@@ -75,7 +75,7 @@ function renderRichText(richText: unknown): React.ReactNode {
 // TODO: Get language from user preference
 const LANGUAGE = "en";
 
-export default function ComponentPage({ page }: { page: Component }) {
+export default function ComponentPage({ page }: { page: ComponentGuideline }) {
   const router = useRouter();
 
   return (
@@ -96,7 +96,7 @@ export default function ComponentPage({ page }: { page: Component }) {
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { slug } = ctx.query;
   const pageQuery = await payload.find({
-    collection: "components",
+    collection: "component-guidelines",
     where: {
       id: {
         equals: slug,

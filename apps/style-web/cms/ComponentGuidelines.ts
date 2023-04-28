@@ -3,8 +3,8 @@ import { CollectionConfig } from "payload/types";
 
 const elements: RichTextElement[] = ["h1", "h2", "link", "ol", "ul"];
 
-export const Components: CollectionConfig = {
-  slug: "components",
+export const ComponentGuidelines: CollectionConfig = {
+  slug: "component-guidelines",
   fields: [
     {
       name: "id",
