@@ -1,1 +1,6 @@
 @use "@kth/style/scss/globals";
+@use "@kth/style/scss/utils/prose" as prose;
+
+main {
+  @include prose.prose;
+}

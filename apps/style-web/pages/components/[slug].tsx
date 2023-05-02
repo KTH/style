@@ -61,9 +61,9 @@ function renderRichText(richText: unknown): React.ReactNode {
       case "li":
         return <li>{renderRichText(richText.children)}</li>;
       case "h1":
-        return <h1>{renderRichText(richText.children)}</h1>;
+        return <h3>{renderRichText(richText.children)}</h3>;
       case "h2":
-        return <h2>{renderRichText(richText.children)}</h2>;
+        return <h4>{renderRichText(richText.children)}</h4>;
       case "ol":
         return <ol>{renderRichText(richText.children)}</ol>;
       default:
@@ -81,7 +81,7 @@ export default function ComponentPage({ page }: { page: ComponentGuideline }) {
   const router = useRouter();
 
   return (
-    <main>
+    <main style={{ margin: "auto", maxWidth: "64rem", padding: "4rem" }}>
       <h1>{page.title}</h1>
       <p className="lead">{page.purpose}</p>
       <iframe

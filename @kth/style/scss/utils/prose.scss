@@ -1,0 +1,21 @@
+@use "../tokens" as t;
+
+/// This mixin provides CSS for webpages with lots of prose text.
+///
+/// It includes:
+/// - CSS for tags like <p>, <h1-6>, <code>, <pre>, <ul> and <li>
+/// - CSS classes like ".lead"
+@mixin prose {
+  @layer kth-style {
+    p {
+      max-width: 70ch;
+    }
+
+    .lead {
+      font-size: 1.25em;
+      line-height: 1.6;
+      margin-top: 1.2em;
+      margin-bottom: 1.2em;
+    }
+  }
+}
