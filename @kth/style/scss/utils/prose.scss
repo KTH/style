@@ -9,7 +9,7 @@
   @layer kth-style {
     p {
       @include t.font-body-copy;
-      max-width: 70ch;
+      max-width: 60ch;
     }
 
     .lead {
