@@ -3,14 +3,8 @@
 /// Adaptation of normalize.css v8.0.1
 /// github.com/necolas/normalize.css
 ///
-/// The aim of this mixin is to normalize all browsers and at the same time
-/// provide basic global styles for everything
-///
-/// Use this mixin if you wanted a **scoped** version of the mixin, i.e., if you
-/// want the reset to be applied to a part of the document.
-///
-/// If you want a global version of this, use the `reset` file outside of the
-/// `globals` directory
+/// This mixin normalizes all browsers and provides basic global styles for all
+/// HTML elements. This mixin only styles elements in isolation
 @mixin reset {
   @layer kth-style {
     // HTML
@@ -70,6 +64,10 @@
     pre {
       font-family: monospace, monospace; /* 1 */
       font-size: 1em; /* 2 */
+    }
+
+    iframe {
+      border: none;
     }
 
     /* Text-level semantics

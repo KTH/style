@@ -1,5 +1,6 @@
 @use "../tokens" as t;
 
+/// This mixin provides CSS custom properties used for sizing all UI elements
 @mixin sizes {
   @layer kth-style {
     :root {
