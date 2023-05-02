@@ -1,7 +1,5 @@
 @use "utils/reset";
 @use "utils/sizes";
 
-@layer kth-style {
-  @include reset.reset();
-  @include sizes.sizes();
-}
+@include reset.reset();
+@include sizes.sizes();
