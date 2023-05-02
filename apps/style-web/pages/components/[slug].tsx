@@ -70,6 +70,8 @@ function renderRichText(richText: unknown): React.ReactNode {
         return <p>{renderRichText(richText.children)}</p>;
     }
   }
+
+  return <></>;
 }
 
 // TODO: Get language from user preference
@@ -81,8 +83,11 @@ export default function ComponentPage({ page }: { page: ComponentGuideline }) {
   return (
     <main>
       <h1>{page.title}</h1>
-      <h2>Syfte</h2>
-      {page.purpose}
+      <p className="lead">{page.purpose}</p>
+      <iframe
+        src="/storybook/index.html?path=/story/kth-style-content-tabs--primary"
+        style={{ width: "100%", aspectRatio: "16/9" }}
+      ></iframe>
       <h2>When to use</h2>
       {renderRichText(page.whenToUse)}
       <h2>When not to use</h2>
