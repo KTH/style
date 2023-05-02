@@ -8,14 +8,14 @@
 @mixin prose {
   @layer kth-style {
     p {
+      @include t.font-body-copy;
       max-width: 70ch;
     }
 
     .lead {
-      font-size: 1.25em;
-      line-height: 1.6;
-      margin-top: 1.2em;
-      margin-bottom: 1.2em;
+      @include t.font-body-lead;
+      margin-block-start: t.$space-12;
+      margin-block-end: t.$space-16;
     }
   }
 }

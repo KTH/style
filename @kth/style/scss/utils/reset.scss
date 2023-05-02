@@ -70,6 +70,20 @@
       border: none;
     }
 
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    figure {
+      margin: t.$space-32 0;
+    }
+
+    figcaption {
+      margin-block-start: t.$space-12;
+      font-size: 1rem;
+    }
+
     /* Text-level semantics
    ========================================================================== */
     a {

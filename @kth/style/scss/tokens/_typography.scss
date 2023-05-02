@@ -1,3 +1,4 @@
+@use "sass:math";
 // 2. Typography
 
 // Base tokens
@@ -56,15 +57,15 @@ $font-weight-bold: 600;
 }
 
 @mixin font-body-copy {
-  font-family: $font-serif;
+  font-family: $font-family-serif;
   font-weight: 400;
-  font-size: g.rem(18);
-  line-height: g.rem(28);
+  font-size: math.div(18rem, 16);
+  line-height: math.div(28rem, 16);
 }
 
 @mixin font-body-lead {
-  font-family: $font-serif;
+  font-family: $font-family-sans;
   font-weight: 400;
-  font-size: g.rem(22);
-  line-height: g.rem(32);
+  font-size: math.div(22rem, 16);
+  line-height: math.div(32rem, 16);
 }
