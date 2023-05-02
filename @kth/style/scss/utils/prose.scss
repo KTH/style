@@ -9,6 +9,7 @@
   @layer kth-style {
     p {
       @include t.font-body-copy;
+      margin-block: t.$space-20;
       max-width: 60ch;
     }
 
@@ -16,6 +17,93 @@
       @include t.font-body-lead;
       margin-block-start: t.$space-12;
       margin-block-end: t.$space-16;
+    }
+
+    h1 {
+      margin: t.margin(32 0 16 0);
+    }
+
+    h2 {
+      margin: t.margin(32 0 16 0);
+    }
+
+    h3 {
+      margin: t.margin(32 0 8 0);
+    }
+
+    h4 {
+      margin: t.margin(32 0 4 0);
+    }
+
+    li {
+      @include t.font-body-copy;
+      max-width: 60ch;
+      margin: t.margin(8 0);
+    }
+
+    ol,
+    ul {
+      padding-inline-start: t.$space-32;
+
+      li {
+        padding-inline-start: t.$space-6;
+      }
+    }
+
+    h1 + *,
+    h2 + *,
+    h3 + * {
+      margin-block-start: 0;
+    }
+
+    table {
+      table-layout: auto;
+      text-align: left;
+      margin: 2rem 0;
+      border-collapse: collapse;
+
+      display: block;
+      overflow-x: auto;
+    }
+
+    thead {
+      border-bottom: 1px solid t.$color-neutral-2;
+
+      th {
+        padding: t.padding(0 8 8 8);
+        font-weight: 600;
+
+        &:first-child {
+          padding-left: 0;
+        }
+
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid t.$color-neutral-2;
+
+        &:last-child {
+          border-bottom-width: 0;
+        }
+      }
+
+      td {
+        vertical-align: baseline;
+        padding: t.$space-8;
+
+        &:first-child {
+          padding-left: 0;
+        }
+
+        &:last-child {
+          padding-right: 0;
+        }
+      }
     }
   }
 }

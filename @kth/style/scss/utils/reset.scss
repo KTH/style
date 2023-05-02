@@ -56,6 +56,9 @@
     hr {
       box-sizing: content-box; /* 1 */
       height: 0; /* 1 */
+      border: 0;
+      border-top: 1px t.$color-neutral-2 solid;
+      margin: t.$space-32 0;
       overflow: visible; /* 2 */
     }
 
@@ -80,6 +83,8 @@
     }
 
     figcaption {
+      max-width: 70ch;
+      font-style: italic;
       margin-block-start: t.$space-12;
       font-size: 1rem;
     }
