@@ -1,6 +1,6 @@
 import { buildConfig } from "payload/config";
 import dotenv from "dotenv";
-import { ComponentGuidelines } from "./cms/ComponentGuidelines";
+import { ComponentGuidelines } from "./src/cms/ComponentGuidelines";
 
 dotenv.config();
 

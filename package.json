@@ -7,7 +7,8 @@
   ],
   "scripts": {
     "dev": "lerna run dev --stream --parallel --scope=@kth/style",
-    "build": "lerna run build"
+    "build": "lerna run build",
+    "publish": "lerna publish --no-private"
   },
   "devDependencies": {
     "lerna": "^6.4.1"
