@@ -23,7 +23,7 @@
     "paths": {
       "@/*": ["./*"],
       "payload/generated-types": [
-        "./cms/payload-types.ts" // Ensure this matches the path to your typescript outputFile
+        "src/cms/payload-types.ts" // Ensure this matches the path to your typescript outputFile
       ]
     }
   },
