@@ -2,11 +2,13 @@
   "name": "@kth/style",
   "version": "0.0.1",
   "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/cjs/index.d.ts",
   "scripts": {
     "clean": "rm -rf dist",
     "dev": "storybook dev -p 6006",
     "build": "npm run clean && npm run build:components && npm run build:storybook",
-    "build:components": "tsc",
+    "build:components": "rollup -c",
     "build:storybook": "storybook build -o ../../apps/style-web/public/storybook",
     "test": "npm run test:lint",
     "test:lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
@@ -16,6 +18,7 @@
     "dist"
   ],
   "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.0",
     "@storybook/addon-essentials": "^7.0.6",
     "@storybook/addon-interactions": "^7.0.6",
     "@storybook/addon-links": "^7.0.6",
