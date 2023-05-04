@@ -15,6 +15,7 @@ export default [
         format: "esm",
       },
     ],
+    external: ["react", "react-dom"],
     plugins: [nodeResolve(), typescript(), commonjs()],
   },
 ];
