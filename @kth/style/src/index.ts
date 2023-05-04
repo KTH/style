@@ -1,5 +1,1 @@
-import { hello2 } from "./components/Something";
-
-export function hello() {
-  hello2();
-}
+export { Tab, ContentTabs, NavigationTabs } from "./components/Tabs";
