@@ -1,3 +1,5 @@
+import { hello2 } from "./components/Something";
+
 export function hello() {
-  console.log("Hello from the other side");
+  hello2();
 }
