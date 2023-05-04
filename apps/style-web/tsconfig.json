@@ -21,7 +21,7 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
+      "@/*": ["./src/*"],
       "payload/generated-types": [
         "src/cms/payload-types.ts" // Ensure this matches the path to your typescript outputFile
       ]
