@@ -31,6 +31,10 @@ $border-secondary: 1px solid t.$color-neutral-10;
       color: t.$color-neutral-10;
       margin-block-end: -1px;
 
+      &:focus {
+        outline-offset: -#{t.$space-4};
+      }
+
       &:hover {
         text-decoration: underline;
       }

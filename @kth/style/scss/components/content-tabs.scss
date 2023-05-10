@@ -38,6 +38,10 @@ $border-secondary: 1px solid t.$color-neutral-10;
       border: $border-secondary;
       border-radius: t.border-radius(8 8 0 0);
 
+      &:focus {
+        outline-offset: -#{t.$space-4};
+      }
+
       &:hover {
         text-decoration: underline;
       }
