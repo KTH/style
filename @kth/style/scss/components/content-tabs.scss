@@ -10,7 +10,7 @@ $border-secondary: 1px solid t.$color-neutral-10;
     top: calc(var(--kpm-bar-height, 0rem));
     background: t.$color-neutral-0;
 
-    &__tablist {
+    ul[role="tablist"] {
       list-style: none;
       padding: 0;
       margin: 0;
@@ -22,11 +22,11 @@ $border-secondary: 1px solid t.$color-neutral-10;
       border-block-end: $border-secondary;
     }
 
-    &__tab-element {
+    li {
       display: flex;
     }
 
-    &__tab {
+    button[role="tab"] {
       box-sizing: border-box;
       padding-inline: var(--kth-0-clickable-padding-inline);
       padding-block: calc(var(--kth-0-clickable-padding-block) - 1px);
@@ -60,7 +60,7 @@ $border-secondary: 1px solid t.$color-neutral-10;
       }
     }
 
-    &__tabpanel {
+    [role="tabpanel"] {
       border-inline: $border-secondary;
       border-block-end: $border-secondary;
     }

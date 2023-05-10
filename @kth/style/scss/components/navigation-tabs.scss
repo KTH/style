@@ -6,7 +6,7 @@ $border-secondary: 1px solid t.$color-neutral-10;
   .kth-navigation-tabs {
     overflow: auto;
 
-    &__tablist {
+    [role="tablist"] {
       list-style: none;
       padding: 0;
       margin: 0;
@@ -18,7 +18,7 @@ $border-secondary: 1px solid t.$color-neutral-10;
       border-block-end: $border-secondary;
     }
 
-    &__tab {
+    [role="tab"] {
       font: inherit;
       background: none;
       border: none;
