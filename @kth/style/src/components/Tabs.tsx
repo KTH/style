@@ -49,7 +49,7 @@ function useUrlState(
   key = "",
   enableUrl = false
 ): [string, (value: string) => void] {
-  const initialValue = getValueFromUrl(key) || defaultValue;
+  const initialValue = (enableUrl && getValueFromUrl(key)) || defaultValue;
   const [value, _setValue] = React.useState(initialValue);
 
   React.useEffect(() => {
