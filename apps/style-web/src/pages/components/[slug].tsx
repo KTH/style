@@ -8,7 +8,8 @@ import { Descendant, Element, Text } from "slate";
 declare module "slate" {
   interface CustomTypes {
     Element: {
-      type: "h1" | "h2" | "p" | "ol" | "ul" | "li";
+      type: "h1" | "h2" | "p" | "ol" | "ul" | "li" | "link";
+      url?: string;
       children: Descendant[];
     };
     Text: {
@@ -66,6 +67,8 @@ function renderRichText(richText: unknown): React.ReactNode {
         return <h4>{renderRichText(richText.children)}</h4>;
       case "ol":
         return <ol>{renderRichText(richText.children)}</ol>;
+      case "link":
+        return <a href={richText.url}>{renderRichText(richText.children)}</a>;
       default:
         return <p>{renderRichText(richText.children)}</p>;
     }
