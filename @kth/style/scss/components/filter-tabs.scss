@@ -1,0 +1,31 @@
+@use "../tokens/" as t;
+
+@layer kth-style {
+  .kth-filter-tabs {
+    border: none;
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+
+    input[type="radio"] {
+      appearance: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    label {
+      display: inline-block;
+      padding-inline: var(--kth-0-clickable-padding-inline);
+      padding-block: var(--kth-0-clickable-padding-block);
+    }
+
+    input:focus + label {
+      outline: 2px solid t.$color-primary-5;
+      outline-offset: -#{t.$space-6};
+    }
+
+    input:checked + label {
+      border-bottom: t.$space-2 t.$color-primary-5 solid;
+    }
+  }
+}
