@@ -1,4 +1,4 @@
-import { ComponentGuideline } from "@/src/cms/payload-types";
+import { ComponentGuideline } from "@/cms/payload-types";
 import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import payload from "payload";
