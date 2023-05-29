@@ -1,0 +1,24 @@
+@use "../tokens/" as t;
+
+@layer kth-style {
+  .kth-select {
+    margin-block: t.$space-24;
+
+    label {
+      display: inline-block;
+      font-weight: 600;
+    }
+
+    p {
+      margin: t.$space-4 0;
+    }
+
+    select {
+      margin-top: t.$space-8;
+      padding-inline: var(--kth-0-clickable-padding-inline);
+      padding-block: calc(var(--kth-0-clickable-padding-block) - 1px);
+      border-radius: t.$space-4;
+      border-block: 1px solid t.$color-neutral-10;
+    }
+  }
+}
