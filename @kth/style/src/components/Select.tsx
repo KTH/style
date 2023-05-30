@@ -1,7 +1,5 @@
 import React from "react";
 
-const SelectContext = React.createContext<string>("");
-
 interface SelectProps {
   /** Equivalent to HTML `name` */
   name: string;
@@ -45,21 +43,19 @@ export function Select({
 }: SelectProps) {
   const id = `select-${name}`;
   return (
-    <SelectContext.Provider value={value}>
-      <div className="kth-select">
-        <label htmlFor={id}>{label}</label>
-        {description && <p id={`${id}-description`}>{description}</p>}
-        <select
-          id={id}
-          aria-describedby={description && `${id}-description`}
-          name={name}
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-        >
-          {children}
-        </select>
-      </div>
-    </SelectContext.Provider>
+    <div className="kth-select">
+      <label htmlFor={id}>{label}</label>
+      {description && <p id={`${id}-description`}>{description}</p>}
+      <select
+        id={id}
+        aria-describedby={description && `${id}-description`}
+        name={name}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+      >
+        {children}
+      </select>
+    </div>
   );
 }
 
@@ -68,11 +64,5 @@ export function OptionGroup({ label, children }: OptionGroupProps) {
 }
 
 export function Option({ value, children }: OptionProps) {
-  const selectedValue = React.useContext(SelectContext);
-
-  return (
-    <option value={value} selected={value === selectedValue}>
-      {children}
-    </option>
-  );
+  return <option value={value}>{children}</option>;
 }
