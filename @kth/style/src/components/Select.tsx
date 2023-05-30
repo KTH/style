@@ -3,7 +3,7 @@ import React from "react";
 const SelectContext = React.createContext<string>("");
 
 interface SelectProps {
-  /** HTML form `name` */
+  /** Equivalent to HTML `name` */
   name: string;
 
   /** Label for the select */
