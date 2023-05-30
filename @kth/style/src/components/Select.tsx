@@ -19,9 +19,7 @@ interface SelectProps {
   onChange(value: string): void;
 
   /** Options */
-  children:
-    | React.ReactElement<OptionProps | OptionGroupProps>
-    | React.ReactElement<OptionProps | OptionGroupProps>[];
+  children: React.ReactNode;
 }
 
 interface OptionProps {
