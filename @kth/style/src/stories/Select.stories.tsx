@@ -16,7 +16,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
-export const Primary: Story = {
+export const WithDescriptions: Story = {
   args: {
     name: "example-select",
     label: "Favorite dessert",
@@ -38,6 +38,25 @@ export const Primary: Story = {
         <Option value="carrot">Carrot</Option>
         <Option value="sushi">Sushi</Option>
       </OptionGroup>,
+    ],
+  },
+};
+
+export const WithoutDescriptions: Story = {
+  args: {
+    name: "example-select",
+    label: "Favorite dessert",
+    value: "none",
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    onChange: () => {},
+    children: [
+      <Option value="none">Select an option</Option>,
+      <Option value="ice">Ice cream</Option>,
+      <Option value="tiramisu">Tiramisu</Option>,
+      <Option value="cinnamon">Cinammon rolls</Option>,
+      <Option value="cake">Cake</Option>,
+      <Option value="sushi">Sushi</Option>,
+      <Option value="chocolate">Chocolate</Option>,
     ],
   },
 };
