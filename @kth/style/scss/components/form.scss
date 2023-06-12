@@ -1,7 +1,8 @@
 @use "../tokens/" as t;
 
 @layer kth-style {
-  .kth-select {
+  .kth-select,
+  .kth-input {
     margin-block: t.$space-24;
 
     label {
@@ -18,7 +19,15 @@
       padding-inline: var(--kth-0-clickable-padding-inline);
       padding-block: calc(var(--kth-0-clickable-padding-block) - 1px);
       border-radius: t.$space-4;
-      border-block: 1px solid t.$color-neutral-10;
+      border: 1px solid t.$color-neutral-10;
+    }
+
+    input {
+      margin-top: t.$space-8;
+      padding-inline: var(--kth-0-clickable-padding-inline);
+      padding-block: calc(var(--kth-0-clickable-padding-block) - 1px);
+      border-radius: t.$space-4;
+      border: 1px solid t.$color-neutral-10;
     }
   }
 }

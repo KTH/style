@@ -1,0 +1,52 @@
+@use "../tokens/" as t;
+
+@layer kth-style {
+  .kth-button {
+    padding-inline: var(--kth-0-clickable-padding-inline);
+    padding-block: calc(var(--kth-0-clickable-padding-block) - 1px);
+    border: 1px solid t.$color-neutral-10;
+    border-radius: t.$space-4;
+
+    &.primary {
+      font-weight: t.$font-weight-bold;
+      background: t.$color-primary-5;
+      border-color: t.$color-primary-5;
+      color: t.$color-neutral-0;
+
+      &:hover {
+        background: t.$color-primary-6;
+        border-color: t.$color-primary-6;
+      }
+    }
+  }
+
+  .kth-select,
+  .kth-input {
+    margin-block: t.$space-24;
+
+    label {
+      display: inline-block;
+      font-weight: 600;
+    }
+
+    p {
+      margin: t.$space-4 0;
+    }
+
+    select {
+      margin-top: t.$space-8;
+      padding-inline: var(--kth-0-clickable-padding-inline);
+      padding-block: calc(var(--kth-0-clickable-padding-block) - 1px);
+      border-radius: t.$space-4;
+      border: 1px solid t.$color-neutral-10;
+    }
+
+    input {
+      margin-top: t.$space-8;
+      padding-inline: var(--kth-0-clickable-padding-inline);
+      padding-block: calc(var(--kth-0-clickable-padding-block) - 1px);
+      border-radius: t.$space-4;
+      border: 1px solid t.$color-neutral-10;
+    }
+  }
+}
