@@ -20,6 +20,11 @@
       padding-block: calc(var(--kth-0-clickable-padding-block) - 1px);
       border-radius: t.$space-4;
       border: 1px solid t.$color-neutral-10;
+
+      &[aria-invalid="true"] {
+        color: t.$color-danger-5;
+        border-color: t.$color-danger-5;
+      }
     }
 
     input {
@@ -28,6 +33,16 @@
       padding-block: calc(var(--kth-0-clickable-padding-block) - 1px);
       border-radius: t.$space-4;
       border: 1px solid t.$color-neutral-10;
+
+      &[aria-invalid="true"] {
+        color: t.$color-danger-5;
+        border-color: t.$color-danger-5;
+      }
+    }
+
+    &__error {
+      margin-top: t.$space-8;
+      color: t.$color-danger-5;
     }
   }
 }

@@ -18,6 +18,12 @@ interface SelectProps {
 
   /** Options */
   children: React.ReactNode;
+
+  /**
+   * Error message if the field has errors. `undefined` here means the field
+   * contains no error.
+   */
+  error?: string;
 }
 
 interface OptionProps {
@@ -40,6 +46,7 @@ export function Select({
   value,
   onChange,
   children,
+  error,
 }: SelectProps) {
   const id = `select-${name}`;
   return (
@@ -52,9 +59,15 @@ export function Select({
         name={name}
         value={value}
         onChange={(e) => onChange(e.target.value)}
+        aria-invalid={error ? "true" : "false"}
       >
         {children}
       </select>
+      {error && (
+        <p className="kth-select__error" role="alert">
+          {error}
+        </p>
+      )}
     </div>
   );
 }

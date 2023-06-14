@@ -60,3 +60,23 @@ export const WithoutDescriptions: Story = {
     ],
   },
 };
+
+export const WithError: Story = {
+  args: {
+    name: "example-select",
+    label: "Favorite dessert",
+    value: "sushi",
+    error: "Sushi is not a dessert",
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    onChange: () => {},
+    children: [
+      <Option value="none">Select an option</Option>,
+      <Option value="ice">Ice cream</Option>,
+      <Option value="tiramisu">Tiramisu</Option>,
+      <Option value="cinnamon">Cinammon rolls</Option>,
+      <Option value="cake">Cake</Option>,
+      <Option value="sushi">Sushi</Option>,
+      <Option value="chocolate">Chocolate</Option>,
+    ],
+  },
+};
