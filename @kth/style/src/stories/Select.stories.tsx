@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Select, Option, OptionGroup } from "../components/Select";
 
 import "../../scss/globals.scss";
-import "../../scss/components/select.scss";
+import "../../scss/components/form.scss";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
