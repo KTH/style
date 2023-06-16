@@ -59,7 +59,7 @@ export function Select({
         name={name}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        aria-invalid={error ? "true" : "false"}
+        aria-invalid={error !== undefined ? "true" : "false"}
       >
         {children}
       </select>
