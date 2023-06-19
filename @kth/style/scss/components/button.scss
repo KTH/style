@@ -3,19 +3,39 @@
 @layer kth-style {
   .kth-button {
     padding-inline: var(--kth-0-clickable-padding-inline);
-    padding-block: calc(var(--kth-0-clickable-padding-block) - 1px);
-    border: 1px solid t.$color-neutral-10;
     border-radius: t.$space-4;
+    display: inline-flex;
+    gap: t.$space-4;
+    align-items: center;
 
     &.primary {
-      font-weight: t.$font-weight-bold;
       background: t.$color-primary-5;
-      border-color: t.$color-primary-5;
       color: t.$color-neutral-0;
+      border: none;
+      padding-block: var(--kth-0-clickable-padding-block);
+      font-weight: t.$font-weight-bold;
 
       &:hover {
         background: t.$color-primary-6;
-        border-color: t.$color-primary-6;
+      }
+    }
+
+    &.secondary {
+      background: transparent;
+      color: t.$color-neutral-10;
+      border: 1px solid t.$color-neutral-10;
+      padding-block: calc(var(--kth-0-clickable-padding-block) - 1px);
+    }
+
+    &.tertiary {
+      padding-inline: 0;
+      background: transparent;
+      color: t.$color-primary-5;
+      border: none;
+      padding-block: calc(var(--kth-0-clickable-padding-block));
+
+      &:hover {
+        text-decoration: underline;
       }
     }
   }
