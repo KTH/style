@@ -8,5 +8,6 @@
 - `/@kth/style` is the actual KTH Style library.
 - `/apps` directory contains applications that will not be published into npm.
 - `/apps/style-web` contains the skeleton for the future KTH Style website
+- `/scripts` contains diverse cross-project scripts.
 
 Find the documentation for each project in the README file located on top of them.
