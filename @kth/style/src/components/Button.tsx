@@ -49,5 +49,3 @@ export function ForwardButton({ children, onClick }: IconButtonProps) {
     </button>
   );
 }
-
-// export function NextButton() {}
