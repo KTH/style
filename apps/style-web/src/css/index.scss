@@ -1,8 +1,0 @@
-@use "@kth/style/scss/globals";
-@use "@kth/style/scss/utils/prose" as prose;
-
-main {
-  margin: auto;
-  max-width: 64rem;
-  @include prose.prose;
-}
