@@ -1,20 +1,64 @@
-// 1. Colors
-$color-neutral-10: #000;
-$color-neutral-6: #65656c;
-$color-neutral-2: #d4d4d4;
-$color-neutral-1: #f6f6f6;
-$color-neutral-0: #fff;
+// Gray-scale
+$color-white: #fcfcfc;
+$color-black: #212121;
+$color-gray-light: #e6e6e6;
+$color-gray-medium: #a5a5a5;
+$color-gray-dark: #323232;
 
-$color-primary-6: #006388;
-$color-primary-5: #007fae;
+// Colors defined by "Varumärkesgruppen"
+$color-sand: #e6e1dd;
+$color-blue-kth: #004791;
+$color-blue-light: #e0edfc;
+$color-blue-sky: #6298d2;
+$color-blue-marine: #08004f;
+$color-blue-digital: #221dd9;
 
-$color-success-6: #3f6600;
-$color-success-5: #528400;
-$color-success-1: #dff0d8;
+// This color is specially made for links
+// 4.51:1 with `$color-blue-light` (requires 4.50)
+// 5.21:1 with `$color-white`      (requires 4.50)
+// 3.01:1 with `$color-black`      (requires 3.00)
+$color-blue-special: #036eb8;
 
-$color-danger-6: #b52c17;
-$color-danger-5: #d4351c;
-$color-danger-1: #f5e6e6;
+@mixin theme-default {
+  --text-color: $color-black;
+  --background-color: $color-white;
+  --link-color: $color-blue-special;
+  --separator-border-color: $color-gray-light;
+  --primary-background-color: $color-blue-kth;
+  --primary-on-color: $color-white;
+  --boxed-secondary-color: $color-black;
+  // ... --hover-overlay: ...
+}
 
-$color-warning-3: #fab919;
-$color-warning-1: #fcf8e3;
+@mixin theme-student-web {
+  --text-color: $color-black;
+  --background-color: $color-blue-light;
+  --link-color: $color-blue-special;
+  --separator-border-color: $color-gray-light;
+  --primary-background-color: $color-blue-kth;
+  --primary-on-color: $color-white;
+  --boxed-secondary-color: $color-black;
+  // ... --hover-overlay: ...
+}
+
+@mixin theme-intranet {
+  --text-color: $color-black;
+  --background-color: $color-sand;
+  --link-color: $color-blue-special;
+  --separator-border-color: $color-gray-medium;
+  --primary-background-color: $color-blue-kth;
+  --primary-on-color: $color-white;
+  --boxed-secondary-color: $color-black;
+  // ... --hover-overlay: ...
+}
+
+@mixin theme-inverse {
+  --text-color: $color-white;
+  --background-color: $color-blue-kth;
+  --link-color: $color-white;
+  --separator-border-color: $color-blue-sky;
+  --primary-background-color: $color-white;
+  --primary-on-color: $color-blue-kth;
+  --boxed-secondary-color: $color-white;
+  // ... --hover-overlay: ...
+}
