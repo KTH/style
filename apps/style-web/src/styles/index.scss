@@ -22,10 +22,9 @@ body {
   @include colors.theme-default;
 }
 
-.kpm {
-  max-width: 80rem;
+.kpm__container {
   margin-inline: auto;
-  // font-weight: 500;
+  max-width: 80rem;
 }
 
 .kpm__entries {
@@ -98,6 +97,7 @@ body {
 
   &__tools {
     @include horizontal-list();
+    gap: 1rem;
     margin-inline-start: auto;
   }
 
@@ -109,15 +109,18 @@ body {
 .kth-dropdown {
   text-decoration: none;
   color: var(--header-on-color);
-  padding-block: spacing.$space-8;
+  font: inherit;
+  border: none;
+  background: none;
 
   &:has(svg) {
     display: flex;
     align-items: center;
     gap: 0.25rem;
 
-    padding-block-end: spacing.$space-4;
     span {
+      padding-block: spacing.$space-8;
+      padding-block-end: spacing.$space-4;
       border-bottom: transparent spacing.$space-4 solid;
     }
   }

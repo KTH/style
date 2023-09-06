@@ -5,17 +5,23 @@ import "../styles/index.scss";
 import MegaMenu from "../components/MegaMenu.astro";
 import Layout from "../layouts/Layout.astro";
 import CaretDown from "../components/icons/CaretDown.astro";
+import SearchIcon from "../components/icons/Search.astro";
+import LanguageIcon from "../components/icons/Language.astro";
 ---
 
 <Layout title="KTH Style">
   <div class="kpm">
-    <nav class="kpm__entries" aria-label="Ingångar">
-      <ul>
-        <li><a href="https://kth.se">kth.se</a></li>
-        <li><a href="https://kth.se/student">Studentwebben</a></li>
-        <li><a href="https://intra.kth.se" aria-current="true">Intranät</a></li>
-      </ul>
-    </nav>
+    <div class="kpm__container">
+      <nav class="kpm__entries" aria-label="Ingångar">
+        <ul>
+          <li><a href="https://kth.se">kth.se</a></li>
+          <li><a href="https://kth.se/student">Studentwebben</a></li>
+          <li>
+            <a href="https://intra.kth.se" aria-current="true">Intranät</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </div>
   <header class="kth-main-header">
     <div class="kth-main-header__container">
@@ -57,12 +63,28 @@ import CaretDown from "../components/icons/CaretDown.astro";
         </ul>
       </nav>
       <ul class="kth-main-header__tools">
-        <li>Tools</li>
+        <li>
+          <button class="kth-dropdown">
+            <SearchIcon />
+            <span>Sök</span>
+          </button>
+        </li>
+        <li>
+          <a class="kth-dropdown">
+            <LanguageIcon />
+            <span>English</span>
+          </a>
+        </li>
       </ul>
       <div class="kth-main-header__mega-menu--collapsable">M</div>
     </div>
     <!-- <MegaMenu /> -->
   </header>
+  <div class="kth-main-content">
+    <nav>Brödsmulor</nav>
+    <aside>Under-meny</aside>
+    <main>Huvudinnehåll</main>
+  </div>
   <ul>
     <li>Getting started</li>
     <li>Styles</li>
