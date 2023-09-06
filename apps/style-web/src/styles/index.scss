@@ -20,6 +20,7 @@ body {
   padding: 0;
 
   @include colors.theme-default;
+  @include spacing.theme-default;
 }
 
 .kpm__container {
@@ -30,7 +31,20 @@ body {
 .kpm__entries {
   ul {
     @include horizontal-list();
-    gap: 0.25rem;
+    gap: spacing.gap(4);
+  }
+
+  a {
+    color: var(--header-on-color);
+    display: block;
+    padding-block-start: spacing.$space-8;
+    padding-inline: spacing.padding(8);
+    text-decoration: none;
+
+    // background: blue;
+    padding-block-end: calc(spacing.$space-8 - spacing.$space-4);
+    border-block-end: solid spacing.$space-4;
+    border-block-end-color: transparent;
   }
 
   li:first-child a {
@@ -40,19 +54,7 @@ body {
     text-align: center;
   }
 
-  a {
-    display: block;
-    padding-block: spacing.$space-8 calc(spacing.$space-8 - spacing.$space-4);
-    padding-inline: spacing.$space-8;
-    text-decoration: none;
-
-    // background: blue;
-    color: var(--header-on-color);
-    border-block-end: solid spacing.$space-4;
-    border-block-end-color: transparent;
-  }
-
-  a[aria-current="true"] {
+  li:nth-child(3) a[aria-current="true"] {
     background: colors.$color-sand;
     color: colors.$color-blue-kth;
   }
@@ -62,7 +64,7 @@ body {
   @include colors.theme-intranet;
   background: var(--background-color);
   color: var(--header-on-color);
-  padding-block: 1rem;
+  padding-block: spacing.padding(16);
   position: relative;
 
   &__container {
@@ -77,7 +79,7 @@ body {
     height: 4rem;
     border: none;
     margin: 0;
-    margin-inline-end: 2rem;
+    margin-inline-end: spacing.margin(32);
     padding: 0;
 
     > img {
@@ -116,11 +118,11 @@ body {
   &:has(svg) {
     display: flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: spacing.gap(4);
 
     span {
-      padding-block: spacing.$space-8;
-      padding-block-end: spacing.$space-4;
+      padding-block: spacing.padding(8);
+      padding-block-end: spacing.padding(4);
       border-bottom: transparent spacing.$space-4 solid;
     }
   }
