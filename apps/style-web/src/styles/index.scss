@@ -1,4 +1,6 @@
 @use "@kth/style/scss/tokens/colors";
+@use "@kth/style/scss/tokens/spacing";
+
 @mixin horizontal-list {
   display: flex;
   list-style: none;
@@ -41,13 +43,13 @@ body {
 
   a {
     display: block;
-    padding-block: 0.5rem calc(0.5rem - 0.25rem);
-    padding-inline: 0.5rem;
+    padding-block: spacing.$space-8 calc(spacing.$space-8 - spacing.$space-4);
+    padding-inline: spacing.$space-8;
     text-decoration: none;
 
     // background: blue;
     color: var(--header-on-color);
-    border-block-end: solid 0.25rem;
+    border-block-end: solid spacing.$space-4;
     border-block-end-color: transparent;
   }
 
@@ -107,10 +109,22 @@ body {
 .kth-dropdown {
   text-decoration: none;
   color: var(--header-on-color);
+  padding-block: spacing.$space-8;
 
   &:has(svg) {
     display: flex;
     align-items: center;
     gap: 0.25rem;
+
+    padding-block-end: spacing.$space-4;
+    span {
+      border-bottom: transparent spacing.$space-4 solid;
+    }
+  }
+
+  &:hover {
+    span {
+      border-color: var(--header-on-color);
+    }
   }
 }
