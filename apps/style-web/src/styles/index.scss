@@ -1,0 +1,99 @@
+@use "@kth/style/scss/tokens/colors";
+
+body {
+  line-height: 1.5;
+  font-family: Figtree;
+  margin: 0;
+  padding: 0;
+
+  @include colors.theme-default;
+}
+
+.kpm {
+  max-width: 80rem;
+  margin-inline: auto;
+  font-weight: 500;
+}
+
+.kpm__entries {
+  ul {
+    display: flex;
+    gap: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    padding: 0;
+    margin: 0;
+  }
+
+  li:first-child a {
+    box-sizing: border-box;
+    width: 4rem;
+    padding-inline: 0;
+    text-align: center;
+  }
+
+  a {
+    display: block;
+    padding-block: 0.5rem calc(0.5rem - 0.25rem);
+    padding-inline: 0.5rem;
+    text-decoration: none;
+
+    // background: blue;
+    color: darkblue;
+    border-block-end: solid 0.25rem;
+    border-block-end-color: transparent;
+  }
+
+  a[aria-current="true"] {
+    background: darkblue;
+    color: white;
+  }
+}
+
+.kth-main-header {
+  @include colors.theme-intranet;
+  background: var(--background-color);
+  color: var(--header-on-color);
+  padding-block: 1rem;
+  position: relative;
+
+  &__container {
+    max-width: 80rem;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+  }
+
+  &__logotype {
+    width: 4rem;
+    height: 4rem;
+    border: none;
+    margin: 0;
+    margin-inline-end: 1rem;
+    padding: 0;
+
+    > img {
+      block-size: 100%;
+      inline-size: 100%;
+    }
+  }
+
+  &__mega-menu {
+  }
+
+  &__tools {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-inline-start: auto;
+    display: inline;
+  }
+
+  &__mega-menu--collapsable {
+    display: none;
+  }
+}

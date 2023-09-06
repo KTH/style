@@ -1,21 +1,38 @@
 ---
 // Use this to import CSS into here
 // import "../css"
-
+import "../styles/index.scss";
 import MegaMenu from "../components/MegaMenu.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<html>
-  <body>
-    <header>
-      <figure><!--logo --></figure>
-      <MegaMenu />
-    </header>
-    <ul>
-      <li>Getting started</li>
-      <li>Styles</li>
-      <li>Components</li>
-      <li>Concepts</li>
-    </ul>
-  </body>
-</html>
+<Layout title="KTH Style">
+  <div class="kpm">
+    <nav class="kpm__entries" aria-label="Ingångar">
+      <ul>
+        <li><a href="https://kth.se">kth.se</a></li>
+        <li><a href="https://kth.se/student">Studentwebben</a></li>
+        <li><a href="https://intra.kth.se" aria-current="true">Intranät</a></li>
+      </ul>
+    </nav>
+  </div>
+  <header class="kth-main-header">
+    <div class="kth-main-header__container">
+      <figure class="kth-main-header__logotype">
+        <img src="/public/logo.png" width="64" height="64" />
+      </figure>
+      <nav class="kth-main-header__mega-menu">Mega menu</nav>
+      <ul class="kth-main-header__tools">
+        <li>Tools</li>
+      </ul>
+      <div class="kth-main-header__mega-menu--collapsable">M</div>
+    </div>
+    <!-- <MegaMenu /> -->
+  </header>
+  <ul>
+    <li>Getting started</li>
+    <li>Styles</li>
+    <li>Components</li>
+    <li>Concepts</li>
+  </ul>
+</Layout>
