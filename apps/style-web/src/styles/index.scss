@@ -131,3 +131,26 @@ body {
     }
   }
 }
+
+.kth-main-content {
+  max-width: 80rem;
+  margin-inline: auto;
+  display: grid;
+  grid-template-areas:
+    "breadcrumbs breadcrumbs"
+    "local-navigation main";
+  grid-template-columns: 15rem 1fr;
+
+  nav[aria-label="Breadcrumbs"],
+  nav[aria-label="Brödsmulor"] {
+    grid-area: breadcrumbs;
+  }
+
+  aside {
+    grid-area: local-navigation;
+  }
+
+  main {
+    grid-area: main;
+  }
+}
