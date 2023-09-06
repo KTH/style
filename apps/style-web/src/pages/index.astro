@@ -4,6 +4,7 @@
 import "../styles/index.scss";
 import MegaMenu from "../components/MegaMenu.astro";
 import Layout from "../layouts/Layout.astro";
+import CaretDown from "../components/icons/CaretDown.astro";
 ---
 
 <Layout title="KTH Style">
@@ -21,7 +22,40 @@ import Layout from "../layouts/Layout.astro";
       <figure class="kth-main-header__logotype">
         <img src="/public/logo.png" width="64" height="64" />
       </figure>
-      <nav class="kth-main-header__mega-menu">Mega menu</nav>
+      <nav class="kth-main-header__mega-menu">
+        <ul>
+          <li>
+            <a href="/link 1" class="kth-dropdown">
+              <span>Din anställning</span>
+              <CaretDown />
+            </a>
+          </li>
+          <li>
+            <a href="/link 1" class="kth-dropdown">
+              <span>Stöd och service</span>
+              <CaretDown />
+            </a>
+          </li>
+          <li>
+            <a href="/link 1" class="kth-dropdown">
+              <span>Utbilda</span>
+              <CaretDown />
+            </a>
+          </li>
+          <li>
+            <a href="/link 1" class="kth-dropdown">
+              <span>Forska</span>
+              <CaretDown />
+            </a>
+          </li>
+          <li>
+            <a href="/link 1" class="kth-dropdown">
+              <span>Organisation och styrning</span>
+              <CaretDown />
+            </a>
+          </li>
+        </ul>
+      </nav>
       <ul class="kth-main-header__tools">
         <li>Tools</li>
       </ul>
