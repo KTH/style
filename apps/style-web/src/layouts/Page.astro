@@ -1,0 +1,134 @@
+---
+// Use this to import CSS into here
+// import "../css"
+import "../styles/index.scss";
+import Layout from "./Layout.astro";
+import CaretDown from "../components/icons/CaretDown.astro";
+import SearchIcon from "../components/icons/Search.astro";
+import LanguageIcon from "../components/icons/Language.astro";
+---
+
+<Layout title="KTH Style">
+  <div class="kpm">
+    <div class="kpm__container">
+      <nav class="kpm__entries" aria-label="Ingångar">
+        <ul>
+          <li><a href="https://kth.se">kth.se</a></li>
+          <li><a href="https://kth.se/student">Studentwebben</a></li>
+          <li>
+            <a href="https://intra.kth.se" aria-current="true">Intranät</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <header class="kth-main-header">
+    <div class="kth-main-header__container">
+      <figure class="kth-main-header__logotype">
+        <img src="/public/logo.png" width="64" height="64" />
+      </figure>
+      <nav class="kth-main-header__mega-menu">
+        <ul>
+          <li>
+            <a href="/link 1" class="kth-dropdown">
+              <span>Din anställning</span>
+              <CaretDown />
+            </a>
+          </li>
+          <li>
+            <a href="/link 1" class="kth-dropdown">
+              <span>Stöd och service</span>
+              <CaretDown />
+            </a>
+          </li>
+          <li>
+            <a href="/link 1" class="kth-dropdown">
+              <span>Utbilda</span>
+              <CaretDown />
+            </a>
+          </li>
+          <li>
+            <a href="/link 1" class="kth-dropdown">
+              <span>Forska</span>
+              <CaretDown />
+            </a>
+          </li>
+          <li>
+            <a href="/link 1" class="kth-dropdown">
+              <span>Organisation och styrning</span>
+              <CaretDown />
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <ul class="kth-main-header__tools">
+        <li>
+          <button class="kth-dropdown">
+            <SearchIcon />
+            <span>Sök</span>
+          </button>
+        </li>
+        <li>
+          <a class="kth-dropdown">
+            <LanguageIcon />
+            <span>English</span>
+          </a>
+        </li>
+      </ul>
+      <div class="kth-main-header__mega-menu--collapsable">M</div>
+    </div>
+    <!-- <MegaMenu /> -->
+  </header>
+  <div class="kth-main-content">
+    <nav aria-label="Brödsmulor">Brödsmulor</nav>
+    <aside>
+      <h2>KTH Style</h2>
+      <ul>
+        <li>Om KTH Style</li>
+        <li>
+          Kom igång
+
+          <ul>
+            <li>Design av app utifrån KTH Style</li>
+            <li>Övergripande riktlinjer</li>
+          </ul>
+        </li>
+        <li>
+          Andvändbarhetstester
+          <ul>
+            <li>Testa användbarhet och tillgänglighet</li>
+            <li>Utrusning och inställningar för tester</li>
+          </ul>
+        </li>
+        <li>
+          Styles
+
+          <ul>
+            <li>Färger</li>
+            <li>Typografi</li>
+            <li>Marginaler och avstånd</li>
+            <li>Bilder och dokument</li>
+            <li>Struktur och layout</li>
+            <li>Ikoner</li>
+          </ul>
+        </li>
+        <li>
+          Komponenter
+          <ul>
+            <li>Alerts</li>
+            <li>Collapse</li>
+            <li>Formulär</li>
+            <li>Knappar</li>
+            <li>Länkar</li>
+            <li>Listor</li>
+            <li>Modaler</li>
+            <li>Tabbar</li>
+            <li>Tabeller</li>
+            <li>Tooltips</li>
+          </ul>
+        </li>
+      </ul>
+    </aside>
+    <main><slot /></main>
+  </div>
+</Layout>
