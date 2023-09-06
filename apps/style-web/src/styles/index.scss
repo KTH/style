@@ -1,17 +1,6 @@
 @use "@kth/style/scss/tokens/colors";
 @use "@kth/style/scss/tokens/spacing";
-
-@mixin horizontal-list {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-
-  > :where(li) {
-    padding: 0;
-    margin: 0;
-  }
-}
+@use "@kth/style/scss/components/lists";
 
 body {
   line-height: 1.5;
@@ -30,7 +19,7 @@ body {
 
 .kpm__entries {
   ul {
-    @include horizontal-list();
+    @include lists.horizontal-list();
     gap: spacing.gap(4);
   }
 
@@ -92,13 +81,13 @@ body {
 
   &__mega-menu {
     ul {
-      @include horizontal-list();
+      @include lists.horizontal-list();
       gap: 1rem;
     }
   }
 
   &__tools {
-    @include horizontal-list();
+    @include lists.horizontal-list();
     gap: 1rem;
     margin-inline-start: auto;
   }
