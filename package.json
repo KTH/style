@@ -7,7 +7,7 @@
   ],
   "scripts": {
     "generate-icons": "npx @svgr/cli --out-dir @kth/style/src/icons -- @kth/icons",
-    "dev": "lerna run dev --stream --parallel --scope=style-web2",
+    "dev": "lerna run dev --stream --parallel --scope=style-web",
     "build": "lerna run build",
     "publish": "lerna publish --no-private"
   },
