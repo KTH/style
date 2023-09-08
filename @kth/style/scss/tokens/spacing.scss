@@ -79,3 +79,16 @@ $_all_spaces: (
 @function border-radius($list) {
   @return _spaces_to_rem($list);
 }
+
+// Semantic tokens for spacing
+@mixin theme-default {
+  --boxed-padding-inline: #{$space-16};
+  --boxed-padding-block: #{$space-8};
+  --unboxed-padding-block: #{$space-8};
+}
+
+@mixin theme-dense {
+  --boxed-padding-inline: #{$space-12};
+  --boxed-padding-block: #{$space-4};
+  --unboxed-padding-block: #{$space-4};
+}
