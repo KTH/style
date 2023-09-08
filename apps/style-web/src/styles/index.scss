@@ -3,6 +3,7 @@
 @use "@kth/style/scss/components/lists";
 
 body {
+  // TODO: move to reset in KTH Style
   line-height: 1.5;
   font-family: Figtree;
   margin: 0;
@@ -98,6 +99,7 @@ body {
 }
 
 .kth-dropdown {
+  // Most of this can be for button.
   text-decoration: none;
   color: var(--header-on-color);
   font: inherit;
@@ -126,6 +128,9 @@ body {
 .kth-main-content {
   max-width: 80rem;
   margin-inline: auto;
+
+  // TODO: convert into an "official" layout provided by KTH Style
+  // it can be a class or a mixin
   display: grid;
   grid-template-areas:
     "breadcrumbs breadcrumbs"
@@ -144,4 +149,36 @@ body {
   main {
     grid-area: main;
   }
+}
+
+// To be moved to KTH Style.
+// Needs more research first to see how they look like
+.kth-label-1 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.kth-label-2 {
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  font-weight: 600;
+  margin-block-start: spacing.margin(24);
+  margin-block-end: spacing.margin(8);
+}
+
+.kth-label-3 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 600;
+  margin-block-start: spacing.margin(24);
+  margin-block-end: spacing.margin(16);
+}
+
+.kth-link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: spacing.gap(16);
 }
