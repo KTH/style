@@ -7,6 +7,8 @@ import Layout from "../layouts/Layout.astro";
 import CaretDown from "../components/icons/CaretDown.astro";
 import SearchIcon from "../components/icons/Search.astro";
 import LanguageIcon from "../components/icons/Language.astro";
+import { Image } from "astro:assets";
+import logotype from "../images/logo.png";
 ---
 
 <Layout title="KTH Style">
@@ -26,7 +28,7 @@ import LanguageIcon from "../components/icons/Language.astro";
   <header class="kth-main-header">
     <div class="kth-main-header__container">
       <figure class="kth-main-header__logotype">
-        <img src="/public/logo.png" width="64" height="64" />
+        <Image src={logotype} alt="KTH:s Logotyp" />
       </figure>
       <nav class="kth-main-header__mega-menu">
         <ul>
