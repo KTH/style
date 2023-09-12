@@ -1,0 +1,54 @@
+@use "sass:math";
+
+$font-families: Figtree, sans-serif;
+
+/// Given proportional font-size and line-height, returns:
+/// - font-size expressed in 1/16 rem
+/// - line-height unitless
+@mixin _generate-font($font-size, $line-height) {
+  font-size: math.div($font-size, 16) * 1rem;
+  line-height: math.div($line-height, $font-size);
+}
+
+@mixin font-default {
+  line-height: 1.5;
+}
+
+@mixin font-heading-xl {
+  @include _generate-font(44, 56);
+  font-weight: 600;
+}
+
+@mixin font-heading-l {
+  @include _generate-font(30, 40);
+  font-weight: 600;
+}
+
+@mixin font-heading-m {
+  @include _generate-font(24, 32);
+  font-weight: 600;
+}
+
+@mixin font-heading-s {
+  @include _generate-font(20, 32);
+  font-weight: 600;
+}
+
+@mixin font-label-l {
+  @include _generate-font(24, 32);
+  font-weight: 600;
+}
+
+@mixin font-label-m {
+  @include _generate-font(19, 24);
+  font-weight: 600;
+}
+
+@mixin font-label-s {
+  @include _generate-font(16, 24);
+  font-weight: 600;
+}
+
+@mixin font-lead {
+  @include _generate-font(22, 32);
+}
