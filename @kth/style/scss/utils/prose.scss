@@ -1,4 +1,4 @@
-@use "../tokens" as t;
+@use "../tokens/spacing.scss" as s;
 
 /// This mixin provides CSS for webpages with lots of prose text.
 ///
@@ -6,103 +6,97 @@
 /// - CSS for tags like <p>, <h1-6>, <code>, <pre>, <ul> and <li>
 /// - CSS classes like ".lead"
 @mixin prose {
-  @layer kth-style {
-    p {
-      @include t.font-body-copy;
-      margin-block: t.$space-20;
-      max-width: 60ch;
-    }
+  p {
+    font: var(--default-font);
+    margin-block: s.$space-20;
+    max-width: 60ch;
+  }
 
-    .lead {
-      @include t.font-body-lead;
-      margin-block-start: t.$space-12;
-      margin-block-end: t.$space-16;
-    }
+  .lead {
+    font: var(--lead-font);
+    margin-block-start: s.$space-12;
+    margin-block-end: s.$space-16;
+  }
 
-    h1 {
-      margin: t.margin(32 0 16 0);
-    }
+  h1 {
+    font: var(--heading-xl-font);
+    margin: s.margin(32 0 16 0);
+  }
 
-    h2 {
-      margin: t.margin(32 0 16 0);
-    }
+  h2 {
+    font: var(--heading-l-font);
+    margin: s.margin(32 0 16 0);
+  }
 
-    h3 {
-      margin: t.margin(32 0 8 0);
-    }
+  h3 {
+    font: var(--heading-m-font);
+    margin: s.margin(32 0 8 0);
+  }
 
-    h4 {
-      margin: t.margin(32 0 4 0);
-    }
+  h4 {
+    font: var(--heading-s-font);
+    margin: s.margin(32 0 4 0);
+  }
+
+  li {
+    max-width: 60ch;
+    margin: s.margin(8 0);
+  }
+
+  ol,
+  ul {
+    padding-inline-start: s.$space-32;
 
     li {
-      @include t.font-body-copy;
-      max-width: 60ch;
-      margin: t.margin(8 0);
+      padding-inline-start: s.$space-6;
     }
+  }
 
-    ol,
-    ul {
-      padding-inline-start: t.$space-32;
+  h1 + *,
+  h2 + *,
+  h3 + * {
+    margin-block-start: 0;
+  }
 
-      li {
-        padding-inline-start: t.$space-6;
-      }
-    }
+  table {
+    table-layout: auto;
+    text-align: left;
+    margin: 2rem 0;
+    border-collapse: collapse;
 
-    h1 + *,
-    h2 + *,
-    h3 + * {
-      margin-block-start: 0;
-    }
+    display: block;
+    overflow-x: auto;
+  }
 
-    table {
-      table-layout: auto;
-      text-align: left;
-      margin: 2rem 0;
-      border-collapse: collapse;
+  thead {
+    // TODO: border
+    th {
+      font: var(--label-s-font);
+      padding: s.padding(0 8 8 8);
 
-      display: block;
-      overflow-x: auto;
-    }
-
-    thead {
-      border-bottom: 1px solid t.$color-neutral-2;
-
-      th {
-        padding: t.padding(0 8 8 8);
-        font-weight: 600;
-
-        &:first-child {
-          padding-left: 0;
-        }
-
-        &:last-child {
-          padding-right: 0;
-        }
-      }
-    }
-
-    tbody {
-      tr {
-        border-bottom: 1px solid t.$color-neutral-2;
-
-        &:last-child {
-          border-bottom-width: 0;
-        }
+      &:first-child {
+        padding-left: 0;
       }
 
-      td {
-        vertical-align: baseline;
-        padding: t.$space-8;
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
 
-        &:first-child {
-          padding-left: 0;
-        }
+  tbody {
+    // TODO: border
 
-        &:last-child {
-          padding-right: 0;
-        }
+    td {
+      vertical-align: baseline;
+      padding: s.$space-8;
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
       }
     }
   }

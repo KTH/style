@@ -12,6 +12,7 @@ body {
 
   @include colors.theme-default;
   @include spacing.theme-default;
+  @include typography.theme-default;
 }
 
 .kpm__container {
