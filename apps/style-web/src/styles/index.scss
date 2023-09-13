@@ -1,5 +1,6 @@
 @use "@kth/style/scss/tokens/colors";
 @use "@kth/style/scss/tokens/spacing";
+@use "@kth/style/scss/tokens/typography";
 @use "@kth/style/scss/components/lists";
 @use "@kth/style/scss/utils/prose";
 
@@ -172,7 +173,7 @@ a {
   font-size: 1.125rem;
   line-height: 1.5rem;
   font-weight: 600;
-  margin-block-start: spacing.margin(24);
+  margin-block-start: spacing.margin(0);
   margin-block-end: spacing.margin(8);
 }
 
@@ -181,7 +182,7 @@ a {
   line-height: 1.5rem;
   font-weight: 600;
   margin-block-start: spacing.margin(24);
-  margin-block-end: spacing.margin(16);
+  margin-block-end: spacing.margin(4);
 }
 
 .kth-link-list {
@@ -190,7 +191,10 @@ a {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: spacing.gap(16);
+  gap: spacing.gap(8);
+  a {
+    text-decoration: none;
+  }
 }
 
 nav[aria-label="Brödsmulor"] {
