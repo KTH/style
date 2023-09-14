@@ -1,5 +1,8 @@
 # Typography
 
+> **Note**
+> This document is under construction. We are adding more examples and clarification.
+
 ## Typography system
 
 ## Visual font sizes vs semantic document hierarchy
@@ -19,10 +22,10 @@ KTH Style defines the following variables that includes values for the CSS `font
 
 For articles and main areas of the page:
 
-- `--xl-font`. It is equivalent to the font for the `<h1>` tag.
-- `--l-font`. Equivalent to the `<h2>` tag.
-- `--m-font`. Equivalent to the `<h3>` tag.
-- `--s-font`. Equivalent to the `<h4>` tag.
+- `--heading-xl-font`. It is equivalent to the font for the `<h1>` tag.
+- `--heading-l-font`. Equivalent to the `<h2>` tag.
+- `--heading-m-font`. Equivalent to the `<h3>` tag.
+- `--heading-s-font`. Equivalent to the `<h4>` tag.
 - `--lead-font`. Used for the leading paragraph below a big title
 
 For other places, we provide "label" fonts that can be used in different contexts. Usually you start using the smallest possible, and then you increase in size when required.
@@ -37,24 +40,16 @@ All fonts need to be paired with padding and margin values. To help with this, K
 
 CSS doesn't have any mechanism for grouping multiple properties so we provide Sass mixins to set multiple properties at once.
 
-### Style one element
-
-Mixins `xl`, `l`, `m`, `s`, `lead`, `label-s`, `label-m`, `label-l`, `label-xl` add padding, margin and font values to one element.
-
-```scss
-section h2 {
-  @include label-s;
-}
-```
+## How to use
 
 ### Style multiple properties for multiple elements at the same time
 
-In some contexts, you need to add or remove margins and paddings when, for example, an `<h3>` comes just after an `<h2>`.
-
-Use mixin `prose` for it. It add styles to several tags like headings, lists, quotes and so on. This works specially for styling the main container of a page
+Use mixin `prose` to add default styling for lots of HTML tags at once. It add styles to things like headings, lists, quotes and so on.
 
 ```scss
+@use "@kth/style/scss/typography";
+
 article {
-  @include prose;
+  @include typography.prose;
 }
 ```
