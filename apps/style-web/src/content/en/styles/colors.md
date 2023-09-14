@@ -17,7 +17,7 @@ Color system in KTH Style is based on KTH graphical identity and implements acce
 <details>
 <summary>This section is under development</summary>
 
-![The 7 "blues" for KTH graphical identity](../../images/color-blues.png)
+![The 7 "blues" for KTH graphical identity](../../../images/color-blues.png)
 
 </details>
 
@@ -40,7 +40,7 @@ Used for large surfaces like a header or the whole page. They are:
 
 Used for UI components with a "primary" appearance:
 
-![A button and a filtering tab components with primary appearance](../../images/color-primary.png)
+![A button and a filtering tab components with primary appearance](../../../images/color-primary.png)
 
 - `--primary-color`. Main color of the component. For example the background of a button
 - `--primary-on-color`. Color for elements _inside_ the component. For example texts and icons of a button
@@ -49,7 +49,7 @@ Used for UI components with a "primary" appearance:
 
 Used for UI elements with a "secondary" appearance:
 
-![A button and tab using boxed appearance, a collapse and link using unboxed appearance](../../images/color-secondary.png)
+![A button and tab using boxed appearance, a collapse and link using unboxed appearance](../../../images/color-secondary.png)
 
 - `--boxed-secondary-color`. Main color for secondary components with borders. For border, texts and icons
 - `--unboxed-secondary-color`. Main color for secondary components without borders. For texts and icons
@@ -64,7 +64,7 @@ Accessibility: UI components that use `--unboxed-secondary-color` **must** have 
 
 Used to indicate success and error.
 
-![An input with error message and a "Fortsätt" button with success color](../../images/color-error-success.png)
+![An input with error message and a "Fortsätt" button with success color](../../../images/color-error-success.png)
 
 - `--error-color`. Color for errors. Used in borders, texts and backgrounds of UI elements
 - `--success-color`. Color for success. Used in borders, texts and backgrounds of UI elements
@@ -120,7 +120,7 @@ We haven't found yet any clear pattern nor a set of colors that signals "active"
 
 ## Contexts (themes)
 
-![Showcase of 4 themes defined by KTH Style](../../images/color-themes.png)
+![Showcase of 4 themes defined by KTH Style](../../../images/color-themes.png)
 
 KTH Style defines the following 4 color themes:
 
