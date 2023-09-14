@@ -1,3 +1,8 @@
+---
+title: Typography
+layout: ../../../layouts/Page.astro
+---
+
 # Typography
 
 Typography in KTH Style is based on KTH graphical identity.

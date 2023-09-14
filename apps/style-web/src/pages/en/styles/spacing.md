@@ -1,3 +1,8 @@
+---
+title: Spacing
+layout: ../../../layouts/Page.astro
+---
+
 # Spacing
 
 ## Spacing system
