@@ -31,25 +31,21 @@ Example:
 
 ![Image showing that different tokens might refer to the same or different values depending on the theme](../../../images/color-semantic-difference.png)
 
-### Surface colors
+### Surface, primary and secondary colors
 
-Used for large surfaces like a header or the whole page. They are:
+Surface colors are used for large surfaces like a header or the whole page. They are:
 
 - `--background-color`. Color for the background of the surface
 - `--text-color`. Color for texts that are directly written on the surface
 
-### Primary colors
-
-Used for UI components with a "primary" appearance:
+Primary colors are used for UI components with a "primary" appearance:
 
 ![A button and a filtering tab components with primary appearance](../../../images/color-primary.png)
 
 - `--primary-color`. Main color of the component. For example the background of a button
 - `--primary-on-color`. Color for elements _inside_ the component. For example texts and icons of a button
 
-### Secondary colors
-
-Used for UI elements with a "secondary" appearance:
+Secondary colors are used for UI elements with a "secondary" appearance:
 
 ![A button and tab using boxed appearance, a collapse and link using unboxed appearance](../../../images/color-secondary.png)
 
@@ -62,7 +58,7 @@ Accessibility: UI components that use `--unboxed-secondary-color` **must** have 
 - A decoration: an underlined link
 - Extra elements: icons for collappse and dropdowns
 
-### Success and error
+### Success and error colors
 
 > **Note**
 > These colors are not defined yet in `colors.scss`. We need to set values for them in all themes
@@ -76,7 +72,7 @@ Used to indicate success and error.
 
 Accessibility: UI components should not rely only on color to convey error or success meaning. Use icons, labels and other additional elements
 
-## Other colors
+### Other colors
 
 > **Note**
 > We are still working on this
@@ -86,7 +82,7 @@ We are still working on colors for:
 - **Separators**. We are testing how different colors look like with different backgrounds
 - **Shadows and backdrops**. This might be a single variable that defines entire properties (like the entire value for `box-shadow`)
 
-## Hover state
+### Colors for states
 
 > **Note**
 > We are still working on colors for hover
@@ -108,11 +104,6 @@ button.secondary {
   --hover-overlay: rgb(0 0 0 / 0.1);
 }
 ```
-
-## Active states
-
-> **Note**
-> We are still working on this
 
 Some components need to signal an "active" or "inactive" states:
 
@@ -147,4 +138,38 @@ All colors in a given theme must met the WCAG contrast requirements for the purp
 - `--boxed-secondary-color` should have 4.5:1 contrast with `--background-color`
 - `--unboxed-secondary-color` should have 4.5:1 contrast with `--bacakground-color`. It is recommended to have a 3:1 contrast with `--text-color`.
 
-## Usage notes
+## How to use semantic tokens
+
+### When creating a component
+
+When building a component, use the appropiates CSS custom properties. You can provide default values but are often not needed
+
+```scss
+.search-form__button {
+  background: var(--primary-color);
+  color: var(--primary-on-color);
+}
+```
+
+### Switching themes
+
+To set a different theme in a region of a document, use the Sass mixin `theme-<xxx>` provided in `colors.scss`:
+
+```scss
+@use "@kth/style/scss/tokens/colors";
+
+.header {
+  @include colors.theme-intranet;
+}
+```
+
+### Reset
+
+> **Note**
+> This `reset.scss` file mentioned here is not ready yet.
+
+KTH Styles `reset.scss` sets the default values for all CSS custom properties in `:root`
+
+```scss
+@use "@kth/style/scss/utils/reset.scss";
+```
