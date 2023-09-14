@@ -1,84 +1,20 @@
 ---
-// Use this to import CSS into here
-// import "../css"
+import type { MarkdownLayoutProps } from "astro";
+
+type Props = MarkdownLayoutProps<{
+  title: string;
+}>;
+
 import "../styles/index.scss";
 import Layout from "./Layout.astro";
-import CaretDown from "../components/icons/CaretDown.astro";
-import SearchIcon from "../components/icons/Search.astro";
-import LanguageIcon from "../components/icons/Language.astro";
+import MainHeader from "../components/MainHeader.astro";
+
+const { frontmatter } = Astro.props;
 ---
 
-<Layout title="KTH Style">
-  <div class="kpm">
-    <div class="kpm__container">
-      <nav class="kpm__entries" aria-label="Ingångar">
-        <ul>
-          <li><a href="https://kth.se">kth.se</a></li>
-          <li><a href="https://kth.se/student">Studentwebben</a></li>
-          <li>
-            <a href="https://intra.kth.se" aria-current="true">Intranät</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <header class="kth-main-header">
-    <div class="kth-main-header__container">
-      <figure class="kth-main-header__logotype">
-        <img src="/public/logo.png" width="64" height="64" />
-      </figure>
-      <nav class="kth-main-header__mega-menu">
-        <ul>
-          <li>
-            <a href="/link 1" class="kth-dropdown">
-              <span>Din anställning</span>
-              <CaretDown />
-            </a>
-          </li>
-          <li>
-            <a href="/link 1" class="kth-dropdown">
-              <span>Stöd och service</span>
-              <CaretDown />
-            </a>
-          </li>
-          <li>
-            <a href="/link 1" class="kth-dropdown">
-              <span>Utbilda</span>
-              <CaretDown />
-            </a>
-          </li>
-          <li>
-            <a href="/link 1" class="kth-dropdown">
-              <span>Forska</span>
-              <CaretDown />
-            </a>
-          </li>
-          <li>
-            <a href="/link 1" class="kth-dropdown">
-              <span>Organisation och styrning</span>
-              <CaretDown />
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <ul class="kth-main-header__tools">
-        <li>
-          <button class="kth-dropdown">
-            <SearchIcon />
-            <span>Sök</span>
-          </button>
-        </li>
-        <li>
-          <a class="kth-dropdown">
-            <LanguageIcon />
-            <span>English</span>
-          </a>
-        </li>
-      </ul>
-      <div class="kth-main-header__mega-menu--collapsable">M</div>
-    </div>
-    <!-- <MegaMenu /> -->
-  </header>
+<Layout title={frontmatter.title}>
+  <MainHeader />
+
   <div class="kth-main-content">
     <nav aria-label="Brödsmulor">
       <ol>
@@ -94,7 +30,7 @@ import LanguageIcon from "../components/icons/Language.astro";
     <aside class="kth-submenu">
       <h2 class="kth-label-2">KTH Style</h2>
       <ul class="kth-link-list">
-        <li><a href="">Om KTH Style</a></li>
+        <li><a href="/">Om KTH Style</a></li>
         <li>
           <h3 class="kth-label-3">Kom igång</h3>
           <ul class="kth-link-list">
@@ -112,7 +48,7 @@ import LanguageIcon from "../components/icons/Language.astro";
         <li>
           <h3 class="kth-label-3">Styles</h3>
           <ul class="kth-link-list">
-            <li><a href="/styles/colors">Färger</a></li>
+            <li><a href="/en/styles/colors">Färger</a></li>
             <li><a href="">Typografi</a></li>
             <li><a href="">Marginaler och avstånd</a></li>
             <li><a href="">Bilder och dokument</a></li>

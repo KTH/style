@@ -1,67 +1,11 @@
 ---
-// Use this to import CSS into here
-// import "../css"
 import "../styles/index.scss";
 import Layout from "../layouts/Layout.astro";
-import { Image } from "astro:assets";
-import logotype from "../images/logo.png";
-import NavigationPanel from "../components/NavigationPanel.astro";
-import SearchPanel from "../components/SearchPanel.astro";
+import MainHeader from "../components/MainHeader.astro";
 ---
 
 <Layout title="KTH Style">
-  <div class="kpm">
-    <div class="kpm__container">
-      <nav class="kpm__entries" aria-label="Ingångar">
-        <ul>
-          <li><a href="https://kth.se">kth.se</a></li>
-          <li><a href="https://kth.se/student">Studentwebben</a></li>
-          <li>
-            <a href="https://intra.kth.se" aria-current="true">Intranät</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <header class="kth-main-header intranet">
-    <div class="kth-main-header__container">
-      <figure class="kth-main-header__logotype">
-        <Image src={logotype} alt="KTH:s Logotyp" />
-      </figure>
-      <nav class="kth-main-header__mega-menu">
-        <ul>
-          <li>
-            <NavigationPanel label="Din anställning" />
-          </li>
-          <li>
-            <NavigationPanel label="Stöd och service" />
-          </li>
-          <li>
-            <NavigationPanel label="Utbilda" />
-          </li>
-          <li>
-            <NavigationPanel label="Forska" />
-          </li>
-          <li>
-            <NavigationPanel label="Orgasnisation och styrning" />
-          </li>
-        </ul>
-      </nav>
-
-      <ul class="kth-main-header__tools">
-        <li>
-          <SearchPanel label="Sök" />
-        </li>
-        <li>
-          <a class="kth-link--language">
-            <span>English</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div class="kth-main-header__mega-menu--collapsable">M</div>
-  </header>
-  <!-- <MegaMenu /> -->
+  <MainHeader />
 
   <div class="kth-main-content">
     <nav aria-label="Brödsmulor">Brödsmulor</nav>
@@ -86,7 +30,7 @@ import SearchPanel from "../components/SearchPanel.astro";
         <li>
           <h3 class="kth-label-3">Styles</h3>
           <ul class="kth-link-list">
-            <li><a href="/en//styles/colors">Färger</a></li>
+            <li><a href="/en/styles/colors">Färger</a></li>
             <li><a href="">Typografi</a></li>
             <li><a href="">Marginaler och avstånd</a></li>
             <li><a href="">Bilder och dokument</a></li>
