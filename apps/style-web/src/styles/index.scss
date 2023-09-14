@@ -1,19 +1,19 @@
 @use "@kth/style/scss/tokens/colors";
 @use "@kth/style/scss/tokens/spacing";
 @use "@kth/style/scss/tokens/typography";
-@use "@kth/style/scss/components/lists";
 @use "@kth/style/scss/utils/prose";
+@use "@kth/style/scss/utils/_reset.scss";
 
-body {
-  // TODO: move to reset in KTH Style
-  line-height: 1.5;
-  font-family: Figtree;
-  margin: 0;
+@mixin horizontal-list {
+  display: flex;
+  list-style: none;
   padding: 0;
+  margin: 0;
 
-  @include colors.theme-default;
-  @include spacing.theme-default;
-  @include typography.theme-default;
+  > :where(li) {
+    padding: 0;
+    margin: 0;
+  }
 }
 
 .kpm__container {
@@ -21,14 +21,9 @@ body {
   max-width: 80rem;
 }
 
-a {
-  text-underline-offset: spacing.$space-2;
-  color: var(--link-color);
-}
-
 .kpm__entries {
   ul {
-    @include lists.horizontal-list();
+    @include horizontal-list();
     gap: spacing.gap(4);
   }
 
@@ -39,7 +34,6 @@ a {
     padding-inline: spacing.padding(8);
     text-decoration: none;
 
-    // background: blue;
     padding-block-end: calc(spacing.$space-8 - spacing.$space-4);
     border-block-end: solid spacing.$space-4;
     border-block-end-color: transparent;
@@ -58,10 +52,18 @@ a {
   }
 }
 
-.kth-main-header {
+.kth-main-header.intranet {
   @include colors.theme-intranet;
+}
+.kth-main-header.external {
+  @include colors.theme-inverse;
+}
+.kth-main-header.student-web {
+  @include colors.theme-student-web;
+}
+
+.kth-main-header {
   background: var(--background-color);
-  color: var(--header-on-color);
   padding-block: spacing.padding(16);
   position: relative;
 
@@ -81,55 +83,28 @@ a {
     padding: 0;
 
     > img {
-      translate: 0.125rem 0;
-      // translate: 0.1875rem 0;
+      translate: 0.125rem -16rem;
       block-size: 100%;
       inline-size: 100%;
+      filter: drop-shadow(0 16rem 0 var(--primary-background-color));
     }
   }
 
   &__mega-menu {
     ul {
-      @include lists.horizontal-list();
+      @include horizontal-list();
       gap: 1rem;
     }
   }
 
   &__tools {
-    @include lists.horizontal-list();
+    @include horizontal-list();
     gap: 1rem;
     margin-inline-start: auto;
   }
 
   &__mega-menu--collapsable {
     display: none;
-  }
-}
-
-.kth-dropdown {
-  // Most of this can be for button.
-  text-decoration: none;
-  color: var(--header-on-color);
-  font: inherit;
-  border: none;
-  background: none;
-
-  &:has(svg) {
-    display: flex;
-    align-items: center;
-    gap: spacing.gap(4);
-
-    span {
-      padding-block: spacing.padding(8);
-      padding-block-end: spacing.padding(4);
-      border-bottom: transparent spacing.$space-4 solid;
-    }
-  }
-
-  &:hover {
-    span {
-      border-color: var(--header-on-color);
-    }
   }
 }
 
@@ -202,7 +177,7 @@ nav[aria-label="Brödsmulor"] {
 
   ol {
     list-style: none;
-    @include lists.horizontal-list();
+    @include horizontal-list();
   }
 
   li:nth-child(n + 2) {

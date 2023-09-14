@@ -1,0 +1,93 @@
+@use "@kth/style/scss/tokens/spacing";
+
+$icon-caret: url(/icons/caret.svg);
+$icon-search: url(/icons/search.svg);
+$icon-globe: url(/icons/globe.svg);
+
+.kth-navigation-panel {
+  &__dropdown {
+    color: var(--primary-background-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: spacing.gap(4);
+
+    span {
+      padding-block: spacing.padding(8);
+      padding-block-end: spacing.padding(4);
+      border-bottom: transparent spacing.$space-4 solid;
+    }
+
+    &:hover span {
+      border-color: var(--primary-background-color);
+    }
+
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 1.25em;
+      height: 1.25em;
+      -webkit-mask-image: $icon-caret;
+      mask-image: $icon-caret;
+      background-color: var(--primary-background-color);
+    }
+  }
+}
+
+.kth-search-panel {
+  &__dropdown {
+    color: var(--primary-background-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: spacing.gap(4);
+
+    span {
+      padding-block: spacing.padding(8);
+      padding-block-end: spacing.padding(4);
+      border-bottom: transparent spacing.$space-4 solid;
+    }
+
+    &:hover span {
+      border-color: var(--primary-background-color);
+    }
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 1.25em;
+      height: 1.25em;
+      -webkit-mask-image: $icon-search;
+      mask-image: $icon-search;
+      background-color: var(--primary-background-color);
+    }
+  }
+}
+
+.kth-link--language {
+  color: var(--primary-background-color);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: spacing.gap(4);
+
+  span {
+    padding-block: spacing.padding(8);
+    padding-block-end: spacing.padding(4);
+    border-bottom: transparent spacing.$space-4 solid;
+  }
+
+  &:hover span {
+    border-color: var(--primary-background-color);
+  }
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 1.25em;
+    height: 1.25em;
+    -webkit-mask-image: $icon-globe;
+    mask-image: $icon-globe;
+    background-color: var(--primary-background-color);
+  }
+}
