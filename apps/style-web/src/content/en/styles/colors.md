@@ -7,27 +7,29 @@ layout: ../../layouts/Page.astro
 
 Color system in KTH Style is based on KTH graphical identity and implements accessible contrast requirements by default.
 
-- All available colors are defined as Sass variables (reference tokens) and CSS custom properties (semantic tokens).
-- You should not use reference tokens if there is a semantic token available.
-- Different semantic tokens in some themes can be the same color. For example, `--background-color` and `--primary-on-color` are both "white" in default theme.
-- Different themes define different values for semantic token. Default theme defines `--text-color` as black, but theme inverse defines `--text-color` as white.
-
 ## Brand colors (reference tokens)
 
-<details>
-<summary>This section is under development</summary>
+> **Note**
+> This section is under development
 
-![The 7 "blues" for KTH graphical identity](../../../images/color-blues.png)
+The new graphical identity defines 6 tones of primary colors. Five blues and one beige.
 
-</details>
+![The 6 colors for KTH graphical identity](../../../images/color-blues.png)
+
+- All reference tokens are defined as Sass variables.
+- KTH Style has defined extra colors for specific web uses outside of the graphical identity
+- You should not use reference tokens if there is a semantic token available.
 
 ## Semantic colors (semantic tokens)
 
-Colors are grouped by semantics in the following categories:
+Different semantic tokens in some themes can be the same color but should not be used interchangeably. Their value can change in different themes.
 
-- Surface colors
-- Primary colors
-- Secondary colors
+Example:
+
+- In the "defualt theme", `--background-color` and `--primary-on-color` (color for the text of the button) are both white
+- In the "intranet theme", `--background-color` is beige but `--primary-on-color` is white.
+
+![Image showing that different tokens might refer to the same or different values depending on the theme](../../../images/color-semantic-difference.png)
 
 ### Surface colors
 
@@ -62,6 +64,9 @@ Accessibility: UI components that use `--unboxed-secondary-color` **must** have 
 
 ### Success and error
 
+> **Note**
+> These colors are not defined yet in `colors.scss`. We need to set values for them in all themes
+
 Used to indicate success and error.
 
 ![An input with error message and a "Fortsätt" button with success color](../../../images/color-error-success.png)
@@ -73,19 +78,18 @@ Accessibility: UI components should not rely only on color to convey error or su
 
 ## Other colors
 
-<details>
-<summary>We are still working on colors for other stuff</summary>
+> **Note**
+> We are still working on this
 
 We are still working on colors for:
 
 - **Separators**. We are testing how different colors look like with different backgrounds
 - **Shadows and backdrops**. This might be a single variable that defines entire properties (like the entire value for `box-shadow`)
-</details>
 
 ## Hover state
 
-<details>
-<summary>We are working on colors for hover</summary>
+> **Note**
+> We are still working on colors for hover
 
 We think it is possible to define just one "overlay" color (something like a black with 10% opacity) and "merge" both the normal color with CSS:
 
@@ -105,9 +109,10 @@ button.secondary {
 }
 ```
 
-</details>
-
 ## Active states
+
+> **Note**
+> We are still working on this
 
 Some components need to signal an "active" or "inactive" states:
 
@@ -129,9 +134,10 @@ KTH Style defines the following 4 color themes:
 - `theme-color-intranet`. For the header in intranet
 - `theme-color-student`. For the header in student web
 
-Use the mixins with the same name to switch between themes.
-
 ## Accessibility
+
+> **Note**
+> This section is important only if you are implementing a new theme
 
 All colors in a given theme must met the WCAG contrast requirements for the purpose that are designed for. Example:
 
@@ -142,7 +148,3 @@ All colors in a given theme must met the WCAG contrast requirements for the purp
 - `--unboxed-secondary-color` should have 4.5:1 contrast with `--bacakground-color`. It is recommended to have a 3:1 contrast with `--text-color`.
 
 ## Usage notes
-
-Different semantic tokens in some themes can be the same color. For example, `--background-color` and `--primary-on-color` are both "white" in default theme.
-
-However, they should not be used interchangeably because they might be different in different themes or in future available contexts.
