@@ -34,12 +34,6 @@ For other places, we provide "label" fonts that can be used in different context
 - `--label-m-font`
 - `--label-l-font`
 
-## Paddings, margins and other properties
-
-All fonts need to be paired with padding and margin values. To help with this, KTH Style offers Sass mixins that sets multiple CSS properties at the same time
-
-CSS doesn't have any mechanism for grouping multiple properties so we provide Sass mixins to set multiple properties at once.
-
 ## How to use
 
 ### Style multiple properties for multiple elements at the same time
