@@ -20,49 +20,41 @@ $color-blue-digital: #221dd9;
 $color-blue-special: #036eb8;
 
 @mixin theme-default {
-  --text-color: #{$color-black};
-  --background-color: #{$color-white};
-  --link-color: #{$color-blue-special};
-  --separator-border-color: #{$color-gray-light};
-  --primary-background-color: #{$color-blue-kth};
-  --primary-on-color: #{$color-white};
-  --boxed-secondary-color: #{$color-black};
-  --header-on-color: #{$color-blue-kth};
+  --color-text: #{$color-black};
+  --color-background: #{$color-white};
+  --color-primary: #{$color-blue-kth};
+  --color-on-primary: #{$color-white};
+  --color-secondary: #{$color-black};
+  --color-tertiary: #{$color-blue-special};
   // ... --hover-overlay: ...
 }
 
 @mixin theme-student-web {
-  --text-color: #{$color-black};
-  --background-color: #{$color-blue-light};
-  --link-color: #{$color-blue-special};
-  --separator-border-color: #{$color-gray-light};
-  --primary-background-color: #{$color-blue-kth};
-  --primary-on-color: #{$color-white};
-  --boxed-secondary-color: #{$color-black};
-  --header-on-color: #{$color-blue-kth};
+  --color-text: #{$color-black};
+  --color-background: #{$color-blue-light};
+  --color-primary: #{$color-blue-kth};
+  --color-on-primary: #{$color-white};
+  --color-secondary: #{$color-black};
+  --color-tertiary: #{$color-blue-special};
   // ... --hover-overlay: ...
 }
 
 @mixin theme-intranet {
-  --text-color: #{$color-black};
-  --background-color: #{$color-sand};
-  --link-color: #{$color-blue-special};
-  --separator-border-color: #{$color-gray-medium};
-  --primary-background-color: #{$color-blue-kth};
-  --primary-on-color: #{$color-white};
-  --boxed-secondary-color: #{$color-black};
-  --header-on-color: #{$color-blue-kth};
+  --color-text: #{$color-black};
+  --color-background: #{$color-sand};
+  --color-primary: #{$color-blue-kth};
+  --color-on-primary: #{$color-white};
+  --color-secondary: #{$color-black};
+  --color-tertiary: #{$color-blue-special};
   // ... --hover-overlay: ...
 }
 
 @mixin theme-inverse {
-  --text-color: #{$color-white};
-  --background-color: #{$color-blue-kth};
-  --link-color: #{$color-white};
-  --separator-border-color: #{$color-blue-sky};
-  --primary-background-color: #{$color-white};
-  --primary-on-color: #{$color-blue-kth};
-  --boxed-secondary-color: #{$color-white};
-  --header-on-color: #{$color-white};
+  --color-text: #{$color-white};
+  --color-background: #{$color-blue-kth};
+  --color-primary: #{$color-white};
+  --color-on-primary: #{$color-blue-kth};
+  --color-secondary: #{$color-white};
+  --color-tertiary: #{$color-white};
   // ... --hover-overlay: ...
 }
