@@ -12,7 +12,7 @@ Typography in KTH Style is based on KTH graphical identity.
 
 ## Typography system
 
-![](../../../images/typography-all-fonts.png)
+<!-- ![](../../../images/typography-all-fonts.png) -->
 
 - The new graphical identity defines one single font family: Figtree. Previous versions of KTH Style have defined an extra font with serif for longer texts but that is no longer the case.
 - KTH Style has defined combinations of font size, line height and font weight. They are defined with readibility in mind and to create a visual rythm.
