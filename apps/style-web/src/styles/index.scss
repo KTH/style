@@ -2,7 +2,7 @@
 @use "@kth/style/scss/tokens/spacing";
 @use "@kth/style/scss/tokens/typography";
 @use "@kth/style/scss/utils/prose";
-@use "@kth/style/scss/utils/_reset.scss";
+@use "@kth/style/scss/utils/reset";
 
 @mixin horizontal-list {
   display: flex;
