@@ -54,7 +54,7 @@ Secondary colors and tertiary are used for UI elements with secondary and tertia
 
 Accessibility: UI components that use `--color-tertiary` **must** have extra elements to indicate they are interactive. For example:
 
-- Specific position: a link positioned inside a navigation area
+- Specific position: a link placed in a navigation area
 - A decoration: an underlined link
 - Extra elements: icons for collappse and dropdowns
 
