@@ -6,7 +6,7 @@ $icon-globe: url(/icons/globe.svg);
 
 .kth-navigation-panel {
   &__dropdown {
-    color: var(--primary-background-color);
+    color: var(--color-primary);
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -19,7 +19,7 @@ $icon-globe: url(/icons/globe.svg);
     }
 
     &:hover span {
-      border-color: var(--primary-background-color);
+      border-color: var(--color-primary);
     }
 
     &::after {
@@ -29,14 +29,14 @@ $icon-globe: url(/icons/globe.svg);
       height: 1.25em;
       -webkit-mask-image: $icon-caret;
       mask-image: $icon-caret;
-      background-color: var(--primary-background-color);
+      background-color: var(--color-primary);
     }
   }
 }
 
 .kth-search-panel {
   &__dropdown {
-    color: var(--primary-background-color);
+    color: var(--color-primary);
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -49,7 +49,7 @@ $icon-globe: url(/icons/globe.svg);
     }
 
     &:hover span {
-      border-color: var(--primary-background-color);
+      border-color: var(--color-primary);
     }
 
     &::before {
@@ -59,13 +59,13 @@ $icon-globe: url(/icons/globe.svg);
       height: 1.25em;
       -webkit-mask-image: $icon-search;
       mask-image: $icon-search;
-      background-color: var(--primary-background-color);
+      background-color: var(--color-primary);
     }
   }
 }
 
 .kth-link--language {
-  color: var(--primary-background-color);
+  color: var(--color-primary);
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -78,7 +78,7 @@ $icon-globe: url(/icons/globe.svg);
   }
 
   &:hover span {
-    border-color: var(--primary-background-color);
+    border-color: var(--color-primary);
   }
 
   &::before {
@@ -88,6 +88,6 @@ $icon-globe: url(/icons/globe.svg);
     height: 1.25em;
     -webkit-mask-image: $icon-globe;
     mask-image: $icon-globe;
-    background-color: var(--primary-background-color);
+    background-color: var(--color-primary);
   }
 }

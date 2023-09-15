@@ -63,7 +63,7 @@
 }
 
 .kth-main-header {
-  background: var(--background-color);
+  background: var(--color-background);
   padding-block: spacing.padding(16);
   position: relative;
 
@@ -86,7 +86,7 @@
       translate: 0.125rem -16rem;
       block-size: 100%;
       inline-size: 100%;
-      filter: drop-shadow(0 16rem 0 var(--primary-background-color));
+      filter: drop-shadow(0 16rem 0 var(--color-primary));
     }
   }
 
