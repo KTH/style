@@ -26,35 +26,35 @@ Different semantic tokens in some themes can be the same color but should not be
 
 Example:
 
-- In the "defualt theme", `--background-color` and `--primary-on-color` (color for the text of the button) are both white
-- In the "intranet theme", `--background-color` is beige but `--primary-on-color` is white.
+- In the "defualt theme", `--color-background` and `--color-on-primary` (color for the text of the button) are both white
+- In the "intranet theme", `--color-background` is beige but `--color-on-primary` is white.
 
 <!-- ![Image showing that different tokens might refer to the same or different values depending on the theme](../../../images/color-semantic-difference.png) -->
 
-### Surface, primary and secondary colors
+### Surface, primary, secondary and tertiary colors
 
 Surface colors are used for large surfaces like a header or the whole page. They are:
 
-- `--background-color`. Color for the background of the surface
-- `--text-color`. Color for texts that are directly written on the surface
+- `--color-background`. Color for the background of the surface
+- `--color-text`. Color for texts that are directly written on the surface
 
 Primary colors are used for UI components with a "primary" appearance:
 
 <!-- ![A button and a filtering tab components with primary appearance](../../../images/color-primary.png) -->
 
-- `--primary-color`. Main color of the component. For example the background of a button
-- `--primary-on-color`. Color for elements _inside_ the component. For example texts and icons of a button
+- `--color-primary`. Main color of the component. For example the background of a button
+- `--color-on-primary`. Color for elements _inside_ the component. For example texts and icons of a button
 
-Secondary colors are used for UI elements with a "secondary" appearance:
+Secondary colors and tertiary are used for UI elements with secondary and tertiary appearance:
 
 <!-- ![A button and tab using boxed appearance, a collapse and link using unboxed appearance](../../../images/color-secondary.png) -->
 
-- `--boxed-secondary-color`. Main color for secondary components with borders. For border, texts and icons
-- `--unboxed-secondary-color`. Main color for secondary components without borders. For texts and icons
+- `--color-secondary`. Main color for secondary components with borders. For border, texts and icons
+- `--color-tertiary`. Main color for secondary components without borders. For texts and icons
 
-Accessibility: UI components that use `--unboxed-secondary-color` **must** have extra elements to indicate they are interactive. For example:
+Accessibility: UI components that use `--color-tertiary` **must** have extra elements to indicate they are interactive. For example:
 
-- Specific position: a link positioned inside a navigation area
+- Specific position: a link placed in a navigation area
 - A decoration: an underlined link
 - Extra elements: icons for collappse and dropdowns
 
@@ -67,8 +67,8 @@ Used to indicate success and error.
 
 <!-- ![An input with error message and a "Fortsätt" button with success color](../../../images/color-error-success.png) -->
 
-- `--error-color`. Color for errors. Used in borders, texts and backgrounds of UI elements
-- `--success-color`. Color for success. Used in borders, texts and backgrounds of UI elements
+- `--color-error`. Color for errors. Used in borders, texts and backgrounds of UI elements
+- `--color-success`. Color for success. Used in borders, texts and backgrounds of UI elements
 
 Accessibility: UI components should not rely only on color to convey error or success meaning. Use icons, labels and other additional elements
 
@@ -92,7 +92,7 @@ We think it is possible to define just one "overlay" color (something like a bla
 ```scss
 // --hover-overlay transparent by default:
 button.primary {
-  background: var(--primary-color), var(--hover-overlay, transparent);
+  background: var(--color-primary), var(--hover-overlay, transparent);
 }
 
 button.secondary {
@@ -132,11 +132,11 @@ KTH Style defines the following 4 color themes:
 
 All colors in a given theme must met the WCAG contrast requirements for the purpose that are designed for. Example:
 
-- `--background-color` and `--text-color` should have as highest contrast as possible since they are colors for background and normal text. At least 7:1 is desired
-- `--background-color` should have contrast with `--primary-color`, `--error-color` and `--success-color` (all of the three) of at least 4.5:1 since the latter three appear always on the background.
-- `--primary-on-color` should have contrast with `--primary-color`, `--error-color` and `--success-color` (all of the three) of at least 4.5:1
-- `--boxed-secondary-color` should have 4.5:1 contrast with `--background-color`
-- `--unboxed-secondary-color` should have 4.5:1 contrast with `--bacakground-color`. It is recommended to have a 3:1 contrast with `--text-color`.
+- `--color-background` and `--color-text` should have as highest contrast as possible since they are colors for background and normal text. At least 7:1 is desired
+- `--color-background` should have contrast with `--color-primary`, `--color-error` and `--color-success` (all of the three) of at least 4.5:1 since the latter three appear always on the background.
+- `--color-on-primary` should have contrast with `--color-primary`, `--color-error` and `--color-success` (all of the three) of at least 4.5:1
+- `--color-secondary` should have 4.5:1 contrast with `--color-background`
+- `--color-tertiary` should have 4.5:1 contrast with `--color-bacakground`. It is recommended to have a 3:1 contrast with `--color-text`.
 
 ## How to use semantic tokens
 
@@ -146,7 +146,7 @@ When building a component, use the appropiates CSS custom properties. You can pr
 
 ```scss
 .search-form__button {
-  background: var(--primary-color);
+  background: var(--color-primary);
   color: var(--primary-on-color);
 }
 ```

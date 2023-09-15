@@ -21,7 +21,7 @@ layout: ../../../layouts/Page.astro
   $color-blue-kth: #004791;
 
   // A CSS custom property containing a Sass variable
-  --primary-background-color: #{$color-blue-kth};
+  --color-primary: #{$color-blue-kth};
   ```
 
 ## Types of tokens
@@ -38,8 +38,19 @@ Reference tokens are coded in KTH Style as Sass variables. They comprise all of 
 - They usually point to a primitive value
 - The name of those tokens represents the value but not how to use it.
 
-<details>
-<summary>Naming convention for reference tokens (Sass variables)</summary>
+### Semantic tokens
+
+Semantic tokens are coded in KTH Style as CSS variables. They are decisions that systematize the design language for a specific theme or context.
+
+These tokens define the purpose that a reference token serves in the UI.
+
+- They contain other tokens as value, usually reference tokens
+- The name represents a role and a specific property (e.g. "primary background")
+- Their value might be different depending on the context, such as intranet vs external web
+
+## Naming convention
+
+Naming convention for tokens
 
 ```
 <category>-<names>
@@ -53,35 +64,11 @@ Where:
 Examples:
 
 ```
-color-blue-kth
-color-white
-space-4
+$color-blue-kth
+$color-white
+$space-4
+--color-primary
 ```
-
-</details>
-
-### Semantic tokens
-
-Semantic tokens are coded in KTH Style as CSS variables. They are decisions that systematize the design language for a specific theme or context.
-
-These tokens define the purpose that a reference token serves in the UI.
-
-- They contain other tokens as value, usually reference tokens
-- The name represents a role and a specific property (e.g. "primary background")
-- Their value might be different depending on the context, such as intranet vs external web
-
-<details>
-<summary>Naming convention for semantic tokens (CSS custom properties)</summary>
-
-It "should sound" like an actual CSS property. Last words should be similar to CSS properties (like `color` or `background-color`). Other words should give a sense on the role of the token
-
-```
---unboxed-secondary-color
---secondary-color
---primary-background-color
-```
-
-</details>
 
 ## Contexts
 
