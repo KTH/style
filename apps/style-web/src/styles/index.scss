@@ -126,3 +126,13 @@
     display: none;
   }
 }
+
+@media (width < 64rem) {
+  .kth-main-header__mega-menu {
+    display: none;
+  }
+
+  .kth-main-header__mega-menu--collapsable {
+    display: block;
+  }
+}

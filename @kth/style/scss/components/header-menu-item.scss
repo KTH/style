@@ -8,6 +8,11 @@
   align-items: center;
   gap: spacing.gap(4);
 
+  // Fixes for buttons:
+  border: none;
+  background: none;
+  padding: 0;
+
   span {
     padding-block: spacing.padding(8);
     padding-block-end: spacing.padding(4);
