@@ -10,5 +10,13 @@ const { label } = Astro.props;
   <a href="/" class="kth-header-menu-item dropdown">
     <span>{label}</span>
   </a>
-  <dialog></dialog>
+  <dialog class="kth-header-panel">
+    <div class="kth-header-panel__container">
+      <button class="close">
+        <span class="visually-hidden">Close</span>
+      </button>
+      <a href="/">Some element</a>
+      {label}
+    </div>
+  </dialog>
 </div>
