@@ -1,0 +1,63 @@
+@use "@kth/style/scss/tokens/spacing";
+//// This entire file should be moved to @kth/style when ready
+///
+///
+///
+
+$icon-close: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.06247 14.7115L5.28845 13.9375L9.22595 9.99997L5.28845 6.06247L6.06247 5.28845L9.99997 9.22595L13.9375 5.28845L14.7115 6.06247L10.774 9.99997L14.7115 13.9375L13.9375 14.7115L9.99997 10.774L6.06247 14.7115Z' fill='currentColor' /%3E%3C/svg%3E%0A");
+
+@mixin container {
+  margin-inline: auto;
+  max-width: 80rem;
+  padding-inline: spacing.$space-32;
+}
+
+.kth-header-panel {
+  top: 100%;
+  width: 100vw;
+  height: min(10rem, 50svh);
+
+  border: none;
+  background: var(--color-background);
+  padding: 0;
+
+  &__container {
+    @include container;
+  }
+}
+
+// Utility to hide text visually. The text will be still available for screen
+// reader users.
+//
+// At the time of writing, aria-label is not reliable:
+// https://adrianroselli.com/2019/11/aria-label-does-not-translate.html
+.visually-hidden {
+  position: absolute;
+  top: auto;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  width: 1px;
+  height: 1px;
+  white-space: nowrap;
+}
+
+button.close {
+  display: flex;
+  margin-inline-start: auto;
+  background: transparent;
+  border: none;
+  padding: spacing.$space-8;
+}
+
+button.close::before {
+  content: "";
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: var(--color-primary);
+
+  mask-image: $icon-close;
+  -webkit-mask-image: $icon-close;
+  mask-size: cover;
+  -webkit-mask-size: cover;
+}

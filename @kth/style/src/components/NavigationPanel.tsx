@@ -27,7 +27,20 @@ export function setNavigationPanels(
 
     if (!(dialog instanceof HTMLDialogElement)) {
       continue;
-      // throw new Error("Element adjacent to items must be a <dialog>");
+    }
+
+    dialog.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeAllDialogs();
+      }
+    });
+
+    const closeButton = dialog.querySelector(".close");
+
+    if (closeButton instanceof HTMLButtonElement) {
+      closeButton.addEventListener("click", () => {
+        closeAllDialogs();
+      });
     }
 
     item.addEventListener("click", (e) => {
@@ -43,7 +56,6 @@ export function setNavigationPanels(
   }
 
   container.addEventListener("focusout", function (e) {
-    console.log("Focus out!");
     const target = e.relatedTarget;
 
     if (target && target instanceof Node && !container.contains(target)) {
