@@ -1,0 +1,33 @@
+@use "../tokens/spacing";
+@use "../tokens/icons";
+
+.kth-header-menu-item {
+  color: var(--color-primary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: spacing.gap(4);
+
+  span {
+    padding-block: spacing.padding(8);
+    padding-block-end: spacing.padding(4);
+    border-bottom: transparent spacing.$space-4 solid;
+  }
+
+  &:hover span {
+    border-color: var(--color-primary);
+  }
+
+  &.dropdown::after {
+    @include icons.with-icon(caret);
+    background-color: var(--color-primary);
+  }
+  &.search::before {
+    @include icons.with-icon(search);
+    background-color: var(--color-primary);
+  }
+  &.language::before {
+    @include icons.with-icon(globe);
+    background-color: var(--color-primary);
+  }
+}

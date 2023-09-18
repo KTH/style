@@ -2,7 +2,6 @@
 import { Image } from "astro:assets";
 import logotype from "../images/logo.png";
 import NavigationPanel from "./NavigationPanel.astro";
-import SearchPanel from "./SearchPanel.astro";
 ---
 
 <header class="kth-main-header intranet">
@@ -32,10 +31,12 @@ import SearchPanel from "./SearchPanel.astro";
 
     <ul class="kth-main-header__tools">
       <li>
-        <SearchPanel label="Sök" />
+        <a href="/" class="kth-header-menu-item search">
+          <span>Sök</span>
+        </a>
       </li>
       <li>
-        <a class="kth-link--language">
+        <a href="/" class="kth-header-menu-item language">
           <span>English</span>
         </a>
       </li>

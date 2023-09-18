@@ -3,13 +3,11 @@ interface Props {
   label: string;
 }
 
-import "../styles/navigation-panel.scss";
-
 const { label } = Astro.props;
 ---
 
-<div class="kth-navigation-panel">
-  <a href="/" class="kth-navigation-panel__dropdown">
+<div>
+  <a href="/" class="kth-header-menu-item dropdown">
     <span>{label}</span>
   </a>
   <dialog></dialog>

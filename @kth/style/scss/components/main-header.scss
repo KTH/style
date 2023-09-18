@@ -1,0 +1,70 @@
+@use "../tokens/colors.scss";
+@use "../tokens/spacing.scss";
+
+@mixin horizontal-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  > :where(li) {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.kth-main-header.intranet {
+  @include colors.theme-intranet;
+}
+.kth-main-header.external {
+  @include colors.theme-inverse;
+}
+.kth-main-header.student-web {
+  @include colors.theme-student-web;
+}
+
+.kth-main-header {
+  background: var(--color-background);
+  padding-block: spacing.padding(16);
+  position: relative;
+
+  &__container {
+    max-width: 80rem;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+  }
+
+  &__logotype {
+    width: 4rem;
+    height: 4rem;
+    border: none;
+    margin: 0;
+    margin-inline-end: spacing.margin(32);
+    padding: 0;
+
+    > img {
+      translate: 0.125rem -16rem;
+      block-size: 100%;
+      inline-size: 100%;
+      filter: drop-shadow(0 16rem 0 var(--color-primary));
+    }
+  }
+
+  &__mega-menu {
+    ul {
+      @include horizontal-list();
+      gap: 1rem;
+    }
+  }
+
+  &__tools {
+    @include horizontal-list();
+    gap: 1rem;
+    margin-inline-start: auto;
+  }
+
+  &__mega-menu--collapsable {
+    display: none;
+  }
+}
