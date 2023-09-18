@@ -48,3 +48,12 @@ import NavigationPanel from "./NavigationPanel.astro";
     </ul>
   </div>
 </header>
+
+<script>
+  import { setNavigationPanels } from "@kth/style";
+
+  setNavigationPanels(
+    document.querySelector(".kth-main-header"),
+    document.querySelectorAll(".kth-main-header .kth-header-menu-item"),
+  );
+</script>
