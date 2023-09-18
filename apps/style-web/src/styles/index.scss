@@ -6,6 +6,9 @@
 @use "@kth/style/scss/components/header-menu-item";
 @use "@kth/style/scss/components/main-header";
 
+// This `horizontal-list` utility should be moved to @kth/style. But before,
+// we should answer:
+// - Should this mixin be a Scss mixin or a CSS class?
 @mixin horizontal-list {
   display: flex;
   list-style: none;
@@ -18,9 +21,15 @@
   }
 }
 
-.kpm__container {
+// Same with this:
+@mixin container {
   margin-inline: auto;
   max-width: 80rem;
+  padding-inline: spacing.$space-32;
+}
+
+.kpm__container {
+  @include container;
 }
 
 .kpm__entries {
@@ -70,8 +79,7 @@
   position: relative;
 
   &__container {
-    max-width: 80rem;
-    margin-inline: auto;
+    @include container;
     display: flex;
     align-items: center;
   }
