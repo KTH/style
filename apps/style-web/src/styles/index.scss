@@ -128,6 +128,10 @@
 }
 
 @media (width < 64rem) {
+  .kth-main-header__logotype {
+    margin-inline-end: 0;
+  }
+
   .kth-main-header__mega-menu {
     display: none;
   }
