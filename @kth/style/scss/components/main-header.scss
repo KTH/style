@@ -13,6 +13,12 @@
   }
 }
 
+@mixin container {
+  margin-inline: auto;
+  max-width: 80rem;
+  padding-inline: spacing.$space-32;
+}
+
 .kth-main-header.intranet {
   @include colors.theme-intranet;
 }
@@ -29,8 +35,7 @@
   position: relative;
 
   &__container {
-    max-width: 80rem;
-    margin-inline: auto;
+    @include container;
     display: flex;
     align-items: center;
   }
@@ -43,6 +48,10 @@
     margin-inline-end: spacing.margin(32);
     padding: 0;
 
+    // Defensive measurement:
+    // - We prevent logo from shrinking
+    flex: 0 0 auto;
+
     > img {
       translate: 0.125rem -16rem;
       block-size: 100%;
@@ -52,9 +61,14 @@
   }
 
   &__mega-menu {
-    ul {
+    > ul {
       @include horizontal-list();
-      gap: 1rem;
+
+      // Defensive measurements:
+      // - `flex-wrap: wrap` makes sure that all menus are displayed decently
+      // - `0` in gap (block axis) makes sure that menu spacing is ok all the time
+      flex-wrap: wrap;
+      gap: 0 spacing.$space-16;
     }
   }
 
@@ -66,5 +80,19 @@
 
   &__mega-menu--collapsable {
     display: none;
+  }
+}
+
+@media (width < 64rem) {
+  .kth-main-header__logotype {
+    margin-inline-end: 0;
+  }
+
+  .kth-main-header__mega-menu {
+    display: none;
+  }
+
+  .kth-main-header__mega-menu--collapsable {
+    display: block;
   }
 }
