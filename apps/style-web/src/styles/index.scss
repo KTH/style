@@ -92,6 +92,10 @@
     margin-inline-end: spacing.margin(32);
     padding: 0;
 
+    // Defensive measurement:
+    // - We prevent logo from shrinking
+    flex: 0 0 auto;
+
     > img {
       translate: 0.125rem -16rem;
       block-size: 100%;
@@ -103,7 +107,12 @@
   &__mega-menu {
     ul {
       @include horizontal-list();
-      gap: 1rem;
+
+      // Defensive measurements:
+      // - `flex-wrap: wrap` makes sure that all menus are displayed decently
+      // - `0` in gap (block axis) makes sure that menu spacing is ok all the time
+      flex-wrap: wrap;
+      gap: 0 spacing.$space-16;
     }
   }
 
