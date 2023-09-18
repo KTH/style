@@ -1,13 +1,14 @@
 ---
 interface Props {
   label: string;
+  dataId: string;
 }
 
-const { label } = Astro.props;
+const { label, dataId } = Astro.props;
 ---
 
 <div>
-  <a href="/" class="kth-header-menu-item dropdown">
+  <a href="/" data-id={dataId} class="kth-header-menu-item dropdown">
     <span>{label}</span>
   </a>
   <dialog class="kth-header-panel">
@@ -15,8 +16,47 @@ const { label } = Astro.props;
       <button class="close">
         <span class="visually-hidden">Close</span>
       </button>
-      <a href="/">Some element</a>
-      {label}
+      <div class="kth-header-panel__content"></div>
     </div>
   </dialog>
 </div>
+
+<script>
+  // This code is for reading blocks from Cortina
+  // Should be part of KTH Style?
+  const items = document.querySelectorAll(".kth-header-menu-item[data-id]");
+  items.forEach((item) => {
+    const dialog = item.nextElementSibling;
+    const dialogContent = dialog?.querySelector(".kth-header-panel__content");
+
+    if (!(item instanceof HTMLElement)) {
+      return;
+    }
+
+    if (!(dialog instanceof HTMLDialogElement)) {
+      return;
+    }
+
+    const cortinaBlockId = item.dataset.id;
+
+    let p: Promise<string> | undefined = undefined;
+
+    function loadPanelContent() {
+      if (!(dialogContent instanceof HTMLElement)) {
+        return;
+      }
+
+      if (!p) {
+        console.log(`Fetching block ${cortinaBlockId}`);
+        p = fetch(`/cm/${cortinaBlockId}`).then((r) => r.text());
+      }
+
+      p.then((body) => {
+        dialogContent.innerHTML = body;
+      });
+    }
+
+    item.addEventListener("mouseover", loadPanelContent);
+    item.addEventListener("click", loadPanelContent);
+  });
+</script>
