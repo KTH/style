@@ -14,7 +14,7 @@
   "devDependencies": {
     "@svgr/cli": "^8.0.1",
     "@svgr/core": "^8.0.0",
-    "lerna": "^6.6.2",
+    "lerna": "^7.3.0",
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.0"
   },
