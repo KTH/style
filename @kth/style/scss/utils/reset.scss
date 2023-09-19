@@ -5,13 +5,6 @@
 /// Adaptation of normalize.css v8.0.1
 /// github.com/necolas/normalize.css
 @layer kth-style {
-  // HTML
-  // 1. Prevent adjustments of font size after orientation changes in iOS.
-  html {
-    line-height: 1.5;
-    -webkit-text-size-adjust: 100%; /* 1 */
-  }
-
   :root {
     @include colors.theme-default;
     @include spacing.theme-default;
