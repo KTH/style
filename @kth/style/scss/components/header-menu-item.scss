@@ -24,15 +24,15 @@
   }
 
   &.dropdown::after {
-    @include icons.with-icon(caret);
+    @extend %icon-caret-down;
     background-color: var(--color-primary);
   }
   &.search::before {
-    @include icons.with-icon(search);
+    @extend %icon-search;
     background-color: var(--color-primary);
   }
   &.language::before {
-    @include icons.with-icon(globe);
+    @extend %icon-globe;
     background-color: var(--color-primary);
   }
 }
