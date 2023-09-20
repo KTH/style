@@ -1,0 +1,14 @@
+@use "@kth/style/scss/tokens/spacing";
+
+.kth-column-splitter {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  gap: spacing.$space-32;
+  // border: 1px solid black;
+}
+
+/// This is kept for retro-compatibility with Cortina.
+/// @deprecated
+.columnSplitter {
+  @extend .kth-column-splitter;
+}

@@ -6,6 +6,7 @@
 @use "@kth/style/scss/components/header-menu-item";
 @use "@kth/style/scss/components/main-header";
 @use "../styles/header-panel.scss";
+@use "../styles/column-splitter.scss";
 
 // This `horizontal-list` utility should be moved to @kth/style. But before,
 // we should answer:
