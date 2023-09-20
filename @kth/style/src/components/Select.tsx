@@ -34,7 +34,7 @@ interface OptionProps {
   children: string;
 
   /** True if the option should be disabled */
-  disabled: boolean;
+  disabled?: boolean;
 }
 
 interface OptionGroupProps {
