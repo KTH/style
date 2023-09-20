@@ -32,6 +32,9 @@ interface OptionProps {
 
   /** Human-readable label for the option */
   children: string;
+
+  /** True if the option should be disabled */
+  disabled: boolean;
 }
 
 interface OptionGroupProps {
@@ -76,6 +79,10 @@ export function OptionGroup({ label, children }: OptionGroupProps) {
   return <optgroup label={label}>{children}</optgroup>;
 }
 
-export function Option({ value, children }: OptionProps) {
-  return <option value={value}>{children}</option>;
+export function Option({ value, children, disabled }: OptionProps) {
+  return (
+    <option value={value} disabled={disabled}>
+      {children}
+    </option>
+  );
 }
