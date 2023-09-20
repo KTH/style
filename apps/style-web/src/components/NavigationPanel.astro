@@ -1,4 +1,8 @@
 ---
+// This `NavigationPanel` component is NOT the KTH Style NavigationPanel.
+//
+// This component is used exclusively on kth style web to be able to
+// demonstrate how can you use KTH Style components in your projects
 interface Props {
   label: string;
   dataId: string;
@@ -23,40 +27,43 @@ const { label, dataId } = Astro.props;
 
 <script>
   // This code is for reading blocks from Cortina
-  // Should be part of KTH Style?
-  const items = document.querySelectorAll(".kth-header-menu-item[data-id]");
-  items.forEach((item) => {
-    const dialog = item.nextElementSibling;
-    const dialogContent = dialog?.querySelector(".kth-header-panel__content");
+  document
+    .querySelectorAll(".kth-header-menu-item[data-id]")
+    .forEach((menuItem) => {
+      const dialog = menuItem.nextElementSibling;
+      const dialogContent = dialog?.querySelector(".kth-header-panel__content");
 
-    if (!(item instanceof HTMLElement)) {
-      return;
-    }
-
-    if (!(dialog instanceof HTMLDialogElement)) {
-      return;
-    }
-
-    const cortinaBlockId = item.dataset.id;
-
-    let p: Promise<string> | undefined = undefined;
-
-    function loadPanelContent() {
-      if (!(dialogContent instanceof HTMLElement)) {
+      if (!(menuItem instanceof HTMLElement)) {
         return;
       }
 
-      if (!p) {
-        console.log(`Fetching block ${cortinaBlockId}`);
-        p = fetch(`/cm/${cortinaBlockId}`).then((r) => r.text());
+      if (!(dialog instanceof HTMLDialogElement)) {
+        return;
       }
 
-      p.then((body) => {
-        dialogContent.innerHTML = body;
-      });
-    }
+      const cortinaBlockId = menuItem.dataset.id;
 
-    item.addEventListener("mouseover", loadPanelContent);
-    item.addEventListener("click", loadPanelContent);
-  });
+      // We declare the Promise outside of the listener.
+      // That way, if the promise has been initiated, we don't do a re-fetch
+      let p: Promise<string> | undefined = undefined;
+
+      function loadPanelContent() {
+        if (!(dialogContent instanceof HTMLElement)) {
+          return;
+        }
+
+        if (!p) {
+          // Fetch only if the promise has not started
+          console.log(`Fetching block ${cortinaBlockId}`);
+          p = fetch(`/cm/${cortinaBlockId}`).then((r) => r.text());
+        }
+
+        p.then((body) => {
+          dialogContent.innerHTML = body;
+        });
+      }
+
+      menuItem.addEventListener("mouseover", loadPanelContent);
+      menuItem.addEventListener("click", loadPanelContent);
+    });
 </script>
