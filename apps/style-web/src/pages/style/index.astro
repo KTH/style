@@ -1,9 +1,11 @@
 ---
-import "../../styles/test.scss";
+import "../styles/index.scss";
+import Layout from "../../layouts/Layout.astro";
+import MainHeader from "../../components/MainHeader.astro";
+import Kpm from "../../components/Kpm.astro";
 ---
 
-<html>
-  <body>
-    <h1>If this background is pink, it works!</h1>
-  </body>
-</html>
+<Layout title="KTH Style">
+  <Kpm />
+  <MainHeader />
+</Layout>
