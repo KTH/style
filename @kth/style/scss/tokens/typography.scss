@@ -10,7 +10,7 @@
   $font-weight: null
 ) {
   // Same font-family for everything
-  $font-family: "Figtree, sans-serif";
+  $font-family: "Figtree, 'Figtree Static', sans-serif";
   $font-size-rem: math.div($font-size-px, 16) * 1rem;
   $line-height-unitless: math.div($line-height-px, $font-size-px);
 
