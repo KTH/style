@@ -5,11 +5,11 @@ layout: ../../layouts/Page.astro
 
 # Spacing
 
-Spacing system in KTH Style is based on an 8px grid and helps adding hierarchy between UI elements
+Spacing system in KTH Style is based on a 8px grid and helps to add hierarchy between UI elements
 
 ## Spacing system
 
-All spacing values are defined as `1/16 rem` or "1/16th of the user font size in their browser". For example, a padding value of `8` means `8/16 rem` or `0.5rem`
+In this documentation, we use `1/16 rem` as unit. For example, a padding value of `8` means `8/16 rem` or `0.5rem`
 
 <details>
 <summary>Why?</summary>
@@ -38,7 +38,7 @@ KTH Style defines two semantic tokens for spacing inside a component.
 
 ### How to use
 
-For components with clear boundaries, use both `--space-inner-inline` and `--space-inner-block`:
+For components with boundaries (a border or a background), use both `--space-inner-inline` and `--space-inner-block`:
 
 ```scss
 .button.primary {
@@ -55,7 +55,7 @@ For components without boundaries, set padding only to the block axis:
 }
 ```
 
-For components with borders, use calc to substract the border width:
+For components with borders, use `calc` to subtract the border width:
 
 ```scss
 .button.secondary {
@@ -69,15 +69,13 @@ For components with borders, use calc to substract the border width:
 
 Use reference tokens to add spacing between UI elements.
 
-Here are some tips to help you applying them:
+Here are some tips to help you to apply them:
 
 ### Minimum spacing between elements
 
 Make sure that there is enough space to avoid confusion with a "white-space" character.
 
-To style components with the default font size, i.e. `1rem = 16`:
-
-- Between texts, at least 16 in the inline axis.
+- Use at least 16 in the inline axis.
 
 For everything else, 4 is enough as minimum spacing.
 
@@ -93,6 +91,6 @@ For everything else, 4 is enough as minimum spacing.
 ## Further guidance
 
 > [!Note]
-> Further guidance for elements placement and layout is coming soon
+> Further guidance for elements placement and layout will come later
 
 Consult KTH Style group in case you have different spacing/layout needs.
