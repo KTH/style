@@ -165,6 +165,8 @@ Make sure that there is enough space to avoid confusion with a "white-space" cha
 
    ![](../../../images/space-guide-5.png)
 
+5. There is no need for big spacing if there are other visual clues, like a big space below the "course code" in this image:
+
    ![](../../../images/space-guide-6.png)
 
 ### Tips for developers
