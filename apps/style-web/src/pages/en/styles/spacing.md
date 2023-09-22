@@ -123,9 +123,6 @@ button.star {
 }
 ```
 
-> [!Warning]
-> Do not add negative margin in the block axis
-
 ## How to add space between components
 
 ### Design tips
@@ -134,13 +131,41 @@ button.star {
 
 Make sure that there is enough space to avoid confusion with a "white-space" character.
 
-- Use at least 16 in the inline axis between texts. 4 is enough in the block axis.
-- For everything else, 4 is enough as _minimum_ spacing.
+- Use at least 16 between texts **in the inline axis**. 4 or even 0 is enough in the block axis.
+- For everything else, there is no minimum space.
+
+![](../../../images/space-minimum.png)
+
+![](../../../images/space-minimum-2.png)
 
 #### Use spacing to group elements by semantic proximity
 
 - Related elements need smaller space between them
 - Less related elements need bigger spacing
+
+![Using space for grouping elements](../../../images/space-hierarchy.png)
+
+### Practical example on how to add spaces
+
+1. Add space inside components
+
+   ![](../../../images/space-guide-2.png)
+
+2. Start adding space in small groups, usually deeper in the DOM tree. 16-24 in the inline axis and 0-4 in the block axis is usually enough
+
+   ![](../../../images/space-guide-3.png)
+
+3. Add bigger spacing between groups of groups.
+
+   Tip: use `margin: auto` in flex aliged elements to get maximum margin
+
+   ![](../../../images/space-guide-4.png)
+
+4. Continue adding spacing to bigger groups
+
+   ![](../../../images/space-guide-5.png)
+
+   ![](../../../images/space-guide-6.png)
 
 ### Tips for developers
 
