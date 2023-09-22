@@ -50,7 +50,7 @@ Most of the icons are delivered in components or as variants of them. Use the co
 > [!Note]
 > Read this _only_ if there is no other component that suit your needs or if you are creating a new component.
 
-For components with icon _and_ text, add an `::after` or `::before` selector in the button component and extend the icon classes in `icons.scss`:
+For components with icon _and_ text, add an `::after` or `::before` selector in the button component. Use the mixins in `icons.scss`:
 
 > [!Note]
 > Icons should never be in between words
@@ -65,7 +65,7 @@ For components with icon _and_ text, add an `::after` or `::before` selector in 
   align-items: center;
 
   ::after {
-    @extend %icon-search;
+    @mixin icons.icon-search;
 
     // Make sure that the text and icon has the same color
     background-color: var(--color-primary);
@@ -94,14 +94,27 @@ For buttons with _only icons_:
 
 1.  Add either `::afer` or `::before` selector in the button component and include the icon with CSS.
 
-    Follow the spacing rules for buttons as described in [Spacing](./spacing.md)
+    See also the spacing rules for buttons in [Spacing](./spacing.md)
 
     ```scss
-    // TODO
+    .favorite-button {
+      padding-block: var(--space-inner-icon);
+      padding-inline: var(--space-inner-icon);
+      margin-inline: calc(-1 * var(--space-inner-icon));
+
+      // There is nothing else in this button so you can use `::before` or
+      // `::after` interchangeably
+      &::after {
+        @mixin icons.icon-search;
+        background-color: var(--color-primary);
+      }
+    }
     ```
 
-2.  Use the `.visually-hidden` class to add text to make sure that the button is understandable for people who cannot see the icon
+2.  Use the `.visually-hidden` class to add text for people who cannot see the icon
 
-```html
-<!-- TODO -->
-```
+    ```html
+    <button class="favorite-button">
+      <span class="visually-hidden">Add to favorite</span>
+    </button>
+    ```
