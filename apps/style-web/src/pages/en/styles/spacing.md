@@ -95,7 +95,7 @@ button.star {
 
 ### Inline axis padding
 
-- Use `--space-inner-icon` if the component has only an icon. Add a negative margin to align the visual area
+- Use `--space-inner-icon` if the component has only an icon. Add a negative margin to align the visual area without shrinking the click area
 - Use 0 if the component has no borders nor backgrounds
 - Use `--space-inner-inline` if the component has texts and icons or only text
 - (Optional) Substract the border from the padding if needed
