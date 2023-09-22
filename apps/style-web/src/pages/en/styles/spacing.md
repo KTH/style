@@ -67,9 +67,9 @@ Components with correct inner padding values have a consistent size, which makes
 
 ### Block axis padding
 
-- Use `--space-inner-icon` if the component has only an icon
-- Use `--space-inner-block` value if the component has texts and icons or only text
-- Substract the border from the padding if needed
+- Use `--space-inner-icon` if the component has only an icon (like the "star" button in the example below)
+- Use `--space-inner-block` for everything else
+- Substract the border from the padding (like in the button "Avbryt")
 
 ![How block padding help align things in the inline axis](../../../images/space-block-axis.png)
 ![Border should be substracted from the padding](../../../images/space-block-axis-border.png)
@@ -95,10 +95,10 @@ button.star {
 
 ### Inline axis padding
 
-- Use `--space-inner-icon` if the component has only an icon. Add a negative margin to align the visual area without shrinking the click area
-- Use 0 if the component has no borders nor backgrounds
-- Use `--space-inner-inline` if the component has texts and icons or only text
-- (Optional) Substract the border from the padding if needed
+- Use `--space-inner-icon` if the component has only an icon (like the "star" button in the example). Add a negative margin to align the visual area without shrinking the click area
+- Use 0 if the component has no borders nor backgrounds (like the "English" button)
+- Use `--space-inner-inline` for everything else (like the "Avbryt" and the "Godkänn" buttons)
+- (Optional) Substract the border from the padding (like the "Avbryt" button)
 
 ![How inline padding helps aligning items in the block axis](../../../images/space-inline-axis.png)
 
