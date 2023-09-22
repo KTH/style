@@ -63,62 +63,57 @@ KTH Style defines two spacing themes:
 > [!Note]
 > KTH Style components have these constrains already built-in
 
-### Components without border nor background
+Components with correct inner padding values have a consistent size, which makes it easier to align them.
 
-For example:
+### Block axis padding
 
-- Links in a list
-- A collapse
-- Dropdowns without background
-
-> [!Note]
-> This does not apply to _inline_ elements, that are in the middle of a text
-
-For components without boundaries, set padding only to the block axis:
+- Use `--space-inner-icon` if the component has only an icon
+- Use `--space-inner-block` value if the component has texts and icons or only text
+- Substract the border from the padding if needed
 
 ```scss
-.link {
+button.godkann {
   padding-block: var(--space-inner-block);
+}
+
+button.avbryt {
+  border-width: $border-1;
+  padding-block: calc(var(--space-inner-block) - $border-1);
+}
+
+button.english {
+  padding-block: var(--space-inner-block);
+}
+
+button.star {
+  padding-block: var(--space-innere-icon);
 }
 ```
 
-### Components with background but without borders
+### Inline axis padding
 
-For components with a border or a background, for example:
-
-- Buttons with background
-
-Use both `--space-inner-inline` and `--space-inner-block`:
+- Use `--space-inner-icon` if the component has only an icon. Add a negative margin to align the visual area
+- Use 0 if the component has no borders nor backgrounds
+- Use `--space-inner-inline` if the component has texts and icons or only text
+- (Optional) Substract the border from the padding if needed
 
 ```scss
-.button.primary {
-  padding-block: var(--space-inner-block);
+button.godkann {
   padding-inline: var(--space-inner-inline);
 }
-```
 
-### Components with borders
-
-- Table cells
-- Buttons with border
-
-Use both `--space-inner-inline` and `--space-inner-block`. Use `calc` to subtract the border width from the padding:
-
-```scss
-.button.secondary {
+button.avbryt {
+  // Substracting the border here is optional
   border-width: $border-1;
-  padding-block: calc(var(--space-inner-block) - #{$border-1});
-  padding-inline: calc(var(--space-inner-inline) - #{$border-1});
+  padding-inline: calc(var(--space-inner-inline) - $border-1);
 }
-```
 
-### Components that are only icons
+button.english {
+  padding-inline: 0;
+}
 
-Use `--space-inner-icon` for padding in both axes. Use negative margin in the inline axis to expand the clickable area without affecting the visual vertical alignment
-
-```scss
-.star-button {
-  padding: var(--space-inner-icon);
+button.star {
+  padding-inline: var(--space-inner-icon);
   margin-inline: calc(-1 * var(--space-inner-icon));
 }
 ```
