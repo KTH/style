@@ -71,6 +71,9 @@ Components with correct inner padding values have a consistent size, which makes
 - Use `--space-inner-block` value if the component has texts and icons or only text
 - Substract the border from the padding if needed
 
+![How block padding help align things in the inline axis](../../../images/space-block-axis.png)
+![Border should be substracted from the padding](../../../images/space-block-axis-border.png)
+
 ```scss
 button.godkann {
   padding-block: var(--space-inner-block);
@@ -96,6 +99,8 @@ button.star {
 - Use 0 if the component has no borders nor backgrounds
 - Use `--space-inner-inline` if the component has texts and icons or only text
 - (Optional) Substract the border from the padding if needed
+
+![How inline padding helps aligning items in the block axis](../../../images/space-inline-axis.png)
 
 ```scss
 button.godkann {
