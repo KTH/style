@@ -1,3 +1,8 @@
+---
+title: Typography
+layout: "@layouts/Page.astro"
+---
+
 # Typography
 
 Typography in KTH Style is based on KTH graphical identity.
@@ -28,18 +33,18 @@ KTH Style defines the following tokens for the CSS `font` short-hand property. W
 
 For blocks (paragraphs and headings) in articles and main areas of content
 
-- `--default-font`. Used it by default
-- `--heading-xl-font`. It is equivalent to the font for the `<h1>` tag.
-- `--heading-l-font`. Equivalent to the `<h2>` tag.
-- `--heading-m-font`. Equivalent to the `<h3>` tag.
-- `--heading-s-font`. Equivalent to the `<h4>` tag.
-- `--lead-font`. Used for the leading paragraph below a big title
+- `--font-default`. Used it by default
+- `--font-heading-xl`. It is equivalent to the font for the `<h1>` tag.
+- `--font-heading-l`. Equivalent to the `<h2>` tag.
+- `--font-heading-m`. Equivalent to the `<h3>` tag.
+- `--font-heading-s`. Equivalent to the `<h4>` tag.
+- `--font-lead`. Used for the leading paragraph below a big title
 
 For blocks (paragraphs and headings) in other places, we provide `label-<xxx>` fonts that can be used in different contexts. Usually you start using the smallest possible, and then you increase in size when required.
 
-- `--label-s-font`
-- `--label-m-font`
-- `--label-l-font`
+- `--font-label-s`
+- `--font-label-m`
+- `--font-label-l`
 
 ## Themes
 
@@ -58,7 +63,7 @@ Use the CSS custom properties for styling texts in a component:
 
 ```scss
 label {
-  font: var(--label-s-font);
+  font: var(--font-label-s);
 }
 ```
 

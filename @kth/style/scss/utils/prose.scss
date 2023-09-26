@@ -13,28 +13,28 @@
   }
 
   .lead {
-    font: var(--lead-font);
+    font: var(--font-lead);
     margin-block-start: s.$space-12;
     margin-block-end: s.$space-16;
   }
 
   h1 {
-    font: var(--heading-xl-font);
+    font: var(--font-heading-xl);
     margin: s.margin(32 0 16 0);
   }
 
   h2 {
-    font: var(--heading-l-font);
+    font: var(--font-heading-l);
     margin: s.margin(32 0 16 0);
   }
 
   h3 {
-    font: var(--heading-m-font);
+    font: var(--font-heading-m);
     margin: s.margin(32 0 8 0);
   }
 
   h4 {
-    font: var(--heading-s-font);
+    font: var(--font-heading-s);
     margin: s.margin(32 0 4 0);
   }
 
@@ -71,8 +71,9 @@
   thead {
     // TODO: border
     th {
-      font: var(--label-s-font);
-      padding: s.padding(0 8 8 8);
+      font: var(--font-label-s);
+      padding-block: var(--space-inner-block);
+      padding-inline: var(--space-inner-inline);
 
       &:first-child {
         padding-left: 0;
