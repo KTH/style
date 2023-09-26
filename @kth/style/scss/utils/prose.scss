@@ -6,8 +6,9 @@
 /// - CSS for tags like <p>, <h1-6>, <code>, <pre>, <ul> and <li>
 /// - CSS classes like ".lead"
 @mixin prose {
+  font: var(--font-article-body);
+
   p {
-    font: var(--default-font);
     margin-block: s.$space-20;
     max-width: 60ch;
   }
@@ -16,6 +17,13 @@
     font: var(--font-lead);
     margin-block-start: s.$space-12;
     margin-block-end: s.$space-16;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
   }
 
   h1 {
@@ -58,13 +66,18 @@
     margin-block-start: 0;
   }
 
+  pre {
+    margin-block: s.$space-32;
+    padding-block: s.$space-16;
+    padding-inline: s.$space-24;
+  }
+
   table {
+    @include s.theme-dense;
     table-layout: auto;
     text-align: left;
-    margin: 2rem 0;
+    margin-block: s.$space-32;
     border-collapse: collapse;
-
-    display: block;
     overflow-x: auto;
   }
 
@@ -76,11 +89,11 @@
       padding-inline: var(--space-inner-inline);
 
       &:first-child {
-        padding-left: 0;
+        padding-inline-start: 0;
       }
 
       &:last-child {
-        padding-right: 0;
+        padding-inline-end: 0;
       }
     }
   }
@@ -90,14 +103,15 @@
 
     td {
       vertical-align: baseline;
-      padding: s.$space-8;
+      padding-block: var(--space-inner-block);
+      padding-inline: var(--space-inner-inline);
 
       &:first-child {
-        padding-left: 0;
+        padding-inline-start: 0;
       }
 
       &:last-child {
-        padding-right: 0;
+        padding-inline-end: 0;
       }
     }
   }
