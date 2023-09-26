@@ -7,14 +7,20 @@ layout: "@layouts/Page.astro"
 
 Typography in KTH Style is based on KTH graphical identity.
 
-> **Note**
-> This document is under construction. We are adding more examples and clarification.
-
 ## Typography system
 
-- The new graphical identity defines one single font family: Figtree. Previous versions of KTH Style have defined an extra font with serif for longer texts but that is no longer the case.
-- KTH Style has defined combinations of font size, line height and font weight. They are defined with readibility in mind and to create a visual rythm.
+- The new graphical identity defines one single font family: Figtree. No serif font is defined.
+- Defines combinations of font size, line height and font weight. They are defined with readibility in mind and to create a visual rythm.
 - Padding and margin is defined in [Spacing](./spacing.md).
+
+## Variable font
+
+KTH Style offers the Figtree font in **variable woff2 format** which maximizes compression.
+
+- WOFF2 format is [widely supported](https://caniuse.com/woff2)
+- Variable fonts are also [widely supported](https://caniuse.com/variable-fonts)
+- Figtree variable in WOFF2 (28 Kb) is **smaller** than the static Regular and SemiBold in WOFF2 together (21 Kb each).
+- Users of old browsers will see the fallback font Arial or the default sans-serif font in their systems. No fallback formats (WOFF, OTF, TTF...) are provided.
 
 ## Visual font sizes vs semantic document hierarchy
 
@@ -55,6 +61,10 @@ There are no different themes for typography at this moment.
 
 ## How to use
 
+### Bring the font to your project
+
+Read the [get started guide for developers](../../style/en/get-started/developers.md)
+
 ### In a single selector
 
 Use the CSS custom properties for styling texts in a component:
@@ -72,6 +82,8 @@ The purpose of this mixin is to style an "article", i.e. a region of a document 
 - It is ready to be used "as it is", to style a HTML article generated from a Markdown file or a CMS where writers cannot customize class names.
 - It sets default `font` values as well as paddings and margins for most common HTML tags used in articles.
 - It takes into account combinations of elements (e.g. `<h2>` followed by an `<h3>`).
+
+See the mixin in action in the [typography test page](https://kthstyledemoref.z6.web.core.windows.net/style/en/examples/typography/index.html)
 
 ```scss
 @use "@kth/style/scss/utils/prose";
