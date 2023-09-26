@@ -64,3 +64,9 @@
     color: colors.$color-blue-kth;
   }
 }
+
+main {
+  @include container;
+  @include prose.prose;
+  max-width: 40rem;
+}

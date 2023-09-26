@@ -82,13 +82,13 @@ $_all_spaces: (
 
 // Semantic tokens for spacing
 @mixin theme-default {
-  --boxed-padding-inline: #{$space-16};
-  --boxed-padding-block: #{$space-8};
+  --space-inner-inline: #{$space-16};
+  --space-inner-block: #{$space-8};
   --unboxed-padding-block: #{$space-8};
 }
 
 @mixin theme-dense {
-  --boxed-padding-inline: #{$space-12};
-  --boxed-padding-block: #{$space-4};
+  --space-inner-inline: #{$space-12};
+  --space-inner-block: #{$space-4};
   --unboxed-padding-block: #{$space-4};
 }

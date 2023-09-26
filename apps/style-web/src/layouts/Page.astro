@@ -7,73 +7,15 @@ type Props = MarkdownLayoutProps<{
 
 import "../styles/index.scss";
 import Layout from "./Layout.astro";
+import Kpm from "../components/Kpm.astro";
 import MainHeader from "../components/MainHeader.astro";
 
 const { frontmatter } = Astro.props;
 ---
 
 <Layout title={frontmatter.title}>
+  <Kpm />
   <MainHeader />
 
-  <div class="kth-main-content">
-    <nav aria-label="Brödsmulor">
-      <ol>
-        <li><a href="https://intra.kth.se">Intranät</a></li>
-        <li><a href="">Administrativ stöd</a></li>
-        <li><a href="">Kommunikationsstöd</a></li>
-        <li><a href="">Webb på KTH</a></li>
-        <li><a href="">Verktyg</a></li>
-        <li><a href="https://intra.kth.se/style">KTH Style</a></li>
-        <li><a href="https://intra.kth.se/style">Färger</a></li>
-      </ol>
-    </nav>
-    <aside class="kth-submenu">
-      <h2 class="kth-label-2">KTH Style</h2>
-      <ul class="kth-link-list">
-        <li><a href="/">Om KTH Style</a></li>
-        <li>
-          <h3 class="kth-label-3">Kom igång</h3>
-          <ul class="kth-link-list">
-            <li><a href="">Design av app utifrån KTH Style</a></li>
-            <li><a href="">Övergripande riktlinjer</a></li>
-          </ul>
-        </li>
-        <li>
-          <h3 class="kth-label-3">Användbarhetstester</h3>
-          <ul class="kth-link-list">
-            <li><a href="">Testa användbarhet och tillgänglighet</a></li>
-            <li><a href="">Utrusning och inställningar för tester</a></li>
-          </ul>
-        </li>
-        <li>
-          <h3 class="kth-label-3">Styles</h3>
-          <ul class="kth-link-list">
-            <li><a href="/en/styles/design-tokens">Om design tokens</a></li>
-            <li><a href="/en/styles/colors">Färger</a></li>
-            <li><a href="/en/styles/typography">Typografi</a></li>
-            <li><a href="/en/styles/spacing">Marginaler och avstånd</a></li>
-            <li><a href="">Bilder och dokument</a></li>
-            <li><a href="">Struktur och layout</a></li>
-            <li><a href="">Ikoner</a></li>
-          </ul>
-        </li>
-        <li>
-          <h3 class="kth-label-3">Komponenter</h3>
-          <ul class="kth-link-list">
-            <li><a href="">Alerts</a></li>
-            <li><a href="">Collapse</a></li>
-            <li><a href="">Formulär</a></li>
-            <li><a href="">Knappar</a></li>
-            <li><a href="">Länkar</a></li>
-            <li><a href="">Listor</a></li>
-            <li><a href="">Modaler</a></li>
-            <li><a href="">Tabbar</a></li>
-            <li><a href="">Tabeller</a></li>
-            <li><a href="">Tooltips</a></li>
-          </ul>
-        </li>
-      </ul>
-    </aside>
-    <main><slot /></main>
-  </div>
+  <main><slot /></main>
 </Layout>
