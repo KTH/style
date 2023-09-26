@@ -46,12 +46,18 @@ Read more in the [Express documentation](https://expressjs.com/en/starter/static
 
 ## Import the Figtree font family
 
-Add the following line in the **top** of the Sass file in your project:
+You can import the Figtree using the HTML `<link>` tag or CSS `@import` rule.
+
+```html
+<link rel="stylesheet" href="/<YOUR_APP>/assets/fonts.css" />
+```
 
 ```scss
-// ASSETS_DIRECTORY_URL = `<<YOUR_APP>>/assets` if you followed the Method 1
-@import url("<<ASSETS_DIRECTORY_URL>/fonts.css");
+@import url("/<YOUR_APP>/assets/fonts.css");
 ```
+
+> [Note!]
+> Some tools rewrite URLs when using `@import` statements. If you have any problem, contact us so we can add troubleshooting information
 
 <details>
 <summary>Troubleshooting</summary>
