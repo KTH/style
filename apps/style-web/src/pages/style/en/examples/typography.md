@@ -22,9 +22,7 @@ Kebabpizza är en populär och smakrik maträtt som kombinerar smakerna av krydd
 
 ---
 
-## Som dock samtidigt se blev ska bland äng, groda häst händer sällan kom när
-
-## Kebabpizza är populärt av flera anledningar:
+## Kebabpizza är populärt av flera anledningar
 
 1. Smakrik Variation: Kebabpizza kombinerar de kryddiga smakerna från kebabköttet med den ostspröda pizzabotten
 2. Mättande och Fyllig: Kebabpizza är känd för sin fyllighet och mättnadskänsla.
