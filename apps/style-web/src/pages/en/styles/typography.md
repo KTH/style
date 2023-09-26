@@ -13,7 +13,7 @@ Typography in KTH Style is based on KTH graphical identity.
 - Defines combinations of font size, line height and font weight. They are defined with readibility in mind and to create a visual rythm.
 - Padding and margin is defined in [Spacing](./spacing.md).
 
-## Variable font
+## Variable font Figtree
 
 KTH Style offers the Figtree font in **variable woff2 format** which maximizes compression.
 
