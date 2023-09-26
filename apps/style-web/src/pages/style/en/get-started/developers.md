@@ -14,8 +14,8 @@ npm i @kth/style
 
 KTH Style includes static assets (logotypes, typography). You can:
 
-- route a path in your app to the `node_modules/@kth/style/assets` directory.
-- copy the `assets` directory and serve it yourself
+- Route a path to assets directory.
+- Serve the assets yourself
 
 ### Method 1. Route a path to assets directory
 
@@ -39,21 +39,29 @@ app.use("/<<YOUR_APP>>/assets", express.static(kthStyleAssets));
 
 Read more in the [Express documentation](https://expressjs.com/en/starter/static-files.html)
 
-### Method 2. Copy the assets and serve them yourself
+### Method 2. Serve the assets yourself
 
-Copy the directory `/node_modules/@kth/style/assets` somewhere and route requests to such directory
+1. Copy the files in `/node_modules/@kth/style/assets` to a custom directory.
+2. Make sure there is a public URL to access to the files in the directory you have copied
 
 ## Import the Figtree font family
 
-Add the following line in the **top** of the Sass file in your project:
+You can import the Figtree using the HTML `<link>` tag or CSS `@import` rule.
+
+```html
+<link rel="stylesheet" href="/<YOUR_APP>/assets/fonts.css" />
+```
 
 ```scss
-@import url("<<PATH_TO_YOUR_ASSETS_DIRECTORY>/fonts.css");
+@import url("/<YOUR_APP>/assets/fonts.css");
 ```
+
+> [Note!]
+> Some tools rewrite URLs when using `@import` statements. If you have any problem, contact us so we can add troubleshooting information
 
 <details>
 <summary>Troubleshooting</summary>
 
-In this section we will inclued the most common problems when importing both CSS and Sass files into a project.
+In this section we will include the most common problems when importing both CSS and Sass files into a project.
 
 </details>
