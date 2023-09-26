@@ -8,12 +8,18 @@
     -moz-text-size-adjust: none;
     -webkit-text-size-adjust: none;
     text-size-adjust: none;
+    scrollbar-gutter: stable;
   }
 
   :root {
     @include colors.theme-default;
     @include spacing.theme-default;
     @include typography.theme-default;
+  }
+
+  body {
+    color: var(--color-text);
+    background: var(--color-background);
   }
 
   // Remove all default margin
@@ -28,6 +34,11 @@
   dl,
   dd {
     margin: 0;
+  }
+
+  a {
+    color: var(--color-tertiary);
+    text-underline-offset: spacing.$space-4;
   }
 
   img,
