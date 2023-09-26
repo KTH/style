@@ -1,3 +1,8 @@
+---
+title: Icons
+layout: "@layouts/Page.astro"
+---
+
 # Icons
 
 KTH Style provides icons as an extra aid for users but you should avoid them in most cases.
@@ -56,16 +61,13 @@ For components with icon _and_ text, add an `::after` or `::before` selector in 
 > Icons should never be in between words
 
 ```scss
-// Importing `icons.scss` will expose the `%icon-<name>` classes
-@use "@kth/style/scss/tokens/icons";
-
 .button {
   // Text and button should be centered vertically
   display: flex;
   align-items: center;
 
   ::after {
-    @mixin icons.icon-search;
+    @include icons.icon-search;
 
     // Make sure that the text and icon has the same color
     background-color: var(--color-primary);
@@ -105,7 +107,7 @@ For buttons with _only icons_:
       // There is nothing else in this button so you can use `::before` or
       // `::after` interchangeably
       &::after {
-        @mixin icons.icon-search;
+        @include icons.icon-search;
         background-color: var(--color-primary);
       }
     }

@@ -1,6 +1,6 @@
 ---
 title: Design tokens
-layout: ../../../../layouts/Page.astro
+layout: "@layouts/Page.astro"
 ---
 
 # Design tokens

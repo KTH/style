@@ -1,6 +1,6 @@
 ---
 title: Typography test
-layout: ../../../../layouts/Page.astro
+layout: "@layouts/Page.astro"
 ---
 
 # Typography test
