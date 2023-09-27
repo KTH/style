@@ -6,8 +6,6 @@
 /// - CSS for tags like <p>, <h1-6>, <code>, <pre>, <ul> and <li>
 /// - CSS classes like ".lead"
 @mixin prose {
-  font: var(--font-article-body);
-
   p {
     margin-block: s.$space-20;
     max-width: 60ch;
