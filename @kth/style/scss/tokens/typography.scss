@@ -10,7 +10,7 @@
   $font-weight: null
 ) {
   // Same font-family for everything
-  $font-family: "Figtree, 'Figtree Static', sans-serif";
+  $font-family: "Figtree, sans-serif";
   $font-size-rem: math.div($font-size-px, 16) * 1rem;
   $line-height-unitless: math.div($line-height-px, $font-size-px);
 
@@ -32,5 +32,4 @@
   --font-label-m: #{_generate-shorthand-font(19, 24, 600)};
   --font-label-s: #{_generate-shorthand-font(16, 24, 600)};
   --font-lead: #{_generate-shorthand-font(24, 36)};
-  --font-article-body: #{_generate-shorthand-font(17, 28)};
 }
