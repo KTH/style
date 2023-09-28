@@ -46,4 +46,9 @@
   picture {
     max-width: 100%;
   }
+
+  input, button,
+  textarea, select {
+    font: inherit;
+  }
 }

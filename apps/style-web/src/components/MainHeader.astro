@@ -1,13 +1,19 @@
 ---
-import { Image } from "astro:assets";
-import logotype from "../images/logo.png";
 import NavigationPanel from "./NavigationPanel.astro";
 ---
 
 <header class="kth-main-header intranet">
   <div class="kth-main-header__container">
     <figure class="kth-main-header__logotype">
-      <Image src={logotype} alt="KTH:s Logotyp" />
+      <img
+        alt="KTH"
+        srcset="
+          /style/assets/kth-logotype-64.webp,
+          /style/assets/kth-logotype-64@2x.webp 2x,
+          /style/assets/kth-logotype-64@3x.webp 3x
+        "
+        src="/style/assets/kth-logotype-64.png"
+      />
     </figure>
     <nav class="kth-main-header__mega-menu">
       <ul>
