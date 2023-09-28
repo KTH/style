@@ -3,6 +3,17 @@
   "version": "0.0.10",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./react": {
+      "import": "./dist/esm/react.js",
+      "require": "./dist/cjs/react.js"
+    },
+    "./scss/*": "./scss/*"
+  },
   "scripts": {
     "clean": "rm -rf dist",
     "dev": "storybook dev -p 6006",

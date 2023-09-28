@@ -1,5 +1,3 @@
-import React from "react";
-
 /**
  * Add open/close functionality to a set of navigation panels
  *
@@ -62,8 +60,4 @@ export function setNavigationPanels(
       closeAllDialogs();
     }
   });
-}
-
-export function NavigationPanel() {
-  return <div>This is the React navigation panel</div>;
 }
