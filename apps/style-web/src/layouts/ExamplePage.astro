@@ -1,0 +1,60 @@
+---
+import { Code } from "astro:components";
+import "@styles/example-page.scss";
+
+export interface Props {
+  htmlCode?: string;
+  cssCode?: string;
+  reactCode?: string;
+}
+const { htmlCode, cssCode, reactCode } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <div class="styleweb-tabs">
+      <ul role="tablist">
+        <li>
+          <button role="tab" id="tab-preview" aria-controls="panel-preview">
+            Preview
+          </button>
+        </li>
+        <li>
+          <button role="tab" id="tab-html" aria-controls="panel-html">
+            HTML
+          </button>
+        </li>
+        <li>
+          <button role="tab" id="tab-css" aria-controls="panel-css">CSS</button>
+        </li>
+        <li>
+          <button role="tab" id="tab-js" aria-controls="panel-js">
+            JavaScript
+          </button>
+        </li>
+      </ul>
+      <section role="tabpanel" id="panel-preview" aria-labelledby="tab-preview">
+        <slot />
+      </section>
+      <section role="tabpanel" id="panel-html" aria-labelledby="tab-html">
+        <Code code={htmlCode ?? ""} lang="html" />
+      </section>
+      <section role="tabpanel" id="panel-css" aria-labelledby="tab-css">
+        <Code code={cssCode ?? ""} lang="scss" />
+      </section>
+      <section role="tabpanel" id="panel-js"></section>
+    </div>
+  </body>
+</html>
+
+<script>
+  import { initTabs } from "@kth/style";
+
+  initTabs(document.querySelector(".styleweb-tabs")!);
+</script>

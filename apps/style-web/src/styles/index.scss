@@ -69,4 +69,10 @@ main {
   @include container;
   @include prose.prose;
   max-width: 40rem;
+
+  iframe {
+    border: 1px solid black;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+  }
 }

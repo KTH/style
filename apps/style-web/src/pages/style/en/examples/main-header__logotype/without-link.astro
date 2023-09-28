@@ -1,0 +1,34 @@
+---
+import ExamplePage from "../../../../../layouts/ExamplePage.astro";
+
+const htmlCode = `
+<figure class="kth-main-header__logotype">
+  <img
+    alt="KTH"
+    srcset="
+      <ASSETS_DIRECTORY>/kth-logotype-64.webp,
+      <ASSETS_DIRECTORY>/kth-logotype-64@2x.webp 2x,
+      <ASSETS_DIRECTORY>/kth-logotype-64@3x.webp 3x
+    "
+    src="<ASSETS_DIRECTORY>/kth-logotype-64.png"
+  />
+</figure>
+`;
+const cssCode = `
+@use "@kth/style/scss/components/kth-main-header.scss";
+`;
+---
+
+<ExamplePage htmlCode={htmlCode} cssCode={cssCode}>
+  <figure class="kth-main-header__logotype">
+    <img
+      alt="KTH"
+      srcset="
+        /style/assets/kth-logotype-64.webp,
+        /style/assets/kth-logotype-64@2x.webp 2x,
+        /style/assets/kth-logotype-64@3x.webp 3x
+      "
+      src="/style/assets/kth-logotype-64.png"
+    />
+  </figure>
+</ExamplePage>
