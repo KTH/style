@@ -4,17 +4,30 @@ import NavigationPanel from "./NavigationPanel.astro";
 
 <header class="kth-main-header intranet">
   <div class="kth-main-header__container">
-    <figure class="kth-main-header__logotype">
-      <img
-        alt="KTH"
-        srcset="
-          /style/assets/kth-logotype-64.webp,
-          /style/assets/kth-logotype-64@2x.webp 2x,
-          /style/assets/kth-logotype-64@3x.webp 3x
-        "
-        src="/style/assets/kth-logotype-64.png"
-      />
-    </figure>
+    <a href="/">
+      <figure class="kth-main-header__logotype blue">
+        <img
+          alt="Gå till KTH intranät"
+          srcset="
+          /style/assets/kth-logotype-blue.webp,
+          /style/assets/kth-logotype-blue@2x.webp 2x,
+          /style/assets/kth-logotype-blue@3x.webp 3x
+          "
+          src="/style/assets/kth-logotype-blue.png"
+        />
+      </figure>
+      <figure class="kth-main-header__logotype white">
+        <img
+          alt="Gå till KTH intranät"
+          srcset="
+          /style/assets/kth-logotype-white.webp,
+          /style/assets/kth-logotype-white@2x.webp 2x,
+          /style/assets/kth-logotype-white@3x.webp 3x
+          "
+          src="/style/assets/kth-logotype-white.png"
+        />
+      </figure>
+    </a>
     <nav class="kth-main-header__mega-menu">
       <ul>
         <li>

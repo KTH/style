@@ -21,12 +21,24 @@
 
 .kth-main-header.intranet {
   @include colors.theme-intranet;
+
+  .kth-main-header__logotype.white {
+    display: none;
+  }
 }
 .kth-main-header.external {
   @include colors.theme-inverse;
+
+  .kth-main-header__logotype.blue {
+    display: none;
+  }
 }
 .kth-main-header.student-web {
   @include colors.theme-student-web;
+
+  .kth-main-header__logotype.white {
+    display: none;
+  }
 }
 
 .kth-main-header {
@@ -53,10 +65,8 @@
     flex: 0 0 auto;
 
     > img {
-      translate: 0.125rem -16rem;
       block-size: 100%;
       inline-size: 100%;
-      filter: drop-shadow(0 16rem 0 var(--color-primary));
     }
   }
 
