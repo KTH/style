@@ -1,4 +1,10 @@
 @use "@kth/style/scss/utils/reset";
+@use "@kth/style/scss/components/button";
+@use "@kth/style/scss/components/fieldset";
+@use "@kth/style/scss/components/select";
+@use "@kth/style/scss/components/input";
+@use "@kth/style/scss/components/form-control";
+@use "@kth/style/scss/components/checkbox";
 
 @mixin horizontal-list {
   display: flex;
@@ -24,7 +30,7 @@
     // padding-inline: rem;
   }
 
-  button {
+  [role="tab"] {
     border: none;
     background: lightgray;
     width: 100%;
@@ -40,4 +46,8 @@
       border-block-end-color: transparent;
     }
   }
+}
+
+main {
+  margin: 2rem;
 }
