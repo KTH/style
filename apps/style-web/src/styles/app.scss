@@ -28,4 +28,13 @@
   main {
     grid-area: main;
   }
+
+  @media (width < 64rem) {
+    grid-template-areas: "breadcrumbs" "local-navigation" "main";
+    grid-template-columns: 1fr;
+
+    aside {
+      display: none;
+    }
+  }
 }
