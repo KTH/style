@@ -12,35 +12,29 @@
   list-style: none;
   padding: 0;
   margin: 0;
-
-  > :where(li) {
-    padding: 0;
-    margin: 0;
-  }
 }
 
 .styleweb-tabs {
-  ul {
+  > [role="tablist"] {
     @include horizontal-list;
     width: 100%;
   }
 
-  li {
-    flex: 1;
-    // border: 1px solid black;
-    // padding-inline: rem;
-  }
-
   [role="tab"] {
+    flex: 1;
     border: none;
     background: lightgray;
     width: 100%;
     padding-block: var(--space-inner-block);
     border-color: black;
     border-style: solid;
-    border-inline-width: 1px;
+    border-width: 0;
+
     border-block-end-width: 1px;
-    border-block-start-width: 0;
+
+    &:nth-child(n + 2) {
+      border-inline-start-width: 1px;
+    }
 
     &[aria-selected="true"] {
       background: none;
@@ -49,6 +43,6 @@
   }
 }
 
-main {
-  margin: 2rem;
+#panel-preview {
+  padding: 2rem;
 }

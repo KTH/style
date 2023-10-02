@@ -19,26 +19,18 @@ const { htmlCode, cssCode, reactCode } = Astro.props;
   </head>
   <body>
     <div class="styleweb-tabs">
-      <ul role="tablist">
-        <li>
-          <button role="tab" id="tab-preview" aria-controls="panel-preview">
-            Preview
-          </button>
-        </li>
-        <li>
-          <button role="tab" id="tab-html" aria-controls="panel-html">
-            HTML
-          </button>
-        </li>
-        <li>
-          <button role="tab" id="tab-css" aria-controls="panel-css">CSS</button>
-        </li>
-        <li>
-          <button role="tab" id="tab-js" aria-controls="panel-js">
-            JavaScript
-          </button>
-        </li>
-      </ul>
+      <div role="tablist">
+        <button role="tab" id="tab-preview" aria-controls="panel-preview">
+          Preview
+        </button>
+        <button role="tab" id="tab-html" aria-controls="panel-html">
+          HTML
+        </button>
+        <button role="tab" id="tab-css" aria-controls="panel-css">CSS</button>
+        <button role="tab" id="tab-js" aria-controls="panel-js">
+          JavaScript
+        </button>
+      </div>
       <section role="tabpanel" id="panel-preview" aria-labelledby="tab-preview">
         <slot />
       </section>
