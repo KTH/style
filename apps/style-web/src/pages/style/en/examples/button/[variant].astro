@@ -1,0 +1,36 @@
+---
+import ExamplePage from "@layouts/ExamplePage.astro";
+
+export const CLASS_NAMES: Record<string, string> = {
+  default: "kth-button primary",
+  success: "kth-button success",
+  secondary: "kth-button secondary",
+  danger: "kth-button danger",
+  next: "kth-button next",
+  previous: "kth-button previous",
+};
+
+export function getStaticPaths() {
+  return Object.keys(CLASS_NAMES).map((key) => ({
+    params: {
+      variant: key,
+    },
+  }));
+}
+
+const { variant } = Astro.params;
+
+const className = CLASS_NAMES[variant ?? "default"];
+
+const htmlCode = `
+<button class="${className}">Hello world</button>
+`;
+
+const cssCode = `
+@use "@kth/style/scss/components/button"
+`;
+---
+
+<ExamplePage htmlCode={htmlCode} cssCode={cssCode}>
+  <button class={className}>Hello world</button>
+</ExamplePage>
