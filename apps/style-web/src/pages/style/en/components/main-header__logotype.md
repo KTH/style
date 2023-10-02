@@ -28,33 +28,15 @@ Use this if the logotype does not include a link anywhere.
 
 <iframe src="/style/en/examples/main-header__logotype/without-link"></iframe>
 
-```html
-<figure class="kth-main-header__logotype">
-  <img
-    alt="KTH"
-    srcset="
-      <ASSETS_DIRECTORY>/kth-logotype-64.webp,
-      <ASSETS_DIRECTORY>/kth-logotype-64@2x.webp 2x,
-      <ASSETS_DIRECTORY>/kth-logotype-64@3x.webp 3x
-    "
-    src="<ASSETS_DIRECTORY>/kth-logotype-64.png"
-  />
-</figure>
-```
-
-CSS is included as part of `kth-main-header`
-
-```scss
-@use "@kth/style/scss/components/kth-main-header";
-```
-
 ### With link
 
 Use this if the logotype does inlcude a link.
 
 - The link should go to either [kth.se](https://kth.se), [intranet](https://intra.kth.se) or [student web](https://kth.se/student).
 - Accessibility: the `alt` text should indicate the action of the link, not its content.
-- Accessibility: make sure the `alt` text is correctly translated
+- Accessibility: make sure the `alt` text is correctly localized
+
+<iframe src="/style/en/examples/main-header__logotype/with-link"></iframe>
 
 ```html
 <a href="https://kth.se" class="kth-main-header__logotype">
