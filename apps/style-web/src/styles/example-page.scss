@@ -5,6 +5,7 @@
 @use "@kth/style/scss/components/input";
 @use "@kth/style/scss/components/form-control";
 @use "@kth/style/scss/components/checkbox";
+@use "@kth/style/scss/components/details";
 
 @mixin horizontal-list {
   display: flex;
