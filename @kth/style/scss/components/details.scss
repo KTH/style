@@ -3,36 +3,38 @@
 
 $border-width: spacing.$space-4;
 
-.kth-details {
-  summary {
-    color: var(--color-tertiary);
-    padding-block: var(--space-inner-block);
-    cursor: pointer;
-    // padding-inline-start: spacing.$space-20;
-    list-style: none;
-    font: inherit;
-    display: grid;
-    grid-template-columns: 1.5rem auto;
+@layer kth-style {
+  .kth-details {
+    summary {
+      color: var(--color-tertiary);
+      padding-block: var(--space-inner-block);
+      cursor: pointer;
+      // padding-inline-start: spacing.$space-20;
+      list-style: none;
+      font: inherit;
+      display: grid;
+      grid-template-columns: 1.5rem auto;
 
-    &::before {
-      @include icons.icon-caret-right;
-      background-color: var(--color-tertiary);
-      margin-block: spacing.$space-2;
+      &::before {
+        @include icons.icon-caret-right;
+        background-color: var(--color-tertiary);
+        margin-block: spacing.$space-2;
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
 
-    &:hover {
-      text-decoration: underline;
+    &[open] summary::before {
+      rotate: 0deg;
     }
-  }
 
-  &[open] summary::before {
-    rotate: 0deg;
-  }
-
-  &__content {
-    border-inline-start: $border-width solid var(--color-tertiary);
-    padding-inline-start: spacing.$space-16;
-    padding-block: spacing.$space-8;
-    margin-inline-start: spacing.$space-8;
+    &__content {
+      border-inline-start: $border-width solid var(--color-tertiary);
+      padding-inline-start: spacing.$space-16;
+      padding-block: spacing.$space-8;
+      margin-inline-start: spacing.$space-8;
+    }
   }
 }

@@ -1,5 +1,6 @@
 ---
 import NavigationPanel from "./NavigationPanel.astro";
+import SearchPanel from "./SearchPanel.astro";
 ---
 
 <header class="kth-main-header intranet">
@@ -53,9 +54,7 @@ import NavigationPanel from "./NavigationPanel.astro";
 
     <ul class="kth-main-header__tools">
       <li>
-        <a href="/" class="kth-header-menu-item search">
-          <span>Sök</span>
-        </a>
+        <SearchPanel />
       </li>
       <li>
         <a href="/" class="kth-header-menu-item language">

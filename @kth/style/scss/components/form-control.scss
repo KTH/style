@@ -2,22 +2,24 @@
 @use "../tokens/icons.scss";
 $secondary-border-width: 1rem/16;
 
-.kth-form-control {
-  margin-block: spacing.$space-24;
+@layer kth-style {
+  .kth-form-control {
+    margin-block: spacing.$space-24;
 
-  > label {
-    font: var(--font-label-s);
-    display: block;
-    margin-block: spacing.$space-4;
-  }
+    > label {
+      font: var(--font-label-s);
+      display: block;
+      margin-block: spacing.$space-4;
+    }
 
-  > .kth-form-control__description {
-    margin-block: spacing.$space-4;
-  }
+    > .kth-form-control__description {
+      margin-block: spacing.$space-4;
+    }
 
-  // Preferred to select via
-  // :has([aria-invalid="true"])... but Firefox does not support `has` yet
-  &.error .kth-form-control__error {
-    color: var(--color-error, red);
+    // Preferred to select via
+    // :has([aria-invalid="true"])... but Firefox does not support `has` yet
+    &.error .kth-form-control__error {
+      color: var(--color-error, red);
+    }
   }
 }

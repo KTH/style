@@ -2,18 +2,20 @@
 @use "../tokens/icons.scss";
 $secondary-border-width: 1rem/16;
 
-.kth-input {
-  --border-width: #{$secondary-border-width};
+@layer kth-style {
+  .kth-input {
+    --border-width: #{$secondary-border-width};
 
-  padding-inline: var(--space-inner-inline);
-  padding-block: calc(var(--space-inner-block) - var(--border-width));
-  border-radius: spacing.$space-4;
-  border-width: var(--border-width);
-  border-style: solid;
-  border-color: var(--color-secondary);
+    padding-inline: var(--space-inner-inline);
+    padding-block: calc(var(--space-inner-block) - var(--border-width));
+    border-radius: spacing.$space-4;
+    border-width: var(--border-width);
+    border-style: solid;
+    border-color: var(--color-secondary);
 
-  &[aria-invalid="true"] {
-    color: var(--color-error, red);
-    border-color: var(--color-error, red);
+    &[aria-invalid="true"] {
+      color: var(--color-error, red);
+      border-color: var(--color-error, red);
+    }
   }
 }

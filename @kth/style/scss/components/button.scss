@@ -6,55 +6,57 @@
 $border-radius: spacing.$space-4;
 $secondary-border-width: math.div(1rem, 16);
 
-.kth-button {
-  border-radius: $border-radius;
-  display: flex;
-  align-items: center;
-  gap: spacing.$space-4;
+@layer kth-style {
+  .kth-button {
+    border-radius: $border-radius;
+    display: flex;
+    align-items: center;
+    gap: spacing.$space-4;
 
-  &.primary,
-  &.success,
-  &.danger,
-  &.next {
-    color: var(--color-on-primary);
-    border: none;
-    padding-block: var(--space-inner-block);
-    padding-inline: var(--space-inner-inline);
-    font: var(--font-label-s);
-  }
+    &.primary,
+    &.success,
+    &.danger,
+    &.next {
+      color: var(--color-on-primary);
+      border: none;
+      padding-block: var(--space-inner-block);
+      padding-inline: var(--space-inner-inline);
+      font: var(--font-label-s);
+    }
 
-  &.primary,
-  &.next {
-    background: var(--color-primary);
-  }
+    &.primary,
+    &.next {
+      background: var(--color-primary);
+    }
 
-  &.success {
-    background: var(--color-success, green);
-  }
+    &.success {
+      background: var(--color-success, green);
+    }
 
-  &.danger {
-    background: var(--color-error, red);
-  }
+    &.danger {
+      background: var(--color-error, red);
+    }
 
-  &.secondary,
-  &.previous {
-    --border-width: #{$secondary-border-width};
-    border-color: var(--color-secondary);
-    border-width: var(--border-width);
-    border-style: solid;
+    &.secondary,
+    &.previous {
+      --border-width: #{$secondary-border-width};
+      border-color: var(--color-secondary);
+      border-width: var(--border-width);
+      border-style: solid;
 
-    background: transparent;
-    padding-block: calc(var(--space-inner-block) - var(--border-width));
-    padding-inline: calc(var(--space-inner-inline) - var(--border-width));
-  }
+      background: transparent;
+      padding-block: calc(var(--space-inner-block) - var(--border-width));
+      padding-inline: calc(var(--space-inner-inline) - var(--border-width));
+    }
 
-  &.next::after {
-    @include icons.icon-arrow-right-500;
-    background-color: var(--color-on-primary);
-  }
+    &.next::after {
+      @include icons.icon-arrow-right-500;
+      background-color: var(--color-on-primary);
+    }
 
-  &.previous::before {
-    @include icons.icon-arrow-left-300;
-    background-color: var(--color-secondary);
+    &.previous::before {
+      @include icons.icon-arrow-left-300;
+      background-color: var(--color-secondary);
+    }
   }
 }
