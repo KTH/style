@@ -3,11 +3,13 @@
 @use "@kth/style/scss/tokens/typography";
 @use "@kth/style/scss/utils/mixins";
 
+// TODO: convert into an "official" layout provided by KTH Style
+// it can be a class or a mixin
 .kth-app {
   @include mixins.container;
 
-  // TODO: convert into an "official" layout provided by KTH Style
-  // it can be a class or a mixin
+  margin-block-start: spacing.$space-20;
+  margin-block-end: spacing.$space-64;
   display: grid;
   grid-template-areas:
     "breadcrumbs breadcrumbs"

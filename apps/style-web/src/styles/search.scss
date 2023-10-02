@@ -1,0 +1,7 @@
+@use "@kth/style/scss/tokens/spacing.scss";
+@use "@kth/style/scss/tokens/icons.scss";
+$secondary-border-width: 1rem/16;
+
+.kth-header__search-label {
+  font: var(--font-label-l);
+}

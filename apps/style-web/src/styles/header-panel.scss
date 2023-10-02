@@ -39,15 +39,6 @@
 //
 // At the time of writing, aria-label is not reliable:
 // https://adrianroselli.com/2019/11/aria-label-does-not-translate.html
-.visually-hidden {
-  position: absolute;
-  top: auto;
-  overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px);
-  width: 1px;
-  height: 1px;
-  white-space: nowrap;
-}
 
 button.close {
   display: flex;

@@ -6,6 +6,13 @@ $icon-arrow-right-500: url("data:image/svg+xml,%3Csvg width='20' height='20' vie
 $icon-check: url("data:image/svg+xml,%3Csvg width='25' height='25' viewBox='0 0 25 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_2742_210' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='25' height='25'%3E%3Crect x='0.764648' y='0.942017' width='24' height='24' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_2742_210)'%3E%3Cpath d='M10.3146 19.1333L4.42334 13.242L6.04561 11.6197L10.3146 15.8887L19.4837 6.71973L21.1059 8.342L10.3146 19.1333Z' fill='%231C1B1F'/%3E%3C/g%3E%3C/svg%3E%0A");
 $icon-close: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.06247 14.7115L5.28845 13.9375L9.22595 9.99997L5.28845 6.06247L6.06247 5.28845L9.99997 9.22595L13.9375 5.28845L14.7115 6.06247L10.774 9.99997L14.7115 13.9375L13.9375 14.7115L9.99997 10.774L6.06247 14.7115Z' fill='currentColor' /%3E%3C/svg%3E%0A");
 
+@mixin mask($icon-url) {
+  -webkit-mask-image: $icon-url;
+  mask-image: $icon-url;
+  mask-size: cover;
+  -webkit-mask-size: cover;
+}
+
 @mixin with-icon {
   content: "";
   display: inline-block;

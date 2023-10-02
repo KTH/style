@@ -4,11 +4,23 @@
 @use "@kth/style/scss/utils/mixins";
 @use "@kth/style/scss/components/header-menu-item";
 @use "@kth/style/scss/components/main-header";
+@use "@kth/style/scss/components/search";
 @use "./header-panel.scss";
 @use "./column-splitter.scss";
 @use "./app.scss";
 @use "./page.scss";
 @use "./local-navigation.scss";
+@use "./search.scss" as s;
+
+.kth-visually-hidden {
+  position: absolute;
+  top: auto;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  width: 1px;
+  height: 1px;
+  white-space: nowrap;
+}
 
 .kpm__container {
   @include mixins.container;

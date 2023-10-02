@@ -1,0 +1,52 @@
+@use "../tokens/spacing.scss";
+@use "../tokens/icons.scss";
+$secondary-border-width: 1rem/16;
+
+@layer kth-style {
+  .kth-search {
+    display: grid;
+    grid-template-areas: "label" "input";
+    max-width: 40rem;
+
+    > label {
+      font: var(--font-label-s);
+      display: block;
+      margin-block: spacing.$space-4;
+      grid-area: label;
+    }
+
+    > input {
+      --border-width: #{$secondary-border-width};
+
+      padding-inline: var(--space-inner-inline);
+      padding-block: calc(var(--space-inner-block) - var(--border-width));
+      border-radius: spacing.$space-4;
+      border-width: var(--border-width);
+      border-style: solid;
+      border-color: var(--color-secondary);
+      color: var(--color-secondary);
+      grid-area: input;
+      background: transparent;
+    }
+
+    > button {
+      background: transparent;
+      border: none;
+      height: calc(#{spacing.$space-24} + 2 * var(--space-inner-icon));
+      width: calc(#{spacing.$space-24} + 2 * var(--space-inner-icon));
+
+      padding-block: var(--space-inner-icon);
+      grid-area: input;
+      place-self: center end;
+    }
+
+    > button::after {
+      content: "";
+      display: inline-block;
+      @include icons.mask(icons.$icon-url-search);
+      background-color: var(--color-secondary);
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+}
