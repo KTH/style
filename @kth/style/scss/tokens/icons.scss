@@ -32,7 +32,7 @@ $icon-check: url("data:image/svg+xml,%3Csvg width='25' height='25' viewBox='0 0 
 
 @mixin icon-caret-right {
   @include icon-caret-down;
-  rotate: 90deg;
+  rotate: -90deg;
 }
 
 @mixin icon-caret-up {
