@@ -1,0 +1,60 @@
+@use "../tokens/spacing.scss";
+@use "../tokens/icons.scss";
+@use "sass:math";
+
+$secondary-border-width: math.div(1rem, 16);
+$input-size: 1.5rem;
+
+// Coded as <fieldset>
+.kth-fieldset {
+  border: 0;
+  padding: 0;
+  margin-inline: 0;
+  margin-block: spacing.$space-24;
+
+  > legend {
+    font: var(--font-label-s);
+  }
+
+  &__description {
+    margin-block: spacing.$space-4;
+    margin-inline: 0;
+  }
+
+  &__options {
+    --border-width: #{$secondary-border-width};
+    border-width: var(--border-width);
+    border-style: solid;
+    border-color: transparent;
+    margin-block: calc(0 - var(--border-width));
+    padding-inline: calc(#{spacing.$space-8} - var(--border-width));
+  }
+
+  &.error &__options {
+    border-color: var(--color-error, red);
+  }
+
+  &.error &__error {
+    margin-block: spacing.$space-4;
+    color: var(--color-error, red);
+  }
+
+  &__option {
+    display: grid;
+    grid-template-columns: $input-size auto;
+    gap: spacing.$space-0 spacing.$space-12;
+
+    :not(input) {
+      grid-column-start: 2;
+    }
+
+    label {
+      display: inline-block;
+      padding-block: var(--space-inner-block);
+    }
+  }
+
+  &__option-description {
+    margin-block-end: spacing.$space-16;
+  }
+}
