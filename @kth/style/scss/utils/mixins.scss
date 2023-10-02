@@ -10,5 +10,5 @@
 @mixin container {
   margin-inline: auto;
   max-width: 82rem;
-  padding-inline: spacing.$space-32;
+  padding-inline: clamp(spacing.$space-16, calc(100vw / 30), spacing.$space-32);
 }
