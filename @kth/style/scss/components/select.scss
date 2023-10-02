@@ -1,0 +1,44 @@
+@use "../tokens/spacing.scss";
+@use "../tokens/icons.scss";
+$secondary-border-width: 1rem/16;
+
+.kth-select {
+  width: 100%;
+  min-width: 15ch;
+  max-width: 30ch;
+  cursor: pointer;
+  display: grid;
+  grid-template-areas: "select";
+  align-items: center;
+  position: relative;
+  border: none;
+
+  select {
+    --border-width: #{$secondary-border-width};
+    padding-block: calc(var(--space-inner-block) - var(--border-width));
+    padding-inline: var(--space-inner-inline);
+    appearance: none;
+    background-color: transparent;
+    border-width: var(--border-width);
+    border-style: solid;
+    border-color: var(--color-secondary);
+    border-radius: spacing.$space-4;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    grid-area: select;
+    z-index: 1;
+    cursor: inherit;
+
+    &[aria-invalid="true"] {
+      border-color: var(--color-error, red);
+    }
+  }
+
+  &::after {
+    @include icons.icon-caret-down;
+    background-color: var(--color-secondary);
+    grid-area: select;
+    justify-self: end;
+  }
+}
