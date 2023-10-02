@@ -1,8 +1,7 @@
 @use "@kth/style/scss/tokens/colors";
 @use "@kth/style/scss/tokens/spacing";
-@use "@kth/style/scss/tokens/typography";
-@use "@kth/style/scss/utils/prose";
 @use "@kth/style/scss/utils/reset";
+@use "@kth/style/scss/utils/mixins";
 @use "@kth/style/scss/components/header-menu-item";
 @use "@kth/style/scss/components/main-header";
 @use "./header-panel.scss";
@@ -11,35 +10,13 @@
 @use "./page.scss";
 @use "./local-navigation.scss";
 
-// This `horizontal-list` utility should be moved to @kth/style. But before,
-// we should answer:
-// - Should this mixin be a Scss mixin or a CSS class?
-@mixin horizontal-list {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-
-  > :where(li) {
-    padding: 0;
-    margin: 0;
-  }
-}
-
-// Same with this:
-@mixin container {
-  margin-inline: auto;
-  max-width: 80rem;
-  padding-inline: spacing.$space-32;
-}
-
 .kpm__container {
-  @include container;
+  @include mixins.container;
 }
 
 .kpm__entries {
   ul {
-    @include horizontal-list();
+    @include mixins.horizontal-list();
     gap: spacing.gap(4);
   }
 
@@ -47,7 +24,7 @@
     color: var(--color-primary);
     display: block;
     padding-block-start: spacing.$space-8;
-    padding-inline: spacing.padding(8);
+    padding-inline: spacing.$space-8;
     text-decoration: none;
 
     padding-block-end: calc(spacing.$space-8 - spacing.$space-4);

@@ -1,12 +1,7 @@
 @use "@kth/style/scss/tokens/spacing";
 @use "@kth/style/scss/tokens/typography";
 @use "@kth/style/scss/tokens/icons";
-
-@mixin container {
-  margin-inline: auto;
-  max-width: 80rem;
-  padding-inline: spacing.$space-32;
-}
+@use "@kth/style/scss/utils/mixins";
 
 .kth-header-panel {
   top: 100%;
@@ -19,7 +14,7 @@
   padding-block-end: spacing.$space-48;
 
   &__container {
-    @include container;
+    @include mixins.container;
   }
 
   h2 {

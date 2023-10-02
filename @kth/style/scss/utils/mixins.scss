@@ -1,0 +1,14 @@
+@use "../tokens/spacing";
+
+@mixin horizontal-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@mixin container {
+  margin-inline: auto;
+  max-width: 82rem;
+  padding-inline: spacing.$space-32;
+}

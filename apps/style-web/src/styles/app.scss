@@ -1,11 +1,10 @@
 @use "@kth/style/scss/tokens/colors";
 @use "@kth/style/scss/tokens/spacing";
 @use "@kth/style/scss/tokens/typography";
+@use "@kth/style/scss/utils/mixins";
 
 .kth-app {
-  max-width: 80rem;
-  margin-inline: auto;
-  padding-inline: spacing.$space-32;
+  @include mixins.container;
 
   // TODO: convert into an "official" layout provided by KTH Style
   // it can be a class or a mixin
