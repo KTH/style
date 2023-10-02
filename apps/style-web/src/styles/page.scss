@@ -1,0 +1,14 @@
+@use "@kth/style/scss/utils/prose";
+
+.styleweb-page {
+  @include prose.prose;
+  margin-inline: auto;
+  max-width: 40rem;
+  width: 100%;
+
+  iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: solid black 1px;
+  }
+}

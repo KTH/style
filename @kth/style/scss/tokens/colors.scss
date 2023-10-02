@@ -13,6 +13,8 @@ $color-blue-sky: #6298d2;
 $color-blue-marine: #08004f;
 $color-blue-digital: #221dd9;
 
+$color-red: #d4351c;
+
 // This color is specially made for links
 // 4.51:1 with `$color-blue-light` (requires 4.50)
 // 5.21:1 with `$color-white`      (requires 4.50)
@@ -26,6 +28,7 @@ $color-blue-special: #036eb8;
   --color-on-primary: #{$color-white};
   --color-secondary: #{$color-black};
   --color-tertiary: #{$color-blue-special};
+  --color-error: #{$color-red};
   // ... --hover-overlay: ...
 }
 

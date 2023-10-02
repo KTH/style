@@ -1,11 +1,6 @@
 @use "@kth/style/scss/tokens/spacing";
 @use "@kth/style/scss/tokens/typography";
-//// This entire file should be moved to @kth/style when ready
-///
-///
-///
-
-$icon-close: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.06247 14.7115L5.28845 13.9375L9.22595 9.99997L5.28845 6.06247L6.06247 5.28845L9.99997 9.22595L13.9375 5.28845L14.7115 6.06247L10.774 9.99997L14.7115 13.9375L13.9375 14.7115L9.99997 10.774L6.06247 14.7115Z' fill='currentColor' /%3E%3C/svg%3E%0A");
+@use "@kth/style/scss/tokens/icons";
 
 @mixin container {
   margin-inline: auto;
@@ -75,8 +70,8 @@ button.close::before {
   height: 1.5rem;
   background-color: var(--color-primary);
 
-  mask-image: $icon-close;
-  -webkit-mask-image: $icon-close;
+  mask-image: icons.$icon-close;
+  -webkit-mask-image: icons.$icon-close;
   mask-size: cover;
   -webkit-mask-size: cover;
 }

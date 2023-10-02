@@ -1,0 +1,30 @@
+@use "@kth/style/scss/tokens/colors";
+@use "@kth/style/scss/tokens/spacing";
+@use "@kth/style/scss/tokens/typography";
+
+.kth-app {
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: spacing.$space-32;
+
+  // TODO: convert into an "official" layout provided by KTH Style
+  // it can be a class or a mixin
+  display: grid;
+  grid-template-areas:
+    "breadcrumbs breadcrumbs"
+    "local-navigation main";
+  grid-template-columns: 15rem 1fr;
+  gap: 1rem 4rem;
+
+  nav.breadcrumbs {
+    grid-area: breadcrumbs;
+  }
+
+  aside {
+    grid-area: local-navigation;
+  }
+
+  main {
+    grid-area: main;
+  }
+}
