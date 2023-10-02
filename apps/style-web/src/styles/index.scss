@@ -44,3 +44,7 @@
     color: colors.$color-blue-kth;
   }
 }
+
+a:not([href]) {
+  text-decoration: line-through;
+}
