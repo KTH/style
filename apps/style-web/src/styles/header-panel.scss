@@ -32,6 +32,15 @@
     gap: spacing.$space-16;
     flex-direction: column;
   }
+
+  &__content.search {
+    padding-block-end: spacing.$space-64;
+
+    label {
+      font: var(--font-label-l);
+      margin-block-end: spacing.$space-8;
+    }
+  }
 }
 
 // Utility to hide text visually. The text will be still available for screen
