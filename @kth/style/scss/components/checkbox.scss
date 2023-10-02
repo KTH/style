@@ -7,55 +7,57 @@ $secondary-border-width: math.div(1rem, 16);
 $input-size: spacing.$space-24;
 $input-inner-size: spacing.$space-16;
 
-input[type="checkbox"],
-input[type="radio"] {
-  appearance: none;
-  -webkit-appearance: none;
-  background-color: transparent;
-  margin-inline: 0;
-  margin-block: var(--space-inner-block);
-  font: inherit;
-  width: $input-size;
-  height: $input-size;
-  border-width: var(--border-width);
-  border-style: solid;
-  border-color: currentColor;
-  display: grid;
-  place-content: center;
-
-  &::before {
-    content: "";
-    transform: scale(0);
-  }
-
-  &:checked::before {
-    transform: scale(1);
-  }
-}
-
-input[type="checkbox"] {
-  border-radius: spacing.$space-4;
-
-  &::before {
+@layer kth-style {
+  input[type="checkbox"],
+  input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: transparent;
+    margin-inline: 0;
+    margin-block: var(--space-inner-block);
+    font: inherit;
     width: $input-size;
     height: $input-size;
-    box-shadow: inset $input-size $input-size var(--color-primary);
+    border-width: var(--border-width);
+    border-style: solid;
+    border-color: currentColor;
+    display: grid;
+    place-content: center;
 
-    -webkit-mask-image: icons.$icon-check;
-    mask-image: icons.$icon-check;
+    &::before {
+      content: "";
+      transform: scale(0);
+    }
 
-    // Windows High Contrast Mode
-    background-color: CanvasText;
+    &:checked::before {
+      transform: scale(1);
+    }
   }
-}
 
-input[type="radio"] {
-  border-radius: 100%;
+  input[type="checkbox"] {
+    border-radius: spacing.$space-4;
 
-  &::before {
-    width: $input-inner-size;
-    height: $input-inner-size;
-    background-color: var(--color-primary);
+    &::before {
+      width: $input-size;
+      height: $input-size;
+      box-shadow: inset $input-size $input-size var(--color-primary);
+
+      -webkit-mask-image: icons.$icon-check;
+      mask-image: icons.$icon-check;
+
+      // Windows High Contrast Mode
+      background-color: CanvasText;
+    }
+  }
+
+  input[type="radio"] {
     border-radius: 100%;
+
+    &::before {
+      width: $input-inner-size;
+      height: $input-inner-size;
+      background-color: var(--color-primary);
+      border-radius: 100%;
+    }
   }
 }
