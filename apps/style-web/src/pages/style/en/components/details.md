@@ -9,6 +9,6 @@ layout: "@layouts/Page.astro"
 
 ## How it works
 
-### Primary button and link
+### Default
 
-<iframe src="/style/en/examples/details/default"></iframe>
+<iframe src="/style/en/examples/details/default" title="Interactive example of default details"></iframe>
