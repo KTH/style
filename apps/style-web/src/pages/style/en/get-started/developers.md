@@ -1,3 +1,8 @@
+---
+title: Get started with @kth/style package
+layout: "@layouts/Page.astro"
+---
+
 # Get started with @kth/style package
 
 This guide assumes that you have an application with a toolchain ready to write HTML, Sass and JavaScript code.
