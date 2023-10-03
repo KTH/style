@@ -1,33 +1,14 @@
 ---
+import MainHeaderLogotype from "./MainHeaderLogotype.astro";
 import NavigationPanel from "./NavigationPanel.astro";
+import NavigationPanelMobile from "./NavigationPanelMobile.astro";
 import SearchPanel from "./SearchPanel.astro";
 ---
 
 <header class="kth-main-header intranet">
   <div class="kth-main-header__container">
     <a href="/">
-      <figure class="kth-main-header__logotype blue">
-        <img
-          alt="Gå till KTH intranät"
-          srcset="
-          /style/assets/kth-logotype-blue.webp,
-          /style/assets/kth-logotype-blue@2x.webp 2x,
-          /style/assets/kth-logotype-blue@3x.webp 3x
-          "
-          src="/style/assets/kth-logotype-blue.png"
-        />
-      </figure>
-      <figure class="kth-main-header__logotype white">
-        <img
-          alt="Gå till KTH intranät"
-          srcset="
-          /style/assets/kth-logotype-white.webp,
-          /style/assets/kth-logotype-white@2x.webp 2x,
-          /style/assets/kth-logotype-white@3x.webp 3x
-          "
-          src="/style/assets/kth-logotype-white.png"
-        />
-      </figure>
+      <MainHeaderLogotype alt="Gå till KtH intranät" />
     </a>
     <nav class="kth-main-header__mega-menu">
       <ul>
@@ -65,31 +46,47 @@ import SearchPanel from "./SearchPanel.astro";
         <button class="kth-header-menu-item">
           <span>Menu</span>
         </button>
-        <dialog>
+        <dialog class="kth-header-panel--modal">
           <!-- -->
-          <h2>Menu</h2>
-          <ul>
-            <li>
-              <button>Din anställning</button>
-              <dialog>Din anställning</dialog>
-            </li>
-            <li>
-              <button>Stöd och service</button>
-              <dialog>Stöd och service</dialog>
-            </li>
-            <li>
-              <button>Utbilda</button>
-              <dialog></dialog>
-            </li>
-            <li>
-              <button>Forska</button>
-              <dialog></dialog>
-            </li>
-            <li>
-              <button>Organisation och styrning</button>
-              <dialog></dialog>
-            </li>
-          </ul>
+          <button class="kth-button close"></button>
+          <div class="kth-header-panel__content">
+            <a href="/">
+              <MainHeaderLogotype alt="Gå till KTH intranät" />
+            </a>
+            <h2>Menu</h2>
+            <ul>
+              <li>
+                <NavigationPanelMobile
+                  label="Din anställning"
+                  dataId="1.575942"
+                />
+              </li>
+              <li>
+                <NavigationPanelMobile
+                  label="Stöd och service"
+                  dataId="1.575949"
+                />
+              </li>
+              <li>
+                <NavigationPanelMobile label="Utbilda" dataId="1.1067969" />
+              </li>
+              <li>
+                <NavigationPanelMobile label="Forska" dataId="1.1067196" />
+              </li>
+              <li>
+                <NavigationPanelMobile
+                  label="Organisation och styrning"
+                  dataId="1.575952"
+                />
+              </li>
+            </ul>
+
+            <ul>
+              <li><a href="https://kth.se">kth.se</a></li>
+              <li><a href="https://student.kth.se">Studentwebben</a></li>
+              <li><a href="https://intra.kth.se">Intranät</a></li>
+            </ul>
+          </div>
         </dialog>
       </li>
     </ul>
@@ -108,12 +105,17 @@ import SearchPanel from "./SearchPanel.astro";
   );
   setNavigationPanels(
     document.querySelector(".kth-main-header"),
-    document.querySelectorAll(".kth-main-header__tools .kth-header-menu-item"),
+    document.querySelectorAll(".kth-header-menu-item.search"),
   );
 
   setModalNavigationPanels(
     document.querySelectorAll(
-      ".kth-main-header__mega-menu--collapsable button",
+      ".kth-main-header__mega-menu--collapsable .kth-header-menu-item",
+    ),
+  );
+  setModalNavigationPanels(
+    document.querySelectorAll(
+      ".kth-main-header__mega-menu--collapsable .kth-header-menu-item--modal",
     ),
   );
 </script>

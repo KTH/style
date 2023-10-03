@@ -79,7 +79,9 @@
 
   &__tools {
     @include horizontal-list();
-    gap: 1rem;
+    flex-wrap: wrap;
+    gap: 0 spacing.$space-16;
+    justify-content: flex-end;
     margin-inline-start: auto;
   }
 
