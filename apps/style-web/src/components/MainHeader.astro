@@ -65,16 +65,55 @@ import SearchPanel from "./SearchPanel.astro";
         <button class="kth-header-menu-item">
           <span>Menu</span>
         </button>
+        <dialog>
+          <!-- -->
+          <h2>Menu</h2>
+          <ul>
+            <li>
+              <button>Din anställning</button>
+              <dialog>Din anställning</dialog>
+            </li>
+            <li>
+              <button>Stöd och service</button>
+              <dialog>Stöd och service</dialog>
+            </li>
+            <li>
+              <button>Utbilda</button>
+              <dialog></dialog>
+            </li>
+            <li>
+              <button>Forska</button>
+              <dialog></dialog>
+            </li>
+            <li>
+              <button>Organisation och styrning</button>
+              <dialog></dialog>
+            </li>
+          </ul>
+        </dialog>
       </li>
     </ul>
   </div>
 </header>
 
 <script>
-  import { setNavigationPanels } from "@kth/style";
+  import { setModalNavigationPanels, setNavigationPanels } from "@kth/style";
 
+  // Set navigationPanels only to non-mobile versions
   setNavigationPanels(
     document.querySelector(".kth-main-header"),
-    document.querySelectorAll(".kth-main-header .kth-header-menu-item"),
+    document.querySelectorAll(
+      ".kth-main-header__mega-menu .kth-header-menu-item",
+    ),
+  );
+  setNavigationPanels(
+    document.querySelector(".kth-main-header"),
+    document.querySelectorAll(".kth-main-header__tools .kth-header-menu-item"),
+  );
+
+  setModalNavigationPanels(
+    document.querySelectorAll(
+      ".kth-main-header__mega-menu--collapsable button",
+    ),
   );
 </script>

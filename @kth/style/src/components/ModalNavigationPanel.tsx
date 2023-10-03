@@ -7,18 +7,8 @@ function closeAllDialogs() {
 
 /**
  * Add open/close functionality to a set of navigation panels
- *
- * @param container The element containing all the menus
- * @param items A list of all menu elements
  */
-export function setNavigationPanels(
-  container: HTMLElement | null,
-  items: NodeListOf<Element>,
-) {
-  if (!container) {
-    return;
-  }
-
+export function setModalNavigationPanels(items: NodeListOf<Element>) {
   for (const item of items) {
     if (!(item instanceof HTMLElement)) {
       continue;
@@ -31,8 +21,10 @@ export function setNavigationPanels(
     }
 
     dialog.addEventListener("keydown", (e) => {
+      e.stopPropagation();
+
       if (e.key === "Escape") {
-        closeAllDialogs();
+        dialog.close();
       }
     });
 
@@ -47,20 +39,8 @@ export function setNavigationPanels(
     item.addEventListener("click", (e) => {
       e.preventDefault();
 
-      if (!dialog.open) {
-        closeAllDialogs();
-        dialog.show();
-      } else {
-        closeAllDialogs();
-      }
+      // closeAllDialogs();
+      dialog.showModal();
     });
   }
-
-  container.addEventListener("focusout", function (e) {
-    const target = e.relatedTarget;
-
-    if (target && target instanceof Node && !container.contains(target)) {
-      closeAllDialogs();
-    }
-  });
 }
