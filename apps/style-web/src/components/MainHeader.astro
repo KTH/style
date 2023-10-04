@@ -3,6 +3,29 @@ import MainHeaderLogotype from "./MainHeaderLogotype.astro";
 import NavigationPanel from "./NavigationPanel.astro";
 import NavigationPanelMobile from "./NavigationPanelMobile.astro";
 import SearchPanel from "./SearchPanel.astro";
+
+const navigationPanelsSv = [
+  {
+    dataId: "1.575942",
+    label: "Din anställning",
+  },
+  {
+    dataId: "1.575949",
+    label: "Stöd och service",
+  },
+  {
+    dataId: "1.1067969",
+    label: "Utbilda",
+  },
+  {
+    dataId: "1.1067196",
+    label: "Forska",
+  },
+  {
+    dataId: "1.575952",
+    label: "Orgasnisation och styrning",
+  },
+];
 ---
 
 <header class="kth-main-header intranet">
@@ -12,24 +35,13 @@ import SearchPanel from "./SearchPanel.astro";
     </a>
     <nav class="kth-main-header__mega-menu">
       <ul>
-        <li>
-          <NavigationPanel dataId="1.575942" label="Din anställning" />
-        </li>
-        <li>
-          <NavigationPanel dataId="1.575949" label="Stöd och service" />
-        </li>
-        <li>
-          <NavigationPanel dataId="1.1067969" label="Utbilda" />
-        </li>
-        <li>
-          <NavigationPanel dataId="1.1067196" label="Forska" />
-        </li>
-        <li>
-          <NavigationPanel
-            dataId="1.575952"
-            label="Orgasnisation och styrning"
-          />
-        </li>
+        {
+          navigationPanelsSv.map(({ dataId, label }) => (
+            <li>
+              <NavigationPanel dataId={dataId} label={label} />
+            </li>
+          ))
+        }
       </ul>
     </nav>
 
