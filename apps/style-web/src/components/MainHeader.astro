@@ -67,30 +67,11 @@ const navigationPanelsSv = [
             </a>
             <h2>Menu</h2>
             <ul>
-              <li>
-                <NavigationPanelMobile
-                  label="Din anställning"
-                  dataId="1.575942"
-                />
-              </li>
-              <li>
-                <NavigationPanelMobile
-                  label="Stöd och service"
-                  dataId="1.575949"
-                />
-              </li>
-              <li>
-                <NavigationPanelMobile label="Utbilda" dataId="1.1067969" />
-              </li>
-              <li>
-                <NavigationPanelMobile label="Forska" dataId="1.1067196" />
-              </li>
-              <li>
-                <NavigationPanelMobile
-                  label="Organisation och styrning"
-                  dataId="1.575952"
-                />
-              </li>
+              {
+                navigationPanelsSv.map(({ label, dataId }) => (
+                  <NavigationPanelMobile label={label} dataId={dataId} />
+                ))
+              }
             </ul>
 
             <ul>
