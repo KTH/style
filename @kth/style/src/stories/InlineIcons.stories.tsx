@@ -1,6 +1,6 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { IconCheck } from "../";
+import { IconCheck } from "../react";
 
 import "../../scss/globals.scss";
 import "../../scss/components/inline-icon.scss";
