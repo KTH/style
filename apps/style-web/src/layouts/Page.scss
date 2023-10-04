@@ -1,7 +1,19 @@
 /// Styles for Page.astro template
+@use "@kth/style/scss/tokens/spacing";
+@use "@kth/style/scss/utils/reset";
+@use "@kth/style/scss/utils/mixins";
+@use "@kth/style/scss/components/header-menu-item";
+@use "@kth/style/scss/components/main-header";
+@use "@kth/style/scss/components/search";
 @use "@kth/style/scss/utils/prose";
 
-.styleweb-page {
+// Specific KTH Style webpage
+@use "../styles/app.scss";
+@use "../styles/header-panel.scss";
+@use "../styles/local-navigation.scss";
+@use "../styles/etc.scss";
+
+main {
   @include prose.prose;
   margin-inline: auto;
   max-width: 40rem;

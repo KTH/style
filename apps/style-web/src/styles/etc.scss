@@ -1,16 +1,6 @@
-@use "@kth/style/scss/tokens/colors";
-@use "@kth/style/scss/tokens/spacing";
-@use "@kth/style/scss/utils/reset";
 @use "@kth/style/scss/utils/mixins";
-@use "@kth/style/scss/components/header-menu-item";
-@use "@kth/style/scss/components/main-header";
-@use "@kth/style/scss/components/search";
-@use "./header-panel.scss";
-@use "./column-splitter.scss";
-@use "./app.scss";
-@use "./page.scss";
-@use "./local-navigation.scss";
-@use "./search.scss" as s;
+@use "@kth/style/scss/tokens/spacing";
+@use "@kth/style/scss/tokens/colors";
 
 .kth-visually-hidden {
   position: absolute;
@@ -59,4 +49,17 @@
 
 a:not([href]) {
   text-decoration: line-through;
+}
+
+.kth-column-splitter {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  gap: spacing.$space-32;
+  // border: 1px solid black;
+}
+
+/// This is kept for retro-compatibility with Cortina.
+/// @deprecated
+.columnSplitter {
+  @extend .kth-column-splitter;
 }
