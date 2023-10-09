@@ -1,10 +1,15 @@
+---
+layout: "@layouts/Page.astro"
+title: "Layout and structure"
+---
+
 # Layout and structure
 
 ## Template
 
 KTH Style offers the following components that defines regions in a document:
 
-- **A11y Nav**. Defines links for keyboard users (for example "Skip to main content")
+- [**A11y Nav**](../components/a11y-nav). Defines links for keyboard users (for example "Skip to main content")
 - **KPM**. Defines the region for the three "entrances" and Personal menu
 - **Main header**. Region with the logo, mega-menu and tools
 - **Main content** Region between the header and footer
