@@ -6,21 +6,23 @@ export interface Props {
 const { alt } = Astro.props;
 ---
 
-<figure class="kth-main-header__logotype blue">
-  <img
-    alt={alt}
-    srcset=" /style/assets/kth-logotype-blue.webp,
-/style/assets/kth-logotype-blue@2x.webp 2x,
-/style/assets/kth-logotype-blue@3x.webp 3x "
-    src="/style/assets/kth-logotype-blue.png"
-  />
-</figure>
-<figure class="kth-main-header__logotype white">
-  <img
-    alt={alt}
-    srcset=" /style/assets/kth-logotype-white.webp,
-/style/assets/kth-logotype-white@2x.webp 2x,
-/style/assets/kth-logotype-white@3x.webp 3x "
-    src="/style/assets/kth-logotype-white.png"
-  />
-</figure>
+<a href="/" class="kth-main-header__logotype">
+  <figure>
+    <img
+      class="blue"
+      alt={alt}
+      srcset=" /style/assets/kth-logotype-blue.webp,
+    /style/assets/kth-logotype-blue@2x.webp 2x,
+    /style/assets/kth-logotype-blue@3x.webp 3x "
+      src="/style/assets/kth-logotype-blue.png"
+    />
+    <img
+      class="white"
+      alt={alt}
+      srcset=" /style/assets/kth-logotype-white.webp,
+    /style/assets/kth-logotype-white@2x.webp 2x,
+    /style/assets/kth-logotype-white@3x.webp 3x "
+      src="/style/assets/kth-logotype-white.png"
+    />
+  </figure>
+</a>

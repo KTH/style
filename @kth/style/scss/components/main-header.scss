@@ -2,36 +2,24 @@
 @use "../tokens/spacing.scss";
 @use "../utils/mixins.scss";
 
-@mixin horizontal-list {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-
-  > :where(li) {
-    padding: 0;
-    margin: 0;
-  }
-}
-
 .kth-main-header.intranet {
   @include colors.theme-intranet;
 
-  .kth-main-header__logotype.white {
+  .kth-main-header__logotype .white {
     display: none;
   }
 }
 .kth-main-header.external {
   @include colors.theme-inverse;
 
-  .kth-main-header__logotype.blue {
+  .kth-main-header__logotype .blue {
     display: none;
   }
 }
 .kth-main-header.student-web {
   @include colors.theme-student-web;
 
-  .kth-main-header__logotype.white {
+  .kth-main-header__logotype .white {
     display: none;
   }
 }
@@ -39,7 +27,7 @@
 .kth-main-header {
   background: var(--color-background);
   padding-block: spacing.padding(16);
-  position: relative;
+  // position: relative;
 
   &__container {
     @include mixins.container;
@@ -48,8 +36,8 @@
   }
 
   &__logotype {
-    width: 4rem;
-    height: 4rem;
+    block-size: 4rem;
+    inline-size: 4rem;
     border: none;
     margin: 0;
     margin-inline-end: spacing.margin(32);
@@ -59,7 +47,12 @@
     // - We prevent logo from shrinking
     flex: 0 0 auto;
 
-    > img {
+    figure {
+      block-size: 100%;
+      inline-size: 100%;
+    }
+
+    img {
       block-size: 100%;
       inline-size: 100%;
     }
@@ -67,7 +60,7 @@
 
   &__mega-menu {
     > ul {
-      @include horizontal-list();
+      @include mixins.horizontal-list();
 
       // Defensive measurements:
       // - `flex-wrap: wrap` makes sure that all menus are displayed decently
@@ -78,7 +71,7 @@
   }
 
   &__tools {
-    @include horizontal-list();
+    @include mixins.horizontal-list();
     flex-wrap: wrap;
     gap: 0 spacing.$space-16;
     justify-content: flex-end;
