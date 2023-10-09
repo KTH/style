@@ -15,6 +15,9 @@ const { frontmatter } = Astro.props;
 ---
 
 <Layout title={frontmatter.title}>
+  <div class="kth-a11y-nav">
+    <a href="#kth-main">Go to main content</a>
+  </div>
   <Kpm />
   <MainHeader />
   <div class="kth-app">

@@ -1,0 +1,27 @@
+@use "../tokens/colors.scss" as c;
+@use "../tokens/spacing.scss" as s;
+
+.kth-a11y-nav {
+  position: fixed;
+  margin: s.$space-16;
+  padding: s.$space-8;
+  background: var(--color-background);
+  color: var(--color-text);
+  border-radius: s.$space-4;
+
+  // TODO: move those border styles to design tokens
+  // TODO: create tokens for shadows
+  border-width: calc(1rem / 16);
+  border-color: var(--color-text);
+  border-style: solid;
+
+  // Visually hidden by default
+  z-index: -1;
+  left: -999999px;
+
+  &:focus-within {
+    // Show when something has focus
+    left: 0;
+    z-index: 100000;
+  }
+}
