@@ -15,6 +15,8 @@
   border-color: var(--color-text);
   border-style: solid;
 
+  box-shadow: 0 2px 4px 0 rgb(33, 33, 33, 0.4);
+
   // Visually hidden by default
   z-index: -1;
   left: -999999px;
