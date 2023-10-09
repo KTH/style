@@ -1,12 +1,20 @@
 ---
 import ExamplePage from "@layouts/ExamplePage.astro";
+
+import "@kth/style/scss/components/details.scss";
+
+const cssCode = `
+@use "@kth/style/scss/components/details.scss";
+`;
+
+const htmlCode = `
+<details class="kth-details">
+  <summary>Show details</summary>
+  <div class="kth-details__content">
+    <p>Lorem ipsum</p>
+  </div>
+</details>
+  `;
 ---
 
-<ExamplePage>
-  <details class="kth-details">
-    <summary>Show details</summary>
-    <div class="kth-details__content">
-      <p>Lorem ipsum</p>
-    </div>
-  </details>
-</ExamplePage>
+<ExamplePage cssCode={cssCode} htmlCode={htmlCode} set:html={htmlCode} />

@@ -1,0 +1,41 @@
+@use "@kth/style/scss/utils/reset";
+
+@mixin horizontal-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.styleweb-tabs {
+  > [role="tablist"] {
+    @include horizontal-list;
+    width: 100%;
+  }
+
+  [role="tab"] {
+    flex: 1;
+    border: none;
+    background: lightgray;
+    width: 100%;
+    padding-block: var(--space-inner-block);
+    border-color: black;
+    border-style: solid;
+    border-width: 0;
+
+    border-block-end-width: 1px;
+
+    &:nth-child(n + 2) {
+      border-inline-start-width: 1px;
+    }
+
+    &[aria-selected="true"] {
+      background: none;
+      border-block-end-color: transparent;
+    }
+  }
+}
+
+#panel-preview {
+  padding: 2rem;
+}
