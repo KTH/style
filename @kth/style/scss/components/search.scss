@@ -1,6 +1,8 @@
+@use "sass:math";
 @use "../tokens/spacing.scss";
 @use "../tokens/icons.scss";
-$secondary-border-width: 1rem/16;
+
+$secondary-border-width: math.div(1rem, 16);
 
 @layer kth-style {
   .kth-search {
