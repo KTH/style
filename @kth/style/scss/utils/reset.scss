@@ -2,32 +2,18 @@
 @use "../tokens/spacing";
 @use "../tokens/colors";
 
+/// When true, the file generates CSS code for the entire document
+///
+/// Set to `false` when importing if you want to use the mixin but don't want
+/// to apply reset to the entire document.
+$generate-css: true !default;
+
 /// Based on https://andy-bell.co.uk/a-more-modern-css-reset/
-@layer kth-style {
+@mixin reset {
   *,
   *::before,
   *::after {
     box-sizing: border-box;
-  }
-  html {
-    -moz-text-size-adjust: none;
-    -webkit-text-size-adjust: none;
-    text-size-adjust: none;
-    scrollbar-gutter: stable;
-  }
-
-  :root {
-    @include colors.theme-default;
-    @include spacing.theme-default;
-    @include typography.theme-default;
-  }
-
-  body {
-    color: var(--color-text);
-    background: var(--color-background);
-    font: var(--font-default);
-    min-height: 100vh;
-    margin: 0;
   }
 
   h1,
@@ -57,5 +43,32 @@
   textarea,
   select {
     font: inherit;
+  }
+}
+
+@if $generate-css {
+  @layer kth-style {
+    html {
+      -moz-text-size-adjust: none;
+      -webkit-text-size-adjust: none;
+      text-size-adjust: none;
+      scrollbar-gutter: stable;
+    }
+
+    :root {
+      @include colors.theme-default;
+      @include spacing.theme-default;
+      @include typography.theme-default;
+    }
+
+    body {
+      color: var(--color-text);
+      background: var(--color-background);
+      font: var(--font-default);
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    @include reset;
   }
 }
