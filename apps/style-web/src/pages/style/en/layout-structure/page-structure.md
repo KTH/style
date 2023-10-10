@@ -7,7 +7,7 @@ title: "Structure"
 
 <p class="lead">Ensure usability and accessibility by using a consistent HTML structure in pages and apps</p>
 
-> [Note!] This document does not apply for widgets
+> [!Note] This document does not apply for widgets
 
 ## Metadata and head
 
