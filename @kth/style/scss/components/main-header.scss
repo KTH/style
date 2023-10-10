@@ -27,7 +27,7 @@
 .kth-main-header {
   background: var(--color-background);
   padding-block: spacing.padding(16);
-  // position: relative;
+  position: relative;
 
   &__container {
     @include mixins.container;
