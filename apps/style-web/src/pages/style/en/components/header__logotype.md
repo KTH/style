@@ -5,15 +5,25 @@ layout: "@layouts/Page.astro"
 
 # Logotype (in header)
 
+<p class="lead">Make clear to users that they are within KTH</p>
+
 ## When to use this component
 
-- To show that your service is part of KTH.
-- Inside the header when building a full-page app.
+- Inside the [header](./header) when building a full-page app.
 
 ## When not to use this component
 
 - Do not use it for widgets or inside `<iframe>`
 - The image assets in this component are optimized **exclusively** for the KTH header. For other uses, get the logotype from the [KTH graphical profile](https://intra.kth.se/en/administration/kommunikation/varumarke/grafiskprofil/logotyp-1.845049)
+
+## When should or should not be a link
+
+Most of the times, the logotype should be inside a link to either [kth.se](https://kth.se), [intranet](https://intra.kth.se) or [student web](https://kth.se/student).
+
+In some cases, you should not do it. For example:
+
+- A page where users should not leave. For example: waiting for payment.
+- An app where users should not leave in any intermediate step. For example: account activation.
 
 ## How it works
 
@@ -24,7 +34,8 @@ layout: "@layouts/Page.astro"
 
 Use this if the logotype does not include a link anywhere.
 
-- Accessibility: the `alt` attribute should only include the sentences "KTH" or equivalents. Avoid using "logotype", "image"
+- The `alt` attribute should include "KTH", "KTH Royal Institute of Technology" or synonyms. Avoid using words like "logotype", "image".
+- The `alt` attribute should be localized
 
 <iframe src="/style/en/examples/main-header__logotype/without-link"></iframe>
 
@@ -33,8 +44,8 @@ Use this if the logotype does not include a link anywhere.
 Use this if the logotype does inlcude a link.
 
 - The link should go to either [kth.se](https://kth.se), [intranet](https://intra.kth.se) or [student web](https://kth.se/student).
-- Accessibility: the `alt` text should indicate the action of the link, not its content.
-- Accessibility: make sure the `alt` text is correctly localized
+- The `alt` attribute should indicate the action of the link. For example: "Go to kth homepage"
+- The `alt` attribute should be correctly localized
 
 <iframe src="/style/en/examples/main-header__logotype/with-link"></iframe>
 

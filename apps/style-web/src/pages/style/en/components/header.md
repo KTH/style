@@ -32,9 +32,9 @@ We recommend that you use the first option except:
 
 TODO
 
-## Header structure
+## Header variants
 
-> [Note!] This step is relevant only if you are making the HTML markup yourself
+> [!Note] This step is relevant only if you are making the HTML markup yourself
 
 The header comes in three variants:
 
@@ -42,21 +42,24 @@ The header comes in three variants:
 - **Student web** for pages and services in student web
 - **Inverse**, for everything else
 
-Inside header, you can include the following components. Read the guidelines for each of them.
-
-- [Logotype](./header__logotype)
-- [Mega-menu](./header__mega-menu)
-- [Tools](./header__tools)
-- [Mega-menu (collapsable)](./header__mega-menu)
-
 ### Inverse variant
 
 (TODO)
 
-## Intranet variant
+### Intranet variant
 
 (TODO)
 
 ### Student web variant
 
 (TODO)
+
+## Header parts
+
+> [!Note] This step is relevant only if you are making the HTML markup yourself
+
+Inside header, you can include the following components. Read the guidelines for each of them.
+
+- [Logotype](./header__logotype)
+- [Mega-menu](./header__mega-menu)
+- [Tools](./header__tools)

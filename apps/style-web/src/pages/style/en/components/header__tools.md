@@ -9,8 +9,18 @@ title: "Tools (in header)"
 
 ## When to use
 
-- In all pages that have the Header
+- Inside the [header](./header), when the app is bilingual and/or offers a search functionality
 
 ## How to use
+
+- Do not add more than 3 tools
+
+### The language switcher
+
+TODO
+
+- The text should show the target language, not the current page language
+
+### The search button
 
 TODO
