@@ -55,6 +55,11 @@
   height: 100dvh;
   border: 0;
 
+  &[open] {
+    display: flex;
+    flex-direction: column;
+  }
+
   ul {
     list-style-type: none;
     padding: 0;
@@ -65,13 +70,21 @@
   }
 
   > .kth-header-panel__content {
+    flex: 1;
     padding-inline: spacing.$space-32;
+    display: flex;
+    flex-direction: column;
 
-    > h2 {
+    h2 {
       margin-block-start: spacing.$space-32;
-      margin-block-end: spacing.$space-8;
+      margin-block-end: spacing.$space-12;
       font: var(--font-label-l);
     }
+  }
+
+  .kth-header-panel__entries {
+    margin-block-start: auto;
+    padding-block-start: spacing.$space-64;
   }
 }
 

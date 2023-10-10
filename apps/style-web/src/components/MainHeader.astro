@@ -58,11 +58,11 @@ const navigationPanelsSv = [
         </button>
         <dialog class="kth-header-panel--modal">
           <!-- -->
-          <button class="kth-button close"></button>
+          <button class="kth-button close">
+            <span class="kth-visually-hidden">Close</span>
+          </button>
           <div class="kth-header-panel__content">
-            <a href="/">
-              <MainHeaderLogotype alt="Gå till KTH intranät" />
-            </a>
+            <MainHeaderLogotype alt="Gå till KTH intranät" />
             <h2>Menu</h2>
             <ul>
               {
@@ -72,7 +72,7 @@ const navigationPanelsSv = [
               }
             </ul>
 
-            <ul>
+            <ul class="kth-header-panel__entries">
               <li><a href="https://kth.se">kth.se</a></li>
               <li><a href="https://student.kth.se">Studentwebben</a></li>
               <li><a href="https://intra.kth.se">Intranät</a></li>

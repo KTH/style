@@ -16,12 +16,10 @@ const { label, dataId } = Astro.props;
     <span>{label}</span>
   </a>
   <dialog class="kth-header-panel--modal">
-    <div class="kth-header-panel__container">
-      <button class="kth-button close">
-        <span class="visually-hidden">Close</span>
-      </button>
-      <div class="kth-header-panel__content"></div>
-    </div>
+    <button class="kth-button close">
+      <span class="kth-visually-hidden">Close</span>
+    </button>
+    <div class="kth-header-panel__content"></div>
   </dialog>
 </div>
 
