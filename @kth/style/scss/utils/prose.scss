@@ -13,7 +13,7 @@
 
   .lead {
     font: var(--font-lead);
-    margin-block-start: s.$space-12;
+    margin-block-start: s.$space-8;
     margin-block-end: s.$space-16;
   }
 
@@ -47,6 +47,10 @@
   li {
     max-width: 60ch;
     margin: s.margin(8 0);
+  }
+
+  h1:has(+ .lead) {
+    margin-block-end: 0;
   }
 
   ol,
