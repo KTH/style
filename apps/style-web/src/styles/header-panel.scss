@@ -97,8 +97,8 @@ button.close::before {
   height: 1.5rem;
   background-color: var(--color-primary);
 
-  mask-image: icons.$icon-close;
-  -webkit-mask-image: icons.$icon-close;
+  mask-image: icons.$icon-url-close;
+  -webkit-mask-image: icons.$icon-url-close;
   mask-size: cover;
   -webkit-mask-size: cover;
 }

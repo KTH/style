@@ -52,13 +52,11 @@ Most of the icons are delivered in components or as variants of them. Use the co
 
 ### In your own component
 
-> [!Note]
-> Read this _only_ if there is no other component that suit your needs or if you are creating a new component.
+> [!Note] Read this _only_ if there is no other component that suit your needs or if you are creating a new component.
 
 For components with icon _and_ text, add an `::after` or `::before` selector in the button component. Use the mixins in `icons.scss`:
 
-> [!Note]
-> Icons should never be in between words
+> [!Note] Icons should never be in between words
 
 ```scss
 .button {
