@@ -1,0 +1,31 @@
+{
+  "name": "@kth/rehype-github-blockquotes",
+  "private": "true",
+  "type": "module",
+  "exports": {
+    "types": "./index.d.ts",
+    "default": "./index.js"
+  },
+  "files": [
+    "lib/",
+    "index.d.ts",
+    "index.js"
+  ],
+  "version": "1.0.0",
+  "description": "Rehype plugin for parsing github blockquotes",
+  "main": "index.js",
+  "devDependencies": {
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.0.0",
+    "typescript": "^5.2.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "unified": "^11.0.3",
+    "unist-util-visit": "^5.0.0"
+  }
+}
