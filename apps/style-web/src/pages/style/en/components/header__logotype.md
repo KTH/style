@@ -27,7 +27,7 @@ In some cases, you should not do it. For example:
 
 ## How it works
 
-- Serve the image assets in your app according to the [get started guide](../get-started//developers.md)
+- Serve the image assets in your app according to the [get started guide](../get-started/developers)
 - Place this component inside `kth-main-header`
 
 ### Without link
@@ -39,6 +39,32 @@ Use this if the logotype does not include a link anywhere.
 
 <iframe src="/style/en/examples/main-header__logotype/without-link"></iframe>
 
+<details class="kth-details">
+<summary>Code</summary>
+
+<div class="kth-details__content">
+
+```html
+<figure class="kth-main-header__logotype">
+  <img
+    alt="KTH"
+    srcset="
+      <ASSETS_DIRECTORY>/kth-logotype-64.webp,
+      <ASSETS_DIRECTORY>/kth-logotype-64@2x.webp 2x,
+      <ASSETS_DIRECTORY>/kth-logotype-64@3x.webp 3x
+    "
+    src="<ASSETS_DIRECTORY>/kth-logotype-64.png"
+  />
+</figure>
+```
+
+```scss
+@use "@kth/style/scss/components/main-header.scss";
+```
+
+</div>
+</details>
+
 ### With link
 
 Use this if the logotype does inlcude a link.
@@ -49,11 +75,16 @@ Use this if the logotype does inlcude a link.
 
 <iframe src="/style/en/examples/main-header__logotype/with-link"></iframe>
 
+<details class="kth-details">
+<summary>Code</summary>
+
+<div class="kth-details__content">
+
 ```html
-<a href="https://kth.se" class="kth-main-header__logotype">
+<a class="kth-main-header__logotype">
   <figure>
     <img
-      alt="Gå till kth.se"
+      alt="KTH"
       srcset="
         <ASSETS_DIRECTORY>/kth-logotype-64.webp,
         <ASSETS_DIRECTORY>/kth-logotype-64@2x.webp 2x,
@@ -65,11 +96,12 @@ Use this if the logotype does inlcude a link.
 </a>
 ```
 
-CSS is included as part of `kth-main-header`
-
 ```scss
-@use "@kth/style/scss/components/kth-main-header";
+@use "@kth/style/scss/components/main-header.scss";
 ```
+
+</div>
+</details>
 
 ## Read more
 

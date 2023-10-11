@@ -1,36 +1,22 @@
 ---
-import ExamplePage from "../../../../../layouts/ExamplePage.astro";
-
-const htmlCode = `
-<figure class="kth-main-header__logotype">
-  <img
-    alt="KTH"
-    srcset="
-      <ASSETS_DIRECTORY>/kth-logotype-64.webp,
-      <ASSETS_DIRECTORY>/kth-logotype-64@2x.webp 2x,
-      <ASSETS_DIRECTORY>/kth-logotype-64@3x.webp 3x
-    "
-    src="<ASSETS_DIRECTORY>/kth-logotype-64.png"
-  />
-</figure>
-`;
-const cssCode = `
-@use "@kth/style/scss/components/kth-main-header.scss";
-`;
+import "@kth/style/scss/utils/reset.scss";
+import "@kth/style/scss/components/main-header.scss";
 ---
 
-<ExamplePage htmlCode={htmlCode} cssCode={cssCode}>
-  <a href="https://kth.se" class="kth-main-header__logotype">
-    <figure>
-      <img
-        alt="KTH"
-        srcset="
-      /style/assets/kth-logotype-64.webp,
-      /style/assets/kth-logotype-64@2x.webp 2x,
-      /style/assets/kth-logotype-64@3x.webp 3x
-      "
-        src="/style/assets/kth-logotype-64.png"
-      />
-    </figure>
-  </a>
-</ExamplePage>
+<header class="kth-main-header">
+  <div class="kth-main-header__container">
+    <a href="https://kth.se" class="kth-main-header__logotype">
+      <figure>
+        <img
+          alt="KTH"
+          srcset="
+        /style/assets/kth-logotype-64.webp,
+        /style/assets/kth-logotype-64@2x.webp 2x,
+        /style/assets/kth-logotype-64@3x.webp 3x
+        "
+          src="/style/assets/kth-logotype-64.png"
+        />
+      </figure>
+    </a>
+  </div>
+</header>
