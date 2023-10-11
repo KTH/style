@@ -8,6 +8,7 @@
 @use "@kth/style/scss/components/main-header";
 @use "@kth/style/scss/components/search";
 @use "@kth/style/scss/utils/prose";
+@use "@kth/style/scss/components/details";
 
 // Specific KTH Style webpage
 @use "../styles/app.scss";
@@ -23,8 +24,10 @@ main {
 
   iframe {
     width: 100%;
+    // max-width: 100%;
     aspect-ratio: 16 / 9;
     border: solid black 1px;
+    resize: auto;
   }
 
   .markdown-alert {
