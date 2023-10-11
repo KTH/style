@@ -36,6 +36,7 @@ $generate-css: true !default;
   img,
   picture {
     max-width: 100%;
+    height: auto;
   }
 
   input,
