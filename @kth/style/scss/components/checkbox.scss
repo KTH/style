@@ -42,8 +42,8 @@ $input-inner-size: spacing.$space-16;
       height: $input-size;
       box-shadow: inset $input-size $input-size var(--color-primary);
 
-      -webkit-mask-image: icons.$icon-check;
-      mask-image: icons.$icon-check;
+      -webkit-mask-image: icons.$icon-url-check;
+      mask-image: icons.$icon-url-check;
 
       // Windows High Contrast Mode
       background-color: CanvasText;

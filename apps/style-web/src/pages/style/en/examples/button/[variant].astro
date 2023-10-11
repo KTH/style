@@ -1,5 +1,6 @@
 ---
 import ExamplePage from "@layouts/ExamplePage.astro";
+import "@kth/style/scss/components/button.scss";
 
 export const CLASS_NAMES: Record<string, string> = {
   default: "kth-button primary",
@@ -32,6 +33,4 @@ const cssCode = `
 `;
 ---
 
-<ExamplePage htmlCode={htmlCode} cssCode={cssCode}>
-  <button class={className}>Hello world</button>
-</ExamplePage>
+<ExamplePage htmlCode={htmlCode} cssCode={cssCode} set:html={htmlCode} />

@@ -1,5 +1,12 @@
 ---
 import ExamplePage from "@layouts/ExamplePage.astro";
+import "@kth/style/scss/components/fieldset.scss";
+import "@kth/style/scss/components/checkbox.scss";
+
+const cssCode = `
+@use "@kth/style/scss/components/fieldset.scss";
+@use "@kth/style/scss/components/checkbox.scss";
+`;
 
 export function getStaticPaths() {
   const TYPES = ["radio", "checkbox"];
@@ -12,31 +19,33 @@ export function getStaticPaths() {
 }
 
 const type = Astro.params.type as "radio" | "checkbox";
+
+const htmlCode = `
+<fieldset class="kth-fieldset">
+  <legend>What option do you want to choose</legend>
+  <div class="kth-fieldset__options">
+    <div class="kth-fieldset__option">
+      <input
+        type=${type}
+        name="example"
+        id="option-1"
+        value="option-1"
+        aria-describedby="hint-1"
+      />
+      <label for="option-1">Option 1</label>
+      <p id="hint-1" class="kth-fieldset__option-description">Lorem pisum</p>
+    </div>
+    <div class="kth-fieldset__option">
+      <input type=${type} id="option-2" name="example" value="option-2" />
+      <label for="option-2">Option 2</label>
+    </div>
+    <div class="kth-fieldset__option">
+      <input type=${type} id="option-3" name="example" value="option-3" />
+      <label for="option-3">Option 3</label>
+    </div>
+  </div>
+</fieldset>
+  `;
 ---
 
-<ExamplePage>
-  <fieldset class="kth-fieldset">
-    <legend>What option do you want to choose</legend>
-    <div class="kth-fieldset__options">
-      <div class="kth-fieldset__option">
-        <input
-          type={type}
-          name="example"
-          id="option-1"
-          value="option-1"
-          aria-describedby="hint-1"
-        />
-        <label for="option-1">Option 1</label>
-        <p id="hint-1" class="kth-fieldset__option-description">Lorem pisum</p>
-      </div>
-      <div class="kth-fieldset__option">
-        <input type={type} id="option-2" name="example" value="option-2" />
-        <label for="option-2">Option 2</label>
-      </div>
-      <div class="kth-fieldset__option">
-        <input type={type} id="option-3" name="example" value="option-3" />
-        <label for="option-3">Option 3</label>
-      </div>
-    </div>
-  </fieldset>
-</ExamplePage>
+<ExamplePage cssCode={cssCode} htmlCode={htmlCode} set:html={htmlCode} />
