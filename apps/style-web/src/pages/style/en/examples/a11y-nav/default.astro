@@ -1,9 +1,23 @@
 ---
-import ExamplePage from "@layouts/ExamplePage.astro";
+import "@kth/style/scss/utils/reset.scss";
+import "@kth/style/scss/components/a11y-nav.scss";
 ---
 
-<ExamplePage>
-  <div class="kth-a11y-nav">
-    <a href="#main-content">Go to main content</a>
-  </div>
-</ExamplePage>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="kth-a11y-nav">
+      <a href="#main-content">Go to main content</a>
+    </div>
+    <p>
+      To see this component in action, focus the following text input and then
+      press <kbd>Shift + Tab</kbd>
+    </p>
+    <input type="text" />
+  </body>
+</html>
