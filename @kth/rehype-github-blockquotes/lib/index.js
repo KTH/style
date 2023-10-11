@@ -6,7 +6,7 @@
 import { visit, SKIP } from "unist-util-visit";
 
 const LIST_OF_ANNOTATIONS = ["note"];
-const REGEX = /\s*?\[\!(\w+)\](.*)/;
+const REGEX = /\s*?\[\!(\w+)\](.*)/s;
 
 /**
  * Returns the annotation in a string and the rest of the string
