@@ -1,5 +1,6 @@
 ---
-import ExamplePage from "@layouts/ExamplePage.astro";
+import Layout from "@layouts/Layout.astro";
+import "@kth/style/scss/utils/reset.scss";
 import "@kth/style/scss/components/button.scss";
 
 export const CLASS_NAMES: Record<string, string> = {
@@ -23,14 +24,8 @@ export function getStaticPaths() {
 const { variant } = Astro.params;
 
 const className = CLASS_NAMES[variant ?? "default"];
-
-const htmlCode = `
-<button class="${className}">Hello world</button>
-`;
-
-const cssCode = `
-@use "@kth/style/scss/components/button"
-`;
 ---
 
-<ExamplePage htmlCode={htmlCode} cssCode={cssCode} set:html={htmlCode} />
+<Layout title="Example button">
+  <button class={className}>Hello from KTH Style</button>
+</Layout>

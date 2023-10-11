@@ -5,9 +5,20 @@ layout: "@layouts/Page.astro"
 
 # Get started with @kth/style package
 
-This guide assumes that you have an application with a toolchain ready to write HTML, Sass and JavaScript code.
+## Pre-requirements
 
-## Install
+The `@kth/style` package can be installed in apps with:
+
+- Posibility to import Sass files
+- Install tools via npm
+
+Steps to follow are:
+
+1. Install the package
+2. Include a component in your app
+3. Serve the static assets (font and images)
+
+## Step 1. Install the package
 
 Install `@kth/style` with npm
 
@@ -15,14 +26,42 @@ Install `@kth/style` with npm
 npm i @kth/style
 ```
 
-## Serve the font and images
+## Step 2. Include a component in your app
 
-KTH Style includes static assets (logotypes, typography). You can:
+Go to any html page and copy the following code:
 
-- Route a path to assets directory.
-- Serve the assets yourself
+> [!Note] If you use React, replace `class` with `className`
 
-### Method 1. Route a path to assets directory
+```html
+<button class="kth-button primary">Hello from KTH Style</button>
+```
+
+In a Sass file that will style the page where you put the button, copy the following code on top of the page:
+
+```scss
+@use "@kth/style/scss/utils/reset";
+@use "@kth/style/scss/components/button";
+```
+
+If everything is ok, you should see a button like this one:
+
+<iframe src="/style/en/examples/button/default"></iframe>
+
+> [!Note] At this point, you might see fonts incorrectly, which is something will be fixed in the next steps
+
+## Step 3. Serve the font and images
+
+KTH Style includes static assets (logotypes, typography) that needs to be served to users. You can use one of the three methods:
+
+1. Serve static assets from KTH Style CDN (recommended)
+2. Route a path to assets directory.
+3. Copy the assets and serve them yourself
+
+### Method 1. Serve static assets from KTH Style CDN
+
+TODO
+
+### Method 2. Route a path to assets directory
 
 Set up your routing so that requests in `<YOUR_APP>/assets` are served from `/node_modules/@kth/style/assets`.
 
@@ -44,12 +83,29 @@ app.use("/<<YOUR_APP>>/assets", express.static(kthStyleAssets));
 
 Read more in the [Express documentation](https://expressjs.com/en/starter/static-files.html)
 
-### Method 2. Serve the assets yourself
+### Method 3. Serve the assets yourself
 
 1. Copy the files in `/node_modules/@kth/style/assets` to a custom directory.
 2. Make sure there is a public URL to access to the files in the directory you have copied
 
-## Import the Figtree font family
+## Step 4. Import the Figtree font family
+
+Import the CSS that declares the Figtree font face.
+
+Depending on the method you followed in step 3, you must take a different step:
+
+<details class="kth-details">
+<summary>Option 1. You serve static assets from KTH Style CDN</summary>
+<div class="kth-details__content">
+
+TODO
+
+</div>
+</details>
+
+<details class="kth-details">
+<summary>Option 2. You route a path to assets directory</summary>
+<div class="kth-details__content">
 
 You can import the Figtree using the HTML `<link>` tag or CSS `@import` rule.
 
@@ -61,12 +117,21 @@ You can import the Figtree using the HTML `<link>` tag or CSS `@import` rule.
 @import url("/<YOUR_APP>/assets/fonts.css");
 ```
 
-> [Note!]
-> Some tools rewrite URLs when using `@import` statements. If you have any problem, contact us so we can add troubleshooting information
+</div>
+</details>
 
-<details>
-<summary>Troubleshooting</summary>
+<details class="kth-details">
+<summary>Option 3. You serve the assets yourself</summary>
 
-In this section we will include the most common problems when importing both CSS and Sass files into a project.
+Import the CSS file originally called `fonts.css` using the HTML `<link>` tag or CSS `@import` rule. You might need to edit it if you have move the font files to a different place
 
+```html
+<link rel="stylesheet" href="/<YOUR_PATH>/fonts.css" />
+```
+
+```scss
+@import url("/<YOUR_PATH>/fonts.css");
+```
+
+</div>
 </details>
