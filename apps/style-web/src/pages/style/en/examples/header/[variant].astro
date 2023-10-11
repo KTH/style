@@ -1,0 +1,56 @@
+---
+import type { GetStaticPaths } from "astro";
+import "@kth/style/scss/utils/reset.scss";
+import "@kth/style/scss/components/main-header.scss";
+import "@kth/style/scss/components/header-menu-item.scss";
+
+export const getStaticPaths = (() => {
+  const VARIANTS = ["external", "intranet", "student-web"];
+
+  return VARIANTS.map((variant) => ({
+    params: {
+      variant,
+    },
+  }));
+}) satisfies GetStaticPaths;
+
+const { variant } = Astro.params;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header class={`kth-main-header ${variant}`}>
+      <div class="kth-main-header__container">
+        <a href="/" class="kth-main-header__logotype">
+          <figure>
+            <img
+              class="blue"
+              srcset=" /style/assets/kth-logotype-blue.webp,
+    /style/assets/kth-logotype-blue@2x.webp 2x,
+    /style/assets/kth-logotype-blue@3x.webp 3x "
+              src="/style/assets/kth-logotype-blue.png"
+            />
+            <img
+              class="white"
+              srcset=" /style/assets/kth-logotype-white.webp,
+    /style/assets/kth-logotype-white@2x.webp 2x,
+    /style/assets/kth-logotype-white@3x.webp 3x "
+              src="/style/assets/kth-logotype-white.png"
+            />
+          </figure>
+        </a>
+        <ul class="kth-main-header__tools">
+          <li>
+            <a href="" class="kth-header-menu-item language">English</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+  </body>
+</html>

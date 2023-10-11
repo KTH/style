@@ -40,19 +40,64 @@ The header comes in three variants:
 
 - **Intranet** for pages and services in intranet
 - **Student web** for pages and services in student web
-- **Inverse**, for everything else
+- **External**, for everything else
 
-### Inverse variant
+### External variant
 
-(TODO)
+<iframe src="/style/en/examples/header/external" title="Example header for external web"></iframe>
+
+<details class="kth-details">
+<summary>Code</summary>
+<div class="kth-details__content">
+
+```html
+<header class="kth-main-header external"></header>
+```
+
+```scss
+@use "@kth/style/scss/components/main-header.scss";
+```
+
+</div>
+</details>
 
 ### Intranet variant
 
-(TODO)
+<iframe src="/style/en/examples/header/intranet" title="Example header for intranet"></iframe>
+
+<details class="kth-details">
+<summary>Code</summary>
+<div class="kth-details__content">
+
+```html
+<header class="kth-main-header intranet"></header>
+```
+
+```scss
+@use "@kth/style/scss/components/main-header.scss";
+```
+
+</div>
+</details>
 
 ### Student web variant
 
-(TODO)
+<iframe src="/style/en/examples/header/student-web" title="Example header for student web"></iframe>
+
+<details class="kth-details">
+<summary>Code</summary>
+<div class="kth-details__content">
+
+```html
+<header class="kth-main-header student-web"></header>
+```
+
+```scss
+@use "@kth/style/scss/components/main-header.scss";
+```
+
+</div>
+</details>
 
 ## Header parts
 
