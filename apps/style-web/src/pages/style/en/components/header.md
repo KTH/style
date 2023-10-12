@@ -51,7 +51,7 @@ The header comes in three variants:
 <div class="kth-details__content">
 
 ```html
-<header class="kth-main-header external"></header>
+<header class="kth-header external"></header>
 ```
 
 ```scss
@@ -70,7 +70,7 @@ The header comes in three variants:
 <div class="kth-details__content">
 
 ```html
-<header class="kth-main-header intranet"></header>
+<header class="kth-header intranet"></header>
 ```
 
 ```scss
@@ -89,7 +89,7 @@ The header comes in three variants:
 <div class="kth-details__content">
 
 ```html
-<header class="kth-main-header student-web"></header>
+<header class="kth-header student-web"></header>
 ```
 
 ```scss

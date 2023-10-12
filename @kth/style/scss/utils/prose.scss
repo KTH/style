@@ -26,27 +26,32 @@
 
   h1 {
     font: var(--font-heading-xl);
-    margin: s.margin(0 0 16 0);
+    margin-block-start: s.$space-32;
+    margin-block-end: s.$space-16;
   }
 
   h2 {
     font: var(--font-heading-l);
-    margin: s.margin(32 0 8 0);
+    margin-block-start: s.$space-32;
+    margin-block-end: s.$space-16;
   }
 
   h3 {
     font: var(--font-heading-m);
-    margin: s.margin(32 0 8 0);
+    margin-block-start: s.$space-32;
+    margin-block-end: s.$space-8;
   }
 
   h4 {
     font: var(--font-heading-s);
-    margin: s.margin(32 0 4 0);
+    margin-block-start: s.$space-32;
+    margin-block-end: s.$space-4;
   }
 
   li {
     max-width: 60ch;
-    margin: s.margin(8 0);
+    margin-block: s.$space-8;
+    margin-inline: 0;
   }
 
   h1:has(+ .lead) {

@@ -1,8 +1,8 @@
 ---
 import type { GetStaticPaths } from "astro";
 import "@kth/style/scss/utils/reset.scss";
-import "@kth/style/scss/components/main-header.scss";
-import "@kth/style/scss/components/header-menu-item.scss";
+import "@kth/style/scss/components/header.scss";
+import "@kth/style/scss/components/menu-item.scss";
 
 export const getStaticPaths = (() => {
   const VARIANTS = ["external", "intranet", "student-web"];
@@ -25,9 +25,9 @@ const { variant } = Astro.params;
     <title>Document</title>
   </head>
   <body>
-    <header class={`kth-main-header ${variant}`}>
-      <div class="kth-main-header__container">
-        <a href="/" class="kth-main-header__logotype">
+    <header class={`kth-header ${variant}`}>
+      <div class="kth-header__container">
+        <a href="/" class="kth-header__logotype">
           <figure>
             <img
               class="blue"
@@ -45,9 +45,9 @@ const { variant } = Astro.params;
             />
           </figure>
         </a>
-        <ul class="kth-main-header__tools">
+        <ul class="kth-header__tools">
           <li>
-            <a href="" class="kth-header-menu-item language">English</a>
+            <a href="" class="kth-menu-item language">English</a>
           </li>
         </ul>
       </div>

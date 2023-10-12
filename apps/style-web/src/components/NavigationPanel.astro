@@ -12,7 +12,7 @@ const { label, dataId } = Astro.props;
 ---
 
 <div>
-  <a href="/" data-id={dataId} class="kth-header-menu-item dropdown">
+  <a href="/" data-id={dataId} class="kth-menu-item dropdown">
     <span>{label}</span>
   </a>
   <dialog class="kth-header-panel">
@@ -27,43 +27,41 @@ const { label, dataId } = Astro.props;
 
 <script>
   // This code is for reading blocks from Cortina
-  document
-    .querySelectorAll(".kth-header-menu-item[data-id]")
-    .forEach((menuItem) => {
-      const dialog = menuItem.nextElementSibling;
-      const dialogContent = dialog?.querySelector(".kth-header-panel__content");
+  document.querySelectorAll(".kth-menu-item[data-id]").forEach((menuItem) => {
+    const dialog = menuItem.nextElementSibling;
+    const dialogContent = dialog?.querySelector(".kth-header-panel__content");
 
-      if (!(menuItem instanceof HTMLElement)) {
+    if (!(menuItem instanceof HTMLElement)) {
+      return;
+    }
+
+    if (!(dialog instanceof HTMLDialogElement)) {
+      return;
+    }
+
+    const cortinaBlockId = menuItem.dataset.id;
+
+    // We declare the Promise outside of the listener.
+    // That way, if the promise has been initiated, we don't do a re-fetch
+    let p: Promise<string> | undefined = undefined;
+
+    function loadPanelContent() {
+      if (!(dialogContent instanceof HTMLElement)) {
         return;
       }
 
-      if (!(dialog instanceof HTMLDialogElement)) {
-        return;
+      if (!p) {
+        // Fetch only if the promise has not started
+        console.log(`Fetching block ${cortinaBlockId}`);
+        p = fetch(`/cm/${cortinaBlockId}`).then((r) => r.text());
       }
 
-      const cortinaBlockId = menuItem.dataset.id;
+      p.then((body) => {
+        dialogContent.innerHTML = body;
+      });
+    }
 
-      // We declare the Promise outside of the listener.
-      // That way, if the promise has been initiated, we don't do a re-fetch
-      let p: Promise<string> | undefined = undefined;
-
-      function loadPanelContent() {
-        if (!(dialogContent instanceof HTMLElement)) {
-          return;
-        }
-
-        if (!p) {
-          // Fetch only if the promise has not started
-          console.log(`Fetching block ${cortinaBlockId}`);
-          p = fetch(`/cm/${cortinaBlockId}`).then((r) => r.text());
-        }
-
-        p.then((body) => {
-          dialogContent.innerHTML = body;
-        });
-      }
-
-      menuItem.addEventListener("mouseover", loadPanelContent);
-      menuItem.addEventListener("click", loadPanelContent);
-    });
+    menuItem.addEventListener("mouseover", loadPanelContent);
+    menuItem.addEventListener("click", loadPanelContent);
+  });
 </script>

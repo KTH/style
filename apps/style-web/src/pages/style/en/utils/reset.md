@@ -1,5 +1,6 @@
 ---
 title: Reset
+layout: "@layouts/Page.astro"
 ---
 
 # Reset

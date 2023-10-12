@@ -1,3 +1,8 @@
+/// These utilities are not categorized nor documented yet.
+///
+/// Do not use it outside of @kth/style!!
+/// This file is not subjected to semver rules. Breaking changes might occur
+/// without major version upgrading
 @use "../tokens/spacing";
 
 @mixin horizontal-list {
