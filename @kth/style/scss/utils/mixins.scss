@@ -1,0 +1,19 @@
+/// These utilities are not categorized nor documented yet.
+///
+/// Do not use it outside of @kth/style!!
+/// This file is not subjected to semver rules. Breaking changes might occur
+/// without major version upgrading
+@use "../tokens/spacing";
+
+@mixin horizontal-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@mixin container {
+  margin-inline: auto;
+  max-width: 82rem;
+  padding-inline: clamp(spacing.$space-16, calc(100vw / 30), spacing.$space-32);
+}
