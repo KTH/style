@@ -1,0 +1,26 @@
+@use "@kth/style/scss/tokens/colors";
+@use "@kth/style/scss/tokens/spacing";
+@use "@kth/style/scss/utils/mixins";
+
+@layer kth-style {
+  ul.kth-kpm__personal-menu {
+    @include mixins.horizontal-list();
+    gap: spacing.$space-0 spacing.$space-16;
+    margin-inline-start: auto;
+  }
+
+  .kth-kpm__personal-menu--collapsable {
+    display: none;
+    margin-inline-start: auto;
+  }
+}
+
+@media (width < 48rem) {
+  .kth-kpm__personal-menu {
+    display: none;
+  }
+
+  .kth-kpm__personal-menu--collapsable {
+    display: block;
+  }
+}

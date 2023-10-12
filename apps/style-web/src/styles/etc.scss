@@ -12,41 +12,6 @@
   white-space: nowrap;
 }
 
-.kpm__container {
-  @include mixins.container;
-}
-
-.kpm__entries {
-  ul {
-    @include mixins.horizontal-list();
-    gap: spacing.$space-4;
-  }
-
-  a {
-    color: var(--color-primary);
-    display: block;
-    padding-block-start: spacing.$space-8;
-    padding-inline: spacing.$space-8;
-    text-decoration: none;
-
-    padding-block-end: calc(spacing.$space-8 - spacing.$space-4);
-    border-block-end: solid spacing.$space-4;
-    border-block-end-color: transparent;
-  }
-
-  li:first-child a {
-    box-sizing: border-box;
-    width: 4rem;
-    padding-inline: 0;
-    text-align: center;
-  }
-
-  li:nth-child(3) a[aria-current="true"] {
-    background: colors.$color-sand;
-    color: colors.$color-blue-kth;
-  }
-}
-
 a:not([href]) {
   text-decoration: line-through;
 }
