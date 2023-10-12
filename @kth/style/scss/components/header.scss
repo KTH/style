@@ -86,8 +86,13 @@
 }
 
 @media (width < 64rem) {
+  .kth-header {
+    padding-block: spacing.$space-8;
+  }
   .kth-header__logotype {
     margin-inline-end: 0;
+    inline-size: 3rem;
+    block-size: 3rem;
   }
 
   .kth-header__mega-menu {
