@@ -1,0 +1,60 @@
+// Gray-scale
+$color-white: #fcfcfc;
+$color-black: #212121;
+$color-gray-light: #e6e6e6;
+$color-gray-medium: #a5a5a5;
+$color-gray-dark: #323232;
+
+// Colors defined by "Varumärkesgruppen"
+$color-sand: #e6e1dd;
+$color-blue-kth: #004791;
+$color-blue-light: #e0edfc;
+$color-blue-sky: #6298d2;
+$color-blue-marine: #08004f;
+$color-blue-digital: #221dd9;
+
+// This color is specially made for links
+// 4.51:1 with `$color-blue-light` (requires 4.50)
+// 5.21:1 with `$color-white`      (requires 4.50)
+// 3.01:1 with `$color-black`      (requires 3.00)
+$color-blue-special: #036eb8;
+
+@mixin theme-default {
+  --color-text: #{$color-black};
+  --color-background: #{$color-white};
+  --color-primary: #{$color-blue-kth};
+  --color-on-primary: #{$color-white};
+  --color-secondary: #{$color-black};
+  --color-tertiary: #{$color-blue-special};
+  // ... --hover-overlay: ...
+}
+
+@mixin theme-student-web {
+  --color-text: #{$color-black};
+  --color-background: #{$color-blue-light};
+  --color-primary: #{$color-blue-kth};
+  --color-on-primary: #{$color-white};
+  --color-secondary: #{$color-black};
+  --color-tertiary: #{$color-blue-special};
+  // ... --hover-overlay: ...
+}
+
+@mixin theme-intranet {
+  --color-text: #{$color-black};
+  --color-background: #{$color-sand};
+  --color-primary: #{$color-blue-kth};
+  --color-on-primary: #{$color-white};
+  --color-secondary: #{$color-black};
+  --color-tertiary: #{$color-blue-special};
+  // ... --hover-overlay: ...
+}
+
+@mixin theme-inverse {
+  --color-text: #{$color-white};
+  --color-background: #{$color-blue-kth};
+  --color-primary: #{$color-white};
+  --color-on-primary: #{$color-blue-kth};
+  --color-secondary: #{$color-white};
+  --color-tertiary: #{$color-white};
+  // ... --hover-overlay: ...
+}

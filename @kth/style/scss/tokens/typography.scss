@@ -1,0 +1,35 @@
+@use "sass:math";
+@use "sass:list";
+
+/// Given a font-size and line-height values in "pixel units" (i.e. 1/16rem),
+/// returns the value for the CSS `font` shorthand property expresseing font
+/// size in rem and line height as unitless.
+@function _generate-shorthand-font(
+  $font-size-px,
+  $line-height-px,
+  $font-weight: null
+) {
+  // Same font-family for everything
+  $font-family: "Figtree, sans-serif";
+  $font-size-rem: math.div($font-size-px, 16) * 1rem;
+  $line-height-unitless: math.div($line-height-px, $font-size-px);
+
+  @if $font-weight {
+    @return $font-weight list.slash($font-size-rem, $line-height-unitless)
+      $font-family;
+  }
+
+  @return list.slash($font-size-rem, $line-height-unitless) $font-family;
+}
+
+@mixin theme-default {
+  --font-default: 1rem/1.5 Figtree, sans-serif;
+  --font-heading-xl: #{_generate-shorthand-font(44, 56, 600)};
+  --font-heading-l: #{_generate-shorthand-font(30, 40, 600)};
+  --font-heading-m: #{_generate-shorthand-font(24, 32, 600)};
+  --font-heading-s: #{_generate-shorthand-font(20, 32, 600)};
+  --font-label-l: #{_generate-shorthand-font(24, 32, 600)};
+  --font-label-m: #{_generate-shorthand-font(19, 24, 600)};
+  --font-label-s: #{_generate-shorthand-font(16, 24, 600)};
+  --font-lead: #{_generate-shorthand-font(22, 32)};
+}
