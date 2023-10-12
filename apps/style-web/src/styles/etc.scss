@@ -19,7 +19,7 @@
 .kpm__entries {
   ul {
     @include mixins.horizontal-list();
-    gap: spacing.gap(4);
+    gap: spacing.$space-4;
   }
 
   a {

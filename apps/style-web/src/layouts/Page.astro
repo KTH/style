@@ -20,5 +20,8 @@ const { frontmatter } = Astro.props;
   </div>
   <Kpm />
   <Header />
-  <main><slot /></main>
+  <div class="kth-app">
+    <Submenu />
+    <main><slot /></main>
+  </div>
 </Layout>
