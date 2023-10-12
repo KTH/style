@@ -48,12 +48,12 @@ const navigationPanelsSv = [
         <SearchPanel />
       </li>
       <li>
-        <a href="/" class="kth-header-menu-item language">
+        <a href="/" class="kth-menu-item language">
           <span>English</span>
         </a>
       </li>
       <li class="kth-main-header__mega-menu--collapsable">
-        <button class="kth-header-menu-item">
+        <button class="kth-menu-item">
           <span>Menu</span>
         </button>
         <dialog class="kth-header-panel--modal">
@@ -90,23 +90,21 @@ const navigationPanelsSv = [
   // Set navigationPanels only to non-mobile versions
   setNavigationPanels(
     document.querySelector(".kth-main-header"),
-    document.querySelectorAll(
-      ".kth-main-header__mega-menu .kth-header-menu-item",
-    ),
+    document.querySelectorAll(".kth-main-header__mega-menu .kth-menu-item"),
   );
   setNavigationPanels(
     document.querySelector(".kth-main-header"),
-    document.querySelectorAll(".kth-header-menu-item.search"),
+    document.querySelectorAll(".kth-menu-item.search"),
   );
 
   setModalNavigationPanels(
     document.querySelectorAll(
-      ".kth-main-header__mega-menu--collapsable .kth-header-menu-item",
+      ".kth-main-header__mega-menu--collapsable .kth-menu-item",
     ),
   );
   setModalNavigationPanels(
     document.querySelectorAll(
-      ".kth-main-header__mega-menu--collapsable .kth-header-menu-item--modal",
+      ".kth-main-header__mega-menu--collapsable .kth-menu-item--modal",
     ),
   );
 </script>

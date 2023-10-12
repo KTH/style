@@ -29,7 +29,7 @@ export function PersonalMenuPanel({ label, children }) {
   return (
     <>
       <div>
-        <button className="kth-header-menu-item dropdown" onClick={handleOpen}>
+        <button className="kth-menu-item dropdown" onClick={handleOpen}>
           {label}
         </button>
       </div>
