@@ -2,24 +2,48 @@
 @use "../tokens/spacing";
 @use "../tokens/colors";
 
-/// Adaptation of normalize.css v8.0.1
-/// github.com/necolas/normalize.css
+/// Based on https://andy-bell.co.uk/a-more-modern-css-reset/
 @layer kth-style {
+  html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    scrollbar-gutter: stable;
+  }
+
   :root {
     @include colors.theme-default;
     @include spacing.theme-default;
     @include typography.theme-default;
   }
 
-  /* Sections
-   ========================================================================== */
-
-  // Body
-  // 1. Remove the margin in all browsers
-  // 2. Default fonts
   body {
     margin: 0;
-    padding: 0;
+    color: var(--color-text);
+    background: var(--color-background);
+    min-height: 100vh;
     font: var(--font-default);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  figure,
+  blockquote,
+  dl,
+  dd {
+    margin: 0;
+  }
+
+  a {
+    color: var(--color-tertiary);
+    text-underline-offset: spacing.$space-4;
+  }
+
+  img,
+  picture {
+    max-width: 100%;
   }
 }
