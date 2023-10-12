@@ -17,78 +17,15 @@ $space-48: 3rem;
 $space-64: 4rem;
 $space-80: 5rem;
 
-// Convinience map that stores every value. Used internally
-$_all_spaces: (
-  0: $space-0,
-  2: $space-2,
-  4: $space-4,
-  6: $space-6,
-  8: $space-8,
-  12: $space-12,
-  16: $space-16,
-  20: $space-20,
-  24: $space-24,
-  32: $space-32,
-  40: $space-40,
-  48: $space-48,
-  64: $space-64,
-  80: $space-80,
-);
-
-/// Converts a single KTH Style space value to rem.
-/// Throws an Error if the argument is not part of the valid spaces
-///
-/// This function is used internally.
-@function _space_to_rem($space) {
-  @if map.get($_all_spaces, $space) == null {
-    @error "#{$space} is not a valid spacing. Use one of the following instead: #{$_all_spaces}";
-  }
-
-  @return map.get($_all_spaces, $space);
-}
-
-/// Converts a list of "KTH Style space" value to their rem values.
-/// Throws an Error if any element is not valid
-///
-/// This function is used internally.
-@function _spaces_to_rem($list-of-spaces) {
-  $list-of-rem: ();
-
-  @each $element in $list-of-spaces {
-    $list-of-rem: list.append($list-of-rem, _space_to_rem($element));
-  }
-
-  @return $list-of-rem;
-}
-
-/// Converts a list of "KTH Style padding" values to actual CSS measurements.
-@function padding($list) {
-  @return _spaces_to_rem($list);
-}
-
-/// Converts a list of "KTH Style margin" values to actual CSS measurements..
-@function margin($list) {
-  @return _spaces_to_rem($list);
-}
-
-/// Converts a list of "KTH Style gap" values to actual CSS measurements..
-@function gap($list) {
-  @return _spaces_to_rem($list);
-}
-
-@function border-radius($list) {
-  @return _spaces_to_rem($list);
-}
-
 // Semantic tokens for spacing
 @mixin theme-default {
-  --boxed-padding-inline: #{$space-16};
-  --boxed-padding-block: #{$space-8};
-  --unboxed-padding-block: #{$space-8};
+  --space-inner-inline: #{$space-16};
+  --space-inner-block: #{$space-8};
+  --space-inner-icon: #{$space-8};
 }
 
 @mixin theme-dense {
-  --boxed-padding-inline: #{$space-12};
-  --boxed-padding-block: #{$space-4};
-  --unboxed-padding-block: #{$space-4};
+  --space-inner-inline: #{$space-12};
+  --space-inner-block: #{$space-4};
+  --space-inner-icon: #{$space-4};
 }
