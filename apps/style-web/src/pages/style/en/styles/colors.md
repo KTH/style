@@ -1,6 +1,6 @@
 ---
 title: Colors
-layout: ../../layouts/Page.astro
+layout: "@layouts/Page.astro"
 ---
 
 # Colors
