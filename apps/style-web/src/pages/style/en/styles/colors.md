@@ -14,7 +14,7 @@ Color system in KTH Style is based on KTH graphical identity and implements acce
 
 The new graphical identity defines 6 tones of primary colors. Five blues and one beige.
 
-![The 6 colors for KTH graphical identity](../../../images/color-blues.png)
+![](@images/color-blues.png)
 
 - All reference tokens are defined as Sass variables.
 - KTH Style has defined extra colors for specific web uses outside of the graphical identity
@@ -29,7 +29,7 @@ Example:
 - In the "defualt theme", `--color-background` and `--color-on-primary` (color for the text of the button) are both white
 - In the "intranet theme", `--color-background` is beige but `--color-on-primary` is white.
 
-![Image showing that different tokens might refer to the same or different values depending on the theme](../../../images/color-semantic-difference.png)
+![](@images/color-semantic-difference.png)
 
 ### Surface, primary, secondary and tertiary colors
 
@@ -40,14 +40,14 @@ Surface colors are used for large surfaces like a header or the whole page. They
 
 Primary colors are used for UI components with a "primary" appearance:
 
-![A button and a filtering tab components with primary appearance](../../../images/color-primary.png)
+![](@images/color-primary.png)
 
 - `--color-primary`. Main color of the component. For example the background of a button
 - `--color-on-primary`. Color for elements _inside_ the component. For example texts and icons of a button
 
 Secondary colors and tertiary are used for UI elements with secondary and tertiary appearance:
 
-![A button and tab using secondary appearance, a collapse and link with tertiary appearance](../../../images/color-secondary.png)
+![](@images/color-secondary.png)
 
 - `--color-secondary`. Main color for secondary components with borders. For border, texts and icons
 - `--color-tertiary`. Main color for secondary components without borders. For texts and icons
@@ -65,7 +65,7 @@ Accessibility: UI components that use `--color-tertiary` **must** have extra ele
 
 Used to indicate success and error.
 
-![An input with error message and a "Fortsätt" button with success color](../../../images/color-error-success.png)
+![](@images/color-error-success.png)
 
 - `--color-error`. Color for errors. Used in borders, texts and backgrounds of UI elements
 - `--color-success`. Color for success. Used in borders, texts and backgrounds of UI elements
@@ -116,7 +116,7 @@ We haven't found yet any clear pattern nor a set of colors that signals "active"
 
 ## Contexts (themes)
 
-![Showcase of 4 themes defined by KTH Style](../../../images/color-themes.png)
+![](@images/color-themes.png)
 
 KTH Style defines the following 4 color themes:
 
