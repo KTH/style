@@ -1,0 +1,24 @@
+---
+import type { MarkdownLayoutProps } from "astro";
+
+type Props = MarkdownLayoutProps<{
+  title: string;
+}>;
+
+import "./Page.scss";
+import Layout from "./Layout.astro";
+import Kpm from "../components/Kpm.astro";
+import MainHeader from "../components/Header.astro";
+import Submenu from "@components/Submenu.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title}>
+  <div class="kth-a11y-nav">
+    <a href="#kth-main">Go to main content</a>
+  </div>
+  <Kpm />
+  <MainHeader />
+  <main><slot /></main>
+</Layout>

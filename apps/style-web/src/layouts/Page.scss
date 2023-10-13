@@ -1,0 +1,43 @@
+/// Styles for Page.astro template
+@use "@kth/style/scss/tokens/spacing";
+@use "@kth/style/scss/tokens/icons";
+@use "@kth/style/scss/utils/reset";
+@use "@kth/style/scss/components/a11y-nav";
+@use "@kth/style/scss/components/menu-item";
+@use "@kth/style/scss/components/header";
+@use "@kth/style/scss/components/search";
+@use "@kth/style/scss/utils/prose";
+
+main {
+  @include prose.prose;
+  margin-inline: auto;
+  max-width: 40rem;
+  width: 100%;
+
+  iframe {
+    width: 100%;
+    // max-width: 100%;
+    aspect-ratio: 16 / 9;
+    border: solid black 1px;
+    resize: auto;
+  }
+
+  .markdown-alert {
+    border-inline-start-width: spacing.$space-4;
+    border-inline-start-style: solid;
+    padding-inline-start: spacing.$space-16;
+
+    &.note {
+      border-color: var(--color-primary);
+
+      .markdown-alert-title {
+        font: var(--font-label-s);
+        color: var(--color-primary);
+      }
+    }
+  }
+
+  .markdown-alert-content p:first-child {
+    margin-block-start: spacing.$space-4;
+  }
+}

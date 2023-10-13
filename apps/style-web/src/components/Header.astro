@@ -1,0 +1,110 @@
+---
+import MainHeaderLogotype from "./HeaderLogotype.astro";
+import NavigationPanel from "./NavigationPanel.astro";
+import NavigationPanelMobile from "./NavigationPanelMobile.astro";
+import SearchPanel from "./SearchPanel.astro";
+
+const navigationPanelsSv = [
+  {
+    dataId: "1.575942",
+    label: "Din anställning",
+  },
+  {
+    dataId: "1.575949",
+    label: "Stöd och service",
+  },
+  {
+    dataId: "1.1067969",
+    label: "Utbilda",
+  },
+  {
+    dataId: "1.1067196",
+    label: "Forska",
+  },
+  {
+    dataId: "1.575952",
+    label: "Orgasnisation och styrning",
+  },
+];
+---
+
+<header class="kth-header intranet">
+  <div class="kth-header__container">
+    <MainHeaderLogotype alt="Gå till KtH intranät" />
+    <nav class="kth-header__mega-menu">
+      <ul>
+        {
+          navigationPanelsSv.map(({ dataId, label }) => (
+            <li>
+              <NavigationPanel dataId={dataId} label={label} />
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <ul class="kth-header__tools">
+      <li>
+        <SearchPanel />
+      </li>
+      <li>
+        <a href="/" class="kth-menu-item language">
+          <span>English</span>
+        </a>
+      </li>
+      <li class="kth-header__mega-menu--collapsable">
+        <button class="kth-header-menu-item">
+          <span>Menu</span>
+        </button>
+        <dialog class="kth-header-panel--modal">
+          <!-- -->
+          <button class="kth-button close">
+            <span class="kth-visually-hidden">Close</span>
+          </button>
+          <div class="kth-header-panel__content">
+            <MainHeaderLogotype alt="Gå till KTH intranät" />
+            <h2>Menu</h2>
+            <ul>
+              {
+                navigationPanelsSv.map(({ label, dataId }) => (
+                  <NavigationPanelMobile label={label} dataId={dataId} />
+                ))
+              }
+            </ul>
+
+            <ul class="kth-header-panel__entries">
+              <li><a href="https://kth.se">kth.se</a></li>
+              <li><a href="https://student.kth.se">Studentwebben</a></li>
+              <li><a href="https://intra.kth.se">Intranät</a></li>
+            </ul>
+          </div>
+        </dialog>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<script>
+  import { setModalNavigationPanels, setNavigationPanels } from "@kth/style";
+
+  // Set navigationPanels only to non-mobile versions
+  setNavigationPanels(
+    document.querySelector(".kth-header"),
+    document.querySelectorAll(".kth-header__mega-menu .kth-header-menu-item"),
+  );
+  setNavigationPanels(
+    document.querySelector(".kth-header"),
+    document.querySelectorAll(".kth-header-menu-item.search"),
+  );
+
+  setModalNavigationPanels(
+    document.querySelectorAll(
+      ".kth-header__mega-menu--collapsable .kth-header-menu-item",
+    ),
+  );
+  setModalNavigationPanels(
+    document.querySelectorAll(
+      ".kth-header__mega-menu--collapsable .kth-header-menu-item--modal",
+    ),
+  );
+</script>

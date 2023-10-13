@@ -1,3 +1,8 @@
+---
+title: Spacing
+layout: "@layouts/Page.astro"
+---
+
 # Design tokens
 
 ## What are design tokens

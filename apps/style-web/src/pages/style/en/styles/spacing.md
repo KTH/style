@@ -1,6 +1,6 @@
 ---
 title: Spacing
-layout: ../../layouts/Page.astro
+layout: "@layouts/Page.astro"
 ---
 
 # Spacing
@@ -164,6 +164,8 @@ Make sure that there is enough space to avoid confusion with a "white-space" cha
 4. Continue adding spacing to bigger groups
 
    ![](../../../images/space-guide-5.png)
+
+5. There is no need for big spacing if there are other visual clues, like a big space below the "course code" in this image:
 
    ![](../../../images/space-guide-6.png)
 
