@@ -8,6 +8,9 @@
 @use "@kth/style/scss/components/search";
 @use "@kth/style/scss/utils/prose";
 
+@use "@components/content.scss";
+@use "@components/local-navigation.scss";
+
 main {
   @include prose.prose;
   margin-inline: auto;

@@ -8,8 +8,8 @@ type Props = MarkdownLayoutProps<{
 import "./Page.scss";
 import Layout from "./Layout.astro";
 import Kpm from "../components/Kpm.astro";
-import MainHeader from "../components/Header.astro";
-import Submenu from "@components/Submenu.astro";
+import Header from "../components/Header.astro";
+import Sidebar from "@components/Sidebar.astro";
 
 const { frontmatter } = Astro.props;
 ---
@@ -19,6 +19,9 @@ const { frontmatter } = Astro.props;
     <a href="#kth-main">Go to main content</a>
   </div>
   <Kpm />
-  <MainHeader />
-  <main><slot /></main>
+  <Header />
+  <div class="kth-content">
+    <Sidebar />
+    <main><slot /></main>
+  </div>
 </Layout>

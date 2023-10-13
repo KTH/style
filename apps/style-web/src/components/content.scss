@@ -1,0 +1,38 @@
+@use "@kth/style/scss/tokens/colors";
+@use "@kth/style/scss/tokens/spacing";
+@use "@kth/style/scss/tokens/typography";
+@use "@kth/style/scss/utils/mixins";
+
+.kth-content {
+  @include mixins.container;
+
+  margin-block-start: spacing.$space-20;
+  margin-block-end: spacing.$space-64;
+  display: grid;
+  grid-template-areas:
+    "breadcrumbs breadcrumbs"
+    "local-navigation main";
+  grid-template-columns: 15rem 1fr;
+  gap: 1rem 4rem;
+
+  > nav.breadcrumbs {
+    grid-area: breadcrumbs;
+  }
+
+  > aside {
+    grid-area: local-navigation;
+  }
+
+  > main {
+    grid-area: main;
+  }
+
+  @media (width < 64rem) {
+    grid-template-areas: "breadcrumbs" "local-navigation" "main";
+    grid-template-columns: 100%;
+
+    aside {
+      display: none;
+    }
+  }
+}
