@@ -55,7 +55,7 @@ The header comes in three variants:
 ```
 
 ```scss
-@use "@kth/style/scss/components/main-header.scss";
+@use "@kth/style/scss/components/header.scss";
 ```
 
 </div>
@@ -74,7 +74,7 @@ The header comes in three variants:
 ```
 
 ```scss
-@use "@kth/style/scss/components/main-header.scss";
+@use "@kth/style/scss/components/header.scss";
 ```
 
 </div>
@@ -93,7 +93,7 @@ The header comes in three variants:
 ```
 
 ```scss
-@use "@kth/style/scss/components/main-header.scss";
+@use "@kth/style/scss/components/header.scss";
 ```
 
 </div>
