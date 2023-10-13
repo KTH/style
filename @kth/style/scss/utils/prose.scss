@@ -7,34 +7,40 @@
 /// - CSS classes like ".lead"
 @mixin prose {
   p {
-    font: var(--default-font);
     margin-block: s.$space-20;
     max-width: 60ch;
   }
 
   .lead {
-    font: var(--lead-font);
+    font: var(--font-lead);
     margin-block-start: s.$space-12;
     margin-block-end: s.$space-16;
   }
 
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
   h1 {
-    font: var(--heading-xl-font);
+    font: var(--font-heading-xl);
     margin: s.margin(32 0 16 0);
   }
 
   h2 {
-    font: var(--heading-l-font);
+    font: var(--font-heading-l);
     margin: s.margin(32 0 16 0);
   }
 
   h3 {
-    font: var(--heading-m-font);
+    font: var(--font-heading-m);
     margin: s.margin(32 0 8 0);
   }
 
   h4 {
-    font: var(--heading-s-font);
+    font: var(--font-heading-s);
     margin: s.margin(32 0 4 0);
   }
 
@@ -58,28 +64,34 @@
     margin-block-start: 0;
   }
 
+  pre {
+    margin-block: s.$space-32;
+    padding-block: s.$space-16;
+    padding-inline: s.$space-24;
+  }
+
   table {
+    @include s.theme-dense;
     table-layout: auto;
     text-align: left;
-    margin: 2rem 0;
+    margin-block: s.$space-32;
     border-collapse: collapse;
-
-    display: block;
     overflow-x: auto;
   }
 
   thead {
     // TODO: border
     th {
-      font: var(--label-s-font);
-      padding: s.padding(0 8 8 8);
+      font: var(--font-label-s);
+      padding-block: var(--space-inner-block);
+      padding-inline: var(--space-inner-inline);
 
       &:first-child {
-        padding-left: 0;
+        padding-inline-start: 0;
       }
 
       &:last-child {
-        padding-right: 0;
+        padding-inline-end: 0;
       }
     }
   }
@@ -89,14 +101,15 @@
 
     td {
       vertical-align: baseline;
-      padding: s.$space-8;
+      padding-block: var(--space-inner-block);
+      padding-inline: var(--space-inner-inline);
 
       &:first-child {
-        padding-left: 0;
+        padding-inline-start: 0;
       }
 
       &:last-child {
-        padding-right: 0;
+        padding-inline-end: 0;
       }
     }
   }
