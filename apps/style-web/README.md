@@ -1,54 +1,52 @@
-# Astro Starter Kit: Basics
+# Style web
+
+Documentation for `@kth/style` package and guidelines. This app is made with [Astro](https://astro.build).
+
+## Getting started
+
+- Install dependencies with `npm install`
+- Run `npm run dev`
+
+## Structure
 
 ```
-npm create astro@latest -- --template basics
-```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```
-/
-├── public/
-│   └── favicon.svg
+style-web/
 ├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
+│   ├── components
+│   ├── images
+│   ├── layouts
 │   └── pages/
-│       └── index.astro
-└── package.json
+│       └── style/
+│           └── en/
+│               ├── get-started
+│               ├── styles
+│               ├── layout-structure
+│               └── components
+└── public
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+- `src/pages` contain all pages in KTH Style website, most of them in markdown format. One file corresponds to one page. Example:
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+  - [`src/pages/index.html`](./src/pages/index.html) is served in http://localhost:4321
+  - [`src/pages/style/index.html`](./src/pages/style/index.html) is served in http://localhost:4321/style
+  - [`src/pages/style/en/index.md`](./src/pages/style/en/index.md) is served in http://localhost:4321/style/en
+  - etc.
 
-Any static assets, like images, can be placed in the `public/` directory.
+  > [!Note] Certain pages are served **outside** of http://localhost:4321/style path, for example: http://localhost:4321/cm from the directory [`src/pages/cm`](./src/pages/cm). Those are special files present for development purposes.
 
-## 🧞 Commands
+- `src/components` are components used in KTH Style website. They are **not** components in `@kth/style`. They can be:
 
-All commands are run from the root of the project, from a terminal:
+  - Components created for convinience to avoid repetitions
+  - Components that will be part of `@kth/style` but needs to be tested
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:3000`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- `src/layouts` are special components that define layout templates for the KTH Style website
 
-## 👀 Want to learn more?
+- `public`. This directory contains assets that will be served as they are.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+  - [`/public/style`](./public/style/) is served in `http://localhost:4321/style`
+
+## Conventions
+
+There is no `css` directory to store CSS or Sass files. Files required by a specific file are placed side-by-side and named with the same name.
+
+- Styles required by `src/layouts/Page.astro` are in `src/layouts/Page.scss`
