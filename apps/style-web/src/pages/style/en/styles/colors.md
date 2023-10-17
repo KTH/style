@@ -7,18 +7,37 @@ layout: "@layouts/Page.astro"
 
 Color system in KTH Style is based on KTH graphical identity and implements accessible contrast requirements by default.
 
-## Brand colors (reference tokens)
+## Reference tokens
 
-> **Note**
-> This section is under development
+> [!Note] You should not use reference tokens if there is a semantic token available.
 
 The new graphical identity defines 6 tones of primary colors. Five blues and one beige.
 
-![](@images/color-blues.png)
+| Name                | Hex value |
+| ------------------- | --------- |
+| $color-sand         | #e6e1dd   |
+| $color-blue-kth     | #004791   |
+| $color-blue-sky     | #6298d2   |
+| $color-blue-marine  | #08004f   |
+| $color-blue-light   | #e0edfc   |
+| $color-blue-digital | #221dd9   |
 
-- All reference tokens are defined as Sass variables.
-- KTH Style has defined extra colors for specific web uses outside of the graphical identity
-- You should not use reference tokens if there is a semantic token available.
+In addition to that, KTH Style uses the following colors to meet various needs
+
+| Name               | Hex value |
+| ------------------ | --------- |
+| $color-white       | #fcfcfc   |
+| $color-gray-light  | #e6e6e6   |
+| $color-gray-medium | #a5a5a5   |
+| $color-gray-dark   | #323232   |
+| $color-black       | #212121   |
+| $color-blue-lake   | #036eb8   |
+| $color-red-light   | #fad6d6   |
+| $color-red         | #d8351e   |
+| $color-red-dark    | #bf2c17   |
+| $color-green-light | #d8ffe7   |
+| $color-green       | #3f824e   |
+| $color-green-dark  | #366f43   |
 
 ## Semantic colors (semantic tokens)
 
