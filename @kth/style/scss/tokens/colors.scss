@@ -10,6 +10,7 @@ $color-sand: #e6e1dd;
 $color-blue-kth: #004791;
 $color-blue-light: #e0edfc;
 $color-blue-sky: #6298d2;
+$color-blue-lake: #036eb8; // This is defined by us for links
 $color-blue-marine: #08004f;
 $color-blue-digital: #221dd9;
 
@@ -25,7 +26,7 @@ $color-blue-special: #036eb8;
   --color-primary: #{$color-blue-kth};
   --color-on-primary: #{$color-white};
   --color-secondary: #{$color-black};
-  --color-tertiary: #{$color-blue-special};
+  --color-tertiary: #{$color-blue-lake};
   // ... --hover-overlay: ...
 }
 
@@ -35,7 +36,7 @@ $color-blue-special: #036eb8;
   --color-primary: #{$color-blue-kth};
   --color-on-primary: #{$color-white};
   --color-secondary: #{$color-black};
-  --color-tertiary: #{$color-blue-special};
+  --color-tertiary: #{$color-blue-lake};
   // ... --hover-overlay: ...
 }
 
@@ -45,7 +46,7 @@ $color-blue-special: #036eb8;
   --color-primary: #{$color-blue-kth};
   --color-on-primary: #{$color-white};
   --color-secondary: #{$color-black};
-  --color-tertiary: #{$color-blue-special};
+  --color-tertiary: #{$color-blue-lake};
   // ... --hover-overlay: ...
 }
 
