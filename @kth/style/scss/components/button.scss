@@ -1,0 +1,24 @@
+@use "../tokens/spacing";
+@use "../tokens/icons";
+
+button.close {
+  display: flex;
+  margin-inline-start: auto;
+  background: transparent;
+  border: none;
+  padding-inline: 0;
+  padding-block: spacing.$space-8;
+}
+
+button.close::before {
+  content: "";
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: var(--color-primary);
+
+  mask-image: icons.$icon-url-close;
+  -webkit-mask-image: icons.$icon-url-close;
+  mask-size: cover;
+  -webkit-mask-size: cover;
+}

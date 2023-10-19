@@ -4,10 +4,12 @@
 @use "@kth/style/scss/utils/reset";
 @use "@kth/style/scss/components/a11y-nav";
 @use "@kth/style/scss/components/menu-item";
+@use "@kth/style/scss/components/menu-panel";
 @use "@kth/style/scss/components/header";
 @use "@kth/style/scss/components/logotype";
 @use "@kth/style/scss/components/mega-menu";
 @use "@kth/style/scss/components/search";
+@use "@kth/style/scss/components/button";
 @use "@kth/style/scss/utils/prose";
 
 @use "@components/content.scss";

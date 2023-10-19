@@ -15,12 +15,12 @@ const { label, dataId } = Astro.props;
   <a href="/" data-id={dataId} class="kth-menu-item dropdown">
     <span>{label}</span>
   </a>
-  <dialog class="kth-header-panel">
-    <div class="kth-header-panel__container">
+  <dialog class="kth-menu-panel">
+    <div class="kth-menu-panel__container">
       <button class="kth-button close">
         <span class="kth-visually-hidden">Close</span>
       </button>
-      <div class="kth-header-panel__content"></div>
+      <div class="kth-menu-panel__content"></div>
     </div>
   </dialog>
 </div>
@@ -29,7 +29,7 @@ const { label, dataId } = Astro.props;
   // This code is for reading blocks from Cortina
   document.querySelectorAll(".kth-menu-item[data-id]").forEach((menuItem) => {
     const dialog = menuItem.nextElementSibling;
-    const dialogContent = dialog?.querySelector(".kth-header-panel__content");
+    const dialogContent = dialog?.querySelector(".kth-menu-panel__content");
 
     if (!(menuItem instanceof HTMLElement)) {
       return;

@@ -1,0 +1,32 @@
+@use "../tokens/spacing";
+@use "../tokens/typography";
+@use "../tokens/icons";
+@use "../utils/mixins";
+
+@layer kth-style {
+  .kth-menu-panel {
+    top: 100%;
+    width: 100%;
+    border: none;
+    background: var(--color-background);
+    padding: 0;
+    padding-block-end: spacing.$space-48;
+
+    &__container {
+      @include mixins.container;
+    }
+  }
+
+  .kth-menu-panel--modal {
+    background-color: var(--color-background);
+    position: fixed;
+    right: 0;
+    left: auto;
+    top: 0;
+    max-width: 32rem;
+    max-height: 100dvh;
+    width: 100dvw;
+    height: 100dvh;
+    border: 0;
+  }
+}
