@@ -18,4 +18,60 @@ title: "Mega-menu (in header)"
 
 ## How to use
 
-TODO
+### Wide version
+
+<iframe src="/style/en/examples/header/mega-menu"></iframe>
+
+<details>
+<summary>Code</summary>
+
+```html
+<header class="kth-header external">
+  <div class="kth-header__container">
+    <nav class="kth-mega-menu">
+      <ul>
+        <li>
+          <a href="#" class="kth-menu-item dropdown">
+            <span>Item 1</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="kth-menu-item dropdown">
+            <span>Item 2</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="kth-menu-item dropdown">
+            <span>Item 3</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="kth-menu-item dropdown">
+            <span>Item 4</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+```
+
+```scss
+@use "@kth/style/scss/components/header.scss";
+@use "@kth/style/scss/components/menu-item.scss";
+@use "@kth/style/scss/components/mega-menu.scss";
+```
+
+</details>
+
+- Menu items are exposed in an horizontal list.
+- Use [menu item](./menu-item) to style each item.
+- Use [TODO] to add a dropdown panel
+
+### Mobile version
+
+<iframe src="/style/en/examples/header/mega-menu--collapsable"></iframe>
+
+- Show only one button that expands the whole menu
+- Use [menu item](./menu-item) to style it.
+- Use [TODO] to add the panel that opens the menu
