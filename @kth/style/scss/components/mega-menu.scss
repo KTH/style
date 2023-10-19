@@ -1,3 +1,6 @@
+@use "../tokens/spacing.scss";
+@use "../utils/mixins.scss";
+
 @layer kth-style {
   nav.kth-mega-menu {
     > ul {
