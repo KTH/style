@@ -87,22 +87,22 @@ const navigationPanelsSv = [
 </header>
 
 <script>
-  import { setModalNavigationPanels, setNavigationPanels } from "@kth/style";
+  import { MenuPanel } from "@kth/style";
 
   // Set navigationPanels only to non-mobile versions
-  setNavigationPanels(
+  MenuPanel.init(
     document.querySelector(".kth-header"),
     document.querySelectorAll(".kth-mega-menu .kth-menu-item"),
   );
-  setNavigationPanels(
+  MenuPanel.init(
     document.querySelector(".kth-header"),
     document.querySelectorAll(".kth-menu-item.search"),
   );
 
-  setModalNavigationPanels(
+  MenuPanel.initModal(
     document.querySelectorAll(".kth-mega-menu--collapsable .kth-menu-item"),
   );
-  setModalNavigationPanels(
+  MenuPanel.initModal(
     document.querySelectorAll(
       ".kth-mega-menu--collapsable .kth-menu-item--modal",
     ),

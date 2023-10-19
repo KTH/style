@@ -10,8 +10,8 @@ export function closeAllDialogs() {
  * @param dialog A <dialog> element
  */
 export function addEventListeners(dialog: HTMLDialogElement) {
-  const closeButton = dialog.querySelector("button.kth-close");
-  const backButton = dialog.querySelector("button.kth-back");
+  const closeButton = dialog.querySelector(".kth-button.close");
+  const backButton = dialog.querySelector(".kth-button.back");
 
   dialog.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
