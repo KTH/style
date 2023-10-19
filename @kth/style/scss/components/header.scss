@@ -36,17 +36,3 @@
     display: none;
   }
 }
-
-@media (width < 64rem) {
-  .kth-logotype {
-    margin-inline-end: 0;
-  }
-
-  .kth-mega-menu {
-    display: none;
-  }
-
-  .kth-mega-menu--collapsable {
-    display: block;
-  }
-}

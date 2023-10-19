@@ -52,33 +52,35 @@ const navigationPanelsSv = [
           <span>English</span>
         </a>
       </li>
-      <li class="kth-mega-menu--collapsable">
-        <button class="kth-header-menu-item">
-          <span>Menu</span>
-        </button>
-        <dialog class="kth-header-panel--modal">
-          <!-- -->
-          <button class="kth-button close">
-            <span class="kth-visually-hidden">Close</span>
+      <li>
+        <nav class="kth-mega-menu--collapsable">
+          <button class="kth-header-menu-item">
+            <span>Menu</span>
           </button>
-          <div class="kth-header-panel__content">
-            <MainHeaderLogotype alt="Gå till KTH intranät" />
-            <h2>Menu</h2>
-            <ul>
-              {
-                navigationPanelsSv.map(({ label, dataId }) => (
-                  <NavigationPanelMobile label={label} dataId={dataId} />
-                ))
-              }
-            </ul>
+          <dialog class="kth-header-panel--modal">
+            <!-- -->
+            <button class="kth-button close">
+              <span class="kth-visually-hidden">Close</span>
+            </button>
+            <div class="kth-header-panel__content">
+              <MainHeaderLogotype alt="Gå till KTH intranät" />
+              <h2>Menu</h2>
+              <ul>
+                {
+                  navigationPanelsSv.map(({ label, dataId }) => (
+                    <NavigationPanelMobile label={label} dataId={dataId} />
+                  ))
+                }
+              </ul>
 
-            <ul class="kth-header-panel__entries">
-              <li><a href="https://kth.se">kth.se</a></li>
-              <li><a href="https://student.kth.se">Studentwebben</a></li>
-              <li><a href="https://intra.kth.se">Intranät</a></li>
-            </ul>
-          </div>
-        </dialog>
+              <ul class="kth-header-panel__entries">
+                <li><a href="https://kth.se">kth.se</a></li>
+                <li><a href="https://student.kth.se">Studentwebben</a></li>
+                <li><a href="https://intra.kth.se">Intranät</a></li>
+              </ul>
+            </div>
+          </dialog>
+        </nav>
       </li>
     </ul>
   </div>
@@ -90,7 +92,7 @@ const navigationPanelsSv = [
   // Set navigationPanels only to non-mobile versions
   setNavigationPanels(
     document.querySelector(".kth-header"),
-    document.querySelectorAll(".kth-mega-menu .kth-header-menu-item"),
+    document.querySelectorAll(".kth-header__mega-menu .kth-header-menu-item"),
   );
   setNavigationPanels(
     document.querySelector(".kth-header"),
@@ -99,12 +101,12 @@ const navigationPanelsSv = [
 
   setModalNavigationPanels(
     document.querySelectorAll(
-      ".kth-mega-menu--collapsable .kth-header-menu-item",
+      ".kth-header__mega-menu--collapsable .kth-header-menu-item",
     ),
   );
   setModalNavigationPanels(
     document.querySelectorAll(
-      ".kth-mega-menu--collapsable .kth-header-menu-item--modal",
+      ".kth-header__mega-menu--collapsable .kth-header-menu-item--modal",
     ),
   );
 </script>
