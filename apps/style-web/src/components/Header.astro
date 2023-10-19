@@ -92,21 +92,19 @@ const navigationPanelsSv = [
   // Set navigationPanels only to non-mobile versions
   setNavigationPanels(
     document.querySelector(".kth-header"),
-    document.querySelectorAll(".kth-header__mega-menu .kth-header-menu-item"),
+    document.querySelectorAll(".kth-mega-menu .kth-menu-item"),
   );
   setNavigationPanels(
     document.querySelector(".kth-header"),
-    document.querySelectorAll(".kth-header-menu-item.search"),
+    document.querySelectorAll(".kth-menu-item.search"),
   );
 
   setModalNavigationPanels(
-    document.querySelectorAll(
-      ".kth-header__mega-menu--collapsable .kth-header-menu-item",
-    ),
+    document.querySelectorAll(".kth-mega-menu--collapsable .kth-menu-item"),
   );
   setModalNavigationPanels(
     document.querySelectorAll(
-      ".kth-header__mega-menu--collapsable .kth-header-menu-item--modal",
+      ".kth-mega-menu--collapsable .kth-menu-item--modal",
     ),
   );
 </script>
