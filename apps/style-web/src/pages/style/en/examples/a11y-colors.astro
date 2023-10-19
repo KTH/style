@@ -70,7 +70,9 @@ const tests = [
             }
           </tbody>
         </table>
-        <button class="kth-button primary">See the results</button>
+        <button class="kth-button primary" type="submit">
+          See the results
+        </button>
       </form>
 
       <h2>See the results</h2>
@@ -117,7 +119,10 @@ const tests = [
      * Updates color table with values from CSS custom properties
      * taken from the `source`
      */
-    function updateColorTable(table: HTMLElement, source: HTMLElement) {
+    function updateColorTable() {
+      const table = document.getElementById("a11y-table")!;
+      const source = document.getElementById("a11y-theme")!;
+
       const rows =
         table.querySelectorAll<HTMLTableRowElement>("tr[data-property]");
 
@@ -130,12 +135,11 @@ const tests = [
       }
     }
 
-    updateColorTable(
-      document.getElementById("a11y-table")!,
-      document.getElementById("a11y-theme")!,
-    );
+    /** Update the test table from the colors taken from the `source` */
+    function updateTestTable() {
+      const testTable = document.getElementById("a11y-test-table")!;
+      const source = document.getElementById("a11y-theme")!;
 
-    function updateTestTable(testTable: HTMLElement, source: HTMLElement) {
       const rows = testTable.querySelectorAll<HTMLTableRowElement>("tbody tr");
 
       for (const row of rows) {
@@ -155,9 +159,15 @@ const tests = [
       }
     }
 
-    updateTestTable(
-      document.getElementById("a11y-test-table")!,
-      document.getElementById("a11y-theme")!,
-    );
+    updateColorTable();
+    updateTestTable();
+
+    document
+      .querySelector<HTMLButtonElement>("button[type='submit']")!
+      .addEventListener("click", (event) => {
+        event.preventDefault();
+        console.log("BAH");
+        updateTestTable();
+      });
   </script>
 </Layout>
