@@ -30,7 +30,7 @@ The `body` of a KTH page or application should have the following parts:
    1. [**Entrances**](../components/kpm__entrances). Link to kth.se, intranet and student web
    2. [**Personal menu**](../components/kpm__personal-menu). Links to relevant pages for the user
 3. [**Header**](../components/header). Should be the same across all pages under the same site. It is divided into:
-   1. [**Logotype**](../components/header__logotype)
+   1. [**Logotype**](../components/logotype)
    2. [**Mega-menu**](../components/header__mega-menu). Include dropdowns that opens panels to different places
    3. [**Tools**](../components/header__tools). Include site-wide tools like search and language switcher.
 4. [**Content**](../components/content). Everything in between the header and the footer. This content can change between pages in the same site.

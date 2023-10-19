@@ -105,6 +105,6 @@ The header comes in three variants:
 
 Inside header, you can include the following components. Read the guidelines for each of them.
 
-- [Logotype](./header__logotype)
+- [Logotype](./logotype)
 - [Mega-menu](./header__mega-menu)
 - [Tools](./header__tools)
