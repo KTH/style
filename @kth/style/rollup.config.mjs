@@ -15,6 +15,20 @@ export default [
         format: "esm",
       },
     ],
+    plugins: [nodeResolve(), typescript(), commonjs()],
+  },
+  {
+    input: "src/react.ts",
+    output: [
+      {
+        file: "dist/cjs/react.js",
+        format: "cjs",
+      },
+      {
+        file: "dist/esm/react.js",
+        format: "esm",
+      },
+    ],
     external: ["react", "react-dom"],
     plugins: [nodeResolve(), typescript(), commonjs()],
   },
