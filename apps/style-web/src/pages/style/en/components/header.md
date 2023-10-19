@@ -30,11 +30,16 @@ We recommend that you use the first option except:
 
 ### Download the HTML markup from Cortina
 
-TODO
+Under development. This method to download HTML markup from a Cortina block will be available later.
 
-## Header variants
+## How to make your own header
 
-> [!Note] This step is relevant only if you are making the HTML markup yourself
+To make your own header you need to take into account:
+
+1. Variants. KTH Style offers three differnt color variants of header
+2. Parts. KTH Style offers some components for the different parts that you might want in your header
+
+### Variants
 
 The header comes in three variants:
 
@@ -42,69 +47,75 @@ The header comes in three variants:
 - **Student web** for pages and services in student web
 - **External**, for everything else
 
-### External variant
+<iframe src="/style/en/examples/header/variants"></iframe>
 
-<iframe src="/style/en/examples/header/external" title="Example header for external web"></iframe>
-
-<details class="kth-details">
+<details>
 <summary>Code</summary>
-<div class="kth-details__content">
 
 ```html
 <header class="kth-header external"></header>
-```
-
-```scss
-@use "@kth/style/scss/components/main-header.scss";
-```
-
-</div>
-</details>
-
-### Intranet variant
-
-<iframe src="/style/en/examples/header/intranet" title="Example header for intranet"></iframe>
-
-<details class="kth-details">
-<summary>Code</summary>
-<div class="kth-details__content">
-
-```html
+<header class="kth-header student-web"></header>
 <header class="kth-header intranet"></header>
 ```
 
-```scss
-@use "@kth/style/scss/components/main-header.scss";
-```
-
-</div>
 </details>
 
-### Student web variant
+### Parts
 
-<iframe src="/style/en/examples/header/student-web" title="Example header for student web"></iframe>
-
-<details class="kth-details">
-<summary>Code</summary>
-<div class="kth-details__content">
-
-```html
-<header class="kth-header student-web"></header>
-```
-
-```scss
-@use "@kth/style/scss/components/main-header.scss";
-```
-
-</div>
-</details>
-
-## Header parts
-
-> [!Note] This step is relevant only if you are making the HTML markup yourself
-
-Inside header, you can include the following components. Read the guidelines for each of them.
+KTH Style offers the following components for making the header
 
 - [Logotype](./logotype)
 - [Mega-menu](./mega-menu)
 - [Tools](./header__tools)
+- [Menu item](./menu-item)
+
+You can see here a full example of header with all three parts
+
+<iframe src="/style/en/examples/header/full-example"></iframe>
+
+<details>
+<summary>Code</summary>
+
+```html
+<header class="kth-header external">
+  <div class="kth-header__container">
+    <a href="/" class="kth-logotype">
+      <figure>
+        <img
+          srcset="
+            /style/assets/kth-logotype-white.webp,
+            /style/assets/kth-logotype-white@2x.webp 2x,
+            /style/assets/kth-logotype-white@3x.webp 3x
+          "
+          src="/style/assets/kth-logotype-white.png"
+        />
+      </figure>
+    </a>
+    <nav class="kth-mega-menu">
+      <ul>
+        <li>
+          <a href="#" class="kth-menu-item">
+            <span>Item in mega-menu for desktop</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <ul class="kth-header__tools">
+      <li>
+        <a href="" class="kth-menu-item language">
+          <span>English</span>
+        </a>
+      </li>
+      <li>
+        <nav class="kth-mega-menu--collapsable">
+          <button class="kth-menu-item">
+            <span>Menu in mobile</span>
+          </button>
+        </nav>
+      </li>
+    </ul>
+  </div>
+</header>
+```
+
+</details>

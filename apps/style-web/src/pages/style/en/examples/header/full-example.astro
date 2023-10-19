@@ -3,16 +3,8 @@ import type { GetStaticPaths } from "astro";
 import "@kth/style/scss/utils/reset.scss";
 import "@kth/style/scss/components/header.scss";
 import "@kth/style/scss/components/menu-item.scss";
-
-export const getStaticPaths = (() => {
-  const VARIANTS = ["external", "intranet", "student-web"];
-
-  return VARIANTS.map((variant) => ({
-    params: {
-      variant,
-    },
-  }));
-}) satisfies GetStaticPaths;
+import "@kth/style/scss/components/logotype.scss";
+import "@kth/style/scss/components/mega-menu.scss";
 
 const { variant } = Astro.params;
 ---
@@ -25,19 +17,11 @@ const { variant } = Astro.params;
     <title>Document</title>
   </head>
   <body>
-    <header class={`kth-header ${variant}`}>
+    <header class="kth-header external">
       <div class="kth-header__container">
         <a href="/" class="kth-logotype">
           <figure>
             <img
-              class="blue"
-              srcset=" /style/assets/kth-logotype-blue.webp,
-    /style/assets/kth-logotype-blue@2x.webp 2x,
-    /style/assets/kth-logotype-blue@3x.webp 3x "
-              src="/style/assets/kth-logotype-blue.png"
-            />
-            <img
-              class="white"
               srcset=" /style/assets/kth-logotype-white.webp,
     /style/assets/kth-logotype-white@2x.webp 2x,
     /style/assets/kth-logotype-white@3x.webp 3x "
@@ -45,12 +29,35 @@ const { variant } = Astro.params;
             />
           </figure>
         </a>
+        <nav class="kth-mega-menu">
+          <ul>
+            <li>
+              <a href="#" class="kth-menu-item">
+                <span>Item in mega-menu for desktop</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
         <ul class="kth-header__tools">
           <li>
-            <a href="" class="kth-menu-item language">English</a>
+            <a href="" class="kth-menu-item language">
+              <span>English</span>
+            </a>
+          </li>
+          <li>
+            <nav class="kth-mega-menu--collapsable">
+              <button class="kth-menu-item">
+                <span>Menu in mobile</span>
+              </button>
+            </nav>
           </li>
         </ul>
       </div>
     </header>
+    <p>
+      To see this header correctly,
+      <a href="" target="_blank">open this frame in a new tab</a> and resize the
+      window to see the desktop and mobile versions
+    </p>
   </body>
 </html>
