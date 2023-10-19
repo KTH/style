@@ -1,3 +1,1 @@
-export default function hello() {
-  return "world";
-}
+export { MenuPanel } from "./components/MenuPanel";
