@@ -24,18 +24,6 @@
     align-items: center;
   }
 
-  &__mega-menu {
-    > ul {
-      @include mixins.horizontal-list();
-
-      // Defensive measurements:
-      // - `flex-wrap: wrap` makes sure that all menus are displayed decently
-      // - `0` in gap (block axis) makes sure that menu spacing is ok all the time
-      flex-wrap: wrap;
-      gap: 0 spacing.$space-16;
-    }
-  }
-
   &__tools {
     @include mixins.horizontal-list();
     flex-wrap: wrap;
@@ -54,11 +42,11 @@
     margin-inline-end: 0;
   }
 
-  .kth-header__mega-menu {
+  .kth-mega-menu {
     display: none;
   }
 
-  .kth-header__mega-menu--collapsable {
+  .kth-mega-menu--collapsable {
     display: block;
   }
 }

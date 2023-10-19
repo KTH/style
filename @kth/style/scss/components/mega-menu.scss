@@ -1,0 +1,13 @@
+@layer kth-style {
+  nav.kth-mega-menu {
+    > ul {
+      @include mixins.horizontal-list();
+
+      // Defensive measurements:
+      // - `flex-wrap: wrap` makes sure that all menus are displayed decently
+      // - `0` in gap (block axis) makes sure that menu spacing is ok all the time
+      flex-wrap: wrap;
+      gap: 0 spacing.$space-16;
+    }
+  }
+}
