@@ -65,8 +65,7 @@ title: "Mega-menu (in header)"
 </details>
 
 - Menu items are exposed in an horizontal list.
-- Use [menu item](./menu-item) to style each item.
-- Use [TODO] to add a dropdown panel
+- Read [menu item](./menu-item) to add style and JavaScript behavior.
 
 ### Mobile version
 
