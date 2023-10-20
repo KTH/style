@@ -2,37 +2,39 @@
 @use "../tokens/spacing.scss";
 @use "../utils/mixins.scss";
 
-.kth-header.intranet {
-  @include colors.theme-intranet;
-}
-.kth-header.external {
-  @include colors.theme-inverse;
-}
-.kth-header.student-web {
-  @include colors.theme-student-web;
-}
-
-.kth-header {
-  color: var(--color-text);
-  background: var(--color-background);
-  padding-block: spacing.$space-16;
-  position: relative;
-
-  &__container {
-    @include mixins.container;
-    display: flex;
-    align-items: center;
+@layer kth-style {
+  .kth-header.intranet {
+    @include colors.theme-intranet;
+  }
+  .kth-header.external {
+    @include colors.theme-inverse;
+  }
+  .kth-header.student-web {
+    @include colors.theme-student-web;
   }
 
-  &__tools {
-    @include mixins.horizontal-list();
-    flex-wrap: wrap;
-    gap: 0 spacing.$space-16;
-    justify-content: flex-end;
-    margin-inline-start: auto;
-  }
+  .kth-header {
+    color: var(--color-text);
+    background: var(--color-background);
+    padding-block: spacing.$space-16;
+    position: relative;
 
-  &__mega-menu--collapsable {
-    display: none;
+    &__container {
+      @include mixins.container;
+      display: flex;
+      align-items: center;
+    }
+
+    &__tools {
+      @include mixins.horizontal-list();
+      flex-wrap: wrap;
+      gap: 0 spacing.$space-16;
+      justify-content: flex-end;
+      margin-inline-start: auto;
+    }
+
+    &__mega-menu--collapsable {
+      display: none;
+    }
   }
 }
