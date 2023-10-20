@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "astro": "^3.0.12",
+    "kth-style": "^9.0.10",
     "sass": "^1.66.1"
   }
 }
