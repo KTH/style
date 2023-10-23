@@ -26,8 +26,8 @@ title: "Structure"
 The `body` of a KTH page or application should have the following parts:
 
 1. [**A11y nav component**](../components/a11y-nav). Defines links for keyboard users (for example "Skip to main content")
-2. **KPM**. Defines the region for the entrances and Personal menu.
-   1. **Entrances**. Link to kth.se, intranet and student web
+2. [**KPM**](../components/kpm). Defines the region for the entrances and Personal menu.
+   1. [**Entrances**](../components/entrances). Link to kth.se, intranet and student web
    2. **Personal menu**. Links to relevant pages for the user
 3. [**Header**](../components/header). Should be the same across all pages under the same site. It is divided into:
    1. [**Logotype**](../components/logotype)
