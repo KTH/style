@@ -71,8 +71,8 @@ Components with correct inner padding values have a consistent size, which makes
 - Use `--space-inner-block` for everything else
 - Substract the border from the padding (like in the button "Avbryt")
 
-![How block padding help align things in the inline axis](../../../../images/space-block-axis.png)
-![Border should be substracted from the padding](../../../../images/space-block-axis-border.png)
+![](@images/space-block-axis.png)
+![](@images/space-block-axis-border.png)
 
 ```scss
 button.godkann {
@@ -100,7 +100,7 @@ button.star {
 - Use `--space-inner-inline` for everything else (like the "Avbryt" and the "Godkänn" buttons)
 - (Optional) Substract the border from the padding (like the "Avbryt" button)
 
-![How inline padding helps aligning items in the block axis](../../../../images/space-inline-axis.png)
+![How inline padding helps aligning items in the block axis](@images/space-inline-axis.png)
 
 ```scss
 button.godkann {
@@ -134,40 +134,40 @@ Make sure that there is enough space to avoid confusion with a "white-space" cha
 - Use at least 16 between texts **in the inline axis**. 4 or even 0 is enough in the block axis.
 - For everything else, there is no minimum space.
 
-![](../../../../images/space-minimum.png)
+![](@images/space-minimum.png)
 
-![](../../../../images/space-minimum-2.png)
+![](@images/space-minimum-2.png)
 
 #### Use spacing to group elements by semantic proximity
 
 - Related elements need smaller space between them
 - Less related elements need bigger spacing
 
-![Using space for grouping elements](../../../../images/space-hierarchy.png)
+![Using space for grouping elements](@images/space-hierarchy.png)
 
 ### Practical example on how to add spaces
 
 1. Add space inside components
 
-   ![](../../../../images/space-guide-2.png)
+   ![](@images/space-guide-2.png)
 
 2. Start adding space in small groups, usually deeper in the DOM tree. 16-24 in the inline axis and 0-4 in the block axis is usually enough
 
-   ![](../../../../images/space-guide-3.png)
+   ![](@images/space-guide-3.png)
 
 3. Add bigger spacing between groups of groups.
 
    Tip: use `margin: auto` in flex aliged elements to get maximum margin
 
-   ![](../../../../images/space-guide-4.png)
+   ![](@images/space-guide-4.png)
 
 4. Continue adding spacing to bigger groups
 
-   ![](../../../../images/space-guide-5.png)
+   ![](@images/space-guide-5.png)
 
 5. There is no need for big spacing if there are other visual clues, like a big space below the "course code" in this image:
 
-   ![](../../../../images/space-guide-6.png)
+   ![](@images/space-guide-6.png)
 
 ### Tips for developers
 

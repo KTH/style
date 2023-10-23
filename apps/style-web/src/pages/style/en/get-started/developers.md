@@ -1,6 +1,6 @@
 ---
-title: Get started with @kth/style package
 layout: "@layouts/Page.astro"
+title: "Get started with @kth/style package"
 ---
 
 # Get started with @kth/style package

@@ -37,7 +37,7 @@ Use this if the logotype does not include a link anywhere.
 - The `alt` attribute should include "KTH", "KTH Royal Institute of Technology" or synonyms. Avoid using words like "logotype", "image".
 - The `alt` attribute should be localized
 
-<iframe src="/style/en/examples/header__logotype/without-link"></iframe>
+<iframe src="/style/en/examples/logotype/without-link"></iframe>
 
 <details class="kth-details">
 <summary>Code</summary>
@@ -45,7 +45,7 @@ Use this if the logotype does not include a link anywhere.
 <div class="kth-details__content">
 
 ```html
-<figure class="kth-header__logotype">
+<figure class="kth-logotype">
   <img
     alt="KTH"
     srcset="
@@ -73,7 +73,7 @@ Use this if the logotype does inlcude a link.
 - The `alt` attribute should indicate the action of the link. For example: "Go to kth homepage"
 - The `alt` attribute should be correctly localized
 
-<iframe src="/style/en/examples/header__logotype/with-link"></iframe>
+<iframe src="/style/en/examples/logotype/with-link"></iframe>
 
 <details class="kth-details">
 <summary>Code</summary>
@@ -81,7 +81,7 @@ Use this if the logotype does inlcude a link.
 <div class="kth-details__content">
 
 ```html
-<a class="kth-header__logotype">
+<a class="kth-logotype">
   <figure>
     <img
       alt="KTH"

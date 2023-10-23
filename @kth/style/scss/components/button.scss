@@ -58,5 +58,27 @@ $secondary-border-width: math.div(1rem, 16);
       @include icons.icon-arrow-left-300;
       background-color: var(--color-secondary);
     }
+
+    &.close {
+      display: flex;
+      margin-inline-start: auto;
+      background: transparent;
+      border: none;
+      padding-inline: 0;
+      padding-block: spacing.$space-8;
+    }
+
+    &.close::before {
+      content: "";
+      display: inline-block;
+      width: 1.5rem;
+      height: 1.5rem;
+      background-color: var(--color-primary);
+
+      mask-image: icons.$icon-url-close;
+      -webkit-mask-image: icons.$icon-url-close;
+      mask-size: cover;
+      -webkit-mask-size: cover;
+    }
   }
 }

@@ -1,21 +1,28 @@
----
-import "./kpm.scss";
-import "./kpm__entrances.scss";
-import PersonalMenu from "./Kpm__PersonalMenu.astro";
----
-
 <div class="kth-kpm">
   <div class="kth-kpm__container">
-    <nav class="kth-kpm__entrances" aria-label="Ingångar">
+    <nav class="kth-entrances" aria-label="Ingångar">
       <ul>
-        <li><a href="https://kth.se">kth.se</a></li>
-        <li><a href="https://kth.se/student">Studentwebben</a></li>
         <li>
-          <a href="https://intra.kth.se" aria-current="true">Intranät</a>
+          <a class="kth-menu-item" href="https://kth.se">
+            <span>kth.se</span>
+          </a>
+        </li>
+        <li>
+          <a class="kth-menu-item" href="https://kth.se/student">
+            <span>Studentwebben</span>
+          </a>
+        </li>
+        <li>
+          <a
+            class="kth-menu-item"
+            href="https://intra.kth.se"
+            aria-current="true"
+          >
+            <span>Intranät</span>
+          </a>
         </li>
       </ul>
     </nav>
-    <PersonalMenu />
     <nav class="kth-kpm__personal-menu" aria-label="Personliga menyn"></nav>
   </div>
 </div>

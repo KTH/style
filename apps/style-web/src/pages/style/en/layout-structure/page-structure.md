@@ -26,17 +26,17 @@ title: "Structure"
 The `body` of a KTH page or application should have the following parts:
 
 1. [**A11y nav component**](../components/a11y-nav). Defines links for keyboard users (for example "Skip to main content")
-2. **KPM**. Defines the region for the entrances and Personal menu.
-   1. **Entrances**. Link to kth.se, intranet and student web
+2. [**KPM**](../components/kpm). Defines the region for the entrances and Personal menu.
+   1. [**Entrances**](../components/entrances). Link to kth.se, intranet and student web
    2. **Personal menu**. Links to relevant pages for the user
 3. [**Header**](../components/header). Should be the same across all pages under the same site. It is divided into:
-   1. [**Logotype**](../components/header__logotype)
-   2. [**Mega-menu**](../components/header__mega-menu). Include dropdowns that opens panels to different places
-   3. [**Tools**](../components/header__tools). Include site-wide tools like search and language switcher.
+   1. [**Logotype**](../components/logotype)
+   2. [**Mega-menu**](../components/mega-menu). Include dropdowns that opens panels to different places
+   3. Tools. Include site-wide tools like search and language switcher.
 4. **Content**. Everything in between the header and the footer. This content can change between pages in the same site.
    1. **Breadcrumbs**
-   2. **Sidebar**
-   3. **Main**
+   2. **Sidebar** (`<aside>`)
+   3. **Main content** (`<main>`)
 5. **Footer**. Should be the same across all pages under the same site.
 
 ### Minimal template
@@ -50,7 +50,7 @@ The components above are expected to be placed like this:
   <header class="kth-header"></header>
   <div class="kth-content">
     <nav class="kth-breadcrumbs"></nav>
-    <aside class="kth-sidebar"></aside>
+    <aside></aside>
     <main></main>
   </div>
   <footer class="kth-footer"></footer>

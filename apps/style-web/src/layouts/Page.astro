@@ -9,7 +9,7 @@ import "./Page.scss";
 import Layout from "./Layout.astro";
 import Kpm from "../components/Kpm.astro";
 import Header from "../components/Header.astro";
-import Submenu from "@components/Submenu.astro";
+import Sidebar from "@components/Sidebar.astro";
 
 const { frontmatter } = Astro.props;
 ---
@@ -20,8 +20,8 @@ const { frontmatter } = Astro.props;
   </div>
   <Kpm />
   <Header />
-  <div class="kth-app">
-    <Submenu />
+  <div class="kth-content">
+    <Sidebar />
     <main><slot /></main>
   </div>
 </Layout>

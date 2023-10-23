@@ -1,38 +1,40 @@
 @use "../tokens/spacing";
 @use "../tokens/icons";
 
-.kth-menu-item {
-  color: var(--color-primary);
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: spacing.$space-4;
+@layer kth-style {
+  .kth-menu-item {
+    color: var(--color-primary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: spacing.$space-4;
 
-  // Fixes for buttons:
-  border: none;
-  background: none;
-  padding: 0;
+    // Fixes for buttons:
+    border: none;
+    background: none;
+    padding: 0;
 
-  span {
-    padding-block: spacing.$space-8;
-    padding-block-end: spacing.$space-4;
-    border-bottom: transparent spacing.$space-4 solid;
-  }
+    span {
+      padding-block: spacing.$space-8;
+      padding-block-end: spacing.$space-4;
+      border-bottom: transparent spacing.$space-4 solid;
+    }
 
-  &:hover span {
-    border-color: var(--color-primary);
-  }
+    &:hover span {
+      border-color: var(--color-primary);
+    }
 
-  &.dropdown::after {
-    @include icons.icon-caret-down;
-    background-color: var(--color-primary);
-  }
-  &.search::before {
-    @include icons.icon-search;
-    background-color: var(--color-primary);
-  }
-  &.language::before {
-    @include icons.icon-globe;
-    background-color: var(--color-primary);
+    &.dropdown::after {
+      @include icons.icon-caret-down;
+      background-color: var(--color-primary);
+    }
+    &.search::before {
+      @include icons.icon-search;
+      background-color: var(--color-primary);
+    }
+    &.language::before {
+      @include icons.icon-globe;
+      background-color: var(--color-primary);
+    }
   }
 }
