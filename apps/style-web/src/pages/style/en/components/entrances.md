@@ -25,8 +25,10 @@ You can get the entrances in two ways:
 - Use `aria-label` to add an accessible name
 - Use the [menu item component](./menu-item) for extra styling.
 
-<details>
+<details class="kth-details">
 <summary>Code</summary>
+
+<div class="kth-details__content">
 
 ```html
 <nav class="kth-entrances" aria-label="Ingångar">
@@ -50,6 +52,7 @@ You can get the entrances in two ways:
 </nav>
 ```
 
+</div>
 </details>
 
 ## Research on this component

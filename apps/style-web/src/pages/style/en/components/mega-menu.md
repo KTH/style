@@ -22,8 +22,10 @@ title: "Mega-menu (in header)"
 
 <iframe src="/style/en/examples/header/mega-menu"></iframe>
 
-<details>
+<details class="kth-details">
 <summary>Code</summary>
+
+<div class="kth-details__content">
 
 ```html
 <header class="kth-header external">
@@ -62,6 +64,7 @@ title: "Mega-menu (in header)"
 @use "@kth/style/scss/components/mega-menu.scss";
 ```
 
+</div>
 </details>
 
 - Menu items are exposed in an horizontal list.

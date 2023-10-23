@@ -49,8 +49,10 @@ The header comes in three variants:
 
 <iframe src="/style/en/examples/header/variants"></iframe>
 
-<details>
+<details class="kth-details">
 <summary>Code</summary>
+
+<div class="kth-details__content">
 
 ```html
 <header class="kth-header external"></header>
@@ -58,6 +60,7 @@ The header comes in three variants:
 <header class="kth-header intranet"></header>
 ```
 
+</div>
 </details>
 
 ### Parts
@@ -73,8 +76,10 @@ You can see here a full example of header with all three parts
 
 <iframe src="/style/en/examples/header/full-example"></iframe>
 
-<details>
+<details class="kth-details">
 <summary>Code</summary>
+
+<div class="kth-details__content">
 
 ```html
 <header class="kth-header external">
@@ -118,4 +123,5 @@ You can see here a full example of header with all three parts
 </header>
 ```
 
+</div>
 </details>
