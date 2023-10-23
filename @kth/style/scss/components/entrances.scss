@@ -24,17 +24,17 @@
 
     a:not([href*="intra"], [href*="student"])[aria-current="true"] {
       background: colors.$color-blue-kth;
-      color: colors.$color-white;
+      --color-primary: #{colors.$color-white};
     }
 
     a[href*="student"][aria-current="true"] {
       background: colors.$color-blue-light;
-      color: colors.$color-blue-kth;
+      --color-primary: #{colors.$color-blue-kth};
     }
 
     a[href*="intra"][aria-current="true"] {
       background: colors.$color-sand;
-      color: colors.$color-blue-kth;
+      --color-primary: #{colors.$color-blue-kth};
     }
   }
 }
