@@ -1,0 +1,40 @@
+@use "../tokens/spacing.scss";
+@use "../tokens/colors.scss";
+@use "../utils/mixins.scss";
+
+@layer kth-style {
+  nav.kth-entrances {
+    > ul {
+      @include mixins.horizontal-list();
+      gap: spacing.$space-4;
+    }
+
+    // Special case for "kth.se" link.
+    // It has a fixed width
+    a:not([href*="intra"], [href*="student"]) {
+      // TODO: this "4rem" should be a token (logotype width)
+      inline-size: 4rem;
+      justify-content: center;
+    }
+
+    a[href*="intra"],
+    a[href*="student"] {
+      padding-inline: spacing.$space-8;
+    }
+
+    a:not([href*="intra"], [href*="student"])[aria-current="true"] {
+      background: colors.$color-blue-kth;
+      color: colors.$color-white;
+    }
+
+    a[href*="student"][aria-current="true"] {
+      background: colors.$color-blue-light;
+      color: colors.$color-blue-kth;
+    }
+
+    a[href*="intra"][aria-current="true"] {
+      background: colors.$color-sand;
+      color: colors.$color-blue-kth;
+    }
+  }
+}

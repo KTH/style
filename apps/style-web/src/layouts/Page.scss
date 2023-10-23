@@ -13,6 +13,10 @@
 @use "@kth/style/scss/components/button";
 @use "@kth/style/scss/components/visually-hidden";
 
+//
+@use "@kth/style/scss/components/kpm";
+@use "@kth/style/scss/components/entrances";
+
 // Internal components
 @use "@components/content.scss";
 @use "@components/local-navigation.scss";
