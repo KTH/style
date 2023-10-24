@@ -51,6 +51,7 @@ The header comes in three variants:
 
 <details class="kth-details">
 <summary>Code</summary>
+<div>
 
 <div class="kth-details__content">
 
@@ -78,6 +79,7 @@ You can see here a full example of header with all three parts
 
 <details class="kth-details">
 <summary>Code</summary>
+<div>
 
 <div class="kth-details__content">
 

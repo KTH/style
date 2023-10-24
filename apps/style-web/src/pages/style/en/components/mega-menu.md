@@ -24,6 +24,7 @@ title: "Mega-menu (in header)"
 
 <details class="kth-details">
 <summary>Code</summary>
+<div>
 
 <div class="kth-details__content">
 

@@ -117,7 +117,18 @@ You can import the Figtree using the HTML `<link>` tag or CSS `@import` rule.
 @import url("/<YOUR_APP>/assets/fonts.css");
 ```
 
+> [!Note]
+> Some tools rewrite URLs when using `@import` statements. If you have any problem, contact us so we can add troubleshooting information
+
+<details>
+<summary>Troubleshooting</summary>
+
+<div>
+
+In this section we will include the most common problems when importing both CSS and Sass files into a project.
+
 </div>
+
 </details>
 
 <details class="kth-details">

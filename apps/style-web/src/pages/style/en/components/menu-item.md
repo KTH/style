@@ -45,10 +45,9 @@ To style the item, use the CSS `kth-menu-item` class
 
 #### Non-modal menu panel
 
-<details class="kth-details">
+<details>
 <summary>Code</summary>
-
-<div class="kth-details__content">
+<div>
 
 ```html
 <div id="container">
@@ -86,8 +85,8 @@ MenuPanel.init(
 
 #### Modal menu panel
 
-<details class="kth-details">
-<summary>Code</summary>
+<details><summary>Code</summary>
+<div>
 
 <div class="kth-details__content">
 ```html

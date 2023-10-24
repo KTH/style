@@ -27,6 +27,7 @@ You can get the entrances in two ways:
 
 <details class="kth-details">
 <summary>Code</summary>
+<div>
 
 <div class="kth-details__content">
 

@@ -14,7 +14,9 @@
 @use "@kth/style/scss/components/visually-hidden";
 @use "@kth/style/scss/components/kpm";
 @use "@kth/style/scss/components/entrances";
-@use "@kth/style/scss/components/details";
+@use "@kth/style/scss/components/details" with (
+  $generate-css: false
+);
 
 // Internal components
 @use "@components/content.scss";
@@ -35,6 +37,7 @@ main {
   }
 
   .markdown-alert {
+    margin-inline-start: spacing.$space-8;
     border-inline-start-width: spacing.$space-4;
     border-inline-start-style: solid;
     padding-inline-start: spacing.$space-16;
@@ -51,5 +54,9 @@ main {
 
   .markdown-alert-content p:first-child {
     margin-block-start: spacing.$space-4;
+  }
+
+  details {
+    @include details.details;
   }
 }
