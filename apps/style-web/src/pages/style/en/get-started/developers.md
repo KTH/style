@@ -61,7 +61,7 @@ You can import the Figtree using the HTML `<link>` tag or CSS `@import` rule.
 @import url("/<YOUR_APP>/assets/fonts.css");
 ```
 
-> [Note!]
+> [!Note]
 > Some tools rewrite URLs when using `@import` statements. If you have any problem, contact us so we can add troubleshooting information
 
 <details>
