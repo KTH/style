@@ -24,6 +24,7 @@ title: "Mega-menu (in header)"
 
 <details>
 <summary>Code</summary>
+<div>
 
 ```html
 <header class="kth-header external">
@@ -62,6 +63,7 @@ title: "Mega-menu (in header)"
 @use "@kth/style/scss/components/mega-menu.scss";
 ```
 
+</div>
 </details>
 
 - Menu items are exposed in an horizontal list.

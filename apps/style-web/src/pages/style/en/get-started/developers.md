@@ -67,6 +67,10 @@ You can import the Figtree using the HTML `<link>` tag or CSS `@import` rule.
 <details>
 <summary>Troubleshooting</summary>
 
+<div>
+
 In this section we will include the most common problems when importing both CSS and Sass files into a project.
+
+</div>
 
 </details>

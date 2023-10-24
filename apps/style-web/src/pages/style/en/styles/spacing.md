@@ -14,8 +14,12 @@ In this documentation, we use `1/16 rem` as unit. For example, a padding value o
 <details>
 <summary>Why?</summary>
 
+<div>
+
 - Why `rem` instead of `px`? It is important that font size and measurements (widths, heights, paddings) keep the same proportions for accessibility and usability reasons. CSS pixel is not proportional to base font size if the user changes their settings.
 - Why `1/16`? It is equivalent to 1 CSS pixel by default in all major browsers
+
+</div>
 </details>
 
 KTH Style spacing scale is based on [Atlassian](https://atlassian.design) design system and defines 14 different spacing values.

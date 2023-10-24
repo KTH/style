@@ -51,6 +51,7 @@ The header comes in three variants:
 
 <details>
 <summary>Code</summary>
+<div>
 
 ```html
 <header class="kth-header external"></header>
@@ -58,6 +59,7 @@ The header comes in three variants:
 <header class="kth-header intranet"></header>
 ```
 
+</div>
 </details>
 
 ### Parts
@@ -75,6 +77,7 @@ You can see here a full example of header with all three parts
 
 <details>
 <summary>Code</summary>
+<div>
 
 ```html
 <header class="kth-header external">
@@ -118,4 +121,5 @@ You can see here a full example of header with all three parts
 </header>
 ```
 
+</div>
 </details>

@@ -27,6 +27,7 @@ You can get the entrances in two ways:
 
 <details>
 <summary>Code</summary>
+<div>
 
 ```html
 <nav class="kth-entrances" aria-label="Ingångar">
@@ -50,6 +51,7 @@ You can get the entrances in two ways:
 </nav>
 ```
 
+</div>
 </details>
 
 ## Research on this component
