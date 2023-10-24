@@ -10,16 +10,17 @@ $color-sand: #e6e1dd;
 $color-blue-kth: #004791;
 $color-blue-light: #e0edfc;
 $color-blue-sky: #6298d2;
+$color-blue-lake: #036eb8; // This is defined by us for links
 $color-blue-marine: #08004f;
 $color-blue-digital: #221dd9;
 
-$color-red: #d4351c;
-
-// This color is specially made for links
-// 4.51:1 with `$color-blue-light` (requires 4.50)
-// 5.21:1 with `$color-white`      (requires 4.50)
-// 3.01:1 with `$color-black`      (requires 3.00)
-$color-blue-special: #036eb8;
+// Other colors, defined by us to meet various needs
+$color-red-light: #fad6d6;
+$color-red: #d8351e;
+$color-red-dark: #bf2c17;
+$color-green-light: #d8ffe7;
+$color-green: #3f824e;
+$color-green-dark: #366f43;
 
 @mixin theme-default {
   --color-text: #{$color-black};
@@ -27,9 +28,9 @@ $color-blue-special: #036eb8;
   --color-primary: #{$color-blue-kth};
   --color-on-primary: #{$color-white};
   --color-secondary: #{$color-black};
-  --color-tertiary: #{$color-blue-special};
+  --color-tertiary: #{$color-blue-lake};
   --color-error: #{$color-red};
-  // ... --hover-overlay: ...
+  --color-success: #{$color-green};
 }
 
 @mixin theme-student-web {
@@ -38,8 +39,9 @@ $color-blue-special: #036eb8;
   --color-primary: #{$color-blue-kth};
   --color-on-primary: #{$color-white};
   --color-secondary: #{$color-black};
-  --color-tertiary: #{$color-blue-special};
-  // ... --hover-overlay: ...
+  --color-tertiary: #{$color-blue-lake};
+  --color-error: #{$color-red-dark};
+  --color-success: #{$color-green-dark};
 }
 
 @mixin theme-intranet {
@@ -49,7 +51,8 @@ $color-blue-special: #036eb8;
   --color-on-primary: #{$color-white};
   --color-secondary: #{$color-black};
   --color-tertiary: #{$color-blue-kth};
-  // ... --hover-overlay: ...
+  --color-error: #{$color-red-dark};
+  --color-success: #{$color-green-dark};
 }
 
 @mixin theme-inverse {
@@ -59,5 +62,6 @@ $color-blue-special: #036eb8;
   --color-on-primary: #{$color-blue-kth};
   --color-secondary: #{$color-white};
   --color-tertiary: #{$color-white};
-  // ... --hover-overlay: ...
+  --color-error: #{$color-red-light};
+  --color-success: #{$color-green-light};
 }

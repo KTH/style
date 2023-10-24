@@ -1,0 +1,173 @@
+---
+import Layout from "@layouts/Layout.astro";
+import "./a11y-colors.scss";
+import Kpm from "@components/Kpm.astro";
+import Header from "@components/Header.astro";
+import Sidebar from "@components/Sidebar.astro";
+
+const properties = [
+  "--color-text",
+  "--color-background",
+  "--color-primary",
+  "--color-secondary",
+  "--color-tertiary",
+  "--color-error",
+  "--color-success",
+  "--color-on-primary",
+];
+
+const tests = [
+  { c1: "--color-background", c2: "--color-text", r: 7 },
+  { c1: "--color-background", c2: "--color-primary", r: 4.5 },
+  { c1: "--color-background", c2: "--color-error", r: 4.5 },
+  { c1: "--color-background", c2: "--color-success", r: 4.5 },
+  { c1: "--color-primary", c2: "--color-on-primary", r: 4.5 },
+  { c1: "--color-error", c2: "--color-on-primary", r: 4.5 },
+  { c1: "--color-success", c2: "--color-on-primary", r: 4.5 },
+  { c1: "--color-background", c2: "--color-secondary", r: 4.5 },
+  { c1: "--color-background", c2: "--color-tertiary", r: 4.5 },
+  { c1: "--color-text", c2: "--color-tertiary", r: 3 },
+];
+---
+
+<Layout title="Color accessibility test">
+  <div class="kth-a11y-nav"></div>
+  <Kpm />
+  <Header />
+  <div class="kth-content">
+    <Sidebar />
+    <main>
+      <h1>Color accessibility test</h1>
+      <p class="lead">Test WCAG accessibility requirements of our colors</p>
+
+      <form>
+        <h2>Choose a preset</h2>
+        <ul>
+          <li><button>Default theme</button></li>
+          <li><button>Intranet theme</button></li>
+          <li><button>Student web theme</button></li>
+          <li><button>Inverse theme</button></li>
+        </ul>
+
+        <div id="a11y-theme" class="default"></div>
+
+        <h2>Customize the colors</h2>
+
+        <table id="a11y-table">
+          <tbody>
+            {
+              properties.map((property) => (
+                <tr data-property={property}>
+                  <td>
+                    <code>{property}</code>
+                  </td>
+                  <td class="label">N/A</td>
+                  <td>
+                    <input type="color" name={property} />
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+        <button class="kth-button primary" type="submit">
+          See the results
+        </button>
+      </form>
+
+      <h2>See the results</h2>
+      <table id="a11y-test-table">
+        <thead>
+          <tr>
+            <th>Color 1</th>
+            <th>Color 2</th>
+            <th>Requirement</th>
+            <th>Actual</th>
+            <th>Result</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            tests.map((test) => (
+              <tr
+                data-color1={test.c1}
+                data-color2={test.c2}
+                data-requirement={test.r}
+              >
+                <td>{test.c1}</td>
+                <td>{test.c2}</td>
+                <td>{test.r}</td>
+                <td class="actual" />
+                <td class="result" />
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+
+      <h2>Explanations</h2>
+    </main>
+  </div>
+  <script>
+    import { wcagContrast, Color } from "@components/a11y-colors";
+
+    function getColorFromSource(source: HTMLElement, property: string) {
+      return window.getComputedStyle(source).getPropertyValue(property) || "";
+    }
+
+    /**
+     * Updates color table with values from CSS custom properties
+     * taken from the `source`
+     */
+    function updateColorTable() {
+      const table = document.getElementById("a11y-table")!;
+      const source = document.getElementById("a11y-theme")!;
+
+      const rows =
+        table.querySelectorAll<HTMLTableRowElement>("tr[data-property]");
+
+      for (const row of rows) {
+        const propertyName = row.dataset.property || "";
+        const value = getColorFromSource(source, propertyName);
+
+        row.querySelector(".label")!.innerHTML = value;
+        row.querySelector("input")!.value = value;
+      }
+    }
+
+    /** Update the test table from the colors taken from the `source` */
+    function updateTestTable() {
+      const testTable = document.getElementById("a11y-test-table")!;
+      const source = document.getElementById("a11y-theme")!;
+
+      const rows = testTable.querySelectorAll<HTMLTableRowElement>("tbody tr");
+
+      for (const row of rows) {
+        const c1hex = getColorFromSource(source, row.dataset.color1 || "");
+        const c2hex = getColorFromSource(source, row.dataset.color2 || "");
+
+        const requirement = parseInt(row.dataset.requirement || "0", 10);
+
+        const actual = wcagContrast(
+          Color.fromHex(c1hex || ""),
+          Color.fromHex(c2hex || ""),
+        );
+
+        row.querySelector("td.actual")!.innerHTML = actual.toFixed(2);
+        row.querySelector("td.result")!.innerHTML =
+          actual >= requirement ? "PASS" : "FAIL";
+      }
+    }
+
+    updateColorTable();
+    updateTestTable();
+
+    document
+      .querySelector<HTMLButtonElement>("button[type='submit']")!
+      .addEventListener("click", (event) => {
+        event.preventDefault();
+        console.log("BAH");
+        updateTestTable();
+      });
+  </script>
+</Layout>
