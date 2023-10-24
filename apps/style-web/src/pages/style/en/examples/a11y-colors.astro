@@ -43,15 +43,15 @@ const tests = [
       <form>
         <h2>Choose a preset</h2>
         <ul>
-          <li><button>Default theme</button></li>
-          <li><button>Intranet theme</button></li>
-          <li><button>Student web theme</button></li>
-          <li><button>Inverse theme</button></li>
+          <li><button data-theme="default">Default theme</button></li>
+          <li><button data-theme="intranet">Intranet theme</button></li>
+          <li><button data-theme="student-web">Student web theme</button></li>
+          <li><button data-theme="inverse">Inverse theme</button></li>
         </ul>
 
         <div id="a11y-theme" class="default"></div>
 
-        <h2>Customize the colors</h2>
+        <h2>See the colors</h2>
 
         <table id="a11y-table">
           <tbody>
@@ -70,9 +70,6 @@ const tests = [
             }
           </tbody>
         </table>
-        <button class="kth-button primary" type="submit">
-          See the results
-        </button>
       </form>
 
       <h2>See the results</h2>
@@ -106,10 +103,45 @@ const tests = [
       </table>
 
       <h2>Explanations</h2>
+
+      <p>
+        All colors in a given theme must met the WCAG contrast requirements for
+        the purpose that are designed for.
+      </p>
+
+      <ul>
+        <li>
+          `--color-background` and `--color-text` should have as highest
+          contrast as possible since they are colors for background and normal
+          text. At least 7:1 is desired
+        </li>
+        <li>
+          `--color-background` should have contrast with `--color-primary`,
+          `--color-error` and `--color-success` (all of the three) of at least
+          4.5:1 since the latter three appear always on the background.
+        </li>
+        <li>
+          `--color-on-primary` should have contrast with `--color-primary`,
+          `--color-error` and `--color-success` (all of the three) of at least
+          4.5:1
+        </li>
+        <li>
+          `--color-secondary` should have 4.5:1 contrast with
+          `--color-background`
+        </li>
+        <li>
+          `--color-tertiary` should have 4.5:1 contrast with
+          `--color-bacakground`. It is recommended to have a 3:1 contrast with
+          `--color-text`.
+        </li>
+      </ul>
     </main>
   </div>
   <script>
     import { wcagContrast, Color } from "@components/a11y-colors";
+    const testTable = document.getElementById("a11y-test-table")!;
+    const table = document.getElementById("a11y-table")!;
+    const source = document.getElementById("a11y-theme")!;
 
     function getColorFromSource(source: HTMLElement, property: string) {
       return window.getComputedStyle(source).getPropertyValue(property) || "";
@@ -120,9 +152,6 @@ const tests = [
      * taken from the `source`
      */
     function updateColorTable() {
-      const table = document.getElementById("a11y-table")!;
-      const source = document.getElementById("a11y-theme")!;
-
       const rows =
         table.querySelectorAll<HTMLTableRowElement>("tr[data-property]");
 
@@ -137,9 +166,6 @@ const tests = [
 
     /** Update the test table from the colors taken from the `source` */
     function updateTestTable() {
-      const testTable = document.getElementById("a11y-test-table")!;
-      const source = document.getElementById("a11y-theme")!;
-
       const rows = testTable.querySelectorAll<HTMLTableRowElement>("tbody tr");
 
       for (const row of rows) {
@@ -161,6 +187,18 @@ const tests = [
 
     updateColorTable();
     updateTestTable();
+
+    document
+      .querySelectorAll<HTMLButtonElement>("button[data-theme]")
+      .forEach((button) => {
+        button.addEventListener("click", (event) => {
+          event.preventDefault();
+
+          source.className = button.dataset.theme || "default";
+          updateColorTable();
+          updateTestTable();
+        });
+      });
 
     document
       .querySelector<HTMLButtonElement>("button[type='submit']")!
