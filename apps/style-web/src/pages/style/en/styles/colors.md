@@ -79,17 +79,14 @@ Accessibility: UI components that use `--color-tertiary` **must** have extra ele
 
 ### Success and error colors
 
-> [!Note]
-> These colors are not defined yet in `colors.scss`. We need to set values for them in all themes
-
 Used to indicate success and error.
+
+> [!Note] UI components should not rely only on color to convey error or success meaning. Use icons, labels and other additional elements
 
 ![](@images/color-error-success.png)
 
 - `--color-error`. Color for errors. Used in borders, texts and backgrounds of UI elements
 - `--color-success`. Color for success. Used in borders, texts and backgrounds of UI elements
-
-Accessibility: UI components should not rely only on color to convey error or success meaning. Use icons, labels and other additional elements
 
 ### Other colors
 
