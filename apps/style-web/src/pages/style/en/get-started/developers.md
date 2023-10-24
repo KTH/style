@@ -134,4 +134,3 @@ Import the CSS file originally called `fonts.css` using the HTML `<link>` tag or
 ```
 
 </div>
-</details>

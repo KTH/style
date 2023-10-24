@@ -9,7 +9,7 @@ Color system in KTH Style is based on KTH graphical identity and implements acce
 
 ## Brand colors (reference tokens)
 
-> **Note**
+> [!Note]
 > This section is under development
 
 The new graphical identity defines 6 tones of primary colors. Five blues and one beige.
@@ -60,7 +60,7 @@ Accessibility: UI components that use `--color-tertiary` **must** have extra ele
 
 ### Success and error colors
 
-> **Note**
+> [!Note]
 > These colors are not defined yet in `colors.scss`. We need to set values for them in all themes
 
 Used to indicate success and error.
@@ -74,7 +74,7 @@ Accessibility: UI components should not rely only on color to convey error or su
 
 ### Other colors
 
-> **Note**
+> [!Note]
 > We are still working on this
 
 We are still working on colors for:
@@ -84,7 +84,7 @@ We are still working on colors for:
 
 ### Colors for states
 
-> **Note**
+> [!Note]
 > We are still working on colors for hover
 
 We think it is possible to define just one "overlay" color (something like a black with 10% opacity) and "merge" both the normal color with CSS:
@@ -127,7 +127,7 @@ KTH Style defines the following 4 color themes:
 
 ## Accessibility
 
-> **Note**
+> [!Note]
 > This section is important only if you are implementing a new theme
 
 All colors in a given theme must met the WCAG contrast requirements for the purpose that are designed for. Example:
@@ -165,7 +165,7 @@ To set a different theme in a region of a document, use the Sass mixin `theme-<x
 
 ### Reset
 
-> **Note**
+> [!Note]
 > This `reset.scss` file mentioned here is not ready yet.
 
 KTH Styles `reset.scss` sets the default values for all CSS custom properties in `:root`
