@@ -5,12 +5,21 @@
 @layer kth-style {
   .kth-header.intranet {
     @include colors.theme-intranet;
+    .kth-logotype img.white {
+      display: none;
+    }
   }
   .kth-header.external {
     @include colors.theme-inverse;
+    .kth-logotype img.blue {
+      display: none;
+    }
   }
   .kth-header.student-web {
     @include colors.theme-student-web;
+    .kth-logotype img.white {
+      display: none;
+    }
   }
 
   .kth-header {

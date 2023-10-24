@@ -103,6 +103,46 @@ Use this if the logotype does inlcude a link.
 </div>
 </details>
 
+### Multi-site logotype
+
+In some cases, you need to use CSS to choose one logotype or the other.
+
+- Render both versions using the classes `blue` and `white` in the `img` tag.
+- The [header component](./header) with the correct class (`.external`, `student-web` or `intranet`) will show only one of the logos.
+
+<details class="kth-details">
+<summary>Code</summary>
+
+<div class="kth-details__content">
+
+```html
+<figure>
+  <img
+    class="blue"
+    alt="{alt}"
+    srcset="
+      /style/assets/kth-logotype-blue.webp,
+      /style/assets/kth-logotype-blue@2x.webp 2x,
+      /style/assets/kth-logotype-blue@3x.webp 3x
+    "
+    src="/style/assets/kth-logotype-blue.png"
+  />
+  <img
+    class="white"
+    alt="{alt}"
+    srcset="
+      /style/assets/kth-logotype-white.webp,
+      /style/assets/kth-logotype-white@2x.webp 2x,
+      /style/assets/kth-logotype-white@3x.webp 3x
+    "
+    src="/style/assets/kth-logotype-white.png"
+  />
+</figure>
+```
+
+</div>
+</details>
+
 ## Read more
 
 - [Add alt text to image used alone as linked logo (W3C, external web)](https://www.w3.org/WAI/tutorials/images/functional/#example-1-image-used-alone-as-a-linked-logo)
