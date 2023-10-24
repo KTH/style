@@ -39,6 +39,7 @@ main {
   }
 
   .markdown-alert {
+    margin-inline-start: spacing.$space-8;
     border-inline-start-width: spacing.$space-4;
     border-inline-start-style: solid;
     padding-inline-start: spacing.$space-16;
