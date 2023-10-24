@@ -1,0 +1,33 @@
+@use "../tokens/spacing.scss";
+@use "../utils/mixins.scss";
+
+// TODO: this should be a token
+$breakpoint-mega-menu: 64rem;
+
+@layer kth-style {
+  nav.kth-mega-menu {
+    > ul {
+      @include mixins.horizontal-list();
+
+      // Defensive measurements:
+      // - `flex-wrap: wrap` makes sure that all menus are displayed decently
+      // - `0` in gap (block axis) makes sure that menu spacing is ok all the time
+      flex-wrap: wrap;
+      gap: 0 spacing.$space-16;
+    }
+  }
+
+  nav.kth-mega-menu--collapsable {
+    display: none;
+  }
+
+  @media (max-width: $breakpoint-mega-menu) {
+    nav.kth-mega-menu {
+      display: none;
+    }
+
+    nav.kth-mega-menu--collapsable {
+      display: block;
+    }
+  }
+}

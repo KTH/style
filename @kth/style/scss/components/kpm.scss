@@ -1,0 +1,10 @@
+@use "../utils/mixins.scss";
+
+@layer kth-style {
+  .kth-kpm {
+    &__container {
+      @include mixins.container;
+      display: flex;
+    }
+  }
+}

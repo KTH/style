@@ -56,7 +56,7 @@ There are no different themes for typography at this moment.
 
 ### Other styles
 
-> **Note**
+> [!Note]
 > Styles for non-block elements (e.g. buttons) are not defined yet
 
 ## How to use

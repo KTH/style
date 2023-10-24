@@ -2,99 +2,39 @@
 @use "../tokens/spacing.scss";
 @use "../utils/mixins.scss";
 
-.kth-header.intranet {
-  @include colors.theme-intranet;
-
-  .kth-header__logotype .white {
-    display: none;
+@layer kth-style {
+  .kth-header.intranet {
+    @include colors.theme-intranet;
   }
-}
-.kth-header.external {
-  @include colors.theme-inverse;
-
-  .kth-header__logotype .blue {
-    display: none;
+  .kth-header.external {
+    @include colors.theme-inverse;
   }
-}
-.kth-header.student-web {
-  @include colors.theme-student-web;
-
-  .kth-header__logotype .white {
-    display: none;
-  }
-}
-
-.kth-header {
-  color: var(--color-text);
-  background: var(--color-background);
-  padding-block: spacing.$space-16;
-  position: relative;
-
-  &__container {
-    @include mixins.container;
-    display: flex;
-    align-items: center;
+  .kth-header.student-web {
+    @include colors.theme-student-web;
   }
 
-  &__logotype {
-    display: inline-block;
-    block-size: 4rem;
-    inline-size: 4rem;
-    border: none;
-    margin: 0;
-    margin-inline-end: spacing.$space-32;
-    padding: 0;
+  .kth-header {
+    color: var(--color-text);
+    background: var(--color-background);
+    padding-block: spacing.$space-16;
+    position: relative;
 
-    // Defensive measurement:
-    // - We prevent logo from shrinking
-    flex: 0 0 auto;
-
-    figure {
-      block-size: 100%;
-      inline-size: 100%;
+    &__container {
+      @include mixins.container;
+      display: flex;
+      align-items: center;
     }
 
-    img {
-      block-size: 100%;
-      inline-size: 100%;
-    }
-  }
-
-  &__mega-menu {
-    > ul {
+    &__tools {
       @include mixins.horizontal-list();
-
-      // Defensive measurements:
-      // - `flex-wrap: wrap` makes sure that all menus are displayed decently
-      // - `0` in gap (block axis) makes sure that menu spacing is ok all the time
       flex-wrap: wrap;
       gap: 0 spacing.$space-16;
+      justify-content: flex-end;
+      margin-inline-start: auto;
     }
-  }
 
-  &__tools {
-    @include mixins.horizontal-list();
-    flex-wrap: wrap;
-    gap: 0 spacing.$space-16;
-    justify-content: flex-end;
-    margin-inline-start: auto;
-  }
-
-  &__mega-menu--collapsable {
-    display: none;
-  }
-}
-
-@media (width < 64rem) {
-  .kth-header__logotype {
-    margin-inline-end: 0;
-  }
-
-  .kth-header__mega-menu {
-    display: none;
-  }
-
-  .kth-header__mega-menu--collapsable {
-    display: block;
+    &__mega-menu--collapsable {
+      display: none;
+    }
   }
 }

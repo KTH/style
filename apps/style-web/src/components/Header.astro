@@ -1,5 +1,5 @@
 ---
-import MainHeaderLogotype from "./HeaderLogotype.astro";
+import MainHeaderLogotype from "./Logotype.astro";
 import NavigationPanel from "./NavigationPanel.astro";
 import NavigationPanelMobile from "./NavigationPanelMobile.astro";
 import SearchPanel from "./SearchPanel.astro";
@@ -31,7 +31,7 @@ const navigationPanelsSv = [
 <header class="kth-header intranet">
   <div class="kth-header__container">
     <MainHeaderLogotype alt="Gå till KtH intranät" />
-    <nav class="kth-header__mega-menu">
+    <nav class="kth-mega-menu">
       <ul>
         {
           navigationPanelsSv.map(({ dataId, label }) => (
@@ -52,59 +52,58 @@ const navigationPanelsSv = [
           <span>English</span>
         </a>
       </li>
-      <li class="kth-header__mega-menu--collapsable">
-        <button class="kth-header-menu-item">
-          <span>Menu</span>
-        </button>
-        <dialog class="kth-header-panel--modal">
-          <!-- -->
-          <button class="kth-button close">
-            <span class="kth-visually-hidden">Close</span>
+      <li>
+        <nav class="kth-mega-menu--collapsable">
+          <button class="kth-menu-item">
+            <span>Menu</span>
           </button>
-          <div class="kth-header-panel__content">
-            <MainHeaderLogotype alt="Gå till KTH intranät" />
-            <h2>Menu</h2>
-            <ul>
-              {
-                navigationPanelsSv.map(({ label, dataId }) => (
-                  <NavigationPanelMobile label={label} dataId={dataId} />
-                ))
-              }
-            </ul>
+          <dialog class="kth-menu-panel--modal">
+            <!-- -->
+            <button class="kth-button close">
+              <span class="kth-visually-hidden">Close</span>
+            </button>
+            <div class="kth-menu-panel__content">
+              <h2>Menu</h2>
+              <ul>
+                {
+                  navigationPanelsSv.map(({ label, dataId }) => (
+                    <NavigationPanelMobile label={label} dataId={dataId} />
+                  ))
+                }
+              </ul>
 
-            <ul class="kth-header-panel__entries">
-              <li><a href="https://kth.se">kth.se</a></li>
-              <li><a href="https://student.kth.se">Studentwebben</a></li>
-              <li><a href="https://intra.kth.se">Intranät</a></li>
-            </ul>
-          </div>
-        </dialog>
+              <ul class="kth-menu-panel__entries">
+                <li><a href="https://kth.se">kth.se</a></li>
+                <li><a href="https://student.kth.se">Studentwebben</a></li>
+                <li><a href="https://intra.kth.se">Intranät</a></li>
+              </ul>
+            </div>
+          </dialog>
+        </nav>
       </li>
     </ul>
   </div>
 </header>
 
 <script>
-  import { setModalNavigationPanels, setNavigationPanels } from "@kth/style";
+  import { MenuPanel } from "@kth/style";
 
   // Set navigationPanels only to non-mobile versions
-  setNavigationPanels(
+  MenuPanel.init(
     document.querySelector(".kth-header"),
-    document.querySelectorAll(".kth-header__mega-menu .kth-header-menu-item"),
+    document.querySelectorAll(".kth-mega-menu .kth-menu-item"),
   );
-  setNavigationPanels(
+  MenuPanel.init(
     document.querySelector(".kth-header"),
-    document.querySelectorAll(".kth-header-menu-item.search"),
+    document.querySelectorAll(".kth-menu-item.search"),
   );
 
-  setModalNavigationPanels(
-    document.querySelectorAll(
-      ".kth-header__mega-menu--collapsable .kth-header-menu-item",
-    ),
+  MenuPanel.initModal(
+    document.querySelectorAll(".kth-mega-menu--collapsable .kth-menu-item"),
   );
-  setModalNavigationPanels(
+  MenuPanel.initModal(
     document.querySelectorAll(
-      ".kth-header__mega-menu--collapsable .kth-header-menu-item--modal",
+      ".kth-mega-menu--collapsable .kth-menu-item--modal",
     ),
   );
 </script>
