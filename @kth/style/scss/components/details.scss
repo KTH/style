@@ -1,0 +1,51 @@
+@use "../tokens/spacing.scss";
+@use "../tokens/icons.scss";
+
+/// When true, the file generates CSS code for the entire document
+///
+/// Set to `false` when importing if you want to use the mixin but don't want
+/// to have the "kth-details" class
+$generate-css: true !default;
+$border-width: spacing.$space-4;
+
+@mixin details {
+  summary {
+    color: var(--color-tertiary);
+    padding-block: var(--space-inner-block);
+    cursor: pointer;
+    // padding-inline-start: spacing.$space-20;
+    list-style: none;
+    font: inherit;
+    display: grid;
+    grid-template-columns: 1.5rem auto;
+
+    &::before {
+      @include icons.icon-caret-right;
+      background-color: var(--color-tertiary);
+      margin-block: spacing.$space-2;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &[open] summary::before {
+    rotate: 0deg;
+  }
+
+  > div {
+    border-inline-start: $border-width solid var(--color-tertiary);
+    padding-inline-start: spacing.$space-16;
+    padding-block: spacing.$space-8;
+    margin-inline-start: spacing.$space-8;
+  }
+}
+
+@if $generate-css {
+  @layer kth-style {
+    .kth-details {
+      @include details;
+    }
+  }
+}
