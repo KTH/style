@@ -14,9 +14,9 @@ title: A11y nav
 
 <iframe src="/style/en/examples/a11y-nav/default" title="Example default a11y nav"></iframe>
 
-<details class="kth-details">
+<details>
 <summary>Code</summary>
-<div class="kth-details__content">
+<div>
 
 ```html
 <div class="kth-a11y-nav">
