@@ -12,6 +12,9 @@
     padding: 0;
     padding-block-end: spacing.$space-48;
 
+    // Non-modal dialogs still need z-index
+    z-index: 10000;
+
     &__container {
       @include mixins.container;
     }
