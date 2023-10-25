@@ -59,12 +59,15 @@ export function DropdownWithPanel({ label, children }: Props) {
 }
 
 export function DropdownContainer(props: React.HTMLAttributes<HTMLDivElement>) {
+  const containerRef = React.useRef<HTMLDivElement>(null);
+
   return (
     <div
+      ref={containerRef}
       onBlur={(event) => {
         const relatedTarget = event.relatedTarget;
 
-        if (relatedTarget && !event.target.contains(relatedTarget)) {
+        if (relatedTarget && !containerRef.current?.contains(relatedTarget)) {
           closeAllDialogs();
         }
       }}
