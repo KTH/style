@@ -31,6 +31,8 @@ export function DropdownWithPanel({ label, children }: Props) {
           if (!dialogRef.current?.open) {
             closeAllDialogs();
             dialogRef.current?.show();
+          } else {
+            closeAllDialogs();
           }
         }}
         onMouseOver={() => setShouldRender(true)}
