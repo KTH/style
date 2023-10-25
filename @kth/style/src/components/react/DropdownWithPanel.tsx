@@ -27,12 +27,16 @@ export function DropdownWithPanel({ label, children }: Props) {
         className="kth-menu-item dropdown"
         onClick={() => {
           setShouldRender(true);
-          dialogRef.current?.show();
+
+          if (!dialogRef.current?.open) {
+            closeAllDialogs();
+            dialogRef.current?.show();
+          }
         }}
         onMouseOver={() => setShouldRender(true)}
         onFocus={() => setShouldRender(true)}
       >
-        {label}
+        <span>{label}</span>
       </button>
       <dialog
         className="kth-menu-panel"
