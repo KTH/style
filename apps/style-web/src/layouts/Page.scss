@@ -58,6 +58,8 @@ main {
     margin-block-start: spacing.$space-4;
   }
 
+  // All instances of <details> are using the KTH Style details.
+  // We don't write the "kth-details" class.
   details {
     @include details.details;
   }
