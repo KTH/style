@@ -8,7 +8,7 @@
       @include mixins.container;
       display: grid;
       grid-template-columns: auto 1fr;
-      grid-template-areas: "entrances kpm";
+      grid-template-areas: "entrances personal-menu";
     }
   }
 }

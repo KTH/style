@@ -4,7 +4,8 @@
 @layer kth-style {
   ul.kth-personal-menu {
     @include mixins.horizontal-list;
-    place-self: end;
+    justify-content: flex-end;
     gap: 0 spacing.$space-16;
+    grid-area: personal-menu;
   }
 }
