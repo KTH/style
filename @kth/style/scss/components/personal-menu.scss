@@ -5,7 +5,6 @@
   ul.kth-personal-menu {
     @include mixins.horizontal-list;
     place-self: end;
-    position: relative;
     gap: 0 spacing.$space-16;
   }
 }
