@@ -39,10 +39,10 @@ Use this if the logotype does not include a link anywhere.
 
 <iframe src="/style/en/examples/logotype/without-link"></iframe>
 
-<details class="kth-details">
+<details>
 <summary>Code</summary>
 
-<div class="kth-details__content">
+<div>
 
 ```html
 <figure class="kth-logotype">
@@ -75,10 +75,10 @@ Use this if the logotype does inlcude a link.
 
 <iframe src="/style/en/examples/logotype/with-link"></iframe>
 
-<details class="kth-details">
+<details>
 <summary>Code</summary>
 
-<div class="kth-details__content">
+<div>
 
 ```html
 <a class="kth-logotype">
@@ -110,10 +110,10 @@ In some cases, you need to use CSS to choose one logotype or the other.
 - Render both versions using the classes `blue` and `white` in the `img` tag.
 - The [header component](./header) with the correct class (`.external`, `student-web` or `intranet`) will show only one of the logos.
 
-<details class="kth-details">
+<details>
 <summary>Code</summary>
 
-<div class="kth-details__content">
+<div>
 
 ```html
 <figure>

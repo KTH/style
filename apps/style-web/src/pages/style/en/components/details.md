@@ -28,15 +28,15 @@ The semantics of Details are `<details>` and `<summary>` which means:
 
 <iframe src="/style/en/examples/details/default" title="Interactive example of default details"></iframe>
 
-<details class="kth-details">
+<details>
 <summary>Code</summary>
 
-<div class="kth-details__content">
+<div>
 
 ```html
-<details class="kth-details">
+<details>
   <summary>Show details</summary>
-  <div class="kth-details__content">
+  <div>
     <p>Lorem ipsum</p>
   </div>
 </details>
