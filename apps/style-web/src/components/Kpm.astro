@@ -1,3 +1,9 @@
+---
+import "@kth/style/scss/components/kpm.scss";
+import "@kth/style/scss/components/personal-menu.scss";
+import { PersonalMenu } from "./PersonalMenu";
+---
+
 <div class="kth-kpm">
   <div class="kth-kpm__container">
     <nav class="kth-entrances" aria-label="Ingångar">
@@ -23,5 +29,6 @@
         </li>
       </ul>
     </nav>
+    <PersonalMenu client:only="react" />
   </div>
 </div>
