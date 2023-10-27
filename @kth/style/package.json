@@ -23,7 +23,8 @@
   },
   "files": [
     "scss",
-    "dist"
+    "dist",
+    "assets"
   ],
   "devDependencies": {
     "@rollup/plugin-commonjs": "^24.1.0",
