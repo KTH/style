@@ -9,7 +9,7 @@ title: "Menu item (in header and KPM)"
 
 ## When to use
 
-- Inside the [mega menu](./mega-menu.md) or [personal menu].
+- Inside the [mega menu](/style/en/components/mega-menu.md) or [personal menu].
 
 ## How to use
 

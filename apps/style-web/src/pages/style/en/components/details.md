@@ -13,7 +13,7 @@ Use this component to hide information that is relevant for some users.
 
 ## Details vs Accordion
 
-The former Collapse component are now two components: Details (this component) and [Accordion](./accordion). Both are useful to make a page easier to scan, but they differ in purpose and also in semantics. Details should be used for:
+The former Collapse component are now two components: Details (this component) and [Accordion](/style/en/components/accordion). Both are useful to make a page easier to scan, but they differ in purpose and also in semantics. Details should be used for:
 
 - Information that is not relevant for every user
 - Information that is not important

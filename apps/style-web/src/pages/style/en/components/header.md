@@ -66,10 +66,10 @@ The header comes in three variants:
 
 KTH Style offers the following components for making the header
 
-- [Logotype](./logotype)
-- [Mega-menu](./mega-menu)
-- [Tools](./header__tools)
-- [Menu item](./menu-item)
+- [Logotype](/style/en/components/logotype)
+- [Mega-menu](/style/en/components/mega-menu)
+- [Tools](/style/en/components/header__tools)
+- [Menu item](/style/en/components/menu-item)
 
 You can see here a full example of header with all three parts
 

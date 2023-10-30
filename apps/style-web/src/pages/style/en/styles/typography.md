@@ -11,7 +11,7 @@ Typography in KTH Style is based on KTH graphical identity.
 
 - The new graphical identity defines one single font family: Figtree. No serif font is defined.
 - Defines combinations of font size, line height and font weight. They are defined with readibility in mind and to create a visual rythm.
-- Padding and margin is defined in [Spacing](./spacing.md).
+- Padding and margin is defined in [Spacing](/style/en/styles/spacing.md).
 
 ## Variable font Figtree
 
@@ -63,7 +63,7 @@ There are no different themes for typography at this moment.
 
 ### Bring the font to your project
 
-Read the [get started guide for developers](../../style/en/get-started/developers.md)
+Read the [get started guide for developers](/style/en/get-started/developers.md)
 
 ### In a single selector
 
