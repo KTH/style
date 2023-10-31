@@ -5,15 +5,15 @@ function pxToRem(px: number) {
 }
 export class ScrollObserver {
   /**
-   * Set a `--kth-scroll` variable in `:root` with the scroll amount in rem
+   * Set a `--kth-scroll-block` variable in `:root` with the scroll amount in rem
    */
   static init() {
-    document.documentElement.style.setProperty("--kth-scroll-y", `0rem`);
+    document.documentElement.style.setProperty("--kth-scroll-block", `0rem`);
 
     window.addEventListener("scroll", () => {
       const scroll = pxToRem(window.scrollY);
       document.documentElement.style.setProperty(
-        "--kth-scroll-y",
+        "--kth-scroll-block",
         `${scroll}rem`,
       );
     });
