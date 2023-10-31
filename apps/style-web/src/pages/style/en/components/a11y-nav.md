@@ -9,7 +9,7 @@ title: A11y nav
 
 ## How to use
 
-- Place this component in the beginning of the body. Read [page structure](../layout-structure/page-structure) for more information.
+- Place this component in the beginning of the body. Read [page structure](/style/en/layout-structure/page-structure) for more information.
 - Do not put anything except links inside the a11y nav component
 
 <iframe src="/style/en/examples/a11y-nav/default" title="Example default a11y nav"></iframe>

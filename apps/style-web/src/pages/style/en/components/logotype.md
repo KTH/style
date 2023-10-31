@@ -9,7 +9,7 @@ layout: "@layouts/Page.astro"
 
 ## When to use this component
 
-- Inside the [header](./header) when building a full-page app.
+- Inside the [header](/style/en/components/header) when building a full-page app.
 
 ## When not to use this component
 
@@ -27,7 +27,7 @@ In some cases, you should not do it. For example:
 
 ## How it works
 
-- Serve the image assets in your app according to the [get started guide](../get-started/developers)
+- Serve the image assets in your app according to the [get started guide](/style/en/get-started/developers)
 - Place this component inside `kth-header`
 
 ### Without link
@@ -108,7 +108,7 @@ Use this if the logotype does inlcude a link.
 In some cases, you need to use CSS to choose one logotype or the other.
 
 - Render both versions using the classes `blue` and `white` in the `img` tag.
-- The [header component](./header) with the correct class (`.external`, `student-web` or `intranet`) will show only one of the logos.
+- The [header component](/style/en/components/header) with the correct class (`.external`, `student-web` or `intranet`) will show only one of the logos.
 
 <details>
 <summary>Code</summary>

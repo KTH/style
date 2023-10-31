@@ -9,13 +9,13 @@ title: "Entrances"
 
 ## When to use
 
-Inside [KPM](./kpm).
+Inside [KPM](/style/en/components/kpm).
 
 ## How to use
 
 You can get the entrances in two ways:
 
-1. (Recommended) Inject the KPM script. See [KPM component](./kpm)
+1. (Recommended) Inject the KPM script. See [KPM component](/style/en/components/kpm)
 2. Make the HTML markup yourself
 
 ## How to make your own entrances
@@ -23,7 +23,7 @@ You can get the entrances in two ways:
 - Entrances should be **only** links to KTH main site (https://kth.se), student web (https://kth.se/student) and intranet (https://intra.kth.se).
 - Use `nav` as container to indicate a navigation landmark.
 - Use `aria-label` to add an accessible name
-- Use the [menu item component](./menu-item) for extra styling.
+- Use the [menu item component](/style/en/components/menu-item) for extra styling.
 
 <details class="kth-details">
 <summary>Code</summary>

@@ -9,7 +9,7 @@ title: "Mega-menu (in header)"
 
 ## When to use
 
-- Inside the [header](./header), in pages that are part of either [kth.se](https://kth.se), [intranet](https://intra.kth.se) or [student web](https://kth.se/student).
+- Inside the [header](/style/en/components/header), in pages that are part of either [kth.se](https://kth.se), [intranet](https://intra.kth.se) or [student web](https://kth.se/student).
 
 ## When not to use
 
@@ -69,12 +69,12 @@ title: "Mega-menu (in header)"
 </details>
 
 - Menu items are exposed in an horizontal list.
-- Read [menu item](./menu-item) to add style and JavaScript behavior.
+- Read [menu item](/style/en/components/menu-item) to add style and JavaScript behavior.
 
 ### Mobile version
 
 <iframe src="/style/en/examples/header/mega-menu--collapsable"></iframe>
 
 - Show only one button that expands the whole menu
-- Use [menu item](./menu-item) to style it.
+- Use [menu item](/style/en/components/menu-item) to style it.
 - Use [TODO] to add the panel that opens the menu

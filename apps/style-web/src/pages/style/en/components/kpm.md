@@ -26,7 +26,7 @@ Under development. This method to inject KPM dinamically via a script will be av
 
 KPM is divided into two pieces:
 
-- [Entrances](./entrances)
-- [Personal menu](./personal-menu)
+- [Entrances](/style/en/components/entrances)
+- [Personal menu](/style/en/components/personal-menu)
 
 TODO: add example and code
