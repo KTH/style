@@ -24,4 +24,8 @@ const { frontmatter } = Astro.props;
     <Sidebar />
     <main id="kth-main"><slot /></main>
   </div>
+  <script>
+    import { ScrollObserver } from "@kth/style";
+    ScrollObserver.init();
+  </script>
 </Layout>

@@ -22,6 +22,9 @@
 @use "@components/content.scss";
 @use "@components/local-navigation.scss";
 
+// TODO: this should be a token
+$breakpoint-mega-menu: 64rem;
+
 main {
   @include prose.prose;
   margin-inline: auto;
@@ -60,5 +63,52 @@ main {
   // We don't write the "kth-details" class.
   details {
     @include details.details;
+  }
+}
+
+@media (max-width: $breakpoint-mega-menu) {
+  :root {
+    --kth-header-box-shadow-offset-block: min(
+      calc(var(--kth-scroll-block, 0) * 1rem),
+      0.125rem
+    );
+    --kth-header-box-shadow-blur-radius: min(
+      calc(var(--kth-scroll-block, 0) * 1rem),
+      0.25rem
+    );
+
+    --kth-header-box-shadow: 0 var(--kth-header-box-shadow-offset-block)
+      var(--kth-header-box-shadow-blur-radius) rgba(33 33 33 / 0.1);
+  }
+
+  .kth-header {
+    position: fixed;
+    inline-size: 100%;
+    inset-block-start: 0;
+    padding-block: clamp(
+      0.25rem,
+      calc(1.25rem - var(--kth-scroll-block) * 1rem),
+      1rem
+    );
+  }
+
+  .kth-content {
+    margin-block-start: 8.5rem;
+  }
+
+  .kth-logotype {
+    block-size: calc((1 - var(--kth-scroll-block)) * 3rem);
+
+    > figure {
+      opacity: calc(1 - var(--kth-scroll-block, 0));
+    }
+  }
+
+  .kth-header {
+    box-shadow: var(--kth-header-box-shadow);
+  }
+
+  body:not(:has(.kth-header)) .kth-kpm {
+    box-shadow: var(--kth-header-box-shadow);
   }
 }
