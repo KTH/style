@@ -27,6 +27,7 @@
     background: var(--color-background);
     padding-block: spacing.$space-16;
     position: relative;
+    margin-block-start: 2.5rem;
 
     &__container {
       @include mixins.container;

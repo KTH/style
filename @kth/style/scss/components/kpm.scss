@@ -1,7 +1,15 @@
 @use "../utils/mixins.scss";
+@use "../tokens/spacing.scss";
 
 @layer kth-style {
   .kth-kpm {
+    position: fixed;
+    inset-block-start: 0;
+    inline-size: 100%;
+    background: var(--color-background);
+    z-index: 10;
+    box-shadow: 0 var(--box-shadow-offset-block) var(--box-shadow-blur-radius) rgba(33 33 33 / 0.1);
+
     &__container {
       @include mixins.container;
       display: flex;
