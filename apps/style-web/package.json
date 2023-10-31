@@ -4,7 +4,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --host",
     "start": "astro dev",
     "build": "astro build && npm run build:copy-monitor",
     "build:copy-monitor": "cp src/pages/style/_monitor dist/style/_monitor",
