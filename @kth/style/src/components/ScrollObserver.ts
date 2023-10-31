@@ -8,13 +8,13 @@ export class ScrollObserver {
    * Set a `--kth-scroll-block` variable in `:root` with the scroll amount in rem
    */
   static init() {
-    document.documentElement.style.setProperty("--kth-scroll-block", `0rem`);
+    document.documentElement.style.setProperty("--kth-scroll-block", "0");
 
     window.addEventListener("scroll", () => {
       const scroll = pxToRem(window.scrollY);
       document.documentElement.style.setProperty(
         "--kth-scroll-block",
-        `${scroll}rem`,
+        `${scroll}`,
       );
     });
   }
