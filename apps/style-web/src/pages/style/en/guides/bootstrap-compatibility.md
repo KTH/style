@@ -30,4 +30,5 @@ layout: "@layouts/Page.astro"
 
 Read more:
 
+- [Test page with `kth-style` and `@kth/style`](/style/en/examples/bootstrap)
 - [CSS cascade layers (MDN)](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_layers)

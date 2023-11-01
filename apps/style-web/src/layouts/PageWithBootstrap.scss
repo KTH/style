@@ -12,6 +12,8 @@
 @use "@kth/style/scss/components/search";
 @use "@kth/style/scss/components/button";
 @use "@kth/style/scss/components/visually-hidden";
+@use "@kth/style/scss/components/kpm";
+@use "@kth/style/scss/components/entrances";
 
 @layer old-kth-style, kth-style;
 @import "kth-style/dist/css/kth-bootstrap.css" layer(old-kth-style);
