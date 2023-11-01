@@ -1,0 +1,22 @@
+---
+interface Props {
+  title: string;
+}
+import "./PageWithBootstrap.scss";
+import Layout from "./Layout.astro";
+import Kpm from "../components/Kpm.astro";
+import Header from "../components/Header.astro";
+
+const { title } = Astro.props;
+---
+
+<Layout title={title}>
+  <div class="kth-a11y-nav">
+    <a href="#kth-main">Go to main content</a>
+  </div>
+  <Kpm />
+  <Header />
+  <div class="kth-content">
+    <main><slot /></main>
+  </div>
+</Layout>
