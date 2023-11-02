@@ -13,84 +13,90 @@ $secondary-border-width: math.div(1rem, 16);
 
     border-radius: $border-radius;
     display: flex;
+    align-items: center;
+    gap: 0 spacing.$space-6;
     margin-inline-start: auto;
-    background: transparent;
+    background: var(--kth-button-background-base);
     border: none;
     padding-inline: spacing.$space-8;
     padding-block: spacing.$space-8;
-    border-radius: 100%;
-  }
+    border-radius: spacing.$space-4;
 
-  .kth-button:hover {
-    background: var(--kth-button-background-base)
-      var(--color-hover-overlay, transparent);
-  }
+    &:hover {
+      background: linear-gradient(
+          to right,
+          var(--color-hover-overlay, transparent),
+          var(--color-hover-overlay, transparent)
+        ),
+        var(--kth-button-background-base);
+    }
 
-  &.primary,
-  &.success,
-  &.danger,
-  &.next {
-    color: var(--color-on-primary);
-    border: none;
-    padding-block: var(--space-inner-block);
-    padding-inline: var(--space-inner-inline);
-    font: var(--font-label-s);
-  }
+    &.primary,
+    &.success,
+    &.danger,
+    &.next {
+      color: var(--color-on-primary);
+      border: none;
+      padding-block: var(--space-inner-block);
+      padding-inline: var(--space-inner-inline);
+      font: var(--font-label-s);
+    }
 
-  &.primary,
-  &.next {
-    --kth-button-background-base: var(--color-primary);
-  }
+    &.primary,
+    &.next {
+      --kth-button-background-base: var(--color-primary);
+    }
 
-  &.success {
-    --kth-button-background-base: var(--color-success, green);
-  }
+    &.success {
+      --kth-button-background-base: var(--color-success, green);
+    }
 
-  &.danger {
-    --kth-button-background-base: var(--color-error, red);
-  }
+    &.danger {
+      --kth-button-background-base: var(--color-error, red);
+    }
 
-  &.secondary,
-  &.previous {
-    --border-width: #{$secondary-border-width};
-    border-color: var(--color-secondary);
-    border-width: var(--border-width);
-    border-style: solid;
+    &.secondary,
+    &.previous {
+      --border-width: #{$secondary-border-width};
+      border-color: var(--color-secondary);
+      border-width: var(--border-width);
+      border-style: solid;
 
-    background: transparent;
-    padding-block: calc(var(--space-inner-block) - var(--border-width));
-    padding-inline: calc(var(--space-inner-inline) - var(--border-width));
-  }
+      --kth-button-background-color: transparent;
+      padding-block: calc(var(--space-inner-block) - var(--border-width));
+      padding-inline: calc(var(--space-inner-inline) - var(--border-width));
+    }
 
-  &.next::after {
-    @include icons.icon-arrow-right-500;
-    background-color: var(--color-on-primary);
-  }
+    &.next::after {
+      @include icons.icon-arrow-right-500;
+      background-color: var(--color-on-primary);
+    }
 
-  &.previous::before {
-    @include icons.icon-arrow-left-300;
-    background-color: var(--color-secondary);
-  }
+    &.previous::before {
+      @include icons.icon-arrow-left-300;
+      background-color: var(--color-secondary);
+    }
 
-  &.close {
-    display: flex;
-    margin-inline-start: auto;
-    background: transparent;
-    border: none;
-    padding-inline: 0;
-    padding-block: spacing.$space-8;
-  }
+    &.close {
+      display: flex;
+      margin-inline-start: auto;
+      background: transparent;
+      border: none;
+      padding-inline: 0;
+      padding-block: spacing.$space-8;
+    }
 
-  &.close::before {
-    content: "";
-    display: inline-block;
-    width: 1.5rem;
-    height: 1.5rem;
-    background-color: var(--color-primary);
+    &.close::before {
+      content: "";
+      display: inline-block;
+      width: 1.5rem;
+      height: 1.5rem;
+      background-color: var(--color-primary);
 
-    mask-image: icons.$icon-url-close;
-    -webkit-mask-image: icons.$icon-url-close;
-    mask-size: cover;
-    -webkit-mask-size: cover;
+      mask-image: icons.$icon-url-close;
+      -webkit-mask-image: icons.$icon-url-close;
+      mask-size: cover;
+      -webkit-mask-size: cover;
+    }
   }
 }
