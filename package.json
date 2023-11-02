@@ -6,19 +6,13 @@
     "apps/*"
   ],
   "scripts": {
-    "generate-icons": "npx @svgr/cli --out-dir @kth/style/src/icons -- @kth/icons",
     "dev": "lerna run dev --stream --parallel --scope=style-web",
     "build": "lerna run build",
     "publish": "lerna publish --no-private"
   },
   "devDependencies": {
-    "@svgr/cli": "^8.0.1",
-    "@svgr/core": "^8.0.0",
-    "lerna": "^7.3.0",
+    "lerna": "^7.4.2",
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.0"
-  },
-  "dependencies": {
-    "@popperjs/core": "^2.11.6"
   }
 }
