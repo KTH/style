@@ -66,21 +66,26 @@ main {
   }
 }
 
+:root {
+  --kth-header-box-shadow-offset-block: min(
+    calc(var(--kth-scroll-block, 0) * 1rem),
+    0.125rem
+  );
+  --kth-header-box-shadow-blur-radius: min(
+    calc(var(--kth-scroll-block, 0) * 1rem),
+    0.25rem
+  );
+
+  --kth-header-box-shadow: 0 var(--kth-header-box-shadow-offset-block)
+    var(--kth-header-box-shadow-blur-radius) rgba(33 33 33 / 0.1);
+}
+
+// In desktop, show always the shadow in KPM
+.kth-kpm {
+  box-shadow: var(--kth-header-box-shadow);
+}
+
 @media (max-width: $breakpoint-mega-menu) {
-  :root {
-    --kth-header-box-shadow-offset-block: min(
-      calc(var(--kth-scroll-block, 0) * 1rem),
-      0.125rem
-    );
-    --kth-header-box-shadow-blur-radius: min(
-      calc(var(--kth-scroll-block, 0) * 1rem),
-      0.25rem
-    );
-
-    --kth-header-box-shadow: 0 var(--kth-header-box-shadow-offset-block)
-      var(--kth-header-box-shadow-blur-radius) rgba(33 33 33 / 0.1);
-  }
-
   .kth-header {
     position: fixed;
     inline-size: 100%;
@@ -108,6 +113,11 @@ main {
     box-shadow: var(--kth-header-box-shadow);
   }
 
+  .kth-kpm {
+    box-shadow: none;
+  }
+
+  // In mobile, show shadow in kpm only if there is no .kth-header
   body:not(:has(.kth-header)) .kth-kpm {
     box-shadow: var(--kth-header-box-shadow);
   }
