@@ -79,17 +79,14 @@ Accessibility: UI components that use `--color-tertiary` **must** have extra ele
 
 ### Success and error colors
 
-> [!Note]
-> These colors are not defined yet in `colors.scss`. We need to set values for them in all themes
-
 Used to indicate success and error.
+
+> [!Note] UI components should not rely only on color to convey error or success meaning. Use icons, labels and other additional elements
 
 ![](@images/color-error-success.png)
 
 - `--color-error`. Color for errors. Used in borders, texts and backgrounds of UI elements
 - `--color-success`. Color for success. Used in borders, texts and backgrounds of UI elements
-
-Accessibility: UI components should not rely only on color to convey error or success meaning. Use icons, labels and other additional elements
 
 ### Other colors
 
@@ -146,16 +143,7 @@ KTH Style defines the following 4 color themes:
 
 ## Accessibility
 
-> [!Note]
-> This section is important only if you are implementing a new theme
-
-All colors in a given theme must met the WCAG contrast requirements for the purpose that are designed for. Example:
-
-- `--color-background` and `--color-text` should have as highest contrast as possible since they are colors for background and normal text. At least 7:1 is desired
-- `--color-background` should have contrast with `--color-primary`, `--color-error` and `--color-success` (all of the three) of at least 4.5:1 since the latter three appear always on the background.
-- `--color-on-primary` should have contrast with `--color-primary`, `--color-error` and `--color-success` (all of the three) of at least 4.5:1
-- `--color-secondary` should have 4.5:1 contrast with `--color-background`
-- `--color-tertiary` should have 4.5:1 contrast with `--color-bacakground`. It is recommended to have a 3:1 contrast with `--color-text`.
+Check contrast requirements in [color accessibility test](../examples/a11y-colors).
 
 ## How to use semantic tokens
 

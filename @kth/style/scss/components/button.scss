@@ -8,77 +8,89 @@ $secondary-border-width: math.div(1rem, 16);
 
 @layer kth-style {
   .kth-button {
+    // "local variable". Base color for the button
+    --kth-button-background-base: transparent;
+
     border-radius: $border-radius;
     display: flex;
-    align-items: center;
-    gap: spacing.$space-4;
+    margin-inline-start: auto;
+    background: transparent;
+    border: none;
+    padding-inline: spacing.$space-8;
+    padding-block: spacing.$space-8;
+    border-radius: 100%;
+  }
 
-    &.primary,
-    &.success,
-    &.danger,
-    &.next {
-      color: var(--color-on-primary);
-      border: none;
-      padding-block: var(--space-inner-block);
-      padding-inline: var(--space-inner-inline);
-      font: var(--font-label-s);
-    }
+  .kth-button:hover {
+    background: var(--kth-button-background-base)
+      var(--color-hover-overlay, transparent);
+  }
 
-    &.primary,
-    &.next {
-      background: var(--color-primary);
-    }
+  &.primary,
+  &.success,
+  &.danger,
+  &.next {
+    color: var(--color-on-primary);
+    border: none;
+    padding-block: var(--space-inner-block);
+    padding-inline: var(--space-inner-inline);
+    font: var(--font-label-s);
+  }
 
-    &.success {
-      background: var(--color-success, green);
-    }
+  &.primary,
+  &.next {
+    --kth-button-background-base: var(--color-primary);
+  }
 
-    &.danger {
-      background: var(--color-error, red);
-    }
+  &.success {
+    --kth-button-background-base: var(--color-success, green);
+  }
 
-    &.secondary,
-    &.previous {
-      --border-width: #{$secondary-border-width};
-      border-color: var(--color-secondary);
-      border-width: var(--border-width);
-      border-style: solid;
+  &.danger {
+    --kth-button-background-base: var(--color-error, red);
+  }
 
-      background: transparent;
-      padding-block: calc(var(--space-inner-block) - var(--border-width));
-      padding-inline: calc(var(--space-inner-inline) - var(--border-width));
-    }
+  &.secondary,
+  &.previous {
+    --border-width: #{$secondary-border-width};
+    border-color: var(--color-secondary);
+    border-width: var(--border-width);
+    border-style: solid;
 
-    &.next::after {
-      @include icons.icon-arrow-right-500;
-      background-color: var(--color-on-primary);
-    }
+    background: transparent;
+    padding-block: calc(var(--space-inner-block) - var(--border-width));
+    padding-inline: calc(var(--space-inner-inline) - var(--border-width));
+  }
 
-    &.previous::before {
-      @include icons.icon-arrow-left-300;
-      background-color: var(--color-secondary);
-    }
+  &.next::after {
+    @include icons.icon-arrow-right-500;
+    background-color: var(--color-on-primary);
+  }
 
-    &.close {
-      display: flex;
-      margin-inline-start: auto;
-      background: transparent;
-      border: none;
-      padding-inline: 0;
-      padding-block: spacing.$space-8;
-    }
+  &.previous::before {
+    @include icons.icon-arrow-left-300;
+    background-color: var(--color-secondary);
+  }
 
-    &.close::before {
-      content: "";
-      display: inline-block;
-      width: 1.5rem;
-      height: 1.5rem;
-      background-color: var(--color-primary);
+  &.close {
+    display: flex;
+    margin-inline-start: auto;
+    background: transparent;
+    border: none;
+    padding-inline: 0;
+    padding-block: spacing.$space-8;
+  }
 
-      mask-image: icons.$icon-url-close;
-      -webkit-mask-image: icons.$icon-url-close;
-      mask-size: cover;
-      -webkit-mask-size: cover;
-    }
+  &.close::before {
+    content: "";
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: var(--color-primary);
+
+    mask-image: icons.$icon-url-close;
+    -webkit-mask-image: icons.$icon-url-close;
+    mask-size: cover;
+    -webkit-mask-size: cover;
   }
 }
