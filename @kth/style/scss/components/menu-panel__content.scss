@@ -1,0 +1,26 @@
+@use "../tokens/spacing.scss";
+
+@layer kth-style {
+  .kth-menu-panel__content {
+    h2 {
+      font: var(--font-label-m);
+      margin-block-start: spacing.$space-40;
+      margin-block-end: spacing.$space-8;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin-block: spacing.$space-12;
+    }
+
+    > .columnSplitter {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+      gap: spacing.$space-32 spacing.$space-64;
+    }
+  }
+}
