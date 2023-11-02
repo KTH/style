@@ -5,6 +5,10 @@
 
 @layer kth-style {
   .kth-menu-panel {
+    .kth-button.close {
+      margin-inline-start: auto;
+    }
+
     top: 100%;
     width: 100%;
     border: none;
@@ -22,6 +26,10 @@
   }
 
   .kth-menu-panel--modal {
+    .kth-button.close {
+      margin-inline-start: auto;
+    }
+
     background-color: var(--color-background);
     position: fixed;
     right: 0;
@@ -32,6 +40,7 @@
     width: 100dvw;
     height: 100dvh;
     border: 0;
+    padding: spacing.$space-32;
 
     .kth-button.close {
       margin-inline-start: auto;
