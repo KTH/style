@@ -1,0 +1,11 @@
+@use "../utils/mixins";
+@use "../tokens/spacing.scss";
+
+@layer kth-style {
+  ul.kth-personal-menu {
+    @include mixins.horizontal-list;
+    justify-content: flex-end;
+    gap: 0 spacing.$space-16;
+    grid-area: personal-menu;
+  }
+}

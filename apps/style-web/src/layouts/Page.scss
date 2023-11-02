@@ -16,6 +16,7 @@
 
 //
 @use "@kth/style/scss/components/kpm";
+@use "@kth/style/scss/components/personal-menu";
 @use "@kth/style/scss/components/entrances";
 @use "@kth/style/scss/components/details" with (
   $generate-css: false

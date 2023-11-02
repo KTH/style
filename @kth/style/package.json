@@ -6,11 +6,13 @@
   "exports": {
     ".": {
       "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js"
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/index.d.ts"
     },
     "./react": {
       "import": "./dist/esm/react.js",
-      "require": "./dist/cjs/react.js"
+      "require": "./dist/cjs/react.js",
+      "types": "./dist/react.d.ts"
     },
     "./scss/*": "./scss/*"
   },

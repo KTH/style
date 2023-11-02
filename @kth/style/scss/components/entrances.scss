@@ -2,8 +2,12 @@
 @use "../tokens/colors.scss";
 @use "../utils/mixins.scss";
 
+$breakpoint-mega-menu: 64rem;
+
 @layer kth-style {
   nav.kth-entrances {
+    grid-area: entrances;
+
     > ul {
       @include mixins.horizontal-list();
       gap: spacing.$space-4;
@@ -35,6 +39,11 @@
     a[href*="intra"][aria-current="true"] {
       background: colors.$color-sand;
       --color-primary: #{colors.$color-blue-kth};
+    }
+  }
+  @media (max-width: $breakpoint-mega-menu) {
+    nav.kth-entrances {
+      display: none;
     }
   }
 }
