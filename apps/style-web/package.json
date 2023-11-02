@@ -11,8 +11,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@kth/style": "*",
-    "astro": "^3.3.0",
+    "astro": "^3.4.2",
     "astro-compressor": "^0.4.1",
     "kth-style": "^9.0.10",
     "sass": "^1.66.1"
