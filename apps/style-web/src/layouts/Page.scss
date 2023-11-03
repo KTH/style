@@ -107,6 +107,7 @@ main {
 
   .kth-logotype {
     block-size: calc((1 - var(--kth-scroll-block)) * 3rem);
+    inline-size: calc((1 - var(--kth-scroll-block)) * 3rem);
 
     > figure {
       opacity: calc(1 - var(--kth-scroll-block, 0));
