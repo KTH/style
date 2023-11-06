@@ -2,7 +2,7 @@
 
 Styles and components used across KTH.
 
-Documentation available in the [KTH Style website](https://kthstyledemoref.z6.web.core.windows.net/style)
+Documentation available in the [KTH Style website](https://kthstyledemoprod.z6.web.core.windows.net/style)
 
 ## Structure
 
