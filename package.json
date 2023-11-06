@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "lerna run dev --stream --parallel --scope=style-web",
     "build": "lerna run build",
-    "publish": "lerna publish --no-private"
+    "version": "lerna version --no-private",
+    "publish": "lerna publish from-package --no-private"
   },
   "devDependencies": {
     "lerna": "^7.4.2",
