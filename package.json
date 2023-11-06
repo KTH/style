@@ -9,7 +9,7 @@
     "dev": "lerna run dev --stream --parallel --scope=style-web",
     "build": "lerna run build",
     "version": "lerna version --no-private",
-    "publish": "lerna publish from-git"
+    "publish": "lerna publish from-package"
   },
   "devDependencies": {
     "lerna": "^7.4.2",
