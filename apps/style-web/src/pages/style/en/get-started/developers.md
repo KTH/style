@@ -49,16 +49,18 @@ Read more in the [Express documentation](https://expressjs.com/en/starter/static
 1. Copy the files in `/node_modules/@kth/style/assets` to a custom directory.
 2. Make sure there is a public URL to access to the files in the directory you have copied
 
-## Import the Figtree font family
+## Import the Figtree font family and the icons
 
-You can import the Figtree using the HTML `<link>` tag or CSS `@import` rule.
+You can import Figtree font and icon assets using the HTML `<link>` tag or CSS `@import` rule.
 
 ```html
 <link rel="stylesheet" href="/<YOUR_APP>/assets/fonts.css" />
+<link rel="stylesheet" href="/<YOUR_APP>/assets/icons.css" />
 ```
 
 ```scss
 @import url("/<YOUR_APP>/assets/fonts.css");
+@import url("/<YOUR_APP>/assets/icons.css");
 ```
 
 > [!Note]
