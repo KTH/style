@@ -33,7 +33,11 @@
       background-color: var(--color-primary);
     }
     &.language::before {
-      @include icons.icon-globe;
+      @include icons.icon-language;
+      background-color: var(--color-primary);
+    }
+    &.menu::before {
+      @include icons.icon-menu;
       background-color: var(--color-primary);
     }
   }

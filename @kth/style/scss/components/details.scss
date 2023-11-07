@@ -13,7 +13,6 @@ $border-width: spacing.$space-4;
     color: var(--color-tertiary);
     padding-block: var(--space-inner-block);
     cursor: pointer;
-    // padding-inline-start: spacing.$space-20;
     list-style: none;
     font: inherit;
     display: grid;
@@ -31,7 +30,7 @@ $border-width: spacing.$space-4;
   }
 
   &[open] summary::before {
-    rotate: 0deg;
+    rotate: 90deg;
   }
 
   > div {

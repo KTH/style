@@ -43,12 +43,10 @@ $secondary-border-width: math.div(1rem, 16);
     }
 
     > button::after {
-      content: "";
-      display: inline-block;
-      @include icons.mask(icons.$icon-url-search);
-      background-color: var(--color-secondary);
+      @include icons.icon-search;
       width: 1.5rem;
       height: 1.5rem;
+      background-color: var(--color-secondary);
     }
   }
 }

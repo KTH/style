@@ -15,6 +15,10 @@
     &__container {
       @include mixins.container;
     }
+
+    .kth-button.close {
+      margin-inline-start: auto;
+    }
   }
 
   .kth-menu-panel--modal {
@@ -28,5 +32,9 @@
     width: 100dvw;
     height: 100dvh;
     border: 0;
+
+    .kth-button.close {
+      margin-inline-start: auto;
+    }
   }
 }
