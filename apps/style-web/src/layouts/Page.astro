@@ -6,6 +6,7 @@ type Props = MarkdownLayoutProps<{
 }>;
 
 import "./Page.scss";
+import "@components/color-table.scss";
 import Layout from "./Layout.astro";
 import Kpm from "../components/Kpm.astro";
 import Header from "../components/Header.astro";
@@ -24,4 +25,9 @@ const { frontmatter } = Astro.props;
     <Sidebar />
     <main id="kth-main"><slot /></main>
   </div>
+  <script>
+    import { ColorTable } from "@components/color-table.ts";
+
+    window.customElements.define("styleweb-color-table", ColorTable);
+  </script>
 </Layout>

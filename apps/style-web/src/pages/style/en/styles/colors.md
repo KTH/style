@@ -7,18 +7,45 @@ layout: "@layouts/Page.astro"
 
 Color system in KTH Style is based on KTH graphical identity and implements accessible contrast requirements by default.
 
-## Brand colors (reference tokens)
+## Reference tokens
 
-> [!Note]
-> This section is under development
+> [!Note] You should not use reference tokens if there is a semantic token available.
 
 The new graphical identity defines 6 tones of primary colors. Five blues and one beige.
 
-![](@images/color-blues.png)
+<styleweb-color-table>
 
-- All reference tokens are defined as Sass variables.
-- KTH Style has defined extra colors for specific web uses outside of the graphical identity
-- You should not use reference tokens if there is a semantic token available.
+| Name                | Hex value |
+| ------------------- | --------- |
+| $color-sand         | #e6e1dd   |
+| $color-blue-kth     | #004791   |
+| $color-blue-sky     | #6298d2   |
+| $color-blue-marine  | #08004f   |
+| $color-blue-light   | #e0edfc   |
+| $color-blue-digital | #221dd9   |
+
+</styleweb-color-table>
+
+In addition to that, KTH Style uses the following colors to meet various needs
+
+<styleweb-color-table>
+
+| Name               | Hex value |
+| ------------------ | --------- |
+| $color-white       | #fcfcfc   |
+| $color-gray-light  | #e6e6e6   |
+| $color-gray-medium | #a5a5a5   |
+| $color-gray-dark   | #323232   |
+| $color-black       | #212121   |
+| $color-blue-lake   | #036eb8   |
+| $color-red-light   | #fad6d6   |
+| $color-red         | #d8351e   |
+| $color-red-dark    | #bf2c17   |
+| $color-green-light | #d8ffe7   |
+| $color-green       | #3f824e   |
+| $color-green-dark  | #366f43   |
+
+</styleweb-color-table>
 
 ## Semantic colors (semantic tokens)
 
@@ -35,7 +62,7 @@ Example:
 
 Surface colors are used for large surfaces like a header or the whole page. They are:
 
-- `--color-background`. Color for the background of the surface
+- `--color-background` and `--color-background-alt`. Color for the background of the surface
 - `--color-text`. Color for texts that are directly written on the surface
 
 Primary colors are used for UI components with a "primary" appearance:
@@ -52,25 +79,22 @@ Secondary colors and tertiary are used for UI elements with secondary and tertia
 - `--color-secondary`. Main color for secondary components with borders. For border, texts and icons
 - `--color-tertiary`. Main color for secondary components without borders. For texts and icons
 
-Accessibility: UI components that use `--color-tertiary` **must** have extra elements to indicate they are interactive. For example:
+Accessibility: UI components that use `--color-tertiary` **must** be distinguishable from non-interactive text that surrounding them. For example:
 
-- Specific position: a link placed in a navigation area
 - A decoration: an underlined link
 - Extra elements: icons for collappse and dropdowns
+- List of links where the title (not a link) have a different font style
 
 ### Success and error colors
 
-> [!Note]
-> These colors are not defined yet in `colors.scss`. We need to set values for them in all themes
-
 Used to indicate success and error.
+
+> [!Note] UI components should not rely only on color to convey error or success meaning. Use icons, labels and other additional elements
 
 ![](@images/color-error-success.png)
 
 - `--color-error`. Color for errors. Used in borders, texts and backgrounds of UI elements
 - `--color-success`. Color for success. Used in borders, texts and backgrounds of UI elements
-
-Accessibility: UI components should not rely only on color to convey error or success meaning. Use icons, labels and other additional elements
 
 ### Other colors
 
@@ -85,25 +109,7 @@ We are still working on colors for:
 ### Colors for states
 
 > [!Note]
-> We are still working on colors for hover
-
-We think it is possible to define just one "overlay" color (something like a black with 10% opacity) and "merge" both the normal color with CSS:
-
-```scss
-// --hover-overlay transparent by default:
-button.primary {
-  background: var(--color-primary), var(--hover-overlay, transparent);
-}
-
-button.secondary {
-  background: var(--hover-overlay);
-}
-
-// We don't need to style every hover component. Just need to set the value for the overlay and components will read the value
-:hover {
-  --hover-overlay: rgb(0 0 0 / 0.1);
-}
-```
+> We are still working on colors for hover, active and inactive states
 
 Some components need to signal an "active" or "inactive" states:
 
@@ -127,16 +133,7 @@ KTH Style defines the following 4 color themes:
 
 ## Accessibility
 
-> [!Note]
-> This section is important only if you are implementing a new theme
-
-All colors in a given theme must met the WCAG contrast requirements for the purpose that are designed for. Example:
-
-- `--color-background` and `--color-text` should have as highest contrast as possible since they are colors for background and normal text. At least 7:1 is desired
-- `--color-background` should have contrast with `--color-primary`, `--color-error` and `--color-success` (all of the three) of at least 4.5:1 since the latter three appear always on the background.
-- `--color-on-primary` should have contrast with `--color-primary`, `--color-error` and `--color-success` (all of the three) of at least 4.5:1
-- `--color-secondary` should have 4.5:1 contrast with `--color-background`
-- `--color-tertiary` should have 4.5:1 contrast with `--color-bacakground`. It is recommended to have a 3:1 contrast with `--color-text`.
+Check contrast requirements in [color accessibility test](../examples/a11y-colors).
 
 ## How to use semantic tokens
 

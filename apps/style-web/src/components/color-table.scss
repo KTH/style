@@ -1,0 +1,16 @@
+@use "@kth/style/scss/tokens/spacing" as s;
+styleweb-color-table {
+  .styleweb-swatch {
+    display: flex;
+    gap: 0 s.$space-12;
+
+    &::before {
+      content: " ";
+      display: block;
+      background: var(--color);
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 100%;
+    }
+  }
+}

@@ -7,8 +7,9 @@
     margin-inline-start: auto;
     background: transparent;
     border: none;
-    padding-inline: 0;
+    padding-inline: spacing.$space-8;
     padding-block: spacing.$space-8;
+    border-radius: 100%;
   }
 
   .kth-button.close::before {
