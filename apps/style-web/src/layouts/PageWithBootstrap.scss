@@ -6,6 +6,7 @@
 @use "@kth/style/scss/components/a11y-nav";
 @use "@kth/style/scss/components/menu-item";
 @use "@kth/style/scss/components/menu-panel";
+@use "@kth/style/scss/components/menu-panel__content";
 @use "@kth/style/scss/components/header";
 @use "@kth/style/scss/components/logotype";
 @use "@kth/style/scss/components/mega-menu";
@@ -15,5 +16,4 @@
 @use "@kth/style/scss/components/kpm";
 @use "@kth/style/scss/components/entrances";
 
-@layer old-kth-style, kth-style;
-@import "kth-style/dist/css/kth-bootstrap.css" layer(old-kth-style);
+@import "kth-style/public/sass/kth-bootstrap.scss";
