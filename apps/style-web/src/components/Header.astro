@@ -62,17 +62,19 @@ const navigationPanelsSv = [
             <button class="kth-button close">
               <span class="kth-visually-hidden">Close</span>
             </button>
-            <div class="kth-menu-panel__content">
-              <h2>Menu</h2>
+            <nav class="kth-mega-menu__modal">
               <ul>
                 {
                   navigationPanelsSv.map(({ label, dataId }) => (
-                    <NavigationPanelMobile label={label} dataId={dataId} />
+                    <li class="kth-menu-item--mobile">
+                      <NavigationPanelMobile label={label} dataId={dataId} />
+                    </li>
                   ))
                 }
               </ul>
-
-              <ul class="kth-menu-panel__entries">
+            </nav>
+            <div class="kth-entrances__modal">
+              <ul>
                 <li><a href="https://kth.se">kth.se</a></li>
                 <li><a href="https://student.kth.se">Studentwebben</a></li>
                 <li><a href="https://intra.kth.se">Intranät</a></li>
