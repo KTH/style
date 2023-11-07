@@ -2,26 +2,22 @@
 @use "../tokens/icons";
 
 @layer kth-style {
+  // Buttons with only icon:
   .kth-button.close {
+    --icon-size: calc(#{spacing.$space-24} + 2 * var(--space-inner-icon));
     display: flex;
-    margin-inline-start: auto;
     background: transparent;
     border: none;
-    padding-inline: spacing.$space-8;
-    padding-block: spacing.$space-8;
+    padding: var(--space-inner-icon);
+    width: var(--icon-size);
+    height: var(--icon-size);
     border-radius: 100%;
   }
 
   .kth-button.close::before {
-    content: "";
-    display: inline-block;
-    width: 1.5rem;
-    height: 1.5rem;
-    background-color: var(--color-primary);
-
-    mask-image: icons.$icon-url-close;
-    -webkit-mask-image: icons.$icon-url-close;
-    mask-size: cover;
-    -webkit-mask-size: cover;
+    @include icons.icon-close;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-secondary);
   }
 }
