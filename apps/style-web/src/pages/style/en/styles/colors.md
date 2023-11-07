@@ -13,6 +13,8 @@ Color system in KTH Style is based on KTH graphical identity and implements acce
 
 The new graphical identity defines 6 tones of primary colors. Five blues and one beige.
 
+<styleweb-color-table>
+
 | Name                | Hex value |
 | ------------------- | --------- |
 | $color-sand         | #e6e1dd   |
@@ -22,7 +24,11 @@ The new graphical identity defines 6 tones of primary colors. Five blues and one
 | $color-blue-light   | #e0edfc   |
 | $color-blue-digital | #221dd9   |
 
+</styleweb-color-table>
+
 In addition to that, KTH Style uses the following colors to meet various needs
+
+<styleweb-color-table>
 
 | Name               | Hex value |
 | ------------------ | --------- |
@@ -38,6 +44,8 @@ In addition to that, KTH Style uses the following colors to meet various needs
 | $color-green-light | #d8ffe7   |
 | $color-green       | #3f824e   |
 | $color-green-dark  | #366f43   |
+
+</styleweb-color-table>
 
 ## Semantic colors (semantic tokens)
 
