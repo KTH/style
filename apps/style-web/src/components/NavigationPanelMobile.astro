@@ -16,9 +16,12 @@ const { label, dataId } = Astro.props;
     <span>{label}</span>
   </a>
   <dialog class="kth-menu-panel--modal">
-    <button class="kth-button close">
-      <span class="kth-visually-hidden">Close</span>
-    </button>
+    <div class="kth-menu-panel--modal__header">
+      <button class="kth-button back"> Back to main menu</button>
+      <button class="kth-button close">
+        <span class="kth-visually-hidden">Close</span>
+      </button>
+    </div>
     <div class="kth-menu-panel__content"></div>
   </dialog>
 </div>

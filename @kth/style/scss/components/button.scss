@@ -23,4 +23,20 @@
     mask-size: cover;
     -webkit-mask-size: cover;
   }
+
+  .kth-button.back {
+    display: inline-flex;
+    align-items: center;
+    gap: spacing.$space-4;
+    padding-inline: spacing.$space-8;
+    padding-block: spacing.$space-8;
+    border: none;
+    background: transparent;
+    color: var(--color-secondary);
+  }
+
+  .kth-button.back::before {
+    @include icons.icon-arrow-left-300;
+    background-color: var(--color-secondary);
+  }
 }
