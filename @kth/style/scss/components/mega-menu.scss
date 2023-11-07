@@ -21,6 +21,23 @@ $breakpoint-mega-menu: 64rem;
     display: none;
   }
 
+  .kth-mega-menu__modal {
+    h2 {
+      font: var(--font-label-m);
+      color: var(--color-primary);
+    }
+
+    > ul {
+      padding: 0;
+      margin-inline: 0;
+      margin-block: spacing.$space-24;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: spacing.$space-24;
+    }
+  }
+
   @media (max-width: $breakpoint-mega-menu) {
     nav.kth-mega-menu {
       display: none;

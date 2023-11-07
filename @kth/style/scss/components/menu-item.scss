@@ -37,4 +37,20 @@
       background-color: var(--color-primary);
     }
   }
+
+  .kth-menu-item--modal {
+    font: var(--font-heading-m);
+    display: inline-flex;
+    padding-block: spacing.$space-4;
+    text-decoration: none;
+    align-items: center;
+    gap: spacing.$space-4;
+
+    &::after {
+      @include icons.icon-caret-right;
+      width: 1.5rem;
+      height: 1.5rem;
+      background-color: var(--color-primary);
+    }
+  }
 }

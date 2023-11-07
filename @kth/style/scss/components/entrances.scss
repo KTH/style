@@ -37,4 +37,17 @@
       --color-primary: #{colors.$color-blue-kth};
     }
   }
+
+  .kth-entrances__modal {
+    > ul {
+      margin: 0;
+      padding-inline: 0;
+      padding-block-start: spacing.$space-32;
+
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: spacing.$space-24;
+    }
+  }
 }
