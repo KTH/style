@@ -12,10 +12,6 @@
     border-radius: 100%;
   }
 
-  .kth-button:hover {
-    background: var(--color-hover-overlay, transparent);
-  }
-
   .kth-button.close::before {
     content: "";
     display: inline-block;

@@ -109,25 +109,7 @@ We are still working on colors for:
 ### Colors for states
 
 > [!Note]
-> We are still working on colors for hover
-
-We think it is possible to define just one "overlay" color (something like a black with 10% opacity) and "merge" both the normal color with CSS:
-
-```scss
-// --hover-overlay transparent by default:
-button.primary {
-  background: var(--color-primary), var(--hover-overlay, transparent);
-}
-
-button.secondary {
-  background: var(--hover-overlay);
-}
-
-// We don't need to style every hover component. Just need to set the value for the overlay and components will read the value
-:hover {
-  --hover-overlay: rgb(0 0 0 / 0.1);
-}
-```
+> We are still working on colors for hover, active and inactive states
 
 Some components need to signal an "active" or "inactive" states:
 
