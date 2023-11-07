@@ -56,4 +56,9 @@
       margin-block-start: auto;
     }
   }
+
+  .kth-menu-panel--modal__header {
+    margin-inline-start: calc(-1 * spacing.$space-8);
+    display: flex;
+  }
 }
