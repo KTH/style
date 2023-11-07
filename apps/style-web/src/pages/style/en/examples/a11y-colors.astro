@@ -8,24 +8,37 @@ import Sidebar from "@components/Sidebar.astro";
 const properties = [
   "--color-text",
   "--color-background",
+  "--color-background-alt",
   "--color-primary",
   "--color-secondary",
   "--color-tertiary",
   "--color-error",
   "--color-success",
   "--color-on-primary",
-];
+] as const;
 
-const tests = [
+type PROPERTIES = (typeof properties)[number];
+
+const tests: { c1: PROPERTIES; c2: PROPERTIES; r: number }[] = [
   { c1: "--color-background", c2: "--color-text", r: 7 },
+  { c1: "--color-background-alt", c2: "--color-text", r: 7 },
+
   { c1: "--color-background", c2: "--color-primary", r: 4.5 },
   { c1: "--color-background", c2: "--color-error", r: 4.5 },
   { c1: "--color-background", c2: "--color-success", r: 4.5 },
+  { c1: "--color-background-alt", c2: "--color-primary", r: 4.5 },
+  { c1: "--color-background-alt", c2: "--color-error", r: 4.5 },
+  { c1: "--color-background-alt", c2: "--color-success", r: 4.5 },
+
   { c1: "--color-primary", c2: "--color-on-primary", r: 4.5 },
   { c1: "--color-error", c2: "--color-on-primary", r: 4.5 },
   { c1: "--color-success", c2: "--color-on-primary", r: 4.5 },
+
   { c1: "--color-background", c2: "--color-secondary", r: 4.5 },
   { c1: "--color-background", c2: "--color-tertiary", r: 4.5 },
+  { c1: "--color-background-alt", c2: "--color-secondary", r: 4.5 },
+  { c1: "--color-background-alt", c2: "--color-tertiary", r: 4.5 },
+
   { c1: "--color-text", c2: "--color-tertiary", r: 3 },
 ];
 ---
@@ -172,7 +185,7 @@ const tests = [
         const c1hex = getColorFromSource(source, row.dataset.color1 || "");
         const c2hex = getColorFromSource(source, row.dataset.color2 || "");
 
-        const requirement = parseInt(row.dataset.requirement || "0", 10);
+        const requirement = parseFloat(row.dataset.requirement || "0");
 
         const actual = wcagContrast(
           Color.fromHex(c1hex || ""),
