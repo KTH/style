@@ -54,7 +54,7 @@ Example:
 
 Surface colors are used for large surfaces like a header or the whole page. They are:
 
-- `--color-background`. Color for the background of the surface
+- `--color-background` and `--color-background-alt`. Color for the background of the surface
 - `--color-text`. Color for texts that are directly written on the surface
 
 Primary colors are used for UI components with a "primary" appearance:
@@ -71,11 +71,11 @@ Secondary colors and tertiary are used for UI elements with secondary and tertia
 - `--color-secondary`. Main color for secondary components with borders. For border, texts and icons
 - `--color-tertiary`. Main color for secondary components without borders. For texts and icons
 
-Accessibility: UI components that use `--color-tertiary` **must** have extra elements to indicate they are interactive. For example:
+Accessibility: UI components that use `--color-tertiary` **must** be distinguishable from non-interactive text that surrounding them. For example:
 
-- Specific position: a link placed in a navigation area
 - A decoration: an underlined link
 - Extra elements: icons for collappse and dropdowns
+- List of links where the title (not a link) have a different font style
 
 ### Success and error colors
 
