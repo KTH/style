@@ -26,9 +26,15 @@ export function addEventListeners(dialog: HTMLDialogElement) {
   }
 
   if (backButton instanceof HTMLButtonElement) {
-    backButton.addEventListener("click", () => {
-      dialog.close();
-    });
+    // If the back button is inside a nested dialog, should be handled by the
+    // inner dialog, not this one
+    const closestDialog = backButton.closest("dialog");
+
+    if (closestDialog?.isEqualNode(dialog)) {
+      backButton.addEventListener("click", () => {
+        dialog.close();
+      });
+    }
   }
 }
 
