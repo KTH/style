@@ -6,19 +6,18 @@ $icon-size: calc(#{spacing.$space-24} + 2 * var(--space-inner-icon));
 @layer kth-style {
   // Buttons with only icon:
   .kth-button.close {
-    display: flex;
+    display: grid;
+    place-items: center;
     background: transparent;
     border: none;
     padding: var(--space-inner-icon);
-    width: var($icon-size);
-    height: var($icon-size);
+    width: $icon-size;
+    height: $icon-size;
     border-radius: 100%;
   }
 
   .kth-button.close::before {
     @include icons.icon-close;
-    width: 100%;
-    height: 100%;
     background-color: var(--color-secondary);
   }
 
@@ -34,7 +33,7 @@ $icon-size: calc(#{spacing.$space-24} + 2 * var(--space-inner-icon));
   }
 
   .kth-button.back::before {
-    @include icons.icon-arrow-left-300;
+    @include icons.icon-arrow-left;
     background-color: var(--color-secondary);
   }
 }

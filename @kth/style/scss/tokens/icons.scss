@@ -37,3 +37,8 @@
 @mixin icon-close {
   @include with-icon(raw.$icon-close);
 }
+
+@mixin icon-arrow-left {
+  @include with-icon(raw.$icon-arrow-forward);
+  rotate: 180deg;
+}
