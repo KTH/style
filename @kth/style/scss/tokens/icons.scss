@@ -1,35 +1,39 @@
-@mixin with-icon($icon-name) {
+@use "./icons-raw.scss" as raw;
+
+@mixin with-icon($icon, $size: 1.25rem) {
+  // We use this variable to avoid sending the same data twice to the users
+  --icon: #{$icon};
   content: "";
   display: inline-block;
-  width: 1.25rem;
-  height: 1.25rem;
-  -webkit-mask-image: $icon-name;
-  mask-image: $icon-name;
+  width: $size;
+  height: $size;
+  -webkit-mask-image: var(--icon);
+  mask-image: var(--icon);
   mask-size: cover;
   -webkit-mask-size: cover;
 }
 
 @mixin icon-language {
-  @include with-icon(var(--icon-language));
+  @include with-icon(raw.$icon-language);
 }
 
 @mixin icon-search {
-  @include with-icon(var(--icon-search));
+  @include with-icon(raw.$icon-search);
 }
 
 @mixin icon-menu {
-  @include with-icon(var(--icon-menu));
+  @include with-icon(raw.$icon-menu);
 }
 
 @mixin icon-caret-down {
-  @include with-icon(var(--icon-caret-right));
+  @include with-icon(raw.$icon-caret-right);
   rotate: 90deg;
 }
 
 @mixin icon-caret-right {
-  @include with-icon(var(--icon-caret-right));
+  @include with-icon(raw.$icon-caret-right);
 }
 
 @mixin icon-close {
-  @include with-icon(var(--icon-close));
+  @include with-icon(raw.$icon-close);
 }
