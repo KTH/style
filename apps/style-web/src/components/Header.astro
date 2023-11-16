@@ -1,29 +1,46 @@
 ---
+import { getLangFromUrl } from "src/i18n/utils";
 import MainHeaderLogotype from "./Logotype.astro";
 import NavigationPanel from "./NavigationPanel.astro";
 import NavigationPanelMobile from "./NavigationPanelMobile.astro";
 import SearchPanel from "./SearchPanel.astro";
 
-const navigationPanelsSv = [
+const lang = getLangFromUrl(Astro.url);
+const navigationPanel = [
   {
     dataId: "1.575942",
-    label: "Din anställning",
+    labels: {
+      en: "My employment",
+      sv: "Din anställning",
+    },
   },
   {
     dataId: "1.575949",
-    label: "Stöd och service",
+    labels: {
+      en: "Support & Service",
+      sv: "Stöd och service",
+    },
   },
   {
     dataId: "1.1067969",
-    label: "Utbilda",
+    labels: {
+      en: "Education",
+      sv: "Utbilda",
+    },
   },
   {
     dataId: "1.1067196",
-    label: "Forska",
+    labels: {
+      en: "Research",
+      sv: "Forska",
+    },
   },
   {
     dataId: "1.575952",
-    label: "Orgasnisation och styrning",
+    labels: {
+      en: "Organisation & Regulations",
+      sv: "Orgasnisation och styrning",
+    },
   },
 ];
 ---
@@ -34,9 +51,9 @@ const navigationPanelsSv = [
     <nav class="kth-mega-menu">
       <ul>
         {
-          navigationPanelsSv.map(({ dataId, label }) => (
+          navigationPanel.map(({ dataId, labels }) => (
             <li>
-              <NavigationPanel dataId={dataId} label={label} />
+              <NavigationPanel dataId={dataId} label={labels[lang]} />
             </li>
           ))
         }
@@ -66,8 +83,11 @@ const navigationPanelsSv = [
               <h2>Menu</h2>
               <ul>
                 {
-                  navigationPanelsSv.map(({ label, dataId }) => (
-                    <NavigationPanelMobile label={label} dataId={dataId} />
+                  navigationPanel.map(({ labels, dataId }) => (
+                    <NavigationPanelMobile
+                      label={labels[lang]}
+                      dataId={dataId}
+                    />
                   ))
                 }
               </ul>
