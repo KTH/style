@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl } from "src/i18n/utils";
+import { getLangFromUrl, getTranslatedLink } from "src/i18n/utils";
 import MainHeaderLogotype from "./Logotype.astro";
 import NavigationPanel from "./NavigationPanel.astro";
 import NavigationPanelMobile from "./NavigationPanelMobile.astro";
@@ -43,6 +43,8 @@ const navigationPanel = [
     },
   },
 ];
+
+const translatedLink = getTranslatedLink(Astro.url);
 ---
 
 <header class="kth-header intranet">
@@ -65,8 +67,12 @@ const navigationPanel = [
         <SearchPanel />
       </li>
       <li>
-        <a href="/" class="kth-menu-item language">
-          <span>English</span>
+        <a
+          href={translatedLink.url}
+          lang={translatedLink.lang}
+          class="kth-menu-item language"
+        >
+          <span>{translatedLink.label}</span>
         </a>
       </li>
       <li>

@@ -7,3 +7,28 @@ export function getLangFromUrl(url: URL) {
 
   return defaultLang;
 }
+
+/** Get the URL and label for the same page in the other language */
+export function getTranslatedLink(url: URL) {
+  const currentLanguage = getLangFromUrl(url);
+
+  if (currentLanguage === "en") {
+    const newUrl = new URL(url);
+    newUrl.pathname = url.pathname.replace("/style/en", "/style/sv");
+
+    return {
+      url: newUrl,
+      lang: "sv",
+      label: "Svenska",
+    };
+  } else {
+    const newUrl = new URL(url);
+    newUrl.pathname = url.pathname.replace("/style/sv", "/style/en");
+
+    return {
+      url: newUrl,
+      lang: "en",
+      label: "English",
+    };
+  }
+}
