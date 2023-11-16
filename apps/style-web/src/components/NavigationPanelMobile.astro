@@ -2,6 +2,9 @@
 // This `NavigationPanel` component is NOT the KTH Style NavigationPanel.
 //
 // This component is used exclusively on kth style web to be able to
+
+import { getLangFromUrl, useTranslations } from "src/i18n/utils";
+
 // demonstrate how can you use KTH Style components in your projects
 interface Props {
   label: string;
@@ -9,6 +12,7 @@ interface Props {
 }
 
 const { label, dataId } = Astro.props;
+const t = useTranslations(getLangFromUrl(Astro.url));
 ---
 
 <div>
@@ -17,13 +21,17 @@ const { label, dataId } = Astro.props;
   </a>
   <dialog class="kth-menu-panel--modal">
     <button class="kth-button close">
-      <span class="kth-visually-hidden">Close</span>
+      <span class="kth-visually-hidden">{t("close")}</span>
     </button>
     <div class="kth-menu-panel__content"></div>
   </dialog>
 </div>
 
 <script>
+  import { getLangFromUrl } from "src/i18n/utils";
+  // This code is for reading blocks from Cortina
+  const lang = getLangFromUrl(new URL(window.location.href));
+
   // This code is for reading blocks from Cortina
   document
     .querySelectorAll(".kth-menu-item--modal[data-id]")
@@ -53,7 +61,7 @@ const { label, dataId } = Astro.props;
         if (!p) {
           // Fetch only if the promise has not started
           console.log(`Fetching block ${cortinaBlockId}`);
-          p = fetch(`/cm/${cortinaBlockId}`).then((r) => r.text());
+          p = fetch(`/cm/${cortinaBlockId}?l=${lang}`).then((r) => r.text());
         }
 
         p.then((body) => {

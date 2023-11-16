@@ -1,3 +1,9 @@
+---
+import { getLangFromUrl, useTranslations } from "src/i18n/utils";
+
+const t = useTranslations(getLangFromUrl(Astro.url));
+---
+
 <div class="kth-kpm">
   <div class="kth-kpm__container">
     <nav class="kth-entrances" aria-label="Ingångar">
@@ -9,7 +15,7 @@
         </li>
         <li>
           <a class="kth-menu-item" href="https://kth.se/student">
-            <span>Studentwebben</span>
+            <span>{t("sites.student-web")}</span>
           </a>
         </li>
         <li>
@@ -18,7 +24,7 @@
             href="https://intra.kth.se"
             aria-current="true"
           >
-            <span>Intranät</span>
+            <span>{t("sites.intranet")}</span>
           </a>
         </li>
       </ul>
