@@ -1,4 +1,4 @@
-import { languages, defaultLang } from "./ui";
+import { ui, languages, defaultLang } from "./ui";
 import type { Languages } from "./ui";
 
 export function getLangFromUrl(url: URL) {
@@ -31,4 +31,10 @@ export function getTranslatedLink(url: URL) {
       label: "English",
     };
   }
+}
+
+export function useTranslations(lang: Languages) {
+  return function t(key: keyof (typeof ui)[typeof defaultLang]) {
+    return ui[lang][key] || ui[defaultLang][key];
+  };
 }

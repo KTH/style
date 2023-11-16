@@ -1,15 +1,21 @@
+---
+import { getLangFromUrl, useTranslations } from "src/i18n/utils";
+
+const t = useTranslations(getLangFromUrl(Astro.url));
+---
+
 <button class="kth-menu-item search">
-  <span>Sök</span>
+  <span>{t("nav.search")}</span>
 </button>
 <dialog class="kth-menu-panel">
   <div class="kth-menu-panel__container">
     <button class="kth-button close">
-      <span class="kth-visually-hidden">Close</span>
+      <span class="kth-visually-hidden">{t("close")}</span>
     </button>
     <div class="kth-menu-panel__content search">
       <form action="https://kth.se/search" method="get">
         <div class="kth-search">
-          <label for="search-input">Sök på intranät</label>
+          <label for="search-input">{t("search-intranet")}</label>
           <input type="hidden" name="urlFilter" value="intra.kth.se" />
           <input type="hidden" name="filterLabel" value="Sök på intranät" />
           <input type="hidden" name="l" value="sv" />
@@ -22,7 +28,7 @@
             autofocus
           />
           <button type="submit">
-            <span class="kth-visually-hidden">Search</span>
+            <span class="kth-visually-hidden">{t("nav.search")}</span>
           </button>
         </div>
       </form>

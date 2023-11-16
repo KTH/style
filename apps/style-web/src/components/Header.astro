@@ -1,5 +1,9 @@
 ---
-import { getLangFromUrl, getTranslatedLink } from "src/i18n/utils";
+import {
+  getLangFromUrl,
+  getTranslatedLink,
+  useTranslations,
+} from "src/i18n/utils";
 import MainHeaderLogotype from "./Logotype.astro";
 import NavigationPanel from "./NavigationPanel.astro";
 import NavigationPanelMobile from "./NavigationPanelMobile.astro";
@@ -45,11 +49,12 @@ const navigationPanel = [
 ];
 
 const translatedLink = getTranslatedLink(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <header class="kth-header intranet">
   <div class="kth-header__container">
-    <MainHeaderLogotype alt="Gå till KtH intranät" />
+    <MainHeaderLogotype alt={t("nav.go-home")} />
     <nav class="kth-mega-menu">
       <ul>
         {
@@ -78,15 +83,15 @@ const translatedLink = getTranslatedLink(Astro.url);
       <li>
         <nav class="kth-mega-menu--collapsable">
           <button class="kth-menu-item menu">
-            <span>Menu</span>
+            <span>{t("nav.menu")}</span>
           </button>
           <dialog class="kth-menu-panel--modal">
             <!-- -->
             <button class="kth-button close">
-              <span class="kth-visually-hidden">Close</span>
+              <span class="kth-visually-hidden">{t("close")}</span>
             </button>
             <div class="kth-menu-panel__content">
-              <h2>Menu</h2>
+              <h2>{t("nav.menu")}</h2>
               <ul>
                 {
                   navigationPanel.map(({ labels, dataId }) => (
@@ -100,8 +105,12 @@ const translatedLink = getTranslatedLink(Astro.url);
 
               <ul class="kth-menu-panel__entries">
                 <li><a href="https://kth.se">kth.se</a></li>
-                <li><a href="https://student.kth.se">Studentwebben</a></li>
-                <li><a href="https://intra.kth.se">Intranät</a></li>
+                <li>
+                  <a href="https://kth.se/student">{t("sites.student-web")}</a>
+                </li>
+                <li>
+                  <a href="https://intra.kth.se">{t("sites.intranet")}</a>
+                </li>
               </ul>
             </div>
           </dialog>
