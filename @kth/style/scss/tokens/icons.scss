@@ -37,3 +37,15 @@
 @mixin icon-close {
   @include with-icon(raw.$icon-close);
 }
+
+@mixin icon-info-500 {
+  @include with-icon(raw.$icon-info-500);
+}
+
+@mixin icon-warning-500 {
+  @include with-icon(raw.$icon-warning-500);
+}
+
+@mixin icon-check-500 {
+  @include with-icon(raw.$icon-check-500);
+}

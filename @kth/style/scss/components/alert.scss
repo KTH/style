@@ -1,0 +1,53 @@
+@use "../tokens/spacing.scss";
+@use "../tokens/icons.scss";
+
+$border-inline: spacing.$space-2;
+$padding-inline: calc(spacing.$space-12 - $border-inline);
+
+@layer kth-style {
+  .kth-alert {
+    display: grid;
+    gap: spacing.$space-4 spacing.$space-8;
+    grid-template-columns: auto 1fr;
+    padding-inline: $padding-inline;
+    padding-block-start: spacing.$space-8;
+    padding-block-end: spacing.$space-16;
+
+    border-block-start-width: spacing.$space-6;
+    border-inline-width: $border-inline;
+    border-block-end-width: $border-inline;
+    border-style: solid;
+    border-color: var(--color-text);
+
+    &.info {
+      border-color: var(--color-primary);
+    }
+
+    &.info::before {
+      @include icons.icon-info-500;
+      background-color: var(--color-text);
+      grid-column-start: 1;
+      align-self: center;
+    }
+
+    > * {
+      grid-column-start: 2;
+    }
+
+    > :is(h2, h3, h4) {
+      font: var(--font-label-s);
+    }
+
+    p {
+      margin-block: spacing.$space-8;
+    }
+
+    p:first-child {
+      margin-block-start: 0;
+    }
+
+    p:last-child {
+      margin-block-end: 0;
+    }
+  }
+}
