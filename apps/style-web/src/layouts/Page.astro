@@ -3,6 +3,8 @@ import type { MarkdownLayoutProps } from "astro";
 
 type Props = MarkdownLayoutProps<{
   title: string;
+  original?: boolean;
+  status?: string;
 }>;
 
 import "./Page.scss";
@@ -11,6 +13,7 @@ import Layout from "./Layout.astro";
 import Kpm from "../components/Kpm.astro";
 import Header from "../components/Header.astro";
 import Sidebar from "@components/Sidebar.astro";
+import MissingTranslation from "@components/MissingTranslation.astro";
 
 const { frontmatter } = Astro.props;
 ---
@@ -23,7 +26,16 @@ const { frontmatter } = Astro.props;
   <Header />
   <div class="kth-content">
     <Sidebar />
-    <main id="kth-main"><slot /></main>
+    <main id="kth-main">
+      {
+        frontmatter.original === false && frontmatter.status === "empty" && (
+          <MissingTranslation />
+        )
+      }
+      <article>
+        <slot />
+      </article>
+    </main>
   </div>
   <script>
     import { ColorTable } from "@components/color-table.ts";

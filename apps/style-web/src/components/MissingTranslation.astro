@@ -1,0 +1,52 @@
+---
+import { getLangFromUrl, getTranslatedLink } from "src/i18n/utils";
+
+import "@kth/style/scss/components/alert.scss";
+
+const lang = getLangFromUrl(Astro.url);
+const otherLanguage = getTranslatedLink(Astro.url);
+---
+
+{
+  lang === "en" && (
+    <div class="kth-alert info no-prose">
+      <h2>Translation under development</h2>
+      <div>
+        <p>
+          The English version of this page is under development.
+          <a href={otherLanguage.path} lang={otherLanguage.lang}>
+            Read the original in Swedish
+          </a>
+        </p>
+        <p>
+          Help us translating the page by creating a Pull Request in the
+          <a href="https://github.com/kth/style">
+            KTH Style repository in Github
+          </a>
+        </p>
+      </div>
+    </div>
+  )
+}
+
+{
+  lang === "sv" && (
+    <div class="kth-alert info no-prose">
+      <h2>Översättning under utveckling</h2>
+      <div>
+        <p>
+          Svenska versionen av denna sida är under utveckling.
+          <a href={otherLanguage.path} lang={otherLanguage.lang}>
+            Läs sidan på engelska
+          </a>
+        </p>
+        <p>
+          Hjälp oss översätta KTH Style genom att skapa en Pull Request på
+          <a href="https://github.com/kth/style">
+            KTH Style repository i Github
+          </a>
+        </p>
+      </div>
+    </div>
+  )
+}
