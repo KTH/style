@@ -14,13 +14,15 @@ import Kpm from "../components/Kpm.astro";
 import Header from "../components/Header.astro";
 import Sidebar from "@components/Sidebar.astro";
 import MissingTranslation from "@components/MissingTranslation.astro";
+import { getLangFromUrl, useTranslations } from "src/i18n/utils";
 
 const { frontmatter } = Astro.props;
+const t = useTranslations(getLangFromUrl(Astro.url));
 ---
 
 <Layout title={frontmatter.title}>
   <div class="kth-a11y-nav">
-    <a href="#kth-main">Go to main content</a>
+    <a href="#kth-main">{t("nav.main-content")}</a>
   </div>
   <Kpm />
   <Header />
