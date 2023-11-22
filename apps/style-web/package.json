@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro build && build:copy-monitor",
+    "build:copy-monitor": "cp src/pages/style/_monitor dist/style/_monitor",
     "preview": "astro preview",
     "test": "node scripts/i18n-check.mjs",
     "astro": "astro"
