@@ -1,12 +1,13 @@
 @use "@kth/style/scss/tokens/spacing";
+@use "@kth/style/scss/tokens/typography";
 
 .kth-local-navigation {
   h2 {
-    font: var(--font-label-m);
+    @include typography.font-heading-s;
   }
 
   h3 {
-    font: var(--font-label-s);
+    @include typography.font-heading-xs;
     margin-block-start: spacing.$space-32;
   }
   ul {

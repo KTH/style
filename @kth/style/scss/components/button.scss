@@ -10,8 +10,8 @@ $icon-size: calc(#{spacing.$space-24} + 2 * var(--space-inner-icon));
     background: transparent;
     border: none;
     padding: var(--space-inner-icon);
-    width: var($icon-size);
-    height: var($icon-size);
+    width: $icon-size;
+    height: $icon-size;
     border-radius: 100%;
   }
 

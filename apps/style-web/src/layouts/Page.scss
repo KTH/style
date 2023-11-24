@@ -1,5 +1,6 @@
 @use "@kth/style/scss/tokens/spacing";
 @use "@kth/style/scss/tokens/icons";
+@use "@kth/style/scss/tokens/typography";
 @use "@kth/style/scss/utils/reset";
 @use "@kth/style/scss/utils/prose";
 
@@ -39,7 +40,7 @@ article {
   }
 
   .markdown-alert {
-    margin-inline-start: spacing.$space-8;
+    margin-inline-start: 0;
     border-inline-start-width: spacing.$space-4;
     border-inline-start-style: solid;
     padding-inline-start: spacing.$space-16;
@@ -48,7 +49,7 @@ article {
       border-color: var(--color-primary);
 
       .markdown-alert-title {
-        font: var(--font-label-s);
+        @include typography.font-heading-xs;
         color: var(--color-primary);
       }
     }

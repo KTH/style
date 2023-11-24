@@ -1,4 +1,5 @@
 @use "../tokens/spacing.scss" as s;
+@use "../tokens/typography.scss" as t;
 
 /// This mixin provides CSS for webpages with lots of prose text.
 ///
@@ -12,7 +13,7 @@
   }
 
   .lead {
-    font: var(--font-lead);
+    @include t.font-lead;
     margin-block-start: s.$space-12;
     margin-block-end: s.$space-16;
   }
@@ -25,25 +26,25 @@
   }
 
   h1 {
-    font: var(--font-heading-xl);
+    @include t.font-heading-xl;
     margin-block-start: s.$space-32;
     margin-block-end: s.$space-16;
   }
 
   h2 {
-    font: var(--font-heading-l);
+    @include t.font-heading-l;
     margin-block-start: s.$space-32;
     margin-block-end: s.$space-16;
   }
 
   h3 {
-    font: var(--font-heading-m);
+    @include t.font-heading-m;
     margin-block-start: s.$space-32;
     margin-block-end: s.$space-8;
   }
 
   h4 {
-    font: var(--font-heading-s);
+    @include t.font-heading-s;
     margin-block-start: s.$space-32;
     margin-block-end: s.$space-4;
   }
@@ -87,7 +88,7 @@
   thead {
     // TODO: border
     th {
-      font: var(--font-label-s);
+      @include t.font-heading-s;
       padding-block: var(--space-inner-block);
       padding-inline: var(--space-inner-inline);
 

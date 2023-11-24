@@ -1,5 +1,6 @@
 @use "../tokens/spacing.scss";
 @use "../tokens/icons.scss";
+@use "../tokens/typography.scss";
 
 $border-inline: spacing.$space-2;
 $padding-inline: calc(spacing.$space-12 - $border-inline);
@@ -35,7 +36,8 @@ $padding-inline: calc(spacing.$space-12 - $border-inline);
     }
 
     > :is(h2, h3, h4) {
-      font: var(--font-label-s);
+      @include typography.font-default;
+      font-weight: 600;
     }
 
     p {

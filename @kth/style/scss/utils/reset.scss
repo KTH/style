@@ -59,13 +59,13 @@ $generate-css: true !default;
     :root {
       @include colors.theme-default;
       @include spacing.theme-default;
-      @include typography.theme-default;
+      font-family: typography.$font-figtree;
     }
 
     body {
+      @include typography.font-default;
       color: var(--color-text);
       background: var(--color-background);
-      font: var(--font-default);
       min-height: 100vh;
       margin: 0;
     }

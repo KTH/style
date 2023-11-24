@@ -5,6 +5,8 @@ layout: "@layouts/Page.astro"
 
 # Typography
 
+> [!Note] This document is under development
+
 Typography in KTH Style is based on KTH graphical identity.
 
 ## Typography system
@@ -31,34 +33,6 @@ In previous versions of KTH Style, we have defined 6 styles for the headings fro
 
 Therefore, we cannot map 1:1 HTML headings with a given font for all cases.
 
-## Semantic tokens
-
-KTH Style defines the following tokens for the CSS `font` short-hand property. We don't define any semantic token for individual properties
-
-For blocks (paragraphs and headings) in articles and main areas of content
-
-- `--font-default`. Used it by default
-- `--font-heading-xl`. It is equivalent to the font for the `<h1>` tag.
-- `--font-heading-l`. Equivalent to the `<h2>` tag.
-- `--font-heading-m`. Equivalent to the `<h3>` tag.
-- `--font-heading-s`. Equivalent to the `<h4>` tag.
-- `--font-lead`. Used for the leading paragraph below a big title
-
-For blocks (paragraphs and headings) in other places, we provide `label-<xxx>` fonts that can be used in different contexts. Usually you start using the smallest possible, and then you increase in size when required.
-
-- `--font-label-s`
-- `--font-label-m`
-- `--font-label-l`
-
-## Themes
-
-There are no different themes for typography at this moment.
-
-### Other styles
-
-> [!Note]
-> Styles for non-block elements (e.g. buttons) are not defined yet
-
 ## How to use
 
 ### Bring the font to your project
@@ -67,13 +41,7 @@ Read the [get started guide for developers](/style/en/get-started/developers.md)
 
 ### In a single selector
 
-Use the CSS custom properties for styling texts in a component:
-
-```scss
-label {
-  font: var(--font-label-s);
-}
-```
+> [!Note] this is under development
 
 ### The `prose` mixin
 
