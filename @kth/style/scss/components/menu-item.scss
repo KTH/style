@@ -20,6 +20,10 @@
       border-bottom: transparent spacing.$space-4 solid;
     }
 
+    &--collapsable {
+      display: none;
+    }
+
     &:hover span {
       border-color: var(--color-primary);
     }
