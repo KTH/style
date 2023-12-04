@@ -1,5 +1,6 @@
 @use "../tokens/spacing";
 @use "../tokens/icons";
+@use "../tokens/sizing";
 
 @layer kth-style {
   .kth-menu-item {
@@ -20,9 +21,12 @@
       border-bottom: transparent spacing.$space-4 solid;
     }
 
-    &--collapsable {
-      display: none;
+    @media (min-width: sizing.$breakpoint-64) {
+      &.collapsable {
+        display: none;
+      }
     }
+    // TODO: media query
 
     &:hover span {
       border-color: var(--color-primary);
