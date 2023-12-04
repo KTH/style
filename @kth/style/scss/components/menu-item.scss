@@ -21,12 +21,15 @@
       border-bottom: transparent spacing.$space-4 solid;
     }
 
+    &.collapsable {
+      margin-inline-start: spacing.$space-16;
+    }
+
     @media (min-width: sizing.$breakpoint-64) {
       &.collapsable {
         display: none;
       }
     }
-    // TODO: media query
 
     &:hover span {
       border-color: var(--color-primary);
