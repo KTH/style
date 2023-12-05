@@ -44,33 +44,29 @@ app.use("/<<YOUR_APP>>/assets", express.static(kthStyleAssets));
 
 Read more in the [Express documentation](https://expressjs.com/en/starter/static-files.html)
 
+Once you have set up your app, you can import the fonts:
+
+<details>
+<summary>Code</summary>
+<div>
+
+```html
+<link rel="stylesheet" href="/<YOUR_ASSETS_DIRECTORY>/fonts.css" />
+```
+
+```scss
+@import url("/<YOUR_ASSETS_DIRECTORY>/fonts.css");
+```
+
+</div>
+</details>
+
 ### Method 2. Serve the assets yourself
+
+> [!Note]
+> If you choose this method, you are responsible for keeping the assets updated
 
 1. Copy the files in `/node_modules/@kth/style/assets` to a custom directory.
 2. Make sure there is a public URL to access to the files in the directory you have copied
 
-## Import the Figtree font family
-
-You can import the Figtree using the HTML `<link>` tag or CSS `@import` rule.
-
-```html
-<link rel="stylesheet" href="/<YOUR_APP>/assets/fonts.css" />
-```
-
-```scss
-@import url("/<YOUR_APP>/assets/fonts.css");
-```
-
-> [!Note]
-> Some tools rewrite URLs when using `@import` statements. If you have any problem, contact us so we can add troubleshooting information
-
-<details>
-<summary>Troubleshooting</summary>
-
-<div>
-
-In this section we will include the most common problems when importing both CSS and Sass files into a project.
-
-</div>
-
-</details>
+You can import the fonts by importing the `fonts.css` in the assets directory. Depending on the build tools in your app, you might need to adapt the `fonts.css` file.
