@@ -13,6 +13,10 @@ const lang = getLangFromUrl(Astro.url);
 const navigationPanel = [
   {
     dataId: "1.575942",
+    href: {
+      en: "/en/anstallning",
+      sv: "/anstallning",
+    },
     labels: {
       en: "My employment",
       sv: "Din anställning",
@@ -20,6 +24,10 @@ const navigationPanel = [
   },
   {
     dataId: "1.575949",
+    href: {
+      en: "/en/stod-och-service",
+      sv: "/stod-och-service",
+    },
     labels: {
       en: "Support & Service",
       sv: "Stöd och service",
@@ -27,6 +35,10 @@ const navigationPanel = [
   },
   {
     dataId: "1.1067969",
+    href: {
+      en: "/en/utbildning",
+      sv: "/utbildning",
+    },
     labels: {
       en: "Education",
       sv: "Utbilda",
@@ -34,6 +46,10 @@ const navigationPanel = [
   },
   {
     dataId: "1.1067196",
+    href: {
+      en: "/en/forskning",
+      sv: "/forskning",
+    },
     labels: {
       en: "Research",
       sv: "Forska",
@@ -41,6 +57,10 @@ const navigationPanel = [
   },
   {
     dataId: "1.575952",
+    href: {
+      en: "/en/styrning",
+      sv: "/styrning",
+    },
     labels: {
       en: "Organisation & Regulations",
       sv: "Orgasnisation och styrning",
@@ -80,43 +100,40 @@ const t = useTranslations(lang);
           <span>{translatedLink.label}</span>
         </a>
       </li>
-      <li>
-        <nav class="kth-mega-menu--collapsable">
-          <button class="kth-menu-item menu">
-            <span>{t("nav.menu")}</span>
-          </button>
-          <dialog class="kth-menu-panel--modal">
-            <!-- -->
-            <button class="kth-button close">
-              <span class="kth-visually-hidden">{t("close")}</span>
-            </button>
-            <div class="kth-menu-panel__content">
-              <h2>{t("nav.menu")}</h2>
-              <ul>
-                {
-                  navigationPanel.map(({ labels, dataId }) => (
-                    <NavigationPanelMobile
-                      label={labels[lang]}
-                      dataId={dataId}
-                    />
-                  ))
-                }
-              </ul>
-
-              <ul class="kth-menu-panel__entries">
-                <li><a href="https://kth.se">kth.se</a></li>
-                <li>
-                  <a href="https://kth.se/student">{t("sites.student-web")}</a>
-                </li>
-                <li>
-                  <a href="https://intra.kth.se">{t("sites.intranet")}</a>
-                </li>
-              </ul>
-            </div>
-          </dialog>
-        </nav>
-      </li>
     </ul>
+    <button class="kth-menu-item menu collapsable">
+      <span>{t("nav.menu")}</span>
+    </button>
+    <nav class="kth-mega-menu--collapsable">
+      <dialog class="kth-menu-panel--modal">
+        <!-- -->
+        <button class="kth-button close">
+          <span class="kth-visually-hidden">{t("close")}</span>
+        </button>
+        <div class="kth-menu-panel__content">
+          <h2>{t("nav.menu")}</h2>
+          <ul>
+            {
+              navigationPanel.map(({ labels, href, dataId }) => (
+                <li>
+                  <a href={href[lang]}>{labels[lang]}</a>
+                </li>
+              ))
+            }
+          </ul>
+
+          <ul class="kth-menu-panel__entries">
+            <li><a href="https://kth.se">kth.se</a></li>
+            <li>
+              <a href="https://kth.se/student">{t("sites.student-web")}</a>
+            </li>
+            <li>
+              <a href="https://intra.kth.se">{t("sites.intranet")}</a>
+            </li>
+          </ul>
+        </div>
+      </dialog>
+    </nav>
   </div>
 </header>
 
@@ -134,11 +151,7 @@ const t = useTranslations(lang);
   );
 
   MenuPanel.initModal(
-    document.querySelectorAll(".kth-mega-menu--collapsable .kth-menu-item"),
-  );
-  MenuPanel.initModal(
-    document.querySelectorAll(
-      ".kth-mega-menu--collapsable .kth-menu-item--modal",
-    ),
+    document.querySelector(".kth-menu-item.collapsable"),
+    document.querySelector(".kth-menu-panel--modal"),
   );
 </script>

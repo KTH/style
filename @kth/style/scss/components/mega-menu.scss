@@ -1,8 +1,6 @@
 @use "../tokens/spacing.scss";
 @use "../utils/mixins.scss";
-
-// TODO: this should be a token
-$breakpoint-mega-menu: 64rem;
+@use "../tokens/sizing.scss";
 
 @layer kth-style {
   nav.kth-mega-menu {
@@ -21,7 +19,7 @@ $breakpoint-mega-menu: 64rem;
     display: none;
   }
 
-  @media (max-width: $breakpoint-mega-menu) {
+  @media (max-width: sizing.$breakpoint-64) {
     nav.kth-mega-menu {
       display: none;
     }

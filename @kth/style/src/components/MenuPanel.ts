@@ -66,20 +66,15 @@ export class MenuPanel {
     });
   }
 
-  static initModal(items: NodeListOf<Element>) {
-    for (const item of items) {
-      if (!(item instanceof HTMLElement)) continue;
+  static initModal(button: Element | null, modal: Element | null) {
+    if (!(button instanceof HTMLElement)) return;
+    if (!(modal instanceof HTMLDialogElement)) return;
 
-      const dialog = item.nextElementSibling;
+    addEventListeners(modal);
 
-      if (!(dialog instanceof HTMLDialogElement)) continue;
-
-      addEventListeners(dialog);
-
-      item.addEventListener("click", (e) => {
-        e.preventDefault();
-        dialog.showModal();
-      });
-    }
+    button.addEventListener("click", (e) => {
+      e.preventDefault();
+      modal.showModal();
+    });
   }
 }
