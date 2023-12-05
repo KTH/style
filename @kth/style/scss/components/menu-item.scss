@@ -1,5 +1,6 @@
 @use "../tokens/spacing";
 @use "../tokens/icons";
+@use "../tokens/sizing";
 
 @layer kth-style {
   .kth-menu-item {
@@ -18,6 +19,16 @@
       padding-block: spacing.$space-8;
       padding-block-end: spacing.$space-4;
       border-bottom: transparent spacing.$space-4 solid;
+    }
+
+    &.collapsable {
+      margin-inline-start: spacing.$space-16;
+    }
+
+    @media (min-width: sizing.$breakpoint-64) {
+      &.collapsable {
+        display: none;
+      }
     }
 
     &:hover span {
