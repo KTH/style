@@ -1,9 +1,16 @@
 ---
 import { getLangFromUrl } from "src/i18n/utils";
-interface Props {
+
+export interface Props {
+  /** Page title (<title> tag) */
   title: string;
+
+  /** Options related to <meta> tags */
+  meta?: {
+    robots?: "noindex,nofollow";
+  };
 }
-const { title } = Astro.props;
+const { title, meta } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 ---
 
@@ -16,6 +23,7 @@ const lang = getLangFromUrl(Astro.url);
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="/style/assets/fonts.css" />
     <meta name="generator" content={Astro.generator} />
+    {meta?.robots && <meta name="robots" content={meta.robots} />}
     <title>{title}</title>
   </head>
   <body>
