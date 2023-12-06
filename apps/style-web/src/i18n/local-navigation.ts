@@ -38,6 +38,7 @@ export const navigationEntries: Entry[] = [
       "/guides/design",
       "/guides/introduction",
       "/guides/page-structure",
+      "/guides/i18n",
     ],
   },
   {
