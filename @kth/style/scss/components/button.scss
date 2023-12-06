@@ -1,24 +1,141 @@
 @use "../tokens/spacing";
 @use "../tokens/icons";
+@use "../tokens/typography";
+@use "../tokens/colors.scss";
 
 $icon-size: calc(#{spacing.$space-24} + 2 * var(--space-inner-icon));
 
 @layer kth-style {
   // Buttons with only icon:
-  .kth-button.close {
-    display: flex;
-    background: transparent;
+  .kth-icon-button {
+    background: unset;
     border: none;
     padding: var(--space-inner-icon);
     width: $icon-size;
     height: $icon-size;
-    border-radius: 100%;
+    border-radius: spacing.$space-4;
+
+    &:hover {
+      background: var(--color-secondary-hover);
+      cursor: pointer;
+    }
   }
 
-  .kth-button.close::before {
+  .kth-icon-button.close::before {
     @include icons.icon-close;
     width: 100%;
     height: 100%;
-    background-color: var(--color-secondary);
+    background-color: var(--color-tertiary);
+  }
+
+  .kth-button {
+    display: inline-flex;
+    padding: spacing.$space-8 spacing.$space-16;
+    justify-content: center;
+    align-items: center;
+    border: unset;
+    border-radius: spacing.$space-4;
+    background: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    span {
+      @include typography.font-heading-xs;
+    }
+  }
+
+  .kth-button.primary {
+    background: var(--color-primary);
+
+    &:hover {
+      background: var(--color-primary-hover);
+    }
+
+    span {
+      color: var(--color-on-primary);
+    }
+  }
+
+  .kth-button.secondary,
+  .kth-button.previous {
+    border: 1px solid var(--color-secondary);
+
+    &:hover {
+      background: var(--color-secondary-hover);
+    }
+
+    span {
+      color: var(--color-secondary);
+    }
+  }
+
+  .kth-button.success,
+  .kth-button.next {
+    background: var(--color-success);
+
+    &:hover {
+      background: var(--color-success-hover);
+    }
+
+    span {
+      color: var(--color-on-primary);
+    }
+  }
+
+  .kth-button.error {
+    background: var(--color-error);
+
+    &:hover {
+      background: var(--color-error-hover);
+    }
+
+    span {
+      color: var(--color-on-primary);
+    }
+  }
+
+  .kth-button.back {
+    padding: spacing.$space-8 0;
+    gap: spacing.$space-4;
+
+    span {
+      color: var(--color-tertiary);
+      @include typography.font-default;
+
+      &:hover {
+        text-decoration-line: underline;
+      }
+    }
+  }
+
+  .kth-button.back::before {
+    @include icons.icon-arrow-back;
+    width: 20px;
+    height: 20px;
+    background-color: var(--color-tertiary);
+  }
+
+  .kth-button.previous {
+    gap: spacing.$space-4;
+  }
+
+  .kth-button.previous::before {
+    @include icons.icon-arrow-back-500;
+    width: 20px;
+    height: 20px;
+    background-color: var(--color-text);
+  }
+
+  .kth-button.next {
+    gap: spacing.$space-4;
+  }
+
+  .kth-button.next::after {
+    @include icons.icon-arrow-forward-500;
+    width: 20px;
+    height: 20px;
+    background-color: var(--color-on-primary);
   }
 }
