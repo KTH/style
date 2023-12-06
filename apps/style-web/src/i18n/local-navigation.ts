@@ -46,6 +46,7 @@ export const navigationEntries: Entry[] = [
       en: "Components",
     },
     routes: [
+      "/components/button",
       "/components/details",
       "/components/entrances",
       "/components/header",
