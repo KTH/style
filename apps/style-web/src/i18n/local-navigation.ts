@@ -50,6 +50,7 @@ export const navigationEntries: Entry[] = [
       "/components/details",
       "/components/entrances",
       "/components/header",
+      "/components/header__tools",
       "/components/kpm",
       "/components/logotype",
       "/components/mega-menu",
