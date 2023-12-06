@@ -38,6 +38,24 @@
   @include with-icon(raw.$icon-close);
 }
 
+@mixin icon-arrow-back {
+  @include with-icon(raw.$icon-arrow-forward);
+  rotate: 180deg;
+}
+
+@mixin icon-arrow-back-500 {
+  @include with-icon(raw.$icon-arrow-forward-500);
+  rotate: 180deg;
+}
+
+@mixin icon-arrow-forward {
+  @include with-icon(raw.$icon-arrow-forward);
+}
+
+@mixin icon-arrow-forward-500 {
+  @include with-icon(raw.$icon-arrow-forward-500);
+}
+
 @mixin icon-info-500 {
   @include with-icon(raw.$icon-info-500);
 }
