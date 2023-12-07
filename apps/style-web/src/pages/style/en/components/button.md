@@ -31,9 +31,7 @@ TODO
 <div>
 
 ```html
-<button class="kth-button primary">
-  <span>Primary Button</span>
-</button>
+<button class="kth-button primary">Primary Button</button>
 ```
 
 ```scss
@@ -55,9 +53,7 @@ TODO
 <div>
 
 ```html
-<button class="kth-button success">
-  <span>Success Button</span>
-</button>
+<button class="kth-button success">Success Button</button>
 ```
 
 ```scss
@@ -79,9 +75,7 @@ TODO
 <div>
 
 ```html
-<button class="kth-button error">
-  <span>Error Button</span>
-</button>
+<button class="kth-button error">Error Button</button>
 ```
 
 ```scss
@@ -103,9 +97,7 @@ TODO
 <div>
 
 ```html
-<button class="kth-button secondary">
-  <span>Secondary Button</span>
-</button>
+<button class="kth-button secondary">Secondary Button</button>
 ```
 
 ```scss
@@ -127,9 +119,7 @@ TODO
 <div>
 
 ```html
-<button class="kth-button back">
-  <span>Back Button</span>
-</button>
+<button class="kth-button back">Back Button</button>
 ```
 
 ```scss
@@ -175,9 +165,7 @@ TODO
 <div>
 
 ```html
-<button class="kth-button previous">
-  <span>Previous Button</span>
-</button>
+<button class="kth-button previous">Previous Button</button>
 ```
 
 ```scss
@@ -199,9 +187,7 @@ TODO
 <div>
 
 ```html
-<button class="kth-button next">
-  <span>Next Button</span>
-</button>
+<button class="kth-button next">Next Button</button>
 ```
 
 ```scss
