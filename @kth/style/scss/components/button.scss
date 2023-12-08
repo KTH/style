@@ -37,6 +37,7 @@ $icon-size: calc(#{spacing.$space-24} + 2 * var(--space-inner-icon));
     border-radius: spacing.$space-4;
     background: none;
     @include typography.font-heading-xs;
+    text-decoration: none;
 
     &:hover {
       cursor: pointer;
