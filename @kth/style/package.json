@@ -12,7 +12,8 @@
       "import": "./dist/esm/react.js",
       "require": "./dist/cjs/react.js"
     },
-    "./scss/*": "./scss/*"
+    "./scss/*": "./scss/*",
+    "./assets/*": "./assets/*"
   },
   "scripts": {
     "clean": "rm -rf dist",
