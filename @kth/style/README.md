@@ -28,5 +28,3 @@ Documentation available in the [KTH Style website](https://kthstyledemoprod.z6.w
   - `src/react-components` are the React components
   - `index.ts` and `react.ts` re-export the content in the respective `components` directories
 - `assets` are static assets like the fonts and logotype. This is meant to be exposed by apps using KTH Style
-
-Lorem pisp
