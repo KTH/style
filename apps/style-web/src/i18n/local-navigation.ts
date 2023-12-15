@@ -38,6 +38,7 @@ export const navigationEntries: Entry[] = [
       "/guides/design",
       "/guides/introduction",
       "/guides/page-structure",
+      "/guides/i18n",
     ],
   },
   {
@@ -50,6 +51,7 @@ export const navigationEntries: Entry[] = [
       "/components/details",
       "/components/entrances",
       "/components/header",
+      "/components/header__tools",
       "/components/kpm",
       "/components/logotype",
       "/components/mega-menu",
