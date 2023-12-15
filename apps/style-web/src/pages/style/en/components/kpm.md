@@ -9,24 +9,13 @@ title: "KPM"
 
 ## When to use
 
-TBD
+In all pages at KTH
 
 ## How to use
+
+> [!Note] This section is under development
 
 You can get the KPM in two ways:
 
 1. (Recommended) Inject the KPM script
 2. Make the HTML markup yourself
-
-### Inject the KPM script
-
-Under development. This method to inject KPM dinamically via a script will be available later.
-
-## How to make your own KPM
-
-KPM is divided into two pieces:
-
-- [Entrances](/style/en/components/entrances)
-- [Personal menu](/style/en/components/personal-menu)
-
-TODO: add example and code

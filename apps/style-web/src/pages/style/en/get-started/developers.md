@@ -5,15 +5,31 @@ title: "Get started with @kth/style package"
 
 # Get started with @kth/style package
 
+<p class="lead">Configure your project to use KTH Style</p>
+
 This guide assumes that you have an application with a toolchain ready to write HTML, Sass and JavaScript code.
 
-## Install
+## Install the package
 
 Install `@kth/style` with npm
 
 ```
 npm i @kth/style
 ```
+
+## Configure Sass
+
+Make sure the Sass files in your project can import Sass files included in the `@kth/style` package, usually located under `node_modules/@kth/style`.
+
+## Include styles
+
+Every component includes Sass snippets like the following:
+
+```scss
+@use "@kth/style/scss/components/button";
+```
+
+Copy and adapt the snippets accordingly
 
 ## Serve the font and images
 
@@ -70,3 +86,8 @@ Once you have set up your app, you can import the fonts:
 2. Make sure there is a public URL to access to the files in the directory you have copied
 
 You can import the fonts by importing the `fonts.css` in the assets directory. Depending on the build tools in your app, you might need to adapt the `fonts.css` file.
+
+## Read more
+
+- Page structure
+- How is KTH Style structured

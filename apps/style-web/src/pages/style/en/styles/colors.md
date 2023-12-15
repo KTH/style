@@ -137,6 +137,14 @@ Check contrast requirements in [color accessibility test](../examples/a11y-color
 
 ## How to use semantic tokens
 
+### Initialize the variables
+
+Use the [reset utility](/en/utils/reset) to set the default values for semantic tokens
+
+```scss
+@use "@kth/style/scss/utils/reset.scss";
+```
+
 ### When creating a component
 
 When building a component, use the appropiates CSS custom properties. You can provide default values but are often not needed
@@ -148,9 +156,11 @@ When building a component, use the appropiates CSS custom properties. You can pr
 }
 ```
 
-### Switching themes
+### Switching between themes
 
-To set a different theme in a region of a document, use the Sass mixin `theme-<xxx>` provided in `colors.scss`:
+To set a different theme in a region of a document, use the Sass mixins `theme-<xxx>` provided in `colors.scss`.
+
+For example, to apply the theme "intranet" inside elements with the `header` class:
 
 ```scss
 @use "@kth/style/scss/tokens/colors";
@@ -158,15 +168,4 @@ To set a different theme in a region of a document, use the Sass mixin `theme-<x
 .header {
   @include colors.theme-intranet;
 }
-```
-
-### Reset
-
-> [!Note]
-> This `reset.scss` file mentioned here is not ready yet.
-
-KTH Styles `reset.scss` sets the default values for all CSS custom properties in `:root`
-
-```scss
-@use "@kth/style/scss/utils/reset.scss";
 ```

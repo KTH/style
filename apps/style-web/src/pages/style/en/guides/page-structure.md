@@ -5,11 +5,11 @@ title: "Structure"
 
 # Page structure
 
-<p class="lead">Ensure usability and accessibility by using a consistent HTML structure in pages and apps</p>
+<p class="lead">Ensure usability and accessibility by using a consistent HTML structure across pages</p>
 
 > [!Note] This document does not apply for widgets
 
-## Metadata and head
+## HTML metadata and head
 
 - Write the page language in the `<html>` tag. Use `sv` for Swedish and `en` for English. Read more about [guidelines for page language in webbriktlinjer.se (in Swedish)](https://webbriktlinjer.se/riktlinjer/141-ange-sidans-sprak-i-koden/)
 
@@ -19,9 +19,7 @@ title: "Structure"
 
 - Write a relevant page title using the `<title>` tag. Read more about [guidelines for page titles in webbriktlinjer.se (in Swedish)](https://webbriktlinjer.se/riktlinjer/135-skriv-beskrivande-sidtitlar/).
 
-- Include the [reset utility](/style/en/utils/reset).
-
-## Body
+## HTML body
 
 The `body` of a KTH page or application should have the following parts:
 
@@ -29,7 +27,7 @@ The `body` of a KTH page or application should have the following parts:
 2. [**KPM**](/style/en/components/kpm). Defines the region for the entrances and Personal menu.
    1. [**Entrances**](/style/en/components/entrances). Link to kth.se, intranet and student web
    2. **Personal menu**. Links to relevant pages for the user
-3. [**Header**](/style/en/components/header). Should be the same across all pages under the same site. It is divided into:
+3. [**Header**](/style/en/components/header). (`<header>`) Should be the same across all pages under the same site. It is divided into:
    1. [**Logotype**](/style/en/components/logotype)
    2. [**Mega-menu**](/style/en/components/mega-menu). Include dropdowns that opens panels to different places
    3. Tools. Include site-wide tools like search and language switcher.
@@ -41,7 +39,7 @@ The `body` of a KTH page or application should have the following parts:
 
 ### Minimal template
 
-The components above are expected to be placed like this:
+Place the components mentioned before like this:
 
 ```html
 <body>
@@ -56,3 +54,8 @@ The components above are expected to be placed like this:
   <footer class="kth-footer"></footer>
 </body>
 ```
+
+## CSS
+
+- Include the [reset utility](/style/en/utils/reset)
+- Include all CSS required by all components

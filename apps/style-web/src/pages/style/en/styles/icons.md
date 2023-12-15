@@ -40,10 +40,6 @@ If you still require an icon without text:
 
 ## How to use icons
 
-### Bring the icons to your project
-
-Read the [get started guide for developers](/style/en/get-started/developers.md)
-
 ### Use icons as part of a component
 
 Most of the icons are delivered in components or as variants of them. Use the components. Examples:
@@ -55,20 +51,15 @@ Most of the icons are delivered in components or as variants of them. Use the co
 - Alerts
 - Favorite
 
-### Use icons in your own component
+### Use the `icon-` mixins in your own component
 
 > [!Note] Read this _only_ if there is no other component that suit your needs or if you are creating a new component
 
-You can use the icons:
+- Use the mixins `icon-XXX` provided in `icons.scss`
+- Use the `background-color` property to change the color of the icon
+- Include both the mixin and the `background-color` property in `::after` or `::before` pseudo-classes.
 
-- With text
-- Without text
-
-#### Icons with text
-
-For components with icon _and_ text, add an `::after` or `::before` selector in the button component. Use the mixins in `icons.scss`:
-
-> [!Note] Icons should never be in between words
+For example, to put the search icon after the text in a button:
 
 ```scss
 .button {
@@ -85,41 +76,58 @@ For components with icon _and_ text, add an `::after` or `::before` selector in 
 }
 ```
 
-If the component is meaning-less without the icon, use the `.visually-hidden` class to add text that will be read for screen readers:
+If the element with the icon does not have text, use the `.visually-hidden` class to add text for people who cannot see the icon
 
 ```html
-<!-- This button is styled to have a "+" sign before the label to indicate "new" -->
-<button>
-  <span class="visually-hidden">New</span>
-  <span>Document</span>
+<button class="close-button">
+  <span class="visually-hidden">Close</span>
 </button>
 ```
 
-#### Icons without text
+If the element is interactive, use the following width, height and padding:
 
-1.  Add either `::afer` or `::before` selector in the button component and include the icon with CSS.
+```scss
+.close-button {
+  width: calc(#{spacing.$space-24} + 2 * var(--space-inner-icon));
+  height: calc(#{spacing.$space-24} + 2 * var(--space-inner-icon));
+  padding: var(--space-inner-icon);
 
-    See also the spacing rules for buttons in [Spacing](./spacing.md)
+  ::after {
+    @include icons.icon-close;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-tertiary);
+  }
+}
+```
 
-    ```scss
-    .favorite-button {
-      padding-block: var(--space-inner-icon);
-      padding-inline: var(--space-inner-icon);
-      margin-inline: calc(-1 * var(--space-inner-icon));
+### Use other SVG icons
 
-      // There is nothing else in this button so you can use `::before` or
-      // `::after` interchangeably
-      &::after {
-        @include icons.icon-favorite;
-        background-color: var(--color-primary);
-      }
-    }
-    ```
+KTH Style provides separately:
 
-2.  Use the `.visually-hidden` class to add text for people who cannot see the icon
+- Sass variables with icons encoded as SVG in the `icons-raw.scss` file
+- Sass mixin `with-icon` to help you creating your own mixins
 
-    ```html
-    <button class="favorite-button">
-      <span class="visually-hidden">Add to favorite</span>
-    </button>
-    ```
+For example, to create your own "Maximize/fullscreen button":
+
+```html
+<button class="maximize-button">Expand view</button>
+```
+
+```scss
+@use "@kth/style/scss/utils/icons";
+@use "@kth/style/scss/utils/icons-raw" as raw;
+
+.maximize-button {
+  padding: spacing.$space-8 0;
+  gap: spacing.$space-4;
+  color: var(--color-tertiary);
+
+  ::before {
+    @include icons.with-icon(raw.$icon-fullscreen);
+    background-color: var(--color-tertiary);
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+```
