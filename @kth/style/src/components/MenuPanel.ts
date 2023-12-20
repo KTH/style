@@ -10,7 +10,7 @@ export function closeAllDialogs() {
  * @param dialog A <dialog> element
  */
 export function addEventListeners(dialog: HTMLDialogElement) {
-  const closeButton = dialog.querySelector(".kth-button.close");
+  const closeButton = dialog.querySelector(".kth-icon-button.close");
   const backButton = dialog.querySelector(".kth-button.back");
 
   dialog.addEventListener("keydown", (e) => {
