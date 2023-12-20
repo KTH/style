@@ -9,15 +9,52 @@
     width: 100%;
     border: none;
     background: var(--color-background);
-    padding: 0;
-    padding-block-end: spacing.$space-48;
+    padding: spacing.$space-48 0;
 
     &__container {
       @include mixins.container;
     }
 
-    .kth-button.close {
-      margin-inline-start: auto;
+    &__header {
+      width: 100%;
+      padding: 0 0 spacing.$space-32;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      h1 {
+        @include typography.font-heading-m;
+        color: var(--color-primary);
+        margin-bottom: spacing.$space-4;
+      }
+    }
+
+    &__content {
+      color: var(--color-primary);
+
+      .columnSplitter {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: spacing.$space-48;
+
+        .col .block:not(:first-child) {
+          margin-top: spacing.$space-32;
+        }
+      }
+
+      h2 {
+        @include typography.font-heading-s;
+        margin: 0 0 spacing.$space-8;
+      }
+
+      ul {
+        padding: 0;
+        list-style-type: none;
+
+        li:not(:last-child) {
+          margin-bottom: spacing.$space-16;
+        }
+      }
     }
   }
 

@@ -78,9 +78,13 @@ const t = useTranslations(lang);
     <nav class="kth-mega-menu">
       <ul>
         {
-          navigationPanel.map(({ dataId, labels }) => (
+          navigationPanel.map(({ dataId, href, labels }) => (
             <li>
-              <NavigationPanel dataId={dataId} label={labels[lang]} />
+              <NavigationPanel
+                dataId={dataId}
+                href={href[lang]}
+                label={labels[lang]}
+              />
             </li>
           ))
         }
