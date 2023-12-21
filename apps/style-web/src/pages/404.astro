@@ -1,0 +1,39 @@
+---
+import Header from "@components/Header.astro";
+import Kpm from "@components/Kpm.astro";
+import "./404.scss";
+import { useTranslations } from "src/i18n/utils";
+
+const t = useTranslations("sv");
+---
+
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/style/assets/fonts.css" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="noindex" />
+    <title>KTH Style</title>
+  </head>
+  <body>
+    <div class="kth-a11y-nav">
+      <a href="#kth-main">{t("nav.main-content")}</a>
+    </div>
+    <Kpm />
+    <Header />
+    <div class="kth-content">
+      <main id="kth-main">
+        <h1>Tyvärr hittade inte sidan du söker</h1>
+        <ul>
+          <li><a href="/style">Gå till KTH Style hemsida</a></li>
+          <li><a href="/">Gå till KTH:s intranätet</a></li>
+        </ul>
+      </main>
+      <footer lang="en">404 Not Found page made by KTH Style</footer>
+    </div>
+  </body>
+</html>
