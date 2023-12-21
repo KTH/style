@@ -78,9 +78,13 @@ const t = useTranslations(lang);
     <nav class="kth-mega-menu">
       <ul>
         {
-          navigationPanel.map(({ dataId, labels }) => (
+          navigationPanel.map(({ dataId, href, labels }) => (
             <li>
-              <NavigationPanel dataId={dataId} label={labels[lang]} />
+              <NavigationPanel
+                dataId={dataId}
+                href={href[lang]}
+                label={labels[lang]}
+              />
             </li>
           ))
         }
@@ -107,7 +111,7 @@ const t = useTranslations(lang);
     <nav class="kth-mega-menu--collapsable">
       <dialog class="kth-menu-panel--modal">
         <!-- -->
-        <button class="kth-button close">
+        <button class="kth-icon-button close">
           <span class="kth-visually-hidden">{t("close")}</span>
         </button>
         <div class="kth-menu-panel__content">
