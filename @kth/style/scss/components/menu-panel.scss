@@ -22,7 +22,7 @@
       align-items: flex-start;
       justify-content: space-between;
 
-      h1 {
+      h2 {
         @include typography.font-heading-m;
         color: var(--color-primary);
         margin-bottom: spacing.$space-4;
@@ -42,7 +42,7 @@
         }
       }
 
-      h2 {
+      h3 {
         @include typography.font-heading-s;
         margin: 0 0 spacing.$space-8;
       }
