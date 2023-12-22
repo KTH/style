@@ -15,6 +15,7 @@ import Header from "../components/Header.astro";
 import Sidebar from "@components/Sidebar.astro";
 import MissingTranslation from "@components/MissingTranslation.astro";
 import { getLangFromUrl, useTranslations } from "src/i18n/utils";
+import Footer from "@components/Footer.astro";
 
 const { frontmatter } = Astro.props;
 const t = useTranslations(getLangFromUrl(Astro.url));
@@ -39,6 +40,7 @@ const t = useTranslations(getLangFromUrl(Astro.url));
       </article>
     </main>
   </div>
+  <Footer />
   <script>
     import { ColorTable } from "@components/color-table.ts";
 

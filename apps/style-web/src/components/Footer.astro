@@ -1,0 +1,15 @@
+---
+import { getLangFromUrl } from "src/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+
+const cortinaBlockId = "1.202278";
+
+const p = await fetch(
+  `https://intra.kth.se/cm/${cortinaBlockId}?l=${lang}`,
+).then((r) => r.text());
+---
+
+<footer class="kth-footer intranet">
+  <div class="kth-footer__content" set:html={p} />
+</footer>
