@@ -1,0 +1,69 @@
+@use "../tokens/colors.scss";
+@use "../tokens/spacing.scss";
+@use "../utils/mixins.scss";
+@use "../tokens/typography";
+@use "../tokens/sizing.scss";
+
+@layer kth-style {
+  .kth-footer.intranet {
+    @include colors.theme-intranet;
+  }
+
+  .kth-footer.external {
+    @include colors.theme-inverse;
+  }
+
+  .kth-footer.student-web {
+    @include colors.theme-student-web;
+  }
+
+  .kth-footer {
+    background: var(--color-background);
+
+    &__content {
+      @include mixins.container;
+      padding-top: spacing.$space-32;
+      padding-bottom: spacing.$space-32;
+      color: var(--color-primary);
+
+      .columnSplitter {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-column-gap: spacing.$space-48;
+
+        @media (max-width: sizing.$breakpoint-64) {
+          display: block;
+          column-count: 2;
+
+          .col {
+            break-inside: avoid-column;
+            width: 100%;
+
+            &:not(:first-child) {
+              margin-top: spacing.$space-32;
+            }
+          }
+        }
+
+        .col .block:not(:first-child) {
+          margin-top: spacing.$space-32;
+        }
+      }
+
+      h2 {
+        @include typography.font-heading-s;
+        margin: 0 0 spacing.$space-8;
+      }
+
+      ul {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+
+        li:not(:last-child) {
+          margin-bottom: spacing.$space-16;
+        }
+      }
+    }
+  }
+}
