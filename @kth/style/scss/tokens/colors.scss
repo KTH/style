@@ -44,6 +44,7 @@ $color-green-darker: #264f30;
   --color-error-hover: #{$color-red-dark};
   --color-success: #{$color-green};
   --color-success-hover: #{$color-green-dark};
+  --color-border: #{$color-gray-medium};
 }
 
 @mixin theme-student-web {
@@ -60,6 +61,7 @@ $color-green-darker: #264f30;
   --color-error-hover: #{$color-red-darker};
   --color-success: #{$color-green-dark};
   --color-success-hover: #{$color-green-darker};
+  --color-border: #{$color-white};
 }
 
 @mixin theme-intranet {
@@ -76,6 +78,7 @@ $color-green-darker: #264f30;
   --color-error-hover: #{$color-red-darker};
   --color-success: #{$color-green-dark};
   --color-success-hover: #{$color-green-darker};
+  --color-border: #{$color-gray-medium};
 }
 
 @mixin theme-inverse {
@@ -92,4 +95,5 @@ $color-green-darker: #264f30;
   --color-error-hover: #{$color-red-light};
   --color-success: #{$color-green-light};
   --color-success-hover: #{$color-green-light};
+  --color-border: #{$color-gray-medium};
 }
