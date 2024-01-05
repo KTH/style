@@ -1,75 +1,56 @@
 ---
-// This `NavigationPanel` component is NOT the KTH Style NavigationPanel.
-//
-// This component is used exclusively on kth style web to be able to
-
 import { getLangFromUrl, useTranslations } from "src/i18n/utils";
+import NavigationPanelMobileDetails from "./NavigationPanelMobileDetails.astro";
 
-// demonstrate how can you use KTH Style components in your projects
+const lang = getLangFromUrl(Astro.url);
+
 interface Props {
-  label: string;
-  dataId: string;
+  navigationPanel: {
+    dataId: string;
+    href: {
+      en: string;
+      sv: string;
+    };
+    labels: {
+      en: string;
+      sv: string;
+    };
+  }[];
 }
 
-const { label, dataId } = Astro.props;
-const t = useTranslations(getLangFromUrl(Astro.url));
+const { navigationPanel } = Astro.props;
+
+const t = useTranslations(lang);
 ---
 
-<div>
-  <a href="/" data-id={dataId} class="kth-menu-item--modal">
-    <span>{label}</span>
-  </a>
-  <dialog class="kth-menu-panel--modal">
-    <button class="kth-icon-button close">
-      <span class="kth-visually-hidden">{t("close")}</span>
-    </button>
-    <div class="kth-menu-panel__content"></div>
+<>
+  <dialog class="kth-mobile-menu">
+    <div class="kth-mobile-menu__navigation">
+      <button class="kth-icon-button close">
+        <span class="kth-visually-hidden">{t("close")}</span>
+      </button>
+    </div>
+    <div class="kth-mobile-menu__content">
+      <ul class="kth-mobile-menu__items">
+        {
+          navigationPanel.map(({ labels, href, dataId }) => (
+            <li>
+              <a type="button" data-id={dataId} class="kth-mobile-menu__item">
+                {labels[lang]}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
   </dialog>
-</div>
-
-<script>
-  import { getLangFromUrl } from "src/i18n/utils";
-  // This code is for reading blocks from Cortina
-  const lang = getLangFromUrl(new URL(window.location.href));
-
-  // This code is for reading blocks from Cortina
-  document
-    .querySelectorAll(".kth-menu-item--modal[data-id]")
-    .forEach((menuItem) => {
-      const dialog = menuItem.nextElementSibling;
-      const dialogContent = dialog?.querySelector(".kth-menu-panel__content");
-
-      if (!(menuItem instanceof HTMLElement)) {
-        return;
-      }
-
-      if (!(dialog instanceof HTMLDialogElement)) {
-        return;
-      }
-
-      const cortinaBlockId = menuItem.dataset.id;
-
-      // We declare the Promise outside of the listener.
-      // That way, if the promise has been initiated, we don't do a re-fetch
-      let p: Promise<string> | undefined = undefined;
-
-      function loadPanelContent() {
-        if (!(dialogContent instanceof HTMLElement)) {
-          return;
-        }
-
-        if (!p) {
-          // Fetch only if the promise has not started
-          console.log(`Fetching block ${cortinaBlockId}`);
-          p = fetch(`/cm/${cortinaBlockId}?l=${lang}`).then((r) => r.text());
-        }
-
-        p.then((body) => {
-          dialogContent.innerHTML = body;
-        });
-      }
-
-      menuItem.addEventListener("mouseover", loadPanelContent);
-      menuItem.addEventListener("click", loadPanelContent);
-    });
-</script>
+  {
+    navigationPanel.map(({ labels, href, dataId }) => (
+      <NavigationPanelMobileDetails
+        dataId={dataId}
+        label={labels[lang]}
+        href={href[lang]}
+      />
+    ))
+  }
+</>

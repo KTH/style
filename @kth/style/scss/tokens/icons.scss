@@ -34,6 +34,10 @@
   @include with-icon(raw.$icon-caret-right);
 }
 
+@mixin icon-caret-right-big {
+  @include with-icon(raw.$icon-caret-right-big);
+}
+
 @mixin icon-close {
   @include with-icon(raw.$icon-close);
 }

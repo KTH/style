@@ -9,7 +9,10 @@ export function closeAllDialogs() {
  * Add mouse and keyboard event listeners to a menu panel (<dialog>)
  * @param dialog A <dialog> element
  */
-export function addEventListeners(dialog: HTMLDialogElement) {
+export function addEventListeners(
+  dialog: HTMLDialogElement,
+  previousDialog?: HTMLDialogElement | null,
+) {
   const closeButton = dialog.querySelector(".kth-icon-button.close");
   const backButton = dialog.querySelector(".kth-button.back");
 
@@ -28,6 +31,9 @@ export function addEventListeners(dialog: HTMLDialogElement) {
   if (backButton instanceof HTMLButtonElement) {
     backButton.addEventListener("click", () => {
       dialog.close();
+      if (previousDialog) {
+        previousDialog.show();
+      }
     });
   }
 }
@@ -76,5 +82,27 @@ export class MenuPanel {
       e.preventDefault();
       modal.showModal();
     });
+  }
+
+  static initModals(
+    items: NodeListOf<Element>,
+    modal: Element | null,
+    previousModal?: Element | null,
+  ) {
+    if (!(modal instanceof HTMLDialogElement)) return;
+    if (previousModal && !(previousModal instanceof HTMLDialogElement)) return;
+
+    for (const item of items) {
+      if (!(item instanceof HTMLElement)) continue;
+
+      addEventListeners(modal, previousModal);
+
+      item.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        closeAllDialogs();
+        modal.show();
+      });
+    }
   }
 }

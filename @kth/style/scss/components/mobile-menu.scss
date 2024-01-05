@@ -1,0 +1,91 @@
+@use "../tokens/spacing";
+@use "../tokens/typography";
+@use "../tokens/icons";
+@use "../utils/mixins";
+
+@layer kth-style {
+  .kth-mobile-menu {
+    background-color: var(--color-background);
+    position: fixed;
+    right: 0;
+    left: auto;
+    top: 0;
+    max-width: 32rem;
+    max-height: 100dvh;
+    width: 100dvw;
+    height: 100dvh;
+    padding: 2rem;
+    border: 0;
+    overflow-y: auto;
+
+    &__navigation {
+      height: 60px;
+
+      .kth-icon-button.close {
+        float: right;
+      }
+    }
+
+    &__header {
+      padding: 0 0 spacing.$space-32;
+
+      h2 {
+        @include typography.font-heading-m;
+        color: var(--color-primary);
+        margin-bottom: spacing.$space-4;
+      }
+    }
+
+    &__content {
+      color: var(--color-primary);
+
+      ul {
+        padding: 0;
+        list-style-type: none;
+        margin: 0;
+      }
+
+      .kth-mobile-menu__items {
+        li {
+          .kth-mobile-menu__item {
+            @include typography.font-heading-m;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+
+            &::after {
+              @include icons.icon-caret-right-big;
+              background-color: var(--color-primary);
+              margin-left: 0.75rem;
+            }
+
+            &:hover {
+              text-decoration: underline;
+              cursor: pointer;
+            }
+          }
+        }
+
+        li:not(:last-child) {
+          margin-bottom: spacing.$space-24;
+        }
+      }
+    }
+
+    &__cortina-content {
+      li:not(:last-child) {
+        margin-bottom: spacing.$space-16;
+      }
+
+      h2 {
+        @include typography.font-heading-s;
+        margin-bottom: spacing.$space-4;
+      }
+
+      .block:not(:first-child),
+      .col:not(:first-child) {
+        margin-top: spacing.$space-32;
+      }
+    }
+  }
+}
