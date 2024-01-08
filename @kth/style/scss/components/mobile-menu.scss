@@ -52,6 +52,9 @@
             text-decoration: none;
             display: flex;
             align-items: center;
+            background: none;
+            border: none;
+            color: var(--color-primary);
 
             &::after {
               @include icons.icon-caret-right-big;
@@ -77,7 +80,7 @@
         margin-bottom: spacing.$space-16;
       }
 
-      h2 {
+      h3 {
         @include typography.font-heading-s;
         margin-bottom: spacing.$space-4;
       }

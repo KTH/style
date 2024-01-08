@@ -35,9 +35,9 @@ const t = useTranslations(lang);
         {
           navigationPanel.map(({ labels, href, dataId }) => (
             <li>
-              <a type="button" data-id={dataId} class="kth-mobile-menu__item">
+              <button data-id={dataId} class="kth-mobile-menu__item">
                 {labels[lang]}
-              </a>
+              </button>
             </li>
           ))
         }
