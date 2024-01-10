@@ -10,6 +10,7 @@
     border: none;
     background: var(--color-background);
     padding: spacing.$space-48 0;
+    color: var(--color-text);
 
     &__container {
       @include mixins.container;
@@ -24,14 +25,11 @@
 
       h2 {
         @include typography.font-heading-m;
-        color: var(--color-primary);
         margin-bottom: spacing.$space-4;
       }
     }
 
     &__content {
-      color: var(--color-primary);
-
       .columnSplitter {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
