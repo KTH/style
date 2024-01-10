@@ -45,30 +45,30 @@
         margin: 0;
       }
 
-      .kth-mobile-menu__items {
-        li {
-          .kth-mobile-menu__item {
-            @include typography.font-heading-m;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            background: none;
-            border: none;
-            color: var(--color-primary);
+      .kth-mobile-menu__item {
+        @include typography.font-heading-m;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        background: none;
+        border: none;
+        padding: 0;
+        color: var(--color-primary);
 
-            &::after {
-              @include icons.icon-caret-right-big;
-              background-color: var(--color-primary);
-              margin-left: 0.75rem;
-            }
-
-            &:hover {
-              text-decoration: underline;
-              cursor: pointer;
-            }
-          }
+        &::after {
+          @include icons.icon-caret-right-big;
+          background-color: var(--color-primary);
+          margin-left: 0.75rem;
         }
 
+        &:hover {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+
+      // To avoid it affecting the cortina content
+      .kth-mobile-menu__items {
         li:not(:last-child) {
           margin-bottom: spacing.$space-24;
         }

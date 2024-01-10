@@ -36,22 +36,23 @@ const t = useTranslations(getLangFromUrl(Astro.url));
   document
     .querySelectorAll(".kth-mobile-menu__item[data-id]")
     .forEach((menuItem) => {
-      const dialog = document.querySelector(
-        ".kth-mobile-menu.details[data-id]",
-      );
-      const dialogContent = dialog?.querySelector(
-        ".kth-mobile-menu__cortina-content",
-      );
-
       if (!(menuItem instanceof HTMLElement)) {
         return;
       }
 
+      const cortinaBlockId = menuItem.dataset.id;
+
+      const dialog = document.querySelector(
+        `.kth-mobile-menu[data-id='${cortinaBlockId}']`,
+      );
+
+      const dialogContent = dialog?.querySelector(
+        ".kth-mobile-menu__cortina-content",
+      );
+
       if (!(dialog instanceof HTMLDialogElement)) {
         return;
       }
-
-      const cortinaBlockId = menuItem.dataset.id;
 
       // We declare the Promise outside of the listener.
       // That way, if the promise has been initiated, we don't do a re-fetch

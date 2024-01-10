@@ -32,7 +32,7 @@ export function addEventListeners(
     backButton.addEventListener("click", () => {
       dialog.close();
       if (previousDialog) {
-        previousDialog.show();
+        previousDialog.showModal();
       }
     });
   }
@@ -86,14 +86,19 @@ export class MenuPanel {
 
   static initModals(
     items: NodeListOf<Element>,
-    modal: Element | null,
     previousModal?: Element | null,
   ) {
-    if (!(modal instanceof HTMLDialogElement)) return;
     if (previousModal && !(previousModal instanceof HTMLDialogElement)) return;
 
     for (const item of items) {
       if (!(item instanceof HTMLElement)) continue;
+
+      const dataId = item.getAttribute("data-id");
+      const modal = document.querySelector(
+        `.kth-mobile-menu[data-id='${dataId}']`,
+      );
+
+      if (!(modal instanceof HTMLDialogElement)) return;
 
       addEventListeners(modal, previousModal);
 
@@ -101,7 +106,7 @@ export class MenuPanel {
         e.preventDefault();
 
         closeAllDialogs();
-        modal.show();
+        modal.showModal();
       });
     }
   }
