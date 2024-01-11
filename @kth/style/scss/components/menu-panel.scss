@@ -55,21 +55,4 @@
       }
     }
   }
-
-  .kth-menu-panel--modal {
-    background-color: var(--color-background);
-    position: fixed;
-    right: 0;
-    left: auto;
-    top: 0;
-    max-width: 32rem;
-    max-height: 100dvh;
-    width: 100dvw;
-    height: 100dvh;
-    border: 0;
-
-    .kth-button.close {
-      margin-inline-start: auto;
-    }
-  }
 }

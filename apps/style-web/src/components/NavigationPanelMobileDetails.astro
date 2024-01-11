@@ -1,0 +1,78 @@
+---
+import { getLangFromUrl, useTranslations } from "src/i18n/utils";
+
+interface Props {
+  dataId: string;
+  href: string;
+  label: string;
+}
+
+const { dataId, href, label } = Astro.props;
+const t = useTranslations(getLangFromUrl(Astro.url));
+---
+
+<dialog class="kth-mobile-menu details" data-id={dataId}>
+  <div class="kth-mobile-menu__navigation">
+    <button class="kth-button back">Huvudmeny</button>
+    <button class="kth-icon-button close">
+      <span class="kth-visually-hidden">{t("close")}</span>
+    </button>
+  </div>
+  <div class="kth-mobile-menu__header">
+    <h2>{label}</h2>
+    <a href={href}>Start</a>
+  </div>
+  <div class="kth-mobile-menu__content">
+    <div class="kth-mobile-menu__cortina-content"></div>
+  </div>
+</dialog>
+
+<script>
+  import { getLangFromUrl } from "src/i18n/utils";
+  // This code is for reading blocks from Cortina
+  const lang = getLangFromUrl(new URL(window.location.href));
+
+  // This code is for reading blocks from Cortina
+  document
+    .querySelectorAll(".kth-mobile-menu__item[data-id]")
+    .forEach((menuItem) => {
+      if (!(menuItem instanceof HTMLElement)) {
+        return;
+      }
+
+      const cortinaBlockId = menuItem.dataset.id;
+
+      const dialog = document.querySelector(
+        `.kth-mobile-menu[data-id='${cortinaBlockId}']`,
+      );
+
+      const dialogContent = dialog?.querySelector(
+        ".kth-mobile-menu__cortina-content",
+      );
+
+      if (!(dialog instanceof HTMLDialogElement)) {
+        return;
+      }
+
+      // We declare the Promise outside of the listener.
+      // That way, if the promise has been initiated, we don't do a re-fetch
+      let p: Promise<string> | undefined = undefined;
+
+      function loadPanelContent() {
+        if (!(dialogContent instanceof HTMLElement)) {
+          return;
+        }
+
+        if (!p) {
+          // Fetch only if the promise has not started
+          p = fetch(`/cm/${cortinaBlockId}?l=${lang}`).then((r) => r.text());
+        }
+
+        p.then((body) => {
+          dialogContent.innerHTML = body;
+        });
+      }
+
+      menuItem.addEventListener("click", loadPanelContent);
+    });
+</script>

@@ -108,35 +108,9 @@ const t = useTranslations(lang);
     <button class="kth-menu-item menu collapsable">
       <span>{t("nav.menu")}</span>
     </button>
-    <nav class="kth-mega-menu--collapsable">
-      <dialog class="kth-menu-panel--modal">
-        <!-- -->
-        <button class="kth-icon-button close">
-          <span class="kth-visually-hidden">{t("close")}</span>
-        </button>
-        <div class="kth-menu-panel__content">
-          <h2>{t("nav.menu")}</h2>
-          <ul>
-            {
-              navigationPanel.map(({ labels, href, dataId }) => (
-                <li>
-                  <a href={href[lang]}>{labels[lang]}</a>
-                </li>
-              ))
-            }
-          </ul>
 
-          <ul class="kth-menu-panel__entries">
-            <li><a href="https://kth.se">kth.se</a></li>
-            <li>
-              <a href="https://kth.se/student">{t("sites.student-web")}</a>
-            </li>
-            <li>
-              <a href="https://intra.kth.se">{t("sites.intranet")}</a>
-            </li>
-          </ul>
-        </div>
-      </dialog>
+    <nav class="kth-mega-menu--collapsable">
+      <NavigationPanelMobile navigationPanel={navigationPanel} />
     </nav>
   </div>
 </header>
@@ -156,6 +130,11 @@ const t = useTranslations(lang);
 
   MenuPanel.initModal(
     document.querySelector(".kth-menu-item.collapsable"),
-    document.querySelector(".kth-menu-panel--modal"),
+    document.querySelector(".kth-mobile-menu"),
+  );
+
+  MenuPanel.initModals(
+    document.querySelectorAll(".kth-mobile-menu__item"),
+    document.querySelector(".kth-mobile-menu"),
   );
 </script>
