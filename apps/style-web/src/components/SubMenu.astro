@@ -1,0 +1,175 @@
+---
+import {
+  getLangFromUrl,
+  getTranslatedLink,
+  useTranslations,
+} from "src/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+
+const subMenuHeader = [
+  {
+    label: {
+      en: "Tools",
+      sv: "Verktyg",
+    },
+  },
+];
+
+const subMenuContent = [
+  {
+    href: {
+      en: "/en/verktyg",
+      sv: "/verktyg",
+    },
+    labels: {
+      en: "Verktyg för att arbeta med KTH:s webbplats",
+      sv: "Verktyg för att arbeta med KTH:s webbplats",
+    },
+  },
+  {
+    href: {
+      en: "/en/polopoly",
+      sv: "/polopoly",
+    },
+    labels: {
+      en: "Publiceringssystemet Polopoly C",
+      sv: "Publiceringssystemet Polopoly",
+    },
+    children: [
+      {
+        href: {
+          en: "/en/bakgrund",
+          sv: "/bakgrund",
+        },
+        labels: {
+          en: "Background",
+          sv: "Bakgrund",
+        },
+      },
+    ],
+  },
+  {
+    href: {
+      en: "/en/webbanalys",
+      sv: "/webbanalys",
+    },
+    labels: {
+      en: "Web analysis",
+      sv: "Webbanalys",
+    },
+  },
+  {
+    href: {
+      en: "/style/en",
+      sv: "/kth-style",
+    },
+    labels: {
+      en: "KTH style C",
+      sv: "KTH style",
+    },
+    children: [
+      {
+        href: {
+          en: "/en/bakgrund",
+          sv: "/bakgrund",
+        },
+        labels: {
+          en: "Background",
+          sv: "Bakgrund",
+        },
+      },
+      {
+        href: {
+          en: "/style/en",
+          sv: "/riktlinjer",
+        },
+        labels: {
+          en: "Guidelines",
+          sv: "Riktlinjer",
+        },
+        children: [
+          {
+            href: {
+              en: "/en/farger",
+              sv: "/farger",
+            },
+            labels: {
+              en: "Colors",
+              sv: "Färger",
+            },
+          },
+        ],
+      },
+    ],
+  },
+];
+
+const translatedLink = getTranslatedLink(Astro.url);
+const t = useTranslations(lang);
+const isLinkActive = (href: string) => Astro.url.pathname.includes(href);
+---
+
+<nav class="kth-sub-menu">
+  <ul class="sub-nav">
+    {
+      subMenuHeader.map(({ label }) => (
+        <li>
+          <span class="nav-item ancestor">{label[lang]}</span>
+        </li>
+      ))
+    }
+    {
+      subMenuContent.map(({ href, labels, children }) => (
+        <li class={`nav-item ${isLinkActive(href[lang]) && "active"}`}>
+          <a
+            class={`nav-link ${
+              children ? (isLinkActive(href[lang]) ? "active" : "has-icon") : ""
+            }`}
+            href={href[lang]}
+          >
+            <span>{labels[lang]}</span>
+          </a>
+          <ul class={`sub-nav ${!isLinkActive(href[lang]) && "hidden"}`}>
+            {children?.map(({ children, href, labels }) => (
+              <li class="nav-item">
+                <a
+                  class={`nav-link ${
+                    children
+                      ? isLinkActive(href[lang])
+                        ? "active"
+                        : "has-icon"
+                      : ""
+                  }`}
+                  href={href[lang]}
+                >
+                  <span>{labels[lang]}</span>
+                </a>
+                <ul class={`sub-nav ${!isLinkActive(href[lang]) && "hidden"}`}>
+                  {children?.map(({ href, labels }) => (
+                    <li
+                      class={`nav-item ${isLinkActive(href[lang]) && "active"}`}
+                    >
+                      <a
+                        class={`nav-link ${
+                          children
+                            ? isLinkActive(href[lang])
+                              ? "active"
+                              : "has-icon"
+                            : ""
+                        }`}
+                        href={href[lang]}
+                      >
+                        <span>{labels[lang]}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
