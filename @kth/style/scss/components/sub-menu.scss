@@ -1,0 +1,52 @@
+@use "../tokens/colors.scss";
+@use "../tokens/spacing.scss";
+@use "../utils/mixins.scss";
+@use "../tokens/typography";
+@use "../tokens/sizing.scss";
+@use "../tokens/icons";
+
+@layer kth-style {
+  .kth-sub-menu {
+    .sub-nav {
+      list-style: none;
+      .hidden {
+        display: none;
+      }
+
+      .nav-item {
+        .nav-link {
+          text-decoration: none;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          transition: color 0.3s;
+
+          span {
+            padding: spacing.$space-8;
+            border-left: transparent spacing.$space-4 solid;
+          }
+          &:hover span {
+            border-color: var(--color-primary);
+            cursor: pointer;
+          }
+
+          &.active {
+            color: var(--color-black);
+            font-weight: 600;
+            pointer-events: none;
+          }
+
+          &.has-icon::after {
+            @include icons.icon-caret-right;
+            background-color: var(--color-tertiary);
+            align-self: center;
+          }
+        }
+      }
+    }
+    .ancestor {
+      font-weight: 600;
+      font-size: 1.25rem;
+    }
+  }
+}
