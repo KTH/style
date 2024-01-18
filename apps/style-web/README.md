@@ -37,7 +37,7 @@ style-web/
 - `src/components` are components used in KTH Style website. They are **not** components in `@kth/style`. They can be:
 
   - Components created for convinience to avoid repetitions
-  - Components that will be part of `@kth/style` but needs to be tested
+  - Components that are candidates to be part of `@kth/style` but need to be tested before
 
 - `src/layouts` are special components that define layout templates for the KTH Style website
 
