@@ -10,66 +10,44 @@ import NavigationPanelMobile from "./NavigationPanelMobile.astro";
 import SearchPanel from "./SearchPanel.astro";
 
 const lang = getLangFromUrl(Astro.url);
-const navigationPanel = [
+const navigationPanelSv = [
+  { dataId: "1.575942?l=sv", href: "/anstallning", label: "Din anställning" },
   {
-    dataId: "1.575942",
-    href: {
-      en: "/en/anstallning",
-      sv: "/anstallning",
-    },
-    labels: {
-      en: "My employment",
-      sv: "Din anställning",
-    },
+    dataId: "1.575949?l=sv",
+    href: "/stod-och-service",
+    label: "Stöd och service",
+  },
+  { dataId: "1.1067969?l=sv", href: "/utbildning", label: "Utbilda" },
+  { dataId: "1.1067196?l=sv", href: "/forskning", label: "Forska" },
+  {
+    dataId: "1.575952?l=sv",
+    href: "/styrning",
+    label: "Orgasnisation och styrning",
+  },
+];
+const navigationPanelEn = [
+  {
+    dataId: "1.575942?l=en",
+    href: "/en/anstallning",
+    label: "My employment",
   },
   {
-    dataId: "1.575949",
-    href: {
-      en: "/en/stod-och-service",
-      sv: "/stod-och-service",
-    },
-    labels: {
-      en: "Support & Service",
-      sv: "Stöd och service",
-    },
+    dataId: "1.575949?l=en",
+    href: "/en/stod-och-service",
+    label: "Support & Service",
   },
+  { dataId: "1.1069791?l=en", href: "/en/utbildning", label: "Education" },
+  { dataId: "1.1067508?l=en", href: "/en/forskning", label: "Research" },
   {
-    dataId: "1.1067969",
-    href: {
-      en: "/en/utbildning",
-      sv: "/utbildning",
-    },
-    labels: {
-      en: "Education",
-      sv: "Utbilda",
-    },
-  },
-  {
-    dataId: "1.1067196",
-    href: {
-      en: "/en/forskning",
-      sv: "/forskning",
-    },
-    labels: {
-      en: "Research",
-      sv: "Forska",
-    },
-  },
-  {
-    dataId: "1.575952",
-    href: {
-      en: "/en/styrning",
-      sv: "/styrning",
-    },
-    labels: {
-      en: "Organisation & Regulations",
-      sv: "Orgasnisation och styrning",
-    },
+    dataId: "1.575952?l=en",
+    href: "/en/styrning",
+    label: "Organisation & Regulations",
   },
 ];
 
 const translatedLink = getTranslatedLink(Astro.url);
 const t = useTranslations(lang);
+const navigationPanel = lang === "sv" ? navigationPanelSv : navigationPanelEn;
 ---
 
 <header class="kth-header intranet">
@@ -78,13 +56,9 @@ const t = useTranslations(lang);
     <nav class="kth-mega-menu">
       <ul>
         {
-          navigationPanel.map(({ dataId, href, labels }) => (
+          navigationPanel.map(({ dataId, href, label }) => (
             <li>
-              <NavigationPanel
-                dataId={dataId}
-                href={href[lang]}
-                label={labels[lang]}
-              />
+              <NavigationPanel dataId={dataId} href={href} label={label} />
             </li>
           ))
         }

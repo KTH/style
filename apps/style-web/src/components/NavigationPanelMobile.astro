@@ -7,14 +7,8 @@ const lang = getLangFromUrl(Astro.url);
 interface Props {
   navigationPanel: {
     dataId: string;
-    href: {
-      en: string;
-      sv: string;
-    };
-    labels: {
-      en: string;
-      sv: string;
-    };
+    href: string;
+    label: string;
   }[];
 }
 
@@ -33,10 +27,10 @@ const t = useTranslations(lang);
     <div class="kth-mobile-menu__content">
       <ul class="kth-mobile-menu__items">
         {
-          navigationPanel.map(({ labels, href, dataId }) => (
+          navigationPanel.map(({ label, href, dataId }) => (
             <li>
               <button data-id={dataId} class="kth-mobile-menu__item">
-                {labels[lang]}
+                {label}
               </button>
             </li>
           ))
@@ -45,12 +39,8 @@ const t = useTranslations(lang);
     </div>
   </dialog>
   {
-    navigationPanel.map(({ labels, href, dataId }) => (
-      <NavigationPanelMobileDetails
-        dataId={dataId}
-        label={labels[lang]}
-        href={href[lang]}
-      />
+    navigationPanel.map(({ label, href, dataId }) => (
+      <NavigationPanelMobileDetails dataId={dataId} label={label} href={href} />
     ))
   }
 </>
