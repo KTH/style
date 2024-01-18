@@ -71,3 +71,11 @@
 @mixin icon-check-500 {
   @include with-icon(raw.$icon-check-500);
 }
+
+@mixin icon-new-window {
+  @include with-icon(raw.$icon-new-window-300);
+}
+
+@mixin icon-new-window-500 {
+  @include with-icon(raw.$icon-new-window-500);
+}
