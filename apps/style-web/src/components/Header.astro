@@ -11,35 +11,27 @@ import SearchPanel from "./SearchPanel.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const navigationPanelSv = [
-  { dataId: "1.575942?l=sv", href: "/anstallning", label: "Din anställning" },
+  { dataId: "1.575942", href: "/anstallning", label: "Din anställning" },
+  { dataId: "1.575949", href: "/stod-och-service", label: "Stöd och service" },
+  { dataId: "1.1067969", href: "/utbildning", label: "Utbilda" },
+  { dataId: "1.1067196", href: "/forskning", label: "Forska" },
   {
-    dataId: "1.575949?l=sv",
-    href: "/stod-och-service",
-    label: "Stöd och service",
-  },
-  { dataId: "1.1067969?l=sv", href: "/utbildning", label: "Utbilda" },
-  { dataId: "1.1067196?l=sv", href: "/forskning", label: "Forska" },
-  {
-    dataId: "1.575952?l=sv",
+    dataId: "1.575952",
     href: "/styrning",
     label: "Orgasnisation och styrning",
   },
 ];
 const navigationPanelEn = [
+  { dataId: "1.575942", href: "/en/anstallning", label: "My employment" },
   {
-    dataId: "1.575942?l=en",
-    href: "/en/anstallning",
-    label: "My employment",
-  },
-  {
-    dataId: "1.575949?l=en",
+    dataId: "1.575949",
     href: "/en/stod-och-service",
     label: "Support & Service",
   },
-  { dataId: "1.1069791?l=en", href: "/en/utbildning", label: "Education" },
-  { dataId: "1.1067508?l=en", href: "/en/forskning", label: "Research" },
+  { dataId: "1.1069791", href: "/en/utbildning", label: "Education" },
+  { dataId: "1.1067508", href: "/en/forskning", label: "Research" },
   {
-    dataId: "1.575952?l=en",
+    dataId: "1.575952",
     href: "/en/styrning",
     label: "Organisation & Regulations",
   },
