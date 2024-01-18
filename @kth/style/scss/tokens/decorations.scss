@@ -1,0 +1,25 @@
+@use "./spacing.scss" as s;
+// Borders, shadows, and other stuff
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@mixin spinner {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  padding: s.$space-2;
+  border-radius: 50%;
+  animation: spin 750ms infinite linear;
+
+  // The lines below this, are for giving the shape of the spinner.
+  // Inspired from: https://css-loaders.com/spinner/
+  --_m: conic-gradient(transparent 10%, #000),
+    linear-gradient(#000 0 0) content-box;
+  -webkit-mask: var(--_m);
+  mask: var(--_m);
+  -webkit-mask-composite: source-out;
+  mask-composite: subtract;
+}
