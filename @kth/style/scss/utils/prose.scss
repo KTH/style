@@ -88,7 +88,7 @@
   thead {
     // TODO: border
     th {
-      @include t.font-heading-s;
+      @include t.font-heading-xs;
       padding-block: var(--space-inner-block);
       padding-inline: var(--space-inner-inline);
 
