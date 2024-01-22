@@ -4,49 +4,69 @@
 @use "../tokens/typography";
 @use "../tokens/sizing.scss";
 @use "../tokens/icons";
-
 @layer kth-style {
-  .kth-sub-menu {
-    .sub-nav {
-      list-style: none;
-      .hidden {
-        display: none;
-      }
-
-      .nav-item {
-        .nav-link {
-          text-decoration: none;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          transition: color 0.3s;
-
-          span {
-            padding: spacing.$space-8;
-            border-left: transparent spacing.$space-4 solid;
+  .kth-local-navigation {
+    .nav {
+      li {
+        .nav-home-link {
+          &.selected {
+            display: block;
+            padding-left: spacing.$space-6;
+            padding-block: spacing.$space-8;
+            padding-block-end: spacing.$space-4;
+            border-left: var(--color-primary) spacing.$space-4 solid;
           }
-          &:hover span {
-            border-color: var(--color-primary);
-            cursor: pointer;
+        }
+        .nav-list {
+          display: block;
+
+          .nav-head {
+            display: flex;
+            justify-content: space-between;
+            color: var(--color-tertiary);
+            font-weight: 400 !important;
+
+            &.selected {
+              pointer-events: none;
+              color: var(--color-black);
+              font-weight: 600 !important;
+
+              &::after {
+                background-color: white;
+              }
+            }
+
+            &::after {
+              @include icons.icon-caret-right;
+              background-color: var(--color-tertiary);
+              align-self: center;
+            }
+
+            .nav-head-link {
+              display: block;
+              color: var(--color-black);
+            }
           }
 
-          &.active {
-            color: var(--color-black);
-            font-weight: 600;
-            pointer-events: none;
-          }
+          .nav-item {
+            display: none;
 
-          &.has-icon::after {
-            @include icons.icon-caret-right;
-            background-color: var(--color-tertiary);
-            align-self: center;
+            &.expanded {
+              display: block;
+              padding-left: spacing.$space-8;
+              cursor: pointer;
+
+              &.selected {
+                display: block;
+                padding-left: spacing.$space-6;
+                padding-block: spacing.$space-8;
+                padding-block-end: spacing.$space-4;
+                border-left: var(--color-primary) spacing.$space-4 solid;
+              }
+            }
           }
         }
       }
-    }
-    .ancestor {
-      font-weight: 600;
-      font-size: 1.25rem;
     }
   }
 }
