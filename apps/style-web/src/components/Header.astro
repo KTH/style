@@ -42,7 +42,7 @@ const t = useTranslations(lang);
 const navigationPanel = lang === "sv" ? navigationPanelSv : navigationPanelEn;
 ---
 
-<header class="kth-header intranet">
+<header class="kth-header intranet collapsed">
   <div class="kth-header__container">
     <MainHeaderLogotype alt={t("nav.go-home")} />
     <nav class="kth-mega-menu">
@@ -103,4 +103,16 @@ const navigationPanel = lang === "sv" ? navigationPanelSv : navigationPanelEn;
     document.querySelectorAll(".kth-mobile-menu__item"),
     document.querySelector(".kth-mobile-menu"),
   );
+
+  const THRESHOLD = 32;
+
+  window.addEventListener("scroll", () => {
+    console.log("x", window.scrollY);
+    if (window.scrollY > THRESHOLD) {
+      console.log(document.querySelector(".kth-header"));
+      document.querySelector(".kth-header")?.classList.add("collapsed");
+    } else {
+      document.querySelector(".kth-header")?.classList.remove("collapsed");
+    }
+  });
 </script>

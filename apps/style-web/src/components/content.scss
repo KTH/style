@@ -6,7 +6,7 @@
 .kth-content {
   @include mixins.container;
 
-  margin-block-start: spacing.$space-20;
+  margin-block-start: 9.5rem;
   margin-block-end: spacing.$space-64;
   display: grid;
   grid-template-areas:
