@@ -11,9 +11,8 @@
         .nav-home-link {
           &.selected {
             display: block;
-            padding-left: spacing.$space-6;
-            padding-block: spacing.$space-8;
-            padding-block-end: spacing.$space-4;
+            padding: var(--sizes-space-8, 8px) var(--sizes-space-0, 0px)
+              var(--sizes-space-8, 8px) var(--sizes-space-16, 16px);
             border-left: var(--color-primary) spacing.$space-4 solid;
           }
         }
@@ -45,6 +44,7 @@
             .nav-head-link {
               display: block;
               color: var(--color-black);
+              width: 100%;
             }
           }
 
@@ -55,12 +55,13 @@
               display: block;
               padding-left: spacing.$space-8;
               cursor: pointer;
+              padding: var(--sizes-space-8, 8px) var(--sizes-space-0, 0px)
+                var(--sizes-space-8, 8px) var(--sizes-space-20, 20px);
 
               &.selected {
                 display: block;
-                padding-left: spacing.$space-6;
-                padding-block: spacing.$space-8;
-                padding-block-end: spacing.$space-4;
+                padding: var(--sizes-space-8, 8px) var(--sizes-space-0, 0px)
+                  var(--sizes-space-8, 8px) var(--sizes-space-16, 16px);
                 border-left: var(--color-primary) spacing.$space-4 solid;
               }
             }
