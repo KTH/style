@@ -69,4 +69,5 @@ async function generateLogotype() {
   }
 }
 
+await generateIcons();
 await generateLogotype();
