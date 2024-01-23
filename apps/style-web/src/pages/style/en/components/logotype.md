@@ -47,13 +47,18 @@ Use this if the logotype does not include a link anywhere.
 ```html
 <figure class="kth-logotype">
   <img
-    alt="KTH"
-    srcset="
-      <ASSETS_DIRECTORY>/kth-logotype-64.webp,
-      <ASSETS_DIRECTORY>/kth-logotype-64@2x.webp 2x,
-      <ASSETS_DIRECTORY>/kth-logotype-64@3x.webp 3x
-    "
-    src="<ASSETS_DIRECTORY>/kth-logotype-64.png"
+    class="blue"
+    alt="{alt}"
+    width="64"
+    height="64"
+    src="/<ASSETS_DIRECTORY>/logotype/logotype-blue.svg"
+  />
+  <img
+    class="white"
+    alt="{alt}"
+    width="64"
+    height="64"
+    src="/<ASSETS_DIRECTORY>/logotype/logotype-white.svg"
   />
 </figure>
 ```
@@ -81,16 +86,21 @@ Use this if the logotype does inlcude a link.
 <div>
 
 ```html
-<a class="kth-logotype">
+<a href="/" class="kth-logotype">
   <figure>
     <img
-      alt="KTH"
-      srcset="
-        <ASSETS_DIRECTORY>/kth-logotype-64.webp,
-        <ASSETS_DIRECTORY>/kth-logotype-64@2x.webp 2x,
-        <ASSETS_DIRECTORY>/kth-logotype-64@3x.webp 3x
-      "
-      src="<ASSETS_DIRECTORY>/kth-logotype-64.png"
+      class="blue"
+      alt="{alt}"
+      width="64"
+      height="64"
+      src="/<ASSETS_DIRECTORY>/logotype/logotype-blue.svg"
+    />
+    <img
+      class="white"
+      alt="{alt}"
+      width="64"
+      height="64"
+      src="/<ASSETS_DIRECTORY>/logotype/logotype-white.svg"
     />
   </figure>
 </a>
