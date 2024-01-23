@@ -28,6 +28,26 @@ $generate-css: true !default;
     margin: 0;
   }
 
+  h1 {
+    @include typography.font-heading-xl;
+  }
+
+  h2 {
+    @include typography.font-heading-l;
+  }
+
+  h3 {
+    @include typography.font-heading-m;
+  }
+
+  h4 {
+    @include typography.font-heading-s;
+  }
+
+  p {
+    @include typography.font-default;
+  }
+
   a {
     color: var(--color-tertiary);
     text-underline-offset: spacing.$space-4;
