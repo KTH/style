@@ -16,6 +16,12 @@ export function addEventListeners(
   const closeButton = dialog.querySelector(".kth-icon-button.close");
   const backButton = dialog.querySelector(".kth-button.back");
 
+  dialog.addEventListener("click", (e) => {
+    if (e.target === dialog) {
+      closeAllDialogs();
+    }
+  });
+
   dialog.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       dialog.close();
