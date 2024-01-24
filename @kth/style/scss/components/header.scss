@@ -29,6 +29,9 @@
 
   .kth-header {
     position: absolute;
+
+    // TODO: convert to its own token
+    z-index: 10;
     top: var(--height-kpm, 0);
     color: var(--color-text);
     background: var(--color-background);
