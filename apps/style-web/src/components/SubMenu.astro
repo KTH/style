@@ -130,24 +130,6 @@ function getRouteData(route: string) {
                         const routeData = getRouteData(route);
                         const isActive = isLinkActive(routeData);
 
-                        if (routeData.lang) {
-                          return (
-                            <li
-                              class={`nav-item ${
-                                isListSelected ? "expanded" : "leaf"
-                              } ${isActive ? "active-link" : ""}`}
-                            >
-                              <a
-                                class={`nav-link ${isActive ? "selected" : ""}`}
-                                href={routeData.href}
-                                lang={routeData.lang}
-                              >
-                                {routeData.title}
-                              </a>
-                            </li>
-                          );
-                        }
-
                         return (
                           <li
                             class={`nav-item ${
