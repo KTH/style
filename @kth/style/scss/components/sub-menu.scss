@@ -20,31 +20,31 @@
           display: block;
 
           .nav-head {
-            display: flex;
-            justify-content: space-between;
             color: var(--color-tertiary);
-            font-weight: 400 !important;
+            font-weight: 400;
 
             &.selected {
               pointer-events: none;
               color: var(--color-black);
-              font-weight: 600 !important;
-
-              &::after {
-                background-color: white;
+              font-weight: 600;
+              .nav-head-link {
+                &::after {
+                  background-color: white;
+                }
               }
             }
 
-            &::after {
-              @include icons.icon-caret-right;
-              background-color: var(--color-tertiary);
-              align-self: center;
-            }
-
             .nav-head-link {
-              display: block;
+              display: flex;
+              justify-content: space-between;
               color: var(--color-black);
               width: 100%;
+              &::after {
+                @include icons.icon-caret-right;
+                background-color: var(--color-tertiary);
+                align-self: center;
+                cursor: pointer;
+              }
             }
           }
 
@@ -54,7 +54,6 @@
             &.expanded {
               display: block;
               padding-left: spacing.$space-8;
-              cursor: pointer;
               padding: var(--sizes-space-8, 8px) var(--sizes-space-0, 0px)
                 var(--sizes-space-8, 8px) var(--sizes-space-20, 20px);
 
