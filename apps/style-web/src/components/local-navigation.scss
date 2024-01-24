@@ -1,26 +1,27 @@
 @use "@kth/style/scss/tokens/spacing";
 @use "@kth/style/scss/tokens/typography";
+@layer kth-style {
+  .kth-local-navigation {
+    h2 {
+      @include typography.font-heading-s;
+    }
 
-.kth-local-navigation {
-  h2 {
-    @include typography.font-heading-s;
-  }
+    h3 {
+      @include typography.font-heading-xs;
+      margin-block-start: spacing.$space-32;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
 
-  h3 {
-    @include typography.font-heading-xs;
-    margin-block-start: spacing.$space-32;
-  }
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
+    li {
+      margin-block: spacing.$space-16;
+    }
 
-  li {
-    margin-block: spacing.$space-16;
-  }
-
-  a {
-    text-decoration: none;
+    a {
+      text-decoration: none;
+    }
   }
 }
