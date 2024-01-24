@@ -1,6 +1,10 @@
 @use "../utils/mixins.scss";
 
 @layer kth-style {
+  :root {
+    --height-kpm: 2.5rem;
+  }
+
   .kth-kpm {
     position: fixed;
     width: 100%;

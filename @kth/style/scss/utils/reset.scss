@@ -67,7 +67,8 @@ $generate-css: true !default;
       color: var(--color-text);
       background: var(--color-background);
       min-height: 100vh;
-      margin: 0;
+      margin-inline: 0;
+      margin-block-start: calc(var(--height-kpm, 0) + var(--height-header, 0));
     }
 
     @include reset;
