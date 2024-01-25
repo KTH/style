@@ -53,6 +53,10 @@ $generate-css: true !default;
     text-underline-offset: spacing.$space-4;
   }
 
+  strong {
+    font-weight: typography.$font-bold;
+  }
+
   img,
   picture {
     max-width: 100%;
