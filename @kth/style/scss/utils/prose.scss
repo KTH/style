@@ -26,25 +26,21 @@
   }
 
   h1 {
-    @include t.font-heading-xl;
     margin-block-start: s.$space-32;
     margin-block-end: s.$space-16;
   }
 
   h2 {
-    @include t.font-heading-l;
     margin-block-start: s.$space-32;
     margin-block-end: s.$space-16;
   }
 
   h3 {
-    @include t.font-heading-m;
     margin-block-start: s.$space-32;
     margin-block-end: s.$space-8;
   }
 
   h4 {
-    @include t.font-heading-s;
     margin-block-start: s.$space-32;
     margin-block-end: s.$space-4;
   }
