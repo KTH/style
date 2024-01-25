@@ -29,19 +29,19 @@ $generate-css: true !default;
   }
 
   h1 {
-    @include typography.font-heading-xl;
+    @include typography.font-heading-xl-fluid;
   }
 
   h2 {
-    @include typography.font-heading-l;
+    @include typography.font-heading-l-fluid;
   }
 
   h3 {
-    @include typography.font-heading-m;
+    @include typography.font-heading-m-fluid;
   }
 
   h4 {
-    @include typography.font-heading-s;
+    @include typography.font-heading-s-fluid;
   }
 
   p {
