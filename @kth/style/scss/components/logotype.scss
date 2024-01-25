@@ -1,4 +1,5 @@
 @use "../tokens/spacing.scss";
+@use "../tokens/sizing.scss";
 
 @layer kth-style {
   a.kth-logotype,
@@ -10,8 +11,9 @@
     border: none;
     margin: 0;
 
-    // TODO: less margin for mobile
-    margin-inline-end: spacing.$space-32;
+    @media (min-width: sizing.$breakpoint-64) {
+      margin-inline-end: spacing.$space-32;
+    }
     padding: 0;
 
     // Defensive measurement:
