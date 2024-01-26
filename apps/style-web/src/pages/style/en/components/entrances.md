@@ -30,18 +30,14 @@ Use the code snippet for the menus in English or Swedish
 <nav class="kth-entrances" aria-label="Ingångar">
   <ul>
     <li>
-      <a class="kth-menu-item" href="https://kth.se">
-        <span>kth.se</span>
-      </a>
+      <a class="kth-menu-item" href="https://kth.se"> kth.se </a>
     </li>
     <li>
-      <a class="kth-menu-item" href="https://kth.se/student">
-        <span>Studentwebben</span>
-      </a>
+      <a class="kth-menu-item" href="https://kth.se/student"> Studentwebben </a>
     </li>
     <li>
       <a class="kth-menu-item" href="https://intra.kth.se" aria-current="true">
-        <span>Intranät</span>
+        Intranät
       </a>
     </li>
   </ul>
@@ -59,18 +55,14 @@ Use the code snippet for the menus in English or Swedish
 <nav class="kth-entrances" aria-label="Entrances">
   <ul>
     <li>
-      <a class="kth-menu-item" href="https://kth.se">
-        <span>kth.se</span>
-      </a>
+      <a class="kth-menu-item" href="https://kth.se"> kth.se </a>
     </li>
     <li>
-      <a class="kth-menu-item" href="https://kth.se/student">
-        <span>Student web</span>
-      </a>
+      <a class="kth-menu-item" href="https://kth.se/student"> Student web </a>
     </li>
     <li>
       <a class="kth-menu-item" href="https://intra.kth.se" aria-current="true">
-        <span>Intranet</span>
+        Intranet
       </a>
     </li>
   </ul>

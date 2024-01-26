@@ -67,12 +67,12 @@ const navigationPanel = lang === "sv" ? navigationPanelSv : navigationPanelEn;
           lang={translatedLink.lang}
           class="kth-menu-item language"
         >
-          <span>{translatedLink.label}</span>
+          {translatedLink.label}
         </a>
       </li>
     </ul>
     <button class="kth-menu-item menu collapsable">
-      <span>{t("nav.menu")}</span>
+      {t("nav.menu")}
     </button>
 
     <nav class="kth-mega-menu--collapsable">

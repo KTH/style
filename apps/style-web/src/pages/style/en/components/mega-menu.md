@@ -32,24 +32,16 @@ title: "Mega-menu (in header)"
     <nav class="kth-mega-menu">
       <ul>
         <li>
-          <a href="#" class="kth-menu-item dropdown">
-            <span>Item 1</span>
-          </a>
+          <a href="#" class="kth-menu-item dropdown"> Item 1 </a>
         </li>
         <li>
-          <a href="#" class="kth-menu-item dropdown">
-            <span>Item 2</span>
-          </a>
+          <a href="#" class="kth-menu-item dropdown"> Item 2 </a>
         </li>
         <li>
-          <a href="#" class="kth-menu-item dropdown">
-            <span>Item 3</span>
-          </a>
+          <a href="#" class="kth-menu-item dropdown"> Item 3 </a>
         </li>
         <li>
-          <a href="#" class="kth-menu-item dropdown">
-            <span>Item 4</span>
-          </a>
+          <a href="#" class="kth-menu-item dropdown"> Item 4 </a>
         </li>
       </ul>
     </nav>

@@ -9,13 +9,11 @@ const t = useTranslations(getLangFromUrl(Astro.url));
     <nav class="kth-entrances" aria-label="Ingångar">
       <ul>
         <li>
-          <a class="kth-menu-item" href="https://kth.se">
-            <span>kth.se</span>
-          </a>
+          <a class="kth-menu-item" href="https://kth.se"> kth.se</a>
         </li>
         <li>
           <a class="kth-menu-item" href="https://kth.se/student">
-            <span>{t("sites.student-web")}</span>
+            {t("sites.student-web")}
           </a>
         </li>
         <li>
@@ -24,7 +22,7 @@ const t = useTranslations(getLangFromUrl(Astro.url));
             href="https://intra.kth.se"
             aria-current="true"
           >
-            <span>{t("sites.intranet")}</span>
+            {t("sites.intranet")}
           </a>
         </li>
       </ul>
