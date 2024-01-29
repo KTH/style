@@ -9,13 +9,12 @@
     display: flex;
     align-items: center;
     gap: spacing.$space-4;
+    padding: 0;
     padding-block: spacing.$space-8;
-    padding-block-end: spacing.$space-4;
 
     // Fixes for buttons:
     border: none;
     background: none;
-    padding: 0;
 
     &.collapsable {
       margin-inline-start: spacing.$space-16;
