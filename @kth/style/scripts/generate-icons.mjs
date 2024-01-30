@@ -55,6 +55,9 @@ async function generateLogotype() {
   const outputPath = new URL("../assets/logotype/", import.meta.url);
 
   for (const fileName of await readdir(iconsPath)) {
+    if (!fileName.endsWith(".svg")) {
+      continue;
+    }
     const fileContent = await readFile(new URL(fileName, iconsPath), {
       encoding: "utf-8",
     });
