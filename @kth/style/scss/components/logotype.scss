@@ -1,14 +1,19 @@
 @use "../tokens/spacing.scss";
+@use "../tokens/sizing.scss";
 
 @layer kth-style {
   a.kth-logotype,
   figure.kth-logotype {
+    overflow: hidden;
     display: inline-block;
     block-size: 4rem;
     inline-size: 4rem;
     border: none;
     margin: 0;
-    margin-inline-end: spacing.$space-32;
+
+    @media (min-width: sizing.$breakpoint-64) {
+      margin-inline-end: spacing.$space-32;
+    }
     padding: 0;
 
     // Defensive measurement:
@@ -18,11 +23,14 @@
     > figure {
       block-size: 100%;
       inline-size: 100%;
+      position: relative;
     }
 
     img {
-      block-size: 100%;
-      inline-size: 100%;
+      position: absolute;
+      bottom: 0;
+      block-size: 4rem;
+      inline-size: 4rem;
     }
   }
 }
