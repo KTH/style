@@ -46,6 +46,18 @@ export function addNonModalEventListeners(
       closeAllDialogs();
     }
   });
+
+  // Close the dialog if clicking outside the modal
+  document.addEventListener("click", (e) => {
+    if (
+      dialog.open &&
+      !e.composedPath().includes(button) &&
+      !e.composedPath().includes(dialog)
+    ) {
+      e.preventDefault();
+      closeAllDialogs();
+    }
+  });
 }
 
 /**
@@ -143,18 +155,6 @@ export class MenuPanel {
     // Only open the modal if there is no href
     if (!button.getAttribute("href")) {
       addNonModalEventListeners(modal, button);
-
-      // Close the modal if clicking outside the modal
-      document.addEventListener("click", (e) => {
-        if (
-          modal.open &&
-          !e.composedPath().includes(button) &&
-          !e.composedPath().includes(modal)
-        ) {
-          e.preventDefault();
-          closeAllDialogs();
-        }
-      });
     }
   }
 }
