@@ -6,21 +6,11 @@ export function closeAllDialogs() {
 }
 
 /**
- * Add mouse and keyboard event listeners to a menu panel (<dialog>)
+ * Add basic mouse and keyboard event listeners to a dialog (<dialog>)
  * @param dialog A <dialog> element
  */
-export function addEventListeners(
-  dialog: HTMLDialogElement,
-  previousDialog?: HTMLDialogElement | null,
-) {
+export function addEventListeners(dialog: HTMLDialogElement) {
   const closeButton = dialog.querySelector(".kth-icon-button.close");
-  const backButton = dialog.querySelector(".kth-button.back");
-
-  dialog.addEventListener("click", (e) => {
-    if (e.target === dialog) {
-      closeAllDialogs();
-    }
-  });
 
   dialog.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
@@ -33,12 +23,64 @@ export function addEventListeners(
       closeAllDialogs();
     });
   }
+}
 
+/**
+ * Add mouse and keyboard event listeners to a dialog (<dialog>) that is not a modal
+ * @param dialog A <dialog> element
+ * @param button Button or clickable element used to open the dialog
+ */
+export function addNonModalEventListeners(
+  dialog: HTMLDialogElement,
+  button: HTMLElement,
+) {
+  addEventListeners(dialog);
+
+  button.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    if (!dialog.open) {
+      closeAllDialogs();
+      dialog.show();
+    } else {
+      closeAllDialogs();
+    }
+  });
+}
+
+/**
+ * Add mouse and keyboard event listeners to a modal (<dialog>)
+ * @param modal A <dialog> element
+ * @param previousModal A <dialog> element that was clicked to open the current modal
+ */
+export function addModalEventListeners(
+  modal: HTMLDialogElement,
+  button: HTMLElement,
+  previousModal?: HTMLDialogElement | null,
+) {
+  const backButton = modal.querySelector(".kth-button.back");
+
+  addEventListeners(modal);
+
+  button.addEventListener("click", (e) => {
+    e.preventDefault();
+    closeAllDialogs();
+    modal.showModal();
+  });
+
+  // Close dialog if clicking outside of it
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      closeAllDialogs();
+    }
+  });
+
+  // Close the current modal and open the previous modal with a back button
   if (backButton instanceof HTMLButtonElement) {
     backButton.addEventListener("click", () => {
-      dialog.close();
-      if (previousDialog) {
-        previousDialog.showModal();
+      modal.close();
+      if (previousModal) {
+        previousModal.showModal();
       }
     });
   }
@@ -55,18 +97,7 @@ export class MenuPanel {
 
       if (!(dialog instanceof HTMLDialogElement)) continue;
 
-      addEventListeners(dialog);
-
-      item.addEventListener("click", (e) => {
-        e.preventDefault();
-
-        if (!dialog.open) {
-          closeAllDialogs();
-          dialog.show();
-        } else {
-          closeAllDialogs();
-        }
-      });
+      addNonModalEventListeners(dialog, item);
     }
 
     container.addEventListener("focusout", function (e) {
@@ -82,12 +113,7 @@ export class MenuPanel {
     if (!(button instanceof HTMLElement)) return;
     if (!(modal instanceof HTMLDialogElement)) return;
 
-    addEventListeners(modal);
-
-    button.addEventListener("click", (e) => {
-      e.preventDefault();
-      modal.showModal();
-    });
+    addModalEventListeners(modal, button);
   }
 
   static initModals(
@@ -106,13 +132,28 @@ export class MenuPanel {
 
       if (!(modal instanceof HTMLDialogElement)) return;
 
-      addEventListeners(modal, previousModal);
+      addModalEventListeners(modal, item, previousModal);
+    }
+  }
 
-      item.addEventListener("click", (e) => {
-        e.preventDefault();
+  static initTranslationModal(button: Element | null, modal: Element | null) {
+    if (!(button instanceof HTMLElement)) return;
+    if (!(modal instanceof HTMLDialogElement)) return;
 
-        closeAllDialogs();
-        modal.showModal();
+    // Only open the modal if there is no href
+    if (!button.getAttribute("href")) {
+      addNonModalEventListeners(modal, button);
+
+      // Close the modal if clicking outside the modal
+      document.addEventListener("click", (e) => {
+        if (
+          modal.open &&
+          !e.composedPath().includes(button) &&
+          !e.composedPath().includes(modal)
+        ) {
+          e.preventDefault();
+          closeAllDialogs();
+        }
       });
     }
   }

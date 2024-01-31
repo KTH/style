@@ -8,6 +8,7 @@ import MainHeaderLogotype from "./Logotype.astro";
 import NavigationPanel from "./NavigationPanel.astro";
 import NavigationPanelMobile from "./NavigationPanelMobile.astro";
 import SearchPanel from "./SearchPanel.astro";
+import TranslationPanel from "./TranslationPanel.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const navigationPanelSv = [
@@ -69,6 +70,7 @@ const navigationPanel = lang === "sv" ? navigationPanelSv : navigationPanelEn;
         >
           {translatedLink.label}
         </a>
+        <TranslationPanel />
       </li>
     </ul>
     <button class="kth-menu-item menu collapsable">
@@ -105,4 +107,9 @@ const navigationPanel = lang === "sv" ? navigationPanelSv : navigationPanelEn;
   );
 
   ScrollObserver.setClass(document.querySelector(".kth-header"));
+
+  MenuPanel.initTranslationModal(
+    document.querySelector(".kth-menu-item.language"),
+    document.querySelector(".kth-translation"),
+  );
 </script>
