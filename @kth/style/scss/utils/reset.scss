@@ -91,17 +91,6 @@ $generate-css: true !default;
       color: var(--color-text);
       background: var(--color-background);
       min-height: 100vh;
-      margin-inline: 0;
-
-      // `--height-kpm` is set by (new) KPM or `kpm.scss`
-      // `--kpm-bar-height` is the old (current) name for the variable set by KPM
-      // default value is 0 (no kpm at all)
-
-      // `--height-header` is set when including `header.scss`
-      // default value is 0 (no header)
-      margin-block-start: calc(
-        var(--height-kpm, --kpm-bar-height, 0) + var(--height-header, 0)
-      );
     }
 
     @include reset;

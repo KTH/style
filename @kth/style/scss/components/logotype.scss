@@ -4,16 +4,11 @@
 @layer kth-style {
   a.kth-logotype,
   figure.kth-logotype {
-    overflow: hidden;
     display: inline-block;
     block-size: 4rem;
     inline-size: 4rem;
     border: none;
     margin: 0;
-
-    @media (min-width: sizing.$breakpoint-64) {
-      margin-inline-end: spacing.$space-32;
-    }
     padding: 0;
 
     // Defensive measurement:
@@ -23,14 +18,6 @@
     > figure {
       block-size: 100%;
       inline-size: 100%;
-      position: relative;
-    }
-
-    img {
-      position: absolute;
-      bottom: 0;
-      block-size: 4rem;
-      inline-size: 4rem;
     }
   }
 }
