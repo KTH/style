@@ -21,6 +21,7 @@ export const ui = {
     "sites.student-web": "Student web",
     "sites.intranet": "Intranet",
     "search-intranet": "Search the KTH intranet",
+    "no-translation": "Den här sidan är ej översatt",
   },
   sv: {
     "nav.search": "Sök",
@@ -35,5 +36,6 @@ export const ui = {
     "sites.student-web": "Studentwebben",
     "sites.intranet": "Intranät",
     "search-intranet": "Sök på intranätet",
+    "no-translation": "This page is not translated",
   },
 };

@@ -18,7 +18,7 @@ export function getTranslatedLink(url: URL) {
 
     return {
       url: newUrl,
-      path: newUrl.pathname,
+      path: "",
       lang: "sv",
       label: "Svenska",
     };
