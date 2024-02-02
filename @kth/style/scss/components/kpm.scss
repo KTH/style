@@ -1,7 +1,18 @@
 @use "../utils/mixins.scss";
 
 @layer kth-style {
+  :root {
+    --height-kpm: 2.5rem;
+  }
+
   .kth-kpm {
+    position: fixed;
+    width: 100%;
+    // TODO: Convert to its own token
+    z-index: 10;
+    background: var(--color-background);
+    top: 0;
+
     &__container {
       @include mixins.container;
       display: flex;

@@ -23,12 +23,25 @@
     }
   }
 
+  :root {
+    --height-header: 6rem;
+  }
+
   .kth-header {
+    position: absolute;
+
+    // TODO: convert to its own token
+    z-index: 10;
+    top: var(--height-kpm, 0);
     color: var(--color-text);
     background: var(--color-background);
     padding-block: spacing.$space-16;
     width: 100%;
     transition: padding-block 500ms cubic-bezier(0.05, 0.7, 0.1, 1);
+
+    .kth-logotype {
+      transition: all 200ms linear;
+    }
 
     &__container {
       @include mixins.container;
@@ -47,6 +60,25 @@
 
     &__mega-menu--collapsable {
       display: none;
+    }
+  }
+
+  // Fixed header in mobile
+  @media (max-width: sizing.$breakpoint-64) {
+    .kth-header {
+      position: fixed;
+    }
+
+    .kth-header.collapsed {
+      padding-block: spacing.$space-8;
+
+      // TODO: Define this shadow as a token
+      box-shadow: 0 0.125rem 0.5rem 0 rgb(0 0 0 /0.15);
+
+      .kth-logotype {
+        block-size: 0rem;
+        opacity: 0;
+      }
     }
   }
 }
