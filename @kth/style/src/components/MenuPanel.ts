@@ -80,13 +80,6 @@ export function addModalEventListeners(
     modal.showModal();
   });
 
-  // Close dialog if clicking outside of it
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      closeAllDialogs();
-    }
-  });
-
   // Close the current modal and open the previous modal with a back button
   if (backButton instanceof HTMLButtonElement) {
     backButton.addEventListener("click", () => {
