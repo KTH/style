@@ -100,7 +100,8 @@ $generate-css: true !default;
       // `--height-header` is set when including `header.scss`
       // default value is 0 (no header)
       margin-block-start: calc(
-        var(--height-kpm, --kpm-bar-height, 0) + var(--height-header, 0)
+        var(--height-kpm, var(--kpm-bar-height, 0rem)) +
+          var(--height-header, 0rem)
       );
     }
 
