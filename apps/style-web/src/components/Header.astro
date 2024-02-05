@@ -84,7 +84,7 @@ const navigationPanel = lang === "sv" ? navigationPanelSv : navigationPanelEn;
 </header>
 
 <script>
-  import { MenuPanel, ScrollObserver } from "@kth/style";
+  import { MenuPanel } from "@kth/style";
 
   // Set navigationPanels only to non-mobile versions
   MenuPanel.init(
@@ -105,8 +105,6 @@ const navigationPanel = lang === "sv" ? navigationPanelSv : navigationPanelEn;
     document.querySelectorAll(".kth-mobile-menu__item"),
     document.querySelector(".kth-mobile-menu"),
   );
-
-  ScrollObserver.setClass(document.querySelector(".kth-header"));
 
   MenuPanel.initTranslationModal(
     document.querySelector(".kth-menu-item.language"),
