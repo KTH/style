@@ -14,6 +14,15 @@
 
     &__container {
       @include mixins.container;
+
+      &.search {
+        display: flex;
+        flex-direction: column;
+
+        .kth-icon-button {
+          align-self: end;
+        }
+      }
     }
 
     &__header {
