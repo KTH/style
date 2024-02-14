@@ -28,7 +28,7 @@ const t = useTranslations(getLangFromUrl(Astro.url));
   <Kpm />
   <Header />
   <div class="kth-content">
-    <Sidebar />
+    <Sidebar label="KTH Style" />
     <main id="kth-main">
       {
         frontmatter.original === false && frontmatter.status === "empty" && (

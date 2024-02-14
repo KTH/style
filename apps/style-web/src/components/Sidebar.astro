@@ -3,11 +3,17 @@ import { getLangFromUrl, useTranslations } from "src/i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+export interface Props {
+  label: string;
+}
+
+const { label } = Astro.props;
 ---
 
 <aside>
-  <nav aria-label="KTH Style">
-    <button class="kth-menu-item menu collapsable">KTH Style</button>
+  <nav aria-label={label}>
+    <button class="kth-menu-item menu collapsable">{label}</button>
     <!-- Dialog only for mobile -->
     <dialog class="kth-mobile-menu left">
       <div class="kth-mobile-menu__navigation">
@@ -15,13 +21,12 @@ const t = useTranslations(lang);
           <span class="kth-visually-hidden">{t("close")}</span>
         </button>
       </div>
-       ...
+      <slot />
     </dialog>
 
     <!-- Desktop: non-dialog -->
     <div>
-      <h2>KTH Style</h2>
-       ...
+      <slot />
     </div>
   </nav>
 </aside>
