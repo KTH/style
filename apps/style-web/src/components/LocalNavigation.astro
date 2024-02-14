@@ -1,27 +1,72 @@
+---
+import { navigationEntries } from "src/i18n/local-navigation";
+import { getLangFromUrl, getRouteData } from "src/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const PATH_REGEX = /^\/style\/(\w+)(.*)$/;
+const match = Astro.url.pathname.match(PATH_REGEX);
+
+const currentRoute = match?.[2] ?? "";
+
+const allFiles = await Astro.glob(`../pages/style/**/*.md`);
+---
+
 <div class="kth-local-navigation">
   <a href="/" class="kth-button back">Intranet</a>
 
   <h2>KTH Style</h2>
   <ul>
-    <li>
-      <a class="kth-local-navigation__entry" href="/style" aria-current="page"
-        >Home</a
-      >
-    </li>
-    <li>
-      <a class="kth-local-navigation__entry expandable" href="/style"
-        >Get started</a
-      >
-    </li>
-    <li class="kth-local-navigation__submenu">
-      <h3>Styles</h3>
-      <ul>
-        <li>
-          <a class="kth-local-navigation__entry" href="/style/en/styles/"
-            >Design tokens</a
-          >
-        </li>
-      </ul>
-    </li>
+    {
+      navigationEntries.map((entry) => {
+        if (typeof entry === "string") {
+          const link = getRouteData(allFiles, lang, entry);
+
+          return (
+            <li>
+              <a href={link.href} class="kth-local-navigation__entry">
+                {link.title}
+              </a>
+            </li>
+          );
+        } else {
+          const expanded =
+            entry.routes.filter((route) => route === currentRoute).length > 0;
+
+          if (expanded) {
+            // if expanded, show all links
+            return (
+              <li class="kth-local-navigation__submenu">
+                <h3>{entry.heading.en}</h3>
+                <ul>
+                  {entry.routes
+                    .map((route) => getRouteData(allFiles, lang, route))
+                    .map((link) => (
+                      <li>
+                        <a href={link.href} class="kth-local-navigation__entry">
+                          {link.title}
+                        </a>
+                      </li>
+                    ))}
+                </ul>
+              </li>
+            );
+          } else {
+            // If collapsed, show only one link
+            const link = getRouteData(allFiles, lang, entry.routes[0]);
+
+            return (
+              <li>
+                <a
+                  href={link.href}
+                  class="kth-local-navigation__entry expandable"
+                >
+                  {entry.heading[lang]}
+                </a>
+              </li>
+            );
+          }
+        }
+      })
+    }
   </ul>
 </div>
