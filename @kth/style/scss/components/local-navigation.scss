@@ -1,0 +1,52 @@
+@use "../tokens/typography.scss";
+@use "../tokens/spacing.scss";
+@use "../tokens/icons.scss";
+
+@layer kth-style {
+  .kth-local-navigation {
+    h2 {
+      @include typography.font-heading-s;
+      margin-inline-start: spacing.$space-24;
+      margin-block-start: spacing.$space-12;
+      margin-block-end: spacing.$space-4;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    > ul {
+      margin-inline-start: spacing.$space-8;
+    }
+
+    &__entry {
+      text-decoration: none;
+      display: flex;
+      justify-content: space-between;
+      padding-block: spacing.$space-8;
+      padding-inline-start: spacing.$space-16;
+    }
+
+    &__entry[aria-current="page"] {
+      padding-inline-start: spacing.$space-12;
+      border-inline-start: spacing.$space-4 var(--color-tertiary) solid;
+    }
+
+    &__entry.expandable::after {
+      @include icons.icon-caret-right;
+      background-color: var(--color-tertiary);
+    }
+
+    &__submenu {
+      padding-inline-start: spacing.$space-16;
+      padding-block-start: spacing.$space-16;
+    }
+
+    h3 {
+      @include typography.font-heading-xs;
+      margin-block-end: spacing.$space-8;
+    }
+  }
+}

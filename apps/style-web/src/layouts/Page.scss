@@ -16,6 +16,8 @@
 @use "@kth/style/scss/components/button";
 @use "@kth/style/scss/components/visually-hidden";
 @use "@kth/style/scss/components/translation-panel";
+@use "@kth/style/scss/components/local-navigation";
+@use "@kth/style/scss/components/sidebar";
 
 //
 @use "@kth/style/scss/components/kpm";
@@ -26,7 +28,6 @@
 
 // Internal components
 @use "@components/content.scss";
-@use "@components/local-navigation.scss";
 
 article {
   @include prose.prose;

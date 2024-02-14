@@ -13,6 +13,7 @@ import Layout from "./Layout.astro";
 import Kpm from "../components/Kpm.astro";
 import Header from "../components/Header.astro";
 import Sidebar from "@components/Sidebar.astro";
+import LocalNavigation from "@components/LocalNavigation.astro";
 import MissingTranslation from "@components/MissingTranslation.astro";
 import { getLangFromUrl, useTranslations } from "src/i18n/utils";
 import Footer from "@components/Footer.astro";
@@ -28,7 +29,7 @@ const t = useTranslations(getLangFromUrl(Astro.url));
   <Kpm />
   <Header />
   <div class="kth-content">
-    <Sidebar label="KTH Style" />
+    <Sidebar label="KTH Style"><LocalNavigation /></Sidebar>
     <main id="kth-main">
       {
         frontmatter.original === false && frontmatter.status === "empty" && (

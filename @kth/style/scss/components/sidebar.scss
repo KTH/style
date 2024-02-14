@@ -1,0 +1,37 @@
+@use "../tokens/typography.scss";
+@use "../tokens/spacing.scss";
+@use "../tokens/icons.scss";
+@use "../tokens/sizing.scss";
+
+@layer kth-style {
+  .kth-sidebar {
+    &__menu {
+      display: none;
+
+      @media (min-width: sizing.$breakpoint-64) {
+        display: block;
+      }
+    }
+
+    &__menu--collapsable {
+      @media (min-width: sizing.$breakpoint-64) {
+        display: none;
+      }
+    }
+
+    &__button {
+      border: none;
+      background: none;
+      display: inline-flex;
+      align-items: center;
+      padding: spacing.$space-8 0;
+      gap: spacing.$space-4;
+      color: var(--color-tertiary);
+
+      &::before {
+        @include icons.icon-menu;
+        background-color: var(--color-tertiary);
+      }
+    }
+  }
+}

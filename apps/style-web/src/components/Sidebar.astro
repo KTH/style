@@ -11,22 +11,21 @@ export interface Props {
 const { label } = Astro.props;
 ---
 
-<aside>
+<aside class="kth-sidebar">
   <nav aria-label={label}>
-    <button class="kth-menu-item menu collapsable">{label}</button>
-    <!-- Dialog only for mobile -->
-    <dialog class="kth-mobile-menu left">
-      <div class="kth-mobile-menu__navigation">
-        <button class="kth-icon-button close">
-          <span class="kth-visually-hidden">{t("close")}</span>
-        </button>
-      </div>
+    <div class="kth-sidebar__menu">
       <slot />
-    </dialog>
-
-    <!-- Desktop: non-dialog -->
-    <div>
-      <slot />
+    </div>
+    <div class="kth-sidebar__menu--collapsable">
+      <button class="kth-sidebar__button">{label}</button>
+      <dialog class="kth-mobile-menu left">
+        <div class="kth-mobile-menu__navigation">
+          <button class="kth-icon-button close">
+            <span class="kth-visually-hidden">{t("close")}</span>
+          </button>
+        </div>
+        <slot />
+      </dialog>
     </div>
   </nav>
 </aside>
@@ -34,7 +33,7 @@ const { label } = Astro.props;
   import { MenuPanel } from "@kth/style";
 
   MenuPanel.initModal(
-    document.querySelector("aside .kth-menu-item.collapsable"),
+    document.querySelector("aside .kth-sidebar__button"),
     document.querySelector("aside .kth-mobile-menu"),
   );
 </script>
