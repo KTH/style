@@ -1,0 +1,48 @@
+---
+export type Link = {
+  href: string;
+  label: string;
+  lang: "en" | "sv";
+  active: boolean;
+  expandable: boolean;
+};
+
+export type SubHeading = {
+  heading: string;
+  level: number;
+  active: true;
+  links: (Link | SubHeading)[];
+};
+
+export type Props = Link | SubHeading;
+
+const props = Astro.props;
+const Heading = "level" in props ? `h${props.level}` : "";
+---
+
+{
+  "heading" in props ? (
+    <li class="kth-local-navigation__submenu">
+      <Heading>{props.heading}</Heading>
+      <ul>
+        {props.links.map((link) => (
+          <Astro.self {...link} />
+        ))}
+      </ul>
+    </li>
+  ) : (
+    <li>
+      <a
+        href={props.href}
+        class:list={[
+          "kth-local-navigation__entry",
+          props.expandable ? "expandable" : "",
+        ]}
+        lang={props.lang}
+        aria-current={props.active ? "page" : undefined}
+      >
+        {props.label}
+      </a>
+    </li>
+  )
+}

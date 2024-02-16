@@ -1,13 +1,12 @@
 ---
 import { getLangFromUrl, useTranslations } from "src/i18n/utils";
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-
 export interface Props {
   label: string;
 }
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const { label } = Astro.props;
 ---
 

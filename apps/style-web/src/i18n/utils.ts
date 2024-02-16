@@ -2,8 +2,32 @@ import type { MarkdownInstance } from "astro";
 import { ui, languages, defaultLang } from "./ui";
 import type { Languages } from "./ui";
 
+export type FileMetadata = {
+  lang: Languages;
+  path: string;
+  href: string;
+  title: string;
+};
+
+// Example: /style/en/components/button
+const URL_REGEX = /^\/style\/(\w+)(.*)$/;
+
+/** Get parts of a `url` */
+export function getUrlParts(pathname: string) {
+  const match = pathname.match(URL_REGEX);
+
+  if (match === null) {
+    throw new Error(`The path [${pathname}] does not match expected pattern`);
+  }
+
+  return {
+    lang: match[1],
+    path: match[2],
+  };
+}
+
 export function getLangFromUrl(url: URL) {
-  const [, , lang] = url.pathname.split("/");
+  const { lang } = getUrlParts(url.pathname);
   if (lang in languages) return lang as Languages;
 
   return defaultLang;
@@ -42,69 +66,31 @@ export function useTranslations(lang: Languages) {
   };
 }
 
-function getOriginalData(
-  allFiles: MarkdownInstance<Record<string, any>>[],
-  route: string,
-) {
-  const REGEX = /^\/style\/(\w+)(.*)$/;
-  const entry = allFiles
-    .filter(
-      (file) =>
-        file.frontmatter.original === undefined ||
-        file.frontmatter.original === true,
-    )
-    .find((file) => {
-      const match = file.url?.match(REGEX);
-
-      return `${match?.[2]}` === route;
-    });
-
-  if (entry && entry.url) {
-    const entryLanguage = entry.url.match(REGEX)?.[1];
-
-    if (entryLanguage !== "sv" && entryLanguage !== "en") {
-      throw new Error("");
-    }
-
-    return {
-      href: entry.url,
-      title: entry.frontmatter.title as string,
-      lang: entryLanguage,
-    };
-  }
-
-  throw new Error("");
-}
-
-export function getRouteData(
-  allFiles: MarkdownInstance<Record<string, any>>[],
-  lang: "sv" | "en",
-  route: string,
-) {
-  const entry = allFiles.find((file) => file.url === `/style/${lang}${route}`);
-
-  if (!entry) {
+/** Get a "link" object for a file */
+export function parseFile(
+  file: MarkdownInstance<Record<string, any>>,
+): FileMetadata | undefined {
+  if (!file.url) {
     throw new Error("");
   }
 
-  const status = entry?.frontmatter.status;
-  const original = entry?.frontmatter.original;
+  const { lang, path } = getUrlParts(file.url);
+  const status = file.frontmatter.status;
+  const original = file.frontmatter.original;
+  const title = file.frontmatter.title;
 
   if (status === "empty" && original === false) {
-    return getOriginalData(allFiles, route);
+    return undefined;
   }
 
-  if (!entry.url) {
-    throw new Error("");
-  }
-
-  if (typeof entry.frontmatter.title !== "string") {
-    throw new Error("");
+  if (typeof title !== "string") {
+    throw new Error(`The file [${file.url}] does not have title`);
   }
 
   return {
-    href: entry.url,
-    title: entry.frontmatter.title,
-    lang: undefined,
+    lang: lang as Languages,
+    path,
+    title,
+    href: `/style/${lang}${path}`,
   };
 }

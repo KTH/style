@@ -1,11 +1,19 @@
-type Entry =
+/**
+ * Defines a link in the navigation menu
+ * - If `string`, the is a route to a markdown file
+ * - Otherwise defines a "submenu"
+ */
+export type Entry =
   | string
   | {
+      /** Label for the submenu */
       heading: {
         sv: string;
         en: string;
       };
-      routes: string[];
+
+      /** Pages included in the submenu */
+      routes: Entry[];
     };
 
 export const navigationEntries: Entry[] = [
@@ -48,11 +56,19 @@ export const navigationEntries: Entry[] = [
     routes: [
       "/components/button",
       "/components/details",
-      "/components/entrances",
-      "/components/header",
-      "/components/kpm",
-      "/components/logotype",
-      "/components/mega-menu",
+      {
+        heading: {
+          sv: "Huvudet",
+          en: "Header",
+        },
+        routes: [
+          "/components/header",
+          "/components/entrances",
+          "/components/kpm",
+          "/components/logotype",
+          "/components/mega-menu",
+        ],
+      },
       "/components/menu-item",
     ],
   },
