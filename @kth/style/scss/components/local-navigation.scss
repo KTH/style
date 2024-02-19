@@ -44,7 +44,10 @@
       padding-block-start: spacing.$space-16;
     }
 
-    h3 {
+    h3,
+    h4,
+    h5,
+    h6 {
       @include typography.font-heading-xs;
       margin-block-end: spacing.$space-8;
     }
