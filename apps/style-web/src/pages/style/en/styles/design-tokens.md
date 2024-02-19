@@ -1,5 +1,5 @@
 ---
-title: Spacing
+title: Design tokens
 layout: "@layouts/Page.astro"
 ---
 
