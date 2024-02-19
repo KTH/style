@@ -67,9 +67,10 @@ export const navigationEntries: Entry[] = [
           "/components/kpm",
           "/components/logotype",
           "/components/mega-menu",
+          "/components/menu-item",
         ],
       },
-      "/components/menu-item",
+      "/components/local-navigation",
     ],
   },
 ];
