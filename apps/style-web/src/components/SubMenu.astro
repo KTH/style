@@ -1,159 +1,127 @@
 ---
-import { navigationEntries } from "src/i18n/local-navigation";
-import { getLangFromUrl, useTranslations } from "src/i18n/utils";
-import { defaultLang } from "src/i18n/ui";
+import { getLangFromUrl } from "src/i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-const allFiles = await Astro.glob(`../pages/style/**/*.md`);
 
-const languageFiles = allFiles.filter((file) =>
-  file.url?.startsWith(`/style/${lang}`),
-);
-
-function getOriginalData(route: string) {
-  const REGEX = /^\/style\/(\w+)(.*)$/;
-  const entry = allFiles
-    .filter(
-      (file) =>
-        file.frontmatter.original === undefined ||
-        file.frontmatter.original === true,
-    )
-    .find((file) => {
-      const match = file.url?.match(REGEX);
-
-      return `${match?.[2]}` === route;
-    });
-
-  if (entry) {
-    const entryLanguage = entry.url?.match(REGEX)?.[1];
-
-    let suffix = "";
-
-    switch (entryLanguage) {
-      case "en":
-        suffix = t("nav.in-english");
-        break;
-      case "sv":
-        suffix = t("nav.in-swedish");
-        break;
-      default:
-        suffix = t("nav.unknown-language");
-    }
-
-    return {
-      href: entry.url,
-      title: entry.frontmatter.title + " " + suffix,
-      lang: entryLanguage ?? defaultLang,
-    };
-  }
-
-  return {
-    href: "???",
-    title: "???",
-    lang: undefined,
-  };
-}
-
-function getRouteData(route: string) {
-  const entry = languageFiles.find(
-    (file) => file.url === `/style/${lang}${route}`,
-  );
-
-  if (!entry) {
-    return {
-      href: "???",
-      title: "???",
-      lang: undefined,
-    };
-  }
-
-  const status = entry?.frontmatter.status;
-  const original = entry?.frontmatter.original;
-
-  if (status === "empty" && original === false) {
-    return getOriginalData(route);
-  }
-
-  return {
-    href: entry.url,
-    title: entry.frontmatter.title ?? "???",
-    lang: undefined,
-  };
-}
+const subMenuContent = [
+  {
+    href: {
+      en: "/en/verktyg",
+      sv: "/verktyg",
+    },
+    labels: {
+      en: "Home",
+      sv: "Home",
+    },
+  },
+  {
+    href: {
+      en: "/en/polopoly",
+      sv: "/polopoly",
+    },
+    labels: {
+      en: "Get stared C",
+      sv: "Get stared C",
+    },
+    children: [
+      {
+        href: {
+          en: "/en/bakgrund",
+          sv: "/bakgrund",
+        },
+        labels: {
+          en: "Background",
+          sv: "Bakgrund",
+        },
+      },
+    ],
+  },
+  {
+    href: {
+      en: "/en/webbanalys",
+      sv: "/webbanalys",
+    },
+    labels: {
+      en: "Styles",
+      sv: "Styles",
+    },
+  },
+  {
+    href: {
+      en: "/style/en",
+      sv: "/kth-style",
+    },
+    labels: {
+      en: "Guides C",
+      sv: "Guides C",
+    },
+    children: [
+      {
+        href: {
+          en: "/en/bakgrund",
+          sv: "/bakgrund",
+        },
+        labels: {
+          en: "Background",
+          sv: "Bakgrund",
+        },
+      },
+      {
+        href: {
+          en: "/style/en",
+          sv: "/riktlinjer",
+        },
+        labels: {
+          en: "Guidelines",
+          sv: "Riktlinjer",
+        },
+        children: [
+          {
+            href: {
+              en: "/en/farger",
+              sv: "/farger",
+            },
+            labels: {
+              en: "Colors",
+              sv: "Färger",
+            },
+          },
+        ],
+      },
+    ],
+  },
+];
 ---
 
-<aside class="kth-local-navigation">
-  <h2>KTH Style</h2>
-  <ul class="nav">
+<nav class="kth-local-navigation">
+  <ul>
+    <li class="nav--parentLink">
+      <a href="/">Back</a>
+    </li>
+  </ul>
+
+  <ul class="nav-list">
+    <h2>KTH Style</h2>
+
     {
-      navigationEntries.map((entry) => (
-        <li>
-          {typeof entry === "string" ? (
-            <a
-              class={`nav-home-link ${
-                Astro.url.pathname === getRouteData(entry).href
-                  ? "selected"
-                  : ""
-              }`}
-              href={getRouteData(entry).href}
-            >
-              {getRouteData(entry).title}
+      subMenuContent.map(({ href, labels, children }) => (
+        <li class="nav-item nav-item--node nav-item--expandable">
+          <h3 class="nav-head nav-head--selected nav-head--leaf">
+            <a href={href[lang]} class="nav-link">
+              {labels[lang]}
             </a>
-          ) : (
-            <>
-              {(() => {
-                const routeData = getRouteData(entry.routes[0]);
-                const isLinkActive = (routeData: any) =>
-                  Astro.url.pathname.includes(routeData.href);
-                const isListSelected = entry.routes.some((route) => {
-                  const routeData = getRouteData(route);
-                  return isLinkActive(routeData);
-                });
-
-                return (
-                  <>
-                    <ul
-                      class={`nav-list ${
-                        isListSelected ? "expanded" : "expandable"
-                      }`}
-                    >
-                      <h3
-                        class={`nav-head ${isListSelected ? "selected" : ""}`}
-                      >
-                        <a href={routeData.href} class="nav-head-link">
-                          {entry.heading[lang]}
-                        </a>
-                      </h3>
-
-                      {entry.routes.map((route) => {
-                        const routeData = getRouteData(route);
-                        const isActive = isLinkActive(routeData);
-
-                        return (
-                          <li
-                            class={`nav-item ${
-                              isListSelected ? "expanded" : "leaf"
-                            } ${isActive ? "selected" : ""}`}
-                          >
-                            <a
-                              class={`nav-link ${isActive ? "selected" : ""}`}
-                              href={routeData.href}
-                              lang={routeData.lang}
-                            >
-                              {routeData.title}
-                            </a>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </>
-                );
-              })()}
-            </>
-          )}
+          </h3>
+          <ul class="nav-list">
+            {children?.map(({ href, labels }) => (
+              <li class="nav-item nav-item--expanded nav-item--selected">
+                <a class="nav-link nav-link--inactive-link" href={href[lang]}>
+                  {labels[lang]}
+                </a>
+              </li>
+            ))}
+          </ul>
         </li>
       ))
     }
   </ul>
-</aside>
+</nav>
