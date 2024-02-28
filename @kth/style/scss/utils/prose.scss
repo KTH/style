@@ -13,7 +13,7 @@
   }
 
   .lead {
-    @include t.font-lead;
+    @include t.font-lead-fluid;
     margin-block-start: s.$space-12;
     margin-block-end: s.$space-16;
   }
