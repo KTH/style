@@ -15,6 +15,7 @@
 
   p {
     margin-block: s.$space-20;
+    // TODO: change this to `rem` and tokenize
     max-width: 60ch;
   }
 
