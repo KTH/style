@@ -78,47 +78,4 @@
     padding-block: s.$space-16;
     padding-inline: s.$space-24;
   }
-
-  table {
-    @include s.theme-dense;
-    table-layout: auto;
-    text-align: left;
-    margin-block: s.$space-32;
-    border-collapse: collapse;
-    overflow-x: auto;
-  }
-
-  thead {
-    // TODO: border
-    th {
-      @include t.font-heading-xs;
-      padding-block: var(--space-inner-block);
-      padding-inline: var(--space-inner-inline);
-
-      &:first-child {
-        padding-inline-start: 0;
-      }
-
-      &:last-child {
-        padding-inline-end: 0;
-      }
-    }
-  }
-
-  tbody {
-    // TODO: border
-
-    td {
-      padding-block: var(--space-inner-block);
-      padding-inline: var(--space-inner-inline);
-
-      &:first-child {
-        padding-inline-start: 0;
-      }
-
-      &:last-child {
-        padding-inline-end: 0;
-      }
-    }
-  }
 }
