@@ -39,10 +39,16 @@ $font-bold: 600;
 }
 
 // Replaces t10 (non-fluid)
-@mixin font-lead {
+@mixin font-lead-l {
   font-weight: 400;
   font-size: 1.5rem;
   line-height: 2.25rem;
+}
+
+@mixin font-lead-m {
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 // Replaces t11, t12 (non-fluid)
@@ -90,11 +96,10 @@ $font-bold: 600;
 
 // Replaces t10
 @mixin font-lead-fluid {
-  font-size: 1.125rem;
-  line-height: 1.5rem;
+  @include font-lead-l;
 
   @media (min-width: $breakpoint-fluid-typography) {
-    @include font-lead;
+    @include font-lead-m;
   }
 }
 
