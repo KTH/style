@@ -52,8 +52,6 @@ $font-bold: 600;
   line-height: 1.5rem;
 }
 
-/// Do we need these?
-///
 // Replaces t1
 @mixin font-heading-xl-fluid {
   @include font-heading-l;
