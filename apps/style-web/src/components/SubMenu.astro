@@ -1,127 +1,49 @@
 ---
-import { getLangFromUrl } from "src/i18n/utils";
 
-const lang = getLangFromUrl(Astro.url);
-
-const subMenuContent = [
-  {
-    href: {
-      en: "/en/verktyg",
-      sv: "/verktyg",
-    },
-    labels: {
-      en: "Home",
-      sv: "Home",
-    },
-  },
-  {
-    href: {
-      en: "/en/polopoly",
-      sv: "/polopoly",
-    },
-    labels: {
-      en: "Get stared C",
-      sv: "Get stared C",
-    },
-    children: [
-      {
-        href: {
-          en: "/en/bakgrund",
-          sv: "/bakgrund",
-        },
-        labels: {
-          en: "Background",
-          sv: "Bakgrund",
-        },
-      },
-    ],
-  },
-  {
-    href: {
-      en: "/en/webbanalys",
-      sv: "/webbanalys",
-    },
-    labels: {
-      en: "Styles",
-      sv: "Styles",
-    },
-  },
-  {
-    href: {
-      en: "/style/en",
-      sv: "/kth-style",
-    },
-    labels: {
-      en: "Guides C",
-      sv: "Guides C",
-    },
-    children: [
-      {
-        href: {
-          en: "/en/bakgrund",
-          sv: "/bakgrund",
-        },
-        labels: {
-          en: "Background",
-          sv: "Bakgrund",
-        },
-      },
-      {
-        href: {
-          en: "/style/en",
-          sv: "/riktlinjer",
-        },
-        labels: {
-          en: "Guidelines",
-          sv: "Riktlinjer",
-        },
-        children: [
-          {
-            href: {
-              en: "/en/farger",
-              sv: "/farger",
-            },
-            labels: {
-              en: "Colors",
-              sv: "Färger",
-            },
-          },
-        ],
-      },
-    ],
-  },
-];
 ---
 
 <nav class="kth-local-navigation">
-  <ul>
-    <li class="nav--parentLink">
-      <a href="/">Back</a>
-    </li>
-  </ul>
-
   <ul class="nav-list">
-    <h2>KTH Style</h2>
+    <li class="nav-item">
+      <a href="/style/en" class="nav-link" aria-current="page"> Home</a>
+    </li>
+    <li class="nav-item nav-item--expandable">
+      <a href="/" class="nav-link"> Get started</a>
+    </li>
+    <li class="nav-item nav-item--leaf">
+      <a href="/" class="nav-link">Styles</a>
+    </li>
 
-    {
-      subMenuContent.map(({ href, labels, children }) => (
-        <li class="nav-item nav-item--node nav-item--expandable">
-          <h3 class="nav-head nav-head--selected nav-head--leaf">
-            <a href={href[lang]} class="nav-link">
-              {labels[lang]}
-            </a>
-          </h3>
+    <li class="nav-item nav-item--selected">
+      <a href="/" class="nav-link">Guides</a>
+      <ul class="nav-list">
+        <li class="nav-item nav-item--expandable">
+          <a href="/" class="nav-link">Design av app utifrån KTH Style</a>
+        </li>
+        <li class="nav-item nav-item--expanded">
+          <a href="/" class="nav-link">Guide</a>
           <ul class="nav-list">
-            {children?.map(({ href, labels }) => (
-              <li class="nav-item nav-item--expanded nav-item--selected">
-                <a class="nav-link nav-link--inactive-link" href={href[lang]}>
-                  {labels[lang]}
-                </a>
-              </li>
-            ))}
+            <li class="nav-item nav-item--leaf" aria-current="page">
+              <a href="/" class="nav-link"> Design av app utifrån KTH Style</a>
+            </li>
+            <li class="nav-item nav-item--leaf">
+              <a href="/" class="nav-link">Riktlinjer</a>
+            </li>
+            <li class="nav-item nav-item--leaf">
+              <a href="/" class="nav-link"> Strukture</a>
+            </li>
           </ul>
         </li>
-      ))
-    }
+        <li class="nav-item nav-item--leaf">
+          <a href="/" class="nav-link">Icons</a>
+        </li>
+        <li class="nav-item nav-item--expandable">
+          <a href="/" class="nav-link"> Rainbow</a>
+        </li>
+      </ul>
+      <li class="nav-item nav-item--expandable">
+        <a href="/" class="nav-link"> Guides</a>
+      </li>
+    </li>
   </ul>
 </nav>
