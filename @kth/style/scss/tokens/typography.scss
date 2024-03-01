@@ -96,10 +96,10 @@ $font-bold: 600;
 
 // Replaces t10
 @mixin font-lead-fluid {
-  @include font-lead-l;
+  @include font-lead-m;
 
   @media (min-width: $breakpoint-fluid-typography) {
-    @include font-lead-m;
+    @include font-lead-l;
   }
 }
 
