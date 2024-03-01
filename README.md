@@ -1,6 +1,12 @@
 # KTH Style monorepo
 
-This is the Monorepo for KTH Style, the KTH's Design System.
+This is the repository of KTH Style, the KTH's Design System.
+
+- Live documentation: https://intra.kth.se/style
+
+---
+
+---
 
 ## Structure
 
