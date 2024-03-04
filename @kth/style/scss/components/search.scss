@@ -54,7 +54,13 @@ $secondary-border-width: math.div(1rem, 16);
     }
 
     > button.loading::after {
-      @include icons.spinner;
+      @include icons.icon-spinner;
+      content: "";
+      display: block;
+      width: 1rem;
+      height: 1rem;
+      margin: auto;
+      background: var(--color-secondary);
     }
   }
 }
