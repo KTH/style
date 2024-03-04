@@ -25,6 +25,11 @@
       margin: 0;
     }
 
+    // Left margin in non-submenu lists
+    > ul {
+      margin-inline-start: spacing.$space-8;
+    }
+
     a {
       text-decoration: none;
       display: flex;
@@ -61,25 +66,8 @@
       }
     }
 
-    .nav-item {
-      position: relative;
-
-      * li {
-        margin-left: spacing.$space-16;
-      }
-
-      &.nav-item--selected,
-      &.nav-item--expanded {
-        > .nav-link {
-          pointer-events: none;
-          color: var(--color-black);
-          font-weight: 600;
-        }
-      }
-
-      &.nav-item--leaf {
-        color: var(--color-tertiary);
-      }
+    .submenu {
+      margin-inline-start: spacing.$space-16;
     }
   }
 }
