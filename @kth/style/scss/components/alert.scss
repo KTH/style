@@ -20,15 +20,34 @@ $padding-inline: calc(spacing.$space-12 - $border-inline);
     border-style: solid;
     border-color: var(--color-text);
 
-    &.info {
-      border-color: var(--color-primary);
-    }
-
-    &.info::before {
-      @include icons.icon-info-500;
+    &:before {
       background-color: var(--color-text);
       grid-column-start: 1;
       align-self: center;
+    }
+
+    &.info {
+      border-color: var(--color-primary);
+
+      &::before {
+        @include icons.icon-info-500;
+      }
+    }
+
+    &.warning {
+      border-color: var(--color-error);
+
+      &::before {
+        @include icons.icon-warning-500;
+      }
+    }
+
+    &.success {
+      border-color: var(--color-success);
+
+      &::before {
+        @include icons.icon-check-500;
+      }
     }
 
     > * {
