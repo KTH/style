@@ -47,6 +47,20 @@
       align-self: center;
     }
 
+    a[aria-current="page"] {
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: spacing.$space-4;
+        background-color: var(--color-primary);
+      }
+    }
+
     .nav-item {
       position: relative;
 
@@ -65,22 +79,6 @@
 
       &.nav-item--leaf {
         color: var(--color-tertiary);
-      }
-
-      [aria-current="page"] {
-        padding-block: spacing.$space-8;
-        padding-block-end: spacing.$space-8;
-        position: relative;
-
-        &::before {
-          content: "";
-          position: absolute;
-          left: -1rem;
-          top: 0;
-          bottom: 0;
-          width: spacing.$space-4;
-          background-color: var(--color-primary);
-        }
       }
     }
   }
