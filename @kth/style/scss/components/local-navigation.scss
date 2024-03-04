@@ -1,27 +1,87 @@
-@use "@kth/style/scss/tokens/spacing";
-@use "@kth/style/scss/tokens/typography";
+@use "../tokens/colors.scss";
+@use "../tokens/spacing.scss";
+@use "../utils/mixins.scss";
+@use "../tokens/typography";
+@use "../tokens/sizing.scss";
+@use "../tokens/icons";
+
 @layer kth-style {
   .kth-local-navigation {
     h2 {
       @include typography.font-heading-s;
+      margin-inline-start: spacing.$space-24;
     }
 
-    h3 {
+    h3,
+    h4,
+    h5 {
       @include typography.font-heading-xs;
-      margin-block-start: spacing.$space-32;
+      margin-block: spacing.$space-8;
     }
+
     ul {
       list-style: none;
       padding: 0;
       margin: 0;
     }
 
-    li {
-      margin-block: spacing.$space-16;
-    }
+    .nav-list {
+      .nav-item {
+        position: relative;
 
-    a {
-      text-decoration: none;
+        &:hover:not(.nav-item--selected, .nav-item--expanded) {
+          text-decoration: underline;
+          cursor: pointer;
+          text-underline-offset: 3px;
+          color: var(--color-tertiary);
+        }
+        * li {
+          margin-left: spacing.$space-16;
+        }
+        &.nav-item--expandable {
+          .nav-link {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+
+            &::after {
+              @include icons.icon-caret-right;
+              background-color: var(--color-tertiary);
+              align-self: center;
+              cursor: pointer;
+            }
+          }
+        }
+
+        &.nav-item--selected,
+        &.nav-item--expanded {
+          > .nav-link {
+            pointer-events: none;
+            color: var(--color-black);
+            font-weight: 600;
+          }
+        }
+
+        &.nav-item--leaf {
+          color: var(--color-tertiary);
+        }
+
+        [aria-current="page"] {
+          padding-block: spacing.$space-8;
+          padding-block-end: spacing.$space-8;
+          position: relative;
+
+          &::before {
+            content: "";
+            position: absolute;
+            left: -1rem;
+            top: 0;
+            bottom: 0;
+            width: spacing.$space-4;
+            background-color: var(--color-primary);
+          }
+        }
+      }
     }
   }
 }
