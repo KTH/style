@@ -20,8 +20,7 @@ When the entire page is a "landing" and a local navigation only adds redudancy t
 ### General structure
 
 - The container must be a `<nav>` tag.
-- Use the attribute `aria-label` in `<nav>` to give a readable name to the navigation. Do not include the word "navigation" in the label.
-- The text should be in the same language as the rest of the page.
+- If you include a heading `<h2>` that works as the heading of the navigation menu, use `aria-labelledby` in `<nav>` to refer to it
 - Use `aria-current="page"` attribute in the `<a>` tag that points to the current page.
 
 ### Menu structure
@@ -76,6 +75,6 @@ If the user is visiting a page in a submenu (for example http://example.com/3-1)
 If the user is visiting a page in a sub-submenu.
 
 - Show all top-level menus
-- Show all menus in the submenu that includes the visiting page (everything under _5.1 Proin at bibendum ante_) and their parents (everything under _5 Suspendisse blandit_)
+- Show all menus in the submenu that includes the visiting page (everything under _5.1 Proin at bibendum ante_) and their parents (everything directly under _5 Suspendisse blandit_)
 
 <iframe src="/style/en/examples/local-navigation/three-levels"></iframe>
