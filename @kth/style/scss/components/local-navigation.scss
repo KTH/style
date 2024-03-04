@@ -25,15 +25,14 @@
       margin: 0;
     }
 
+    a:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
     .nav-item {
       position: relative;
 
-      &:hover:not(.nav-item--selected, .nav-item--expanded) {
-        text-decoration: underline;
-        cursor: pointer;
-        text-underline-offset: 3px;
-        color: var(--color-tertiary);
-      }
       * li {
         margin-left: spacing.$space-16;
       }
