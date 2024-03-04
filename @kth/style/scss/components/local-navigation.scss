@@ -37,25 +37,21 @@
       text-underline-offset: 3px;
     }
 
+    a.expandable {
+      justify-content: space-between;
+    }
+
+    a.expandable::after {
+      @include icons.icon-caret-right;
+      background-color: var(--color-tertiary);
+      align-self: center;
+    }
+
     .nav-item {
       position: relative;
 
       * li {
         margin-left: spacing.$space-16;
-      }
-      &.nav-item--expandable {
-        .nav-link {
-          display: flex;
-          justify-content: space-between;
-          width: 100%;
-
-          &::after {
-            @include icons.icon-caret-right;
-            background-color: var(--color-tertiary);
-            align-self: center;
-            cursor: pointer;
-          }
-        }
       }
 
       &.nav-item--selected,
