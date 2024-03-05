@@ -88,17 +88,6 @@
 }
 
 @mixin icon-spinner {
-  // This is based on https://css-loaders.com/spinner/#l3
-  padding: 0.125rem;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  --_m: conic-gradient(transparent 10%, #000),
-    linear-gradient(#000 0 0) content-box;
-  -webkit-mask: var(--_m);
-  mask: var(--_m);
-  -webkit-mask-composite: source-out;
-  mask-composite: subtract;
-
-  // TODO: tokenize
+  @include with-icon(raw.$icon-spinner);
   animation: spin 750ms infinite linear;
 }
