@@ -54,6 +54,7 @@ export const navigationEntries: Entry[] = [
       "/components/logotype",
       "/components/mega-menu",
       "/components/menu-item",
+      "/components/search",
     ],
   },
 ];
