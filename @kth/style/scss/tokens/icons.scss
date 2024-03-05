@@ -1,5 +1,12 @@
 @use "./icons-raw.scss" as raw;
 
+// TODO: move it somewhere else?
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
 @mixin with-icon($icon, $size: 1.25rem) {
   // We use this variable to avoid sending the same data twice to the users
   --icon: #{$icon};
@@ -78,4 +85,9 @@
 
 @mixin icon-new-window-500 {
   @include with-icon(raw.$icon-new-window-500);
+}
+
+@mixin icon-spinner {
+  @include with-icon(raw.$icon-spinner);
+  animation: spin 750ms infinite linear;
 }

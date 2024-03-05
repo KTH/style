@@ -44,10 +44,20 @@ $secondary-border-width: math.div(1rem, 16);
     }
 
     > button::after {
-      @include icons.icon-search;
       width: 1.5rem;
       height: 1.5rem;
       background-color: var(--color-secondary);
+    }
+
+    > button:not(.loading)::after {
+      @include icons.icon-search;
+    }
+
+    > button.loading::after {
+      @include icons.icon-spinner;
+      content: "";
+      display: block;
+      margin: auto;
     }
   }
 }

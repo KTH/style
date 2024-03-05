@@ -1,0 +1,21 @@
+---
+import "@kth/style/scss/utils/reset.scss";
+import "@kth/style/scss/components/search.scss";
+import "@kth/style/scss/components/visually-hidden.scss";
+---
+
+<div class="kth-search">
+  <label for="search-input">Search</label>
+  <input type="text" id="search-input" />
+  <button type="submit">
+    <span class="kth-visually-hidden">Search</span>
+  </button>
+</div>
+
+<div class="kth-search">
+  <label for="search-input">Search</label>
+  <input type="text" id="search-input" />
+  <button type="submit" class="loading">
+    <span class="kth-visually-hidden">Loading</span>
+  </button>
+</div>
