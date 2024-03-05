@@ -20,7 +20,8 @@ When the entire page is a "landing" and a local navigation only adds redudancy t
 ### General structure
 
 - The container must be a `<nav>` tag.
-- If you include a heading `<h2>` that works as the heading of the navigation menu, use `aria-labelledby` in `<nav>` to refer to it
+- Include a visible heading `<h2>` that works as navigation title
+- Give a unique label to the navigation. Use `aria-labelledby` in `<nav>` pointing to the `<h2>` mentioned previously
 - Use `aria-current="page"` attribute in the `<a>` tag that points to the current page.
 
 ### Menu structure

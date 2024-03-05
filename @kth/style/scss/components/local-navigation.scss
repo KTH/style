@@ -30,7 +30,7 @@
       margin-inline-start: spacing.$space-8;
     }
 
-    a {
+    a:not(.kth-button) {
       text-decoration: none;
       display: flex;
       padding-block: spacing.$space-8;
