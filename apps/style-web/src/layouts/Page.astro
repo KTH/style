@@ -15,7 +15,7 @@ import Header from "../components/Header.astro";
 import MissingTranslation from "@components/MissingTranslation.astro";
 import { getLangFromUrl, useTranslations } from "src/i18n/utils";
 import Footer from "@components/Footer.astro";
-import SubMenu from "@components/SubMenu.astro";
+import LocalNavigation from "@components/local-navigation/LocalNavigation.astro";
 
 const { frontmatter } = Astro.props;
 const t = useTranslations(getLangFromUrl(Astro.url));
@@ -28,7 +28,9 @@ const t = useTranslations(getLangFromUrl(Astro.url));
   <Kpm />
   <Header />
   <div class="kth-content">
-    <SubMenu />
+    <aside>
+      <LocalNavigation />
+    </aside>
     <main id="kth-main">
       {
         frontmatter.original === false && frontmatter.status === "empty" && (
