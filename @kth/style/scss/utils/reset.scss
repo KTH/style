@@ -69,6 +69,10 @@ $generate-css: true !default;
   select {
     font: inherit;
   }
+
+  dialog {
+    z-index: 1;
+  }
 }
 
 @if $generate-css {
