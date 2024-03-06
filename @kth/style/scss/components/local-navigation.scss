@@ -10,6 +10,8 @@
     h2 {
       @include typography.font-heading-s;
       margin-inline-start: spacing.$space-24;
+      margin-block-start: spacing.$space-12;
+      margin-block-end: spacing.$space-4;
     }
 
     h3,
