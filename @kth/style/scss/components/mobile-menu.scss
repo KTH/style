@@ -18,6 +18,11 @@
     border: 0;
     overflow-y: auto;
 
+    &.left {
+      left: 0;
+      right: auto;
+    }
+
     &__navigation {
       height: 60px;
 

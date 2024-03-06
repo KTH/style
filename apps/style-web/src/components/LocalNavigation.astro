@@ -1,0 +1,123 @@
+---
+import { navigationEntries } from "../i18n/local-navigation";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { defaultLang } from "../i18n/ui";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const allFiles = await Astro.glob(`../pages/style/**/*.md`);
+
+const languageFiles = allFiles.filter((file) =>
+  file.url?.startsWith(`/style/${lang}`),
+);
+
+function getOriginalData(route: string) {
+  const REGEX = /^\/style\/(\w+)(.*)$/;
+  const entry = allFiles
+    .filter(
+      (file) =>
+        file.frontmatter.original === undefined ||
+        file.frontmatter.original === true,
+    )
+    .find((file) => {
+      const match = file.url?.match(REGEX);
+
+      return `${match?.[2]}` === route;
+    });
+
+  if (entry) {
+    const entryLanguage = entry.url?.match(REGEX)?.[1];
+
+    let suffix = "";
+
+    switch (entryLanguage) {
+      case "en":
+        suffix = t("nav.in-english");
+        break;
+      case "sv":
+        suffix = t("nav.in-swedish");
+        break;
+      default:
+        suffix = t("nav.unknown-language");
+    }
+
+    return {
+      href: entry.url,
+      title: entry.frontmatter.title + " " + suffix,
+      lang: entryLanguage ?? defaultLang,
+    };
+  }
+
+  return {
+    href: "???",
+    title: "???",
+    lang: undefined,
+  };
+}
+
+function getRouteData(route: string) {
+  const entry = languageFiles.find(
+    (file) => file.url === `/style/${lang}${route}`,
+  );
+
+  if (!entry) {
+    return {
+      href: "???",
+      title: "???",
+      lang: undefined,
+    };
+  }
+
+  const status = entry?.frontmatter.status;
+  const original = entry?.frontmatter.original;
+
+  if (status === "empty" && original === false) {
+    return getOriginalData(route);
+  }
+
+  return {
+    href: entry.url,
+    title: entry.frontmatter.title ?? "???",
+    lang: undefined,
+  };
+}
+---
+
+<aside class="kth-local-navigation">
+  <h2>KTH Style</h2>
+  <ul>
+    {
+      navigationEntries.map((entry) => (
+        <li>
+          {typeof entry === "string" ? (
+            <a href={getRouteData(entry).href}>{getRouteData(entry).title}</a>
+          ) : (
+            <>
+              <h3>{entry.heading[lang]}</h3>
+              <ul>
+                {entry.routes.map((route) => {
+                  const routeData = getRouteData(route);
+
+                  if (routeData.lang) {
+                    return (
+                      <li>
+                        <a href={routeData.href} lang={routeData.lang}>
+                          {routeData.title}
+                        </a>
+                      </li>
+                    );
+                  }
+                  return (
+                    <li>
+                      <a href={routeData.href}>{routeData.title}</a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+</aside>

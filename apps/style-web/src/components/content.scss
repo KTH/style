@@ -30,9 +30,5 @@
   @media (width < 64rem) {
     grid-template-areas: "breadcrumbs" "local-navigation" "main";
     grid-template-columns: 100%;
-
-    aside {
-      display: none;
-    }
   }
 }

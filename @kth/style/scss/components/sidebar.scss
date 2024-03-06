@@ -1,0 +1,22 @@
+@use "../tokens/typography.scss";
+@use "../tokens/spacing.scss";
+@use "../tokens/icons.scss";
+@use "../tokens/sizing.scss";
+
+@layer kth-style {
+  .kth-sidebar__content {
+    display: none;
+
+    @media (min-width: sizing.$breakpoint-64) {
+      display: block;
+    }
+  }
+
+  .kth-sidebar__content--collapsable {
+    display: block;
+
+    @media (min-width: sizing.$breakpoint-64) {
+      display: none;
+    }
+  }
+}
