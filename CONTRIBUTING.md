@@ -7,9 +7,12 @@ Thanks for your interest in contributing to KTH Style!
 
 ## Who can contribute
 
-At this moment we only accept contributions from people within the IT department at KTH.
+At this moment we only accept contributions from people within the "Systemförvaltning och utveckling" (SFU) unit at IT department at KTH.
 
-## Quick guide
+- Members of SFU have the _write_ role in this repository, which means that they can create branches and pull requests. They cannot merge to `main` nor push directly there. [Read more about GitHub roles in their documentation](https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization#permissions-for-each-role)
+- Members of "web team" at SFU are the maintainers of the repo and have _admin_ role in it.
+
+## Quick start
 
 ### Prerequisites
 
@@ -27,6 +30,22 @@ git clone && cd ...
 npm install
 ```
 
+## Writing code, branching, creating Pull Requests
+
+Before anything else, start by writing a message in the [KTH Slack channel #vs-it-ux](https://kth-se.slack.com/archives/C06K0G9BQUE). It doesn't matter if you write us because you have a question, you want to propose a new feature, you found a bug or you want to leave a comment on the repository.
+
+Constant communication between the contributor (you) and the maintainers is encouraged:
+
+- Maintainers want to understand the problem and be able to prioritize it correctly.
+- Maintainers need to know if the problem is already fixed or is it in the project roadmap
+- Maintainers and contributors need to reach to a solution together, which often means not changing anything in this repository
+- Contributors should feel free to ask _what is the status of my problem_.
+
+If the solution means changing code in this repository, the change is done via a Pull Request.
+
+- Only maintainers can merge pull requests
+- Constant communication between the PR author and maintainers is also encouraged. Communication can be done via comments in GitHub or other means like Slack or Zoom.
+
 ## Development
 
 ```sh
@@ -38,9 +57,9 @@ npm run build
 ```
 
 > [!Tip]
-> You can also run the commands from each directory `/@kth/style` or `apps/style-web`
+> You can also run the commands from each of the directories (e.g. `@kth/style/` or `apps/style-web/`)
 
-### Structure
+### Code Structure
 
 The two big things in this repository are the **KTH Style library** and the **KTH Style documentation website**
 
@@ -65,7 +84,7 @@ The KTH Style library has the following structure. The main directories are `scs
   - `components/` non-React components
   - `react-components/` React components
 
-### Use local KTH Style in your project
+### Test KTH Style locally
 
 During development you might want to use the local version `@kth/style` in a project to check that everything works.
 
@@ -84,7 +103,7 @@ For any questions, reach us in the [KTH Slack channel #vs-it-ux](https://kth-se.
 ### Releasing KTH Style library
 
 > [!Note]
-> Only teams with admin priviledges can do releases of `@kth/style`
+> Only admin role can do releases of `@kth/style`
 
 1. Bump version manually
 
