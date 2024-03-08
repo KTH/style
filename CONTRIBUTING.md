@@ -2,7 +2,8 @@
 
 Thanks for your interest in contributing to KTH Style!
 
-> [!Note] This guide is aimed for developers. Guides for other forms of contribution will come later.
+> [!Note]
+> This guide is aimed for developers. Guides for other forms of contribution will come later.
 
 ## Who can contribute
 
@@ -36,7 +37,8 @@ npm run dev
 npm run build
 ```
 
-> [!Tip] You can also run the commands from each directory `/@kth/style` or `apps/style-web`
+> [!Tip]
+> You can also run the commands from each directory `/@kth/style` or `apps/style-web`
 
 ### Structure
 
@@ -81,7 +83,8 @@ For any questions, reach us in the [KTH Slack channel #vs-it-ux](https://kth-se.
 
 ### Releasing KTH Style library
 
-> [!Note] Only teams with admin priviledges can do releases of `@kth/style`
+> [!Note]
+> Only teams with admin priviledges can do releases of `@kth/style`
 
 1. Bump version manually
 
