@@ -7,10 +7,10 @@ Thanks for your interest in contributing to KTH Style!
 
 ## Who can contribute
 
-At this moment we only accept contributions from people within the "Systemförvaltning och utveckling" (SFU) unit at IT department at KTH.
+At this moment we only accept contributions from personnal in "Systemförvaltning och utveckling" (SFU) unit at IT department at KTH.
 
-- Members of SFU have the _write_ role in this repository, which means that they can create branches and pull requests. They cannot merge to `main` nor push directly there. [Read more about GitHub roles in their documentation](https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization#permissions-for-each-role)
-- Members of "web team" at SFU are the maintainers of the repo and have _admin_ role in it.
+- SFU personal have the _write_ role in this repository, which means that they can create branches and pull requests. They cannot merge to `main` nor push directly there. [Read more about GitHub roles in their documentation](https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization#permissions-for-each-role)
+- Members of "web team" are the maintainers of the repo and have _admin_ role in it.
 
 ## Quick start
 
@@ -32,19 +32,12 @@ npm install
 
 ## Writing code, branching, creating Pull Requests
 
-Before anything else, start by writing a message in the [KTH Slack channel #vs-it-ux](https://kth-se.slack.com/archives/C06K0G9BQUE). It doesn't matter if you write us because you have a question, you want to propose a new feature, you found a bug or you want to leave a comment on the repository.
+> [!Note]
+> These guides
 
-Constant communication between the contributor (you) and the maintainers is encouraged:
-
-- Maintainers want to understand the problem and be able to prioritize it correctly.
-- Maintainers need to know if the problem is already fixed or is it in the project roadmap
-- Maintainers and contributors need to reach to a solution together, which often means not changing anything in this repository
-- Contributors should feel free to ask _what is the status of my problem_.
-
-If the solution means changing code in this repository, the change is done via a Pull Request.
-
-- Only maintainers can merge pull requests
-- Constant communication between the PR author and maintainers is also encouraged. Communication can be done via comments in GitHub or other means like Slack or Zoom.
+- Before anything else, start by writing a message in the [KTH Slack channel #vs-it-ux](https://kth-se.slack.com/archives/C06K0G9BQUE)
+- It doesn't matter if you write us because you have a question, you want to propose a new feature, you found a bug or you want to leave a comment on the repository.
+- Smooth communication between KTH Style maintainers and users is encouraged.
 
 ## Development
 
