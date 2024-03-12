@@ -22,12 +22,7 @@ export const navigationEntries: Entry[] = [
       sv: "Styles",
       en: "Styles",
     },
-    routes: [
-      "/styles/design-tokens",
-      "/styles/colors",
-      "/styles/typography",
-      "/styles/spacing",
-    ],
+    routes: ["/styles/design-tokens", "/styles/colors", "/styles/typography"],
   },
   {
     heading: {
