@@ -6,34 +6,34 @@ $font-bold: 600;
 
 // Replaces h1 (non-fluid)
 @mixin font-heading-xl {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 2.75rem;
   line-height: 3.5rem;
 }
 
 // Replaces h2 (non-fluid)
 @mixin font-heading-l {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.875rem;
   line-height: 2.5rem;
 }
 
 // Replaces h3 (non-fluid)
 @mixin font-heading-m {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.5rem;
   line-height: 2rem;
 }
 
 // Replaces h4 (non-fluid)
 @mixin font-heading-s {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
 
 @mixin font-heading-xs {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1rem;
   line-height: 1.5rem;
 }
