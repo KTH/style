@@ -6,7 +6,8 @@
 @use "../tokens/icons";
 
 @layer kth-style {
-  .kth-local-navigation {
+  .kth-local-navigation,
+  .kth-local-navigation--mobile {
     h2 {
       @include typography.font-heading-s;
       margin-inline-start: spacing.$space-24;

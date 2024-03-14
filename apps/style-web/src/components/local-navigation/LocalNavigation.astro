@@ -87,6 +87,28 @@ function entryToSubmenuProps(
 const transformedTree = navigationEntries.map((e) => entryToSubmenuProps(e));
 ---
 
+<nav
+  class="kth-local-navigation--mobile"
+  aria-labelledby="kth-local-navigation-title--mobile"
+>
+  <button class="kth-button menu" id="kth-local-navigation-title--mobile">
+    KTH Style</button
+  >
+  <dialog class="kth-mobile-menu left">
+    <div class="kth-mobile-menu__navigation">
+      <button class="kth-icon-button close">
+        <span class="kth-visually-hidden">Close</span>
+      </button>
+    </div>
+    <div class="mobile-menu__content">
+      <a href="/" class="kth-button back">Intranet</a>
+      <h2 id="kth-local-navigation-title">KTH Style</h2>
+      <ul>
+        {transformedTree.map((link) => <LocalNavigationElement {...link} />)}
+      </ul>
+    </div>
+  </dialog>
+</nav>
 <nav class="kth-local-navigation" aria-labelledby="kth-local-navigation-title">
   <a href="/" class="kth-button back">Intranet</a>
 
@@ -95,3 +117,12 @@ const transformedTree = navigationEntries.map((e) => entryToSubmenuProps(e));
     {transformedTree.map((link) => <LocalNavigationElement {...link} />)}
   </ul>
 </nav>
+
+<script>
+  import { MenuPanel } from "@kth/style";
+
+  MenuPanel.initModal(
+    document.querySelector(".kth-local-navigation--mobile .kth-button.menu"),
+    document.querySelector(".kth-local-navigation--mobile .kth-mobile-menu"),
+  );
+</script>

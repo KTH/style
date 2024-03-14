@@ -5,34 +5,45 @@
 
 .kth-content {
   @include mixins.container;
-
   margin-block-start: spacing.$space-20;
   margin-block-end: spacing.$space-64;
   display: grid;
-  grid-template-areas:
-    "breadcrumbs breadcrumbs"
-    "local-navigation main";
-  grid-template-columns: 15rem 1fr;
-  gap: 1rem 4rem;
+
+  // Small layouts
+  grid-template-areas: "breadcrumbs" "local-navigation" "main";
+  grid-template-columns: 100%;
 
   > nav.breadcrumbs {
     grid-area: breadcrumbs;
   }
 
-  > aside {
+  > nav.kth-local-navigation--mobile {
     grid-area: local-navigation;
+  }
+
+  > nav.kth-local-navigation {
+    display: none;
   }
 
   > main {
     grid-area: main;
   }
 
-  @media (width < 64rem) {
-    grid-template-areas: "breadcrumbs" "local-navigation" "main";
-    grid-template-columns: 100%;
+  // Big layouts
+  @media (min-width: 64rem) {
+    grid-template-areas:
+      "breadcrumbs breadcrumbs"
+      "local-navigation main";
+    grid-template-columns: 15rem 1fr;
+    gap: 1rem 4rem;
 
-    aside {
+    > nav.kth-local-navigation--mobile {
       display: none;
+    }
+
+    > nav.kth-local-navigation {
+      display: block;
+      grid-area: local-navigation;
     }
   }
 }
