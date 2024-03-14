@@ -97,23 +97,17 @@ You can see here a full example of header with all three parts
     <nav class="kth-mega-menu">
       <ul>
         <li>
-          <a href="#" class="kth-menu-item">
-            <span>Item in mega-menu for desktop</span>
-          </a>
+          <a href="#" class="kth-menu-item"> Item in mega-menu for desktop </a>
         </li>
       </ul>
     </nav>
     <ul class="kth-header__tools">
       <li>
-        <a href="" class="kth-menu-item language">
-          <span>English</span>
-        </a>
+        <a href="" class="kth-menu-item language"> English </a>
       </li>
       <li>
         <nav class="kth-mega-menu--collapsable">
-          <button class="kth-menu-item">
-            <span>Menu in mobile</span>
-          </button>
+          <button class="kth-menu-item">Menu in mobile</button>
         </nav>
       </li>
     </ul>

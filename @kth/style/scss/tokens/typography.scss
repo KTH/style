@@ -6,43 +6,49 @@ $font-bold: 600;
 
 // Replaces h1 (non-fluid)
 @mixin font-heading-xl {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 2.75rem;
   line-height: 3.5rem;
 }
 
 // Replaces h2 (non-fluid)
 @mixin font-heading-l {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.875rem;
   line-height: 2.5rem;
 }
 
 // Replaces h3 (non-fluid)
 @mixin font-heading-m {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.5rem;
   line-height: 2rem;
 }
 
 // Replaces h4 (non-fluid)
 @mixin font-heading-s {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
 
 @mixin font-heading-xs {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1rem;
   line-height: 1.5rem;
 }
 
 // Replaces t10 (non-fluid)
-@mixin font-lead {
+@mixin font-lead-l {
   font-weight: 400;
   font-size: 1.5rem;
   line-height: 2.25rem;
+}
+
+@mixin font-lead-m {
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 // Replaces t11, t12 (non-fluid)
@@ -52,8 +58,6 @@ $font-bold: 600;
   line-height: 1.5rem;
 }
 
-/// Do we need these?
-///
 // Replaces t1
 @mixin font-heading-xl-fluid {
   @include font-heading-l;
@@ -92,11 +96,10 @@ $font-bold: 600;
 
 // Replaces t10
 @mixin font-lead-fluid {
-  font-size: 1.125rem;
-  line-height: 1.5rem;
+  @include font-lead-m;
 
   @media (min-width: $breakpoint-fluid-typography) {
-    @include font-lead;
+    @include font-lead-l;
   }
 }
 

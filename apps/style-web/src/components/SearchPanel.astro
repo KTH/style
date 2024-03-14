@@ -5,10 +5,10 @@ const t = useTranslations(getLangFromUrl(Astro.url));
 ---
 
 <button class="kth-menu-item search">
-  <span>{t("nav.search")}</span>
+  {t("nav.search")}
 </button>
 <dialog class="kth-menu-panel">
-  <div class="kth-menu-panel__container">
+  <div class="kth-menu-panel__container search">
     <button class="kth-icon-button close">
       <span class="kth-visually-hidden">{t("close")}</span>
     </button>

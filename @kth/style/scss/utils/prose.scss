@@ -7,13 +7,20 @@
 /// - CSS for tags like <p>, <h1-6>, <code>, <pre>, <ul> and <li>
 /// - CSS classes like ".lead"
 @mixin prose {
+  code:not(pre *) {
+    font-size: 0.9rem;
+    background-color: var(--color-background-alt);
+    padding: s.$space-2 s.$space-4;
+  }
+
   p {
     margin-block: s.$space-20;
+    // TODO: change this to `rem` and tokenize
     max-width: 60ch;
   }
 
   .lead {
-    @include t.font-lead;
+    @include t.font-lead-fluid;
     margin-block-start: s.$space-12;
     margin-block-end: s.$space-16;
   }
@@ -26,25 +33,21 @@
   }
 
   h1 {
-    @include t.font-heading-xl;
     margin-block-start: s.$space-32;
     margin-block-end: s.$space-16;
   }
 
   h2 {
-    @include t.font-heading-l;
     margin-block-start: s.$space-32;
     margin-block-end: s.$space-16;
   }
 
   h3 {
-    @include t.font-heading-m;
     margin-block-start: s.$space-32;
     margin-block-end: s.$space-8;
   }
 
   h4 {
-    @include t.font-heading-s;
     margin-block-start: s.$space-32;
     margin-block-end: s.$space-4;
   }
@@ -74,48 +77,5 @@
     margin-block: s.$space-32;
     padding-block: s.$space-16;
     padding-inline: s.$space-24;
-  }
-
-  table {
-    @include s.theme-dense;
-    table-layout: auto;
-    text-align: left;
-    margin-block: s.$space-32;
-    border-collapse: collapse;
-    overflow-x: auto;
-  }
-
-  thead {
-    // TODO: border
-    th {
-      @include t.font-heading-s;
-      padding-block: var(--space-inner-block);
-      padding-inline: var(--space-inner-inline);
-
-      &:first-child {
-        padding-inline-start: 0;
-      }
-
-      &:last-child {
-        padding-inline-end: 0;
-      }
-    }
-  }
-
-  tbody {
-    // TODO: border
-
-    td {
-      padding-block: var(--space-inner-block);
-      padding-inline: var(--space-inner-inline);
-
-      &:first-child {
-        padding-inline-start: 0;
-      }
-
-      &:last-child {
-        padding-inline-end: 0;
-      }
-    }
   }
 }

@@ -28,9 +28,33 @@ $generate-css: true !default;
     margin: 0;
   }
 
+  h1 {
+    @include typography.font-heading-xl-fluid;
+  }
+
+  h2 {
+    @include typography.font-heading-l-fluid;
+  }
+
+  h3 {
+    @include typography.font-heading-m-fluid;
+  }
+
+  h4 {
+    @include typography.font-heading-s-fluid;
+  }
+
+  p {
+    @include typography.font-default;
+  }
+
   a {
     color: var(--color-tertiary);
     text-underline-offset: spacing.$space-4;
+  }
+
+  strong {
+    font-weight: typography.$font-bold;
   }
 
   img,
@@ -44,6 +68,10 @@ $generate-css: true !default;
   textarea,
   select {
     font: inherit;
+  }
+
+  dialog {
+    z-index: 1;
   }
 }
 

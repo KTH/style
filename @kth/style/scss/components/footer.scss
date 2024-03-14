@@ -19,12 +19,12 @@
 
   .kth-footer {
     background: var(--color-background);
+    color: var(--color-text);
 
     &__content {
       @include mixins.container;
       padding-top: spacing.$space-32;
       padding-bottom: spacing.$space-32;
-      color: var(--color-primary);
 
       .columnSplitter {
         display: grid;

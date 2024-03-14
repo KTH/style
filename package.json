@@ -6,7 +6,7 @@
     "apps/*"
   ],
   "scripts": {
-    "dev": "lerna run dev --stream --parallel --scope=style-web",
+    "dev": "lerna run dev --stream --parallel",
     "test": "lerna run test",
     "build": "lerna run build",
     "version": "lerna version --no-private",

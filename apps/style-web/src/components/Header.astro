@@ -8,68 +8,39 @@ import MainHeaderLogotype from "./Logotype.astro";
 import NavigationPanel from "./NavigationPanel.astro";
 import NavigationPanelMobile from "./NavigationPanelMobile.astro";
 import SearchPanel from "./SearchPanel.astro";
+import TranslationPanel from "./TranslationPanel.astro";
 
 const lang = getLangFromUrl(Astro.url);
-const navigationPanel = [
-  {
-    dataId: "1.575942",
-    href: {
-      en: "/en/anstallning",
-      sv: "/anstallning",
-    },
-    labels: {
-      en: "My employment",
-      sv: "Din anställning",
-    },
-  },
-  {
-    dataId: "1.575949",
-    href: {
-      en: "/en/stod-och-service",
-      sv: "/stod-och-service",
-    },
-    labels: {
-      en: "Support & Service",
-      sv: "Stöd och service",
-    },
-  },
-  {
-    dataId: "1.1067969",
-    href: {
-      en: "/en/utbildning",
-      sv: "/utbildning",
-    },
-    labels: {
-      en: "Education",
-      sv: "Utbilda",
-    },
-  },
-  {
-    dataId: "1.1067196",
-    href: {
-      en: "/en/forskning",
-      sv: "/forskning",
-    },
-    labels: {
-      en: "Research",
-      sv: "Forska",
-    },
-  },
+const navigationPanelSv = [
+  { dataId: "1.575942", href: "/anstallning", label: "Din anställning" },
+  { dataId: "1.575949", href: "/stod-och-service", label: "Stöd och service" },
+  { dataId: "1.1067969", href: "/utbildning", label: "Utbilda" },
+  { dataId: "1.1067196", href: "/forskning", label: "Forska" },
   {
     dataId: "1.575952",
-    href: {
-      en: "/en/styrning",
-      sv: "/styrning",
-    },
-    labels: {
-      en: "Organisation & Regulations",
-      sv: "Orgasnisation och styrning",
-    },
+    href: "/styrning",
+    label: "Orgasnisation och styrning",
+  },
+];
+const navigationPanelEn = [
+  { dataId: "1.575942", href: "/en/anstallning", label: "My employment" },
+  {
+    dataId: "1.575949",
+    href: "/en/stod-och-service",
+    label: "Support & Service",
+  },
+  { dataId: "1.1069791", href: "/en/utbildning", label: "Education" },
+  { dataId: "1.1067508", href: "/en/forskning", label: "Research" },
+  {
+    dataId: "1.575952",
+    href: "/en/styrning",
+    label: "Organisation & Regulations",
   },
 ];
 
 const translatedLink = getTranslatedLink(Astro.url);
 const t = useTranslations(lang);
+const navigationPanel = lang === "sv" ? navigationPanelSv : navigationPanelEn;
 ---
 
 <header class="kth-header intranet">
@@ -78,13 +49,9 @@ const t = useTranslations(lang);
     <nav class="kth-mega-menu">
       <ul>
         {
-          navigationPanel.map(({ dataId, href, labels }) => (
+          navigationPanel.map(({ dataId, href, label }) => (
             <li>
-              <NavigationPanel
-                dataId={dataId}
-                href={href[lang]}
-                label={labels[lang]}
-              />
+              <NavigationPanel dataId={dataId} href={href} label={label} />
             </li>
           ))
         }
@@ -101,42 +68,17 @@ const t = useTranslations(lang);
           lang={translatedLink.lang}
           class="kth-menu-item language"
         >
-          <span>{translatedLink.label}</span>
+          {translatedLink.label}
         </a>
+        <TranslationPanel />
       </li>
     </ul>
     <button class="kth-menu-item menu collapsable">
-      <span>{t("nav.menu")}</span>
+      {t("nav.menu")}
     </button>
-    <nav class="kth-mega-menu--collapsable">
-      <dialog class="kth-menu-panel--modal">
-        <!-- -->
-        <button class="kth-icon-button close">
-          <span class="kth-visually-hidden">{t("close")}</span>
-        </button>
-        <div class="kth-menu-panel__content">
-          <h2>{t("nav.menu")}</h2>
-          <ul>
-            {
-              navigationPanel.map(({ labels, href, dataId }) => (
-                <li>
-                  <a href={href[lang]}>{labels[lang]}</a>
-                </li>
-              ))
-            }
-          </ul>
 
-          <ul class="kth-menu-panel__entries">
-            <li><a href="https://kth.se">kth.se</a></li>
-            <li>
-              <a href="https://kth.se/student">{t("sites.student-web")}</a>
-            </li>
-            <li>
-              <a href="https://intra.kth.se">{t("sites.intranet")}</a>
-            </li>
-          </ul>
-        </div>
-      </dialog>
+    <nav class="kth-mega-menu--collapsable">
+      <NavigationPanelMobile navigationPanel={navigationPanel} />
     </nav>
   </div>
 </header>
@@ -156,6 +98,16 @@ const t = useTranslations(lang);
 
   MenuPanel.initModal(
     document.querySelector(".kth-menu-item.collapsable"),
-    document.querySelector(".kth-menu-panel--modal"),
+    document.querySelector(".kth-mobile-menu"),
+  );
+
+  MenuPanel.initModals(
+    document.querySelectorAll(".kth-mobile-menu__item"),
+    document.querySelector(".kth-mobile-menu"),
+  );
+
+  MenuPanel.initTranslationModal(
+    document.querySelector(".kth-menu-item.language"),
+    document.querySelector(".kth-translation"),
   );
 </script>

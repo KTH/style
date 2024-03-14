@@ -1,0 +1,49 @@
+@use "../tokens/spacing";
+@use "../tokens/colors";
+
+@layer kth-style {
+  .kth-translation {
+    @include colors.theme-default;
+    width: 22.5rem;
+    left: auto;
+
+    // TODO: this formula should be a token
+    right: clamp(spacing.$space-16, calc(100vw / 30), spacing.$space-32);
+    background-color: var(--color-background);
+
+    // TODO: tokenize this shadow
+    box-shadow: 0 0.125rem 0.5rem 0 rgb(0 0 0 /0.15);
+    border: none;
+    padding: spacing.$space-16 spacing.$space-16 spacing.$space-32
+      spacing.$space-32;
+
+    // TODO: tokenize the breakpoint
+    @media (min-width: 82rem) {
+      // TODO: tokenize formula
+      // Remaining space to the right from the header's max-width + the heading's padding
+      right: calc((100vw - 82rem) / 2 + spacing.$space-32);
+    }
+
+    // Let the dialog take up the remaining space
+    @media (max-width: calc(22.5rem + spacing.$space-16 * 2)) {
+      right: spacing.$space-16;
+      left: spacing.$space-16;
+      width: auto;
+    }
+
+    &__content {
+      display: flex;
+      gap: spacing.$space-8;
+      flex-direction: column;
+
+      span,
+      a {
+        padding-right: spacing.$space-16;
+      }
+    }
+
+    .kth-icon-button {
+      align-self: end;
+    }
+  }
+}

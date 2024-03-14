@@ -1,5 +1,6 @@
 @use "../tokens/colors.scss";
 @use "../tokens/spacing.scss";
+@use "../tokens/sizing.scss";
 @use "../utils/mixins.scss";
 
 @layer kth-style {
@@ -39,6 +40,7 @@
       flex-wrap: wrap;
       gap: 0 spacing.$space-16;
       justify-content: flex-end;
+      align-items: center;
       margin-inline-start: auto;
     }
 

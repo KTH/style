@@ -86,7 +86,7 @@ $color-green-darker: #264f30;
   --color-background: #{$color-blue-kth};
   --color-background-alt: #{$color-blue-marine};
   --color-primary: #{$color-white};
-  --color-primary-hover: #{$color-blue-kth-dark};
+  --color-primary-hover: #{$color-white};
   --color-on-primary: #{$color-blue-kth};
   --color-secondary: #{$color-white};
   --color-secondary-hover: #{$color-black-opacity10};
@@ -95,5 +95,5 @@ $color-green-darker: #264f30;
   --color-error-hover: #{$color-red-light};
   --color-success: #{$color-green-light};
   --color-success-hover: #{$color-green-light};
-  --color-border: #{$color-gray-medium};
+  --color-border: #{$color-white};
 }

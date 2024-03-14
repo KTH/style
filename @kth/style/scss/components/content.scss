@@ -1,0 +1,12 @@
+@use "../tokens/spacing.scss";
+@use "../utils/mixins.scss";
+
+@layer kth-style {
+  .kth-content {
+    @include mixins.container;
+  }
+}
+
+// TODO: investigate the possibility to expand this `.kth-content` class:
+// - is it possible to move the breadcrumbs inside the `kth-content` element?
+//   is it a good idea to do it from

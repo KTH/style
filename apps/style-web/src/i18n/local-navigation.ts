@@ -30,12 +30,7 @@ export const navigationEntries: Entry[] = [
       sv: "Styles",
       en: "Styles",
     },
-    routes: [
-      "/styles/design-tokens",
-      "/styles/colors",
-      "/styles/typography",
-      "/styles/spacing",
-    ],
+    routes: ["/styles/design-tokens", "/styles/colors", "/styles/typography"],
   },
   {
     heading: {
@@ -54,6 +49,7 @@ export const navigationEntries: Entry[] = [
       en: "Components",
     },
     routes: [
+      "/components/alert",
       "/components/button",
       "/components/details",
       {

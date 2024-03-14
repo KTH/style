@@ -10,9 +10,19 @@
     border: none;
     background: var(--color-background);
     padding: spacing.$space-48 0;
+    color: var(--color-text);
 
     &__container {
       @include mixins.container;
+
+      &.search {
+        display: flex;
+        flex-direction: column;
+
+        .kth-icon-button {
+          align-self: end;
+        }
+      }
     }
 
     &__header {
@@ -24,14 +34,11 @@
 
       h2 {
         @include typography.font-heading-m;
-        color: var(--color-primary);
         margin-bottom: spacing.$space-4;
       }
     }
 
     &__content {
-      color: var(--color-primary);
-
       .columnSplitter {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -55,23 +62,6 @@
           margin-bottom: spacing.$space-16;
         }
       }
-    }
-  }
-
-  .kth-menu-panel--modal {
-    background-color: var(--color-background);
-    position: fixed;
-    right: 0;
-    left: auto;
-    top: 0;
-    max-width: 32rem;
-    max-height: 100dvh;
-    width: 100dvw;
-    height: 100dvh;
-    border: 0;
-
-    .kth-button.close {
-      margin-inline-start: auto;
     }
   }
 }

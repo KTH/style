@@ -1,0 +1,16 @@
+---
+import { getLangFromUrl, useTranslations } from "src/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<dialog class="kth-translation">
+  <div class="kth-translation__content">
+    <button class="kth-icon-button close">
+      <span class="kth-visually-hidden">{t("close")}</span>
+    </button>
+    <span>{t("no-translation")}</span>
+    <a href="/style/sv/">KTH international website</a>
+  </div>
+</dialog>
