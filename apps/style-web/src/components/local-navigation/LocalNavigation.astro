@@ -27,12 +27,16 @@ function entryToSubmenuProps(
       (file) => file.path === entry && file.lang === currentLang,
     );
 
+    const pathName = Astro.url.pathname.endsWith("/")
+      ? Astro.url.pathname.slice(0, -1)
+      : Astro.url.pathname;
+
     if (file) {
       return {
         href: file.href,
         label: file.title,
         lang: currentLang,
-        active: Astro.url.pathname === file.href,
+        active: pathName === file.href,
         expandable: false,
       };
     }
