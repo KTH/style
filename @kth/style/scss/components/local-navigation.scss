@@ -25,14 +25,15 @@
       list-style: none;
       padding: 0;
       margin: 0;
-    }
-
-    ul:not(&__submenu) {
       margin-inline-start: spacing.$space-8;
     }
 
     &__submenu {
       margin-inline-start: spacing.$space-16;
+    }
+
+    &__submenu ul {
+      margin-inline-start: 0;
     }
 
     a:not(.kth-button) {
