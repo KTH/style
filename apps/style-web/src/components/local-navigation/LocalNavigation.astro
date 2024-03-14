@@ -1,0 +1,128 @@
+---
+/**
+ * This component contains the logic to render the Submenu specifically for the
+ * `style-web` project.
+ */
+import { parseFile, type FileMetadata } from "src/i18n/utils";
+import LocalNavigationElement, {
+  type Props as LocalNavigationElementProps,
+} from "./LocalNavigationElement.astro";
+import { navigationEntries, type Entry } from "src/i18n/local-navigation";
+import { getLangFromUrl } from "src/i18n/utils";
+
+const allFiles = (await Astro.glob("../../pages/style/**/*.md"))
+  .map(parseFile)
+  .filter((file): file is FileMetadata => file !== undefined);
+
+const currentLang = getLangFromUrl(Astro.url);
+
+/** Convert {@link Entry} to {@link LocalNavigationElementProps} */
+function entryToSubmenuProps(
+  entry: Entry,
+  level = 3,
+): LocalNavigationElementProps {
+  if (typeof entry === "string") {
+    // Find a file in the current page language
+    const file = allFiles.find(
+      (file) => file.path === entry && file.lang === currentLang,
+    );
+
+    if (file) {
+      return {
+        href: file.href,
+        label: file.title,
+        lang: currentLang,
+        active: Astro.url.pathname === file.href,
+        expandable: false,
+      };
+    }
+
+    // File in the "original" language
+    const originalFile = allFiles.find((file) => file.path === entry);
+
+    if (originalFile) {
+      return {
+        href: originalFile.href,
+        label: originalFile.title,
+        lang: originalFile.lang,
+        active: Astro.url.pathname === originalFile.href,
+        expandable: false,
+      };
+    }
+
+    throw new Error(`No file found for entry [${entry}]`);
+  }
+
+  // Entry has heading and sub-links
+  // Check if some of the sub-links is 'active'
+  const sublinks = entry.routes.map((e) => entryToSubmenuProps(e, level + 1));
+  const someIsActive = sublinks.some((submenu) => submenu.active);
+
+  if (someIsActive) {
+    // If some of them is active, the current one should be Heading + its links
+    return {
+      heading: entry.heading[currentLang],
+      level,
+      active: true,
+      links: sublinks,
+    };
+  } else {
+    // If none of them is active, make sure the first one is a link and return it
+    const firstLink = sublinks[0];
+
+    if ("heading" in firstLink) {
+      throw new Error("This should not happen");
+    }
+
+    return {
+      href: firstLink.href,
+      label: entry.heading[currentLang],
+      lang: currentLang,
+      active: false,
+      expandable: true,
+    };
+  }
+}
+
+const transformedTree = navigationEntries.map((e) => entryToSubmenuProps(e));
+---
+
+<nav
+  class="kth-local-navigation--mobile"
+  aria-labelledby="kth-local-navigation-title--mobile"
+>
+  <button class="kth-button menu" id="kth-local-navigation-title--mobile">
+    KTH Style</button
+  >
+  <dialog class="kth-mobile-menu left">
+    <div class="kth-mobile-menu__navigation">
+      <button class="kth-icon-button close">
+        <span class="kth-visually-hidden">Close</span>
+      </button>
+    </div>
+    <div class="mobile-menu__content">
+      <a href="/" class="kth-button back">Intranet</a>
+      <h2 id="kth-local-navigation-title">KTH Style</h2>
+      <ul>
+        {transformedTree.map((link) => <LocalNavigationElement {...link} />)}
+      </ul>
+    </div>
+  </dialog>
+</nav>
+<nav class="kth-local-navigation" aria-labelledby="kth-local-navigation-title">
+  <a href="/" class="kth-button back">Intranet</a>
+
+  <h2 id="kth-local-navigation-title">KTH Style</h2>
+  <ul>
+    {transformedTree.map((link) => <LocalNavigationElement {...link} />)}
+  </ul>
+</nav>
+
+<script>
+  import { MenuPanel } from "@kth/style";
+
+  MenuPanel.initModal(
+    document.querySelector(".kth-local-navigation--mobile .kth-button.menu"),
+    document.querySelector(".kth-local-navigation--mobile .kth-mobile-menu"),
+  );
+</script>

@@ -1,0 +1,61 @@
+---
+/**
+ * This component renders a single `<li>` element of menu. That element can be:
+ *
+ * - One link
+ * - A whole menu (heading and links). In this case, the content of the <li>
+ *   will be a heading, and another list
+ */
+
+/** Properties for this component */
+export type Props = LinkProps | SubmenuProps;
+
+/** When the `<li>` should render a link */
+export type LinkProps = {
+  href: string;
+  label: string;
+  lang: "en" | "sv";
+  active: boolean;
+  expandable: boolean;
+};
+
+/** When the `<li>` should render an entire submenu */
+export type SubmenuProps = {
+  heading: string;
+  level: number;
+  active: true;
+  links: (LinkProps | SubmenuProps)[];
+};
+
+const props = Astro.props;
+const Heading = "level" in props ? `h${props.level}` : "";
+
+/** Returns `true` if the `Props` passed is `SubmenuProps` */
+function isSubmenuProps(props: Props): props is SubmenuProps {
+  return "heading" in props;
+}
+---
+
+{
+  isSubmenuProps(props) ? (
+    <li class="kth-local-navigation__submenu">
+      <Heading>{props.heading}</Heading>
+      <ul>
+        {props.links.map((link) => (
+          <Astro.self {...link} />
+        ))}
+      </ul>
+    </li>
+  ) : (
+    <li>
+      <a
+        href={props.href}
+        class={props.expandable ? "expandable" : undefined}
+        lang={props.lang}
+        aria-current={props.active ? "page" : undefined}
+      >
+        {props.label}
+      </a>
+    </li>
+  )
+}

@@ -1,0 +1,76 @@
+@use "../tokens/colors.scss";
+@use "../tokens/spacing.scss";
+@use "../utils/mixins.scss";
+@use "../tokens/typography";
+@use "../tokens/sizing.scss";
+@use "../tokens/icons";
+
+@layer kth-style {
+  .kth-local-navigation,
+  .kth-local-navigation--mobile {
+    h2 {
+      @include typography.font-heading-s;
+      margin-inline-start: spacing.$space-24;
+      margin-block-start: spacing.$space-12;
+      margin-block-end: spacing.$space-4;
+    }
+
+    h3,
+    h4,
+    h5 {
+      @include typography.font-heading-xs;
+      margin-block: spacing.$space-8;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      margin-inline-start: spacing.$space-8;
+    }
+
+    &__submenu {
+      margin-inline-start: spacing.$space-16;
+    }
+
+    &__submenu ul {
+      margin-inline-start: 0;
+    }
+
+    a:not(.kth-button) {
+      text-decoration: none;
+      display: flex;
+      padding-block: spacing.$space-8;
+      padding-inline-start: spacing.$space-16;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    a.expandable {
+      justify-content: space-between;
+    }
+
+    a.expandable::after {
+      @include icons.icon-caret-right;
+      background-color: var(--color-tertiary);
+      align-self: center;
+    }
+
+    a[aria-current="page"] {
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: spacing.$space-4;
+        background-color: var(--color-primary);
+      }
+    }
+  }
+}

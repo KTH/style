@@ -83,7 +83,8 @@ $icon-size: calc(#{spacing.$space-24} + 2 * var(--space-inner-icon));
     }
   }
 
-  .kth-button.back {
+  .kth-button.back,
+  .kth-button.menu {
     padding: spacing.$space-8 0;
     gap: spacing.$space-4;
     color: var(--color-tertiary);
@@ -92,6 +93,13 @@ $icon-size: calc(#{spacing.$space-24} + 2 * var(--space-inner-icon));
     &:hover {
       text-decoration-line: underline;
     }
+  }
+
+  .kth-button.menu::before {
+    @include icons.icon-menu;
+    width: 20px;
+    height: 20px;
+    background-color: var(--color-tertiary);
   }
 
   .kth-button.back::before {

@@ -1,0 +1,29 @@
+---
+import "@kth/style/scss/utils/reset.scss";
+import "@kth/style/scss/components/button.scss";
+import "@kth/style/scss/components/local-navigation.scss";
+---
+
+<div style="max-width: 15rem">
+  <nav class="kth-local-navigation" aria-labelledby="local-navigation-title">
+    <a href="/" class="kth-button back">Intranet</a>
+    <h2 id="local-navigation-title">Subsite title</h2>
+    <ul>
+      <li>
+        <a href="#">1 Lorem ipsum</a>
+      </li>
+      <li>
+        <a href="#" aria-current="page">2 Dolor sit amet</a>
+      </li>
+      <li>
+        <a href="#" class="expandable">3 Tempus</a>
+      </li>
+      <li>
+        <a href="#">4 Pellentesque quis justo aliquam</a>
+      </li>
+      <li>
+        <a href="#" class="expandable">5 Suspendisse blandit</a>
+      </li>
+    </ul>
+  </nav>
+</div>
