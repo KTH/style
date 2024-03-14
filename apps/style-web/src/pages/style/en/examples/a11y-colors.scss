@@ -7,9 +7,9 @@
 @use "@kth/style/scss/components/menu-item";
 @use "@kth/style/scss/components/header";
 @use "@kth/style/scss/components/search";
+@use "@kth/style/scss/components/local-navigation.scss";
 
 @use "@components/content.scss";
-@use "@components/local-navigation.scss";
 
 main {
   @include prose.prose;
