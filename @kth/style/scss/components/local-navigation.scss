@@ -27,11 +27,11 @@
       margin: 0;
     }
 
-    ul:not(.submenu) {
+    ul:not(&__submenu) {
       margin-inline-start: spacing.$space-8;
     }
 
-    ul.submenu {
+    &__submenu {
       margin-inline-start: spacing.$space-16;
     }
 
