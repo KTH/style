@@ -9,11 +9,12 @@ title: Local navigation (submenu)
 
 ## When to use
 
-- In general inside the [sidebar] (TODO) component.
+To add lists of links to related pages
 
 ## When not to use
 
-When the entire page is a "landing" and a local navigation only adds redudancy to the main content.
+- When the entire page is a "landing" and a local navigation only adds redudancy to the main content.
+- For same-page navigation (hash `#` links)
 
 ## How it works
 
