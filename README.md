@@ -1,13 +1,10 @@
 # KTH Style monorepo
 
-This is the Monorepo for KTH Style, the KTH's Design System.
+This is the repository of KTH Style, the KTH's Design System.
 
-## Structure
+- Live documentation: https://intra.kth.se/style
 
-- `/@kth` directory contains the packages related to KTH Style that are published in npm under the `@kth` namespace
+## Contribute
 
-  - [`/@kth/style`](./@kth/style) is the library with components and styles
-
-- `/apps` directory contains applications that will not be published into npm.
-
-  - [`/apps/style-web`](./apps/style-web) is the KTH Style documentation website.
+- For developers: read [CONTRIBUTING.md](./CONTRIBUTING.md)
+- For non-developers: coming soon
