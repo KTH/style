@@ -1,6 +1,7 @@
 @use "../tokens/spacing.scss";
 @use "../tokens/icons.scss";
 @use "../tokens/typography.scss";
+@use "../tokens/colors";
 
 $border-inline: spacing.$space-2;
 $padding-inline: calc(spacing.$space-12 - $border-inline);
