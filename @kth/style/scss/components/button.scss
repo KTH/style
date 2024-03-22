@@ -45,7 +45,7 @@ $icon-size: calc(#{spacing.$space-24} + 2 * var(--space-inner-icon));
   }
 
   .kth-button.primary {
-    background: var(--color-primary);
+    background: var(--color-primary, colors.$color-blue-kth);
     color: var(--color-on-primary);
 
     &:hover {

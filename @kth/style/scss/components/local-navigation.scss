@@ -69,7 +69,7 @@
         top: 0;
         bottom: 0;
         width: spacing.$space-4;
-        background-color: var(--color-primary);
+        background-color: var(--color-primary, colors.$color-blue-kth);
       }
     }
   }
