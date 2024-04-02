@@ -1,3 +1,5 @@
+@use "sass:map";
+
 // Gray-scale
 $color-white: #fcfcfc;
 $color-black: #212121;
@@ -30,23 +32,41 @@ $color-green: #3d784a;
 $color-green-dark: #366f43;
 $color-green-darker: #264f30;
 
+$_default-theme: (
+  --color-text: $color-black,
+  --color-background: $color-white,
+  --color-background-alt: $color-gray-lighter,
+  --color-header: $color-white,
+  --color-on-header: $color-blue-marine,
+  --color-primary: $color-blue-kth,
+  --color-primary-hover: $color-blue-kth-dark,
+  --color-on-primary: $color-white,
+  --color-secondary: $color-black,
+  --color-secondary-hover: $color-black-opacity10,
+  --color-tertiary: $color-blue-lake,
+  --color-error: $color-red,
+  --color-error-hover: $color-red-dark,
+  --color-success: $color-green,
+  --color-success-hover: $color-green-dark,
+  --color-border: $color-gray-medium,
+);
+
+/// Returns CSS `var($key, $default-value)` where $default-value is the default
+/// value for $key
+@function var($key) {
+  $value: map.get($_default-theme, $key);
+
+  @if $value {
+    @return #{"var(#{$key}, #{$value})"};
+  } @else {
+    @error "Unknown variable '#{$key}'. Allowed values are: #{map.keys($_default-theme)}";
+  }
+}
+
 @mixin theme-default {
-  --color-text: #{$color-black};
-  --color-background: #{$color-white};
-  --color-background-alt: #{$color-gray-lighter};
-  --color-header: #{$color-white};
-  --color-on-header: #{$color-blue-marine};
-  --color-primary: #{$color-blue-kth};
-  --color-primary-hover: #{$color-blue-kth-dark};
-  --color-on-primary: #{$color-white};
-  --color-secondary: #{$color-black};
-  --color-secondary-hover: #{$color-black-opacity10};
-  --color-tertiary: #{$color-blue-lake};
-  --color-error: #{$color-red};
-  --color-error-hover: #{$color-red-dark};
-  --color-success: #{$color-green};
-  --color-success-hover: #{$color-green-dark};
-  --color-border: #{$color-gray-medium};
+  @each $key, $value in $_default-theme {
+    #{$key}: $value;
+  }
 }
 
 @mixin theme-student-web {

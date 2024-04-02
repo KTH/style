@@ -9,7 +9,7 @@
 @mixin prose {
   code:not(pre *) {
     font-size: 0.9rem;
-    background-color: var(--color-background-alt);
+    background-color: c.var(--color-background-alt);
     padding: s.$space-2 s.$space-4;
   }
 

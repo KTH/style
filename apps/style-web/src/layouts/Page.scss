@@ -50,11 +50,11 @@ article {
     padding-inline-start: spacing.$space-16;
 
     &.note {
-      border-color: var(--color-primary, colors.$color-blue-kth);
+      border-color: c.var(--color-primary);
 
       .markdown-alert-title {
         @include typography.font-heading-xs;
-        color: var(--color-primary, colors.$color-blue-kth);
+        color: c.var(--color-primary);
       }
     }
   }

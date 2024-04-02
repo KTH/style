@@ -1,6 +1,7 @@
 @use "sass:math";
 @use "../tokens/spacing.scss";
 @use "../tokens/icons.scss";
+@use "../tokens/colors.scss" as c;
 @use "../tokens/typography.scss";
 
 $secondary-border-width: math.div(1rem, 16);
@@ -21,13 +22,13 @@ $secondary-border-width: math.div(1rem, 16);
     > input {
       --border-width: #{$secondary-border-width};
 
-      padding-inline: var(--space-inner-inline);
+      padding-inline: c.var(--space-inner-inline);
       padding-block: calc(var(--space-inner-block) - var(--border-width));
       border-radius: spacing.$space-4;
-      border-width: var(--border-width);
+      border-width: c.var(--border-width);
       border-style: solid;
-      border-color: var(--color-secondary);
-      color: var(--color-secondary);
+      border-color: c.var(--color-secondary);
+      color: c.var(--color-secondary);
       grid-area: input;
       background: transparent;
     }
@@ -38,7 +39,7 @@ $secondary-border-width: math.div(1rem, 16);
       height: calc(#{spacing.$space-24} + 2 * var(--space-inner-icon));
       width: calc(#{spacing.$space-24} + 2 * var(--space-inner-icon));
 
-      padding-block: var(--space-inner-icon);
+      padding-block: c.var(--space-inner-icon);
       grid-area: input;
       place-self: center end;
     }
@@ -46,7 +47,7 @@ $secondary-border-width: math.div(1rem, 16);
     > button::after {
       width: 1.5rem;
       height: 1.5rem;
-      background-color: var(--color-secondary);
+      background-color: c.var(--color-secondary);
     }
 
     > button:not(.loading)::after {

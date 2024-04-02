@@ -1,12 +1,12 @@
 @use "../tokens/spacing";
 @use "../tokens/typography";
-@use "../tokens/colors";
+@use "../tokens/colors" as c;
 @use "../tokens/icons";
 @use "../utils/mixins";
 
 @layer kth-style {
   .kth-mobile-menu {
-    background-color: var(--color-background);
+    background-color: c.var(--color-background);
     position: fixed;
     right: 0;
     left: auto;
@@ -37,13 +37,13 @@
 
       h2 {
         @include typography.font-heading-m;
-        color: var(--color-primary, colors.$color-blue-kth);
+        color: c.var(--color-primary);
         margin-bottom: spacing.$space-4;
       }
     }
 
     &__content {
-      color: var(--color-primary, colors.$color-blue-kth);
+      color: c.var(--color-primary);
 
       ul {
         padding: 0;
@@ -59,11 +59,11 @@
         background: none;
         border: none;
         padding: 0;
-        color: var(--color-primary, colors.$color-blue-kth);
+        color: c.var(--color-primary);
 
         &::after {
           @include icons.icon-caret-right-big;
-          background-color: var(--color-primary, colors.$color-blue-kth);
+          background-color: c.var(--color-primary);
           margin-left: 0.75rem;
         }
 

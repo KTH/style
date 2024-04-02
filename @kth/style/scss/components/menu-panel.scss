@@ -9,9 +9,9 @@
     top: 100%;
     width: 100%;
     border: none;
-    background: var(--color-header, c.$color-white);
+    background: c.var(--color-header);
     padding: spacing.$space-48 0;
-    color: var(--color-text, c.$color-black);
+    color: c.var(--color-text);
 
     &__container {
       @include mixins.container;

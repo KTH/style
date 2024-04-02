@@ -10,8 +10,8 @@ $border-width: spacing.$space-4;
 
 @mixin details {
   summary {
-    color: var(--color-tertiary);
-    padding-block: var(--space-inner-block);
+    color: c.var(--color-tertiary);
+    padding-block: c.var(--space-inner-block);
     cursor: pointer;
     list-style: none;
     font: inherit;
@@ -20,7 +20,7 @@ $border-width: spacing.$space-4;
 
     &::before {
       @include icons.icon-caret-right;
-      background-color: var(--color-tertiary);
+      background-color: c.var(--color-tertiary);
       margin-block: spacing.$space-2;
     }
 

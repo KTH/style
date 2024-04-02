@@ -1,4 +1,5 @@
 @use "./icons-raw.scss" as raw;
+@use "./colors.scss" as c;
 
 // TODO: move it somewhere else?
 @keyframes spin {
@@ -14,8 +15,8 @@
   display: inline-block;
   width: $size;
   height: $size;
-  -webkit-mask-image: var(--icon);
-  mask-image: var(--icon);
+  -webkit-mask-image: c.var(--icon);
+  mask-image: c.var(--icon);
   mask-size: cover;
   -webkit-mask-size: cover;
 }

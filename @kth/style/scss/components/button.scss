@@ -1,7 +1,7 @@
 @use "../tokens/spacing";
 @use "../tokens/icons";
 @use "../tokens/typography";
-@use "../tokens/colors.scss";
+@use "../tokens/colors.scss" as c;
 
 $icon-size: calc(#{spacing.$space-24} + 2 * var(--space-inner-icon));
 
@@ -10,13 +10,13 @@ $icon-size: calc(#{spacing.$space-24} + 2 * var(--space-inner-icon));
   .kth-icon-button {
     background: unset;
     border: none;
-    padding: var(--space-inner-icon);
+    padding: c.var(--space-inner-icon);
     width: $icon-size;
     height: $icon-size;
     border-radius: spacing.$space-4;
 
     &:hover {
-      background: var(--color-secondary-hover);
+      background: c.var(--color-secondary-hover);
       cursor: pointer;
     }
   }
@@ -25,7 +25,7 @@ $icon-size: calc(#{spacing.$space-24} + 2 * var(--space-inner-icon));
     @include icons.icon-close;
     width: 100%;
     height: 100%;
-    background-color: var(--color-tertiary);
+    background-color: c.var(--color-tertiary);
   }
 
   .kth-button {
@@ -45,41 +45,41 @@ $icon-size: calc(#{spacing.$space-24} + 2 * var(--space-inner-icon));
   }
 
   .kth-button.primary {
-    background: var(--color-primary, colors.$color-blue-kth);
-    color: var(--color-on-primary);
+    background: c.var(--color-primary);
+    color: c.var(--color-on-primary);
 
     &:hover {
-      background: var(--color-primary-hover);
+      background: c.var(--color-primary-hover);
     }
   }
 
   .kth-button.secondary,
   .kth-button.previous {
     border: 1px solid var(--color-secondary);
-    color: var(--color-secondary);
+    color: c.var(--color-secondary);
     background: none;
 
     &:hover {
-      background: var(--color-secondary-hover);
+      background: c.var(--color-secondary-hover);
     }
   }
 
   .kth-button.success,
   .kth-button.next {
-    background: var(--color-success);
-    color: var(--color-on-primary);
+    background: c.var(--color-success);
+    color: c.var(--color-on-primary);
 
     &:hover {
-      background: var(--color-success-hover);
+      background: c.var(--color-success-hover);
     }
   }
 
   .kth-button.error {
-    background: var(--color-error);
-    color: var(--color-on-primary);
+    background: c.var(--color-error);
+    color: c.var(--color-on-primary);
 
     &:hover {
-      background: var(--color-error-hover);
+      background: c.var(--color-error-hover);
     }
   }
 
@@ -87,7 +87,7 @@ $icon-size: calc(#{spacing.$space-24} + 2 * var(--space-inner-icon));
   .kth-button.menu {
     padding: spacing.$space-8 0;
     gap: spacing.$space-4;
-    color: var(--color-tertiary);
+    color: c.var(--color-tertiary);
     @include typography.font-default;
 
     &:hover {
@@ -99,14 +99,14 @@ $icon-size: calc(#{spacing.$space-24} + 2 * var(--space-inner-icon));
     @include icons.icon-menu;
     width: 20px;
     height: 20px;
-    background-color: var(--color-tertiary);
+    background-color: c.var(--color-tertiary);
   }
 
   .kth-button.back::before {
     @include icons.icon-arrow-back;
     width: 20px;
     height: 20px;
-    background-color: var(--color-tertiary);
+    background-color: c.var(--color-tertiary);
   }
 
   .kth-button.previous {
@@ -117,7 +117,7 @@ $icon-size: calc(#{spacing.$space-24} + 2 * var(--space-inner-icon));
     @include icons.icon-arrow-back-500;
     width: 20px;
     height: 20px;
-    background-color: var(--color-text);
+    background-color: c.var(--color-text);
   }
 
   .kth-button.next {
@@ -128,6 +128,6 @@ $icon-size: calc(#{spacing.$space-24} + 2 * var(--space-inner-icon));
     @include icons.icon-arrow-forward-500;
     width: 20px;
     height: 20px;
-    background-color: var(--color-on-primary);
+    background-color: c.var(--color-on-primary);
   }
 }

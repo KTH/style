@@ -1,6 +1,6 @@
 @use "../tokens/typography";
 @use "../tokens/spacing";
-@use "../tokens/colors";
+@use "../tokens/colors" as c;
 
 /// When true, the file generates CSS code for the entire document
 ///
@@ -49,7 +49,7 @@ $generate-css: true !default;
   }
 
   a {
-    color: var(--color-tertiary);
+    color: c.var(--color-tertiary);
     text-underline-offset: spacing.$space-4;
   }
 
@@ -85,15 +85,15 @@ $generate-css: true !default;
     }
 
     :root {
-      @include colors.theme-default;
+      @include c.theme-default;
       @include spacing.theme-default;
       font-family: typography.$font-figtree;
     }
 
     body {
       @include typography.font-default;
-      color: var(--color-text);
-      background: var(--color-background);
+      color: c.var(--color-text);
+      background: c.var(--color-background);
       min-height: 100vh;
       margin: 0;
     }

@@ -1,4 +1,4 @@
-@use "../tokens/colors.scss";
+@use "../tokens/colors.scss" as c;
 @use "../tokens/spacing.scss";
 @use "../utils/mixins.scss";
 @use "../tokens/typography";
@@ -6,20 +6,20 @@
 
 @layer kth-style {
   .kth-footer.intranet {
-    @include colors.theme-intranet;
+    @include c.theme-intranet;
   }
 
   .kth-footer.external {
-    @include colors.theme-inverse;
+    @include c.theme-inverse;
   }
 
   .kth-footer.student-web {
-    @include colors.theme-student-web;
+    @include c.theme-student-web;
   }
 
   .kth-footer {
-    background: var(--color-background);
-    color: var(--color-text);
+    background: c.var(--color-background);
+    color: c.var(--color-text);
 
     &__content {
       @include mixins.container;

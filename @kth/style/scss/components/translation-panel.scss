@@ -1,15 +1,15 @@
 @use "../tokens/spacing";
-@use "../tokens/colors";
+@use "../tokens/colors" as c;
 
 @layer kth-style {
   .kth-translation {
-    @include colors.theme-default;
+    @include c.theme-default;
     width: 22.5rem;
     left: auto;
 
     // TODO: this formula should be a token
     right: clamp(spacing.$space-16, calc(100vw / 30), spacing.$space-32);
-    background-color: var(--color-background);
+    background-color: c.var(--color-background);
 
     // TODO: tokenize this shadow
     box-shadow: 0 0.125rem 0.5rem 0 rgb(0 0 0 /0.15);
