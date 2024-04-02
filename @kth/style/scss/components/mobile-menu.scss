@@ -1,5 +1,6 @@
 @use "../tokens/spacing";
 @use "../tokens/typography";
+@use "../tokens/colors";
 @use "../tokens/icons";
 @use "../utils/mixins";
 
@@ -36,13 +37,13 @@
 
       h2 {
         @include typography.font-heading-m;
-        color: var(--color-primary);
+        color: var(--color-primary, colors.$color-blue-kth);
         margin-bottom: spacing.$space-4;
       }
     }
 
     &__content {
-      color: var(--color-primary);
+      color: var(--color-primary, colors.$color-blue-kth);
 
       ul {
         padding: 0;
@@ -58,11 +59,11 @@
         background: none;
         border: none;
         padding: 0;
-        color: var(--color-primary);
+        color: var(--color-primary, colors.$color-blue-kth);
 
         &::after {
           @include icons.icon-caret-right-big;
-          background-color: var(--color-primary);
+          background-color: var(--color-primary, colors.$color-blue-kth);
           margin-left: 0.75rem;
         }
 

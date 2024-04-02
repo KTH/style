@@ -1,6 +1,7 @@
 @use "@kth/style/scss/tokens/spacing";
 @use "@kth/style/scss/tokens/icons";
 @use "@kth/style/scss/tokens/typography";
+@use "@kth/style/scss/tokens/colors";
 @use "@kth/style/scss/utils/reset";
 @use "@kth/style/scss/utils/prose";
 
@@ -49,11 +50,11 @@ article {
     padding-inline-start: spacing.$space-16;
 
     &.note {
-      border-color: var(--color-primary);
+      border-color: var(--color-primary, colors.$color-blue-kth);
 
       .markdown-alert-title {
         @include typography.font-heading-xs;
-        color: var(--color-primary);
+        color: var(--color-primary, colors.$color-blue-kth);
       }
     }
   }
