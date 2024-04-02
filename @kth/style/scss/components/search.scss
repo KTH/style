@@ -22,10 +22,10 @@ $secondary-border-width: math.div(1rem, 16);
     > input {
       --border-width: #{$secondary-border-width};
 
-      padding-inline: c.var(--space-inner-inline);
+      padding-inline: var(--space-inner-inline);
       padding-block: calc(var(--space-inner-block) - var(--border-width));
       border-radius: spacing.$space-4;
-      border-width: c.var(--border-width);
+      border-width: var(--border-width);
       border-style: solid;
       border-color: c.var(--color-secondary);
       color: c.var(--color-secondary);
@@ -39,7 +39,7 @@ $secondary-border-width: math.div(1rem, 16);
       height: calc(#{spacing.$space-24} + 2 * var(--space-inner-icon));
       width: calc(#{spacing.$space-24} + 2 * var(--space-inner-icon));
 
-      padding-block: c.var(--space-inner-icon);
+      padding-block: var(--space-inner-icon);
       grid-area: input;
       place-self: center end;
     }

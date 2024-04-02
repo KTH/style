@@ -15,8 +15,8 @@
   display: inline-block;
   width: $size;
   height: $size;
-  -webkit-mask-image: c.var(--icon);
-  mask-image: c.var(--icon);
+  -webkit-mask-image: var(--icon);
+  mask-image: var(--icon);
   mask-size: cover;
   -webkit-mask-size: cover;
 }

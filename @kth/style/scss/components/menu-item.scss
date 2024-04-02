@@ -1,7 +1,7 @@
 @use "../tokens/spacing";
 @use "../tokens/icons";
 @use "../tokens/sizing";
-@use "../tokens/colors";
+@use "../tokens/colors" as c;
 
 @layer kth-style {
   .kth-menu-item {

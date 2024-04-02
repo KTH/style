@@ -10,7 +10,7 @@ $icon-size: calc(#{spacing.$space-24} + 2 * var(--space-inner-icon));
   .kth-icon-button {
     background: unset;
     border: none;
-    padding: c.var(--space-inner-icon);
+    padding: var(--space-inner-icon);
     width: $icon-size;
     height: $icon-size;
     border-radius: spacing.$space-4;

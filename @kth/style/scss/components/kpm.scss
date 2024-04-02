@@ -1,5 +1,5 @@
 @use "../utils/mixins.scss";
-@use "../tokens/colors.scss";
+@use "../tokens/colors.scss" as c;
 
 @layer kth-style {
   .kth-kpm {

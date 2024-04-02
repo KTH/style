@@ -1,5 +1,6 @@
 @use "../tokens/spacing.scss";
 @use "../tokens/icons.scss";
+@use "../tokens/colors.scss" as c;
 
 /// When true, the file generates CSS code for the entire document
 ///
@@ -11,7 +12,7 @@ $border-width: spacing.$space-4;
 @mixin details {
   summary {
     color: c.var(--color-tertiary);
-    padding-block: c.var(--space-inner-block);
+    padding-block: --space-inner-block;
     cursor: pointer;
     list-style: none;
     font: inherit;
