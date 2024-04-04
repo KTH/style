@@ -1,4 +1,6 @@
 @use "@kth/style/scss/tokens/spacing" as s;
+@use "@kth/style/scss/tokens/colors" as c;
+
 styleweb-color-table {
   .styleweb-swatch {
     display: flex;
