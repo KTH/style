@@ -20,9 +20,9 @@
     "build": "npm run clean && npm run build:components",
     "build:components": "rollup -c",
     "dev": "rollup -cw",
-    "test": "npm run test:lint && npm run test:integration",
+    "test": "npm run test:lint && npm run test:smoke",
     "test:lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "test:integration": "node --test test/"
+    "test:smoke": "node --test test/"
   },
   "files": [
     "scss",
