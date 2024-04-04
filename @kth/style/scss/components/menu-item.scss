@@ -5,7 +5,7 @@
 
 @layer kth-style {
   .kth-menu-item {
-    color: var(--color-primary, colors.$color-blue-kth);
+    color: var(--color-on-header, colors.$color-blue-marine);
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -35,19 +35,19 @@
 
     &.dropdown::after {
       @include icons.icon-caret-down;
-      background-color: var(--color-primary, colors.$color-blue-kth);
+      background-color: var(--color-on-header, colors.$color-blue-marine);
     }
     &.search::before {
       @include icons.icon-search;
-      background-color: var(--color-primary, colors.$color-blue-kth);
+      background-color: var(--color-on-header, colors.$color-blue-marine);
     }
     &.language::before {
       @include icons.icon-language;
-      background-color: var(--color-primary, colors.$color-blue-kth);
+      background-color: var(--color-on-header, colors.$color-blue-marine);
     }
     &.menu::before {
       @include icons.icon-menu;
-      background-color: var(--color-primary, colors.$color-blue-kth);
+      background-color: var(--color-on-header, colors.$color-blue-marine);
     }
   }
 }
