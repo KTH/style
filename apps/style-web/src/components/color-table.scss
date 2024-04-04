@@ -1,5 +1,4 @@
 @use "@kth/style/scss/tokens/spacing" as s;
-@use "@kth/style/scss/tokens/colors" as c;
 
 styleweb-color-table {
   .styleweb-swatch {
@@ -9,7 +8,7 @@ styleweb-color-table {
     &::before {
       content: " ";
       display: block;
-      background: c.var(--color);
+      background: var(--color);
       width: 1.5rem;
       height: 1.5rem;
       border-radius: 100%;
