@@ -1,7 +1,7 @@
-@use "../tokens/colors.scss" as c;
 @use "../tokens/spacing";
 @use "../tokens/typography";
 @use "../tokens/icons";
+@use "../tokens/colors" as c;
 @use "../utils/mixins";
 
 @layer kth-style {
@@ -9,9 +9,9 @@
     top: 100%;
     width: 100%;
     border: none;
-    background: var(--color-header, c.$color-white);
+    background: c.var(--color-header);
     padding: spacing.$space-48 0;
-    color: var(--color-text, c.$color-black);
+    color: c.var(--color-text);
 
     &__container {
       @include mixins.container;

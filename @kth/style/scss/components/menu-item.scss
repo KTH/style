@@ -1,11 +1,11 @@
 @use "../tokens/spacing";
 @use "../tokens/icons";
 @use "../tokens/sizing";
-@use "../tokens/colors";
+@use "../tokens/colors" as c;
 
 @layer kth-style {
   .kth-menu-item {
-    color: var(--color-on-header, colors.$color-blue-marine);
+    color: c.var(--color-on-header);
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -35,19 +35,19 @@
 
     &.dropdown::after {
       @include icons.icon-caret-down;
-      background-color: var(--color-on-header, colors.$color-blue-marine);
+      background-color: c.var(--color-on-header);
     }
     &.search::before {
       @include icons.icon-search;
-      background-color: var(--color-on-header, colors.$color-blue-marine);
+      background-color: c.var(--color-on-header);
     }
     &.language::before {
       @include icons.icon-language;
-      background-color: var(--color-on-header, colors.$color-blue-marine);
+      background-color: c.var(--color-on-header);
     }
     &.menu::before {
       @include icons.icon-menu;
-      background-color: var(--color-on-header, colors.$color-blue-marine);
+      background-color: c.var(--color-on-header);
     }
   }
 }

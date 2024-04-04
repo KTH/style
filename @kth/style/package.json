@@ -20,8 +20,9 @@
     "build": "npm run clean && npm run build:components",
     "build:components": "rollup -c",
     "dev": "rollup -cw",
-    "test": "npm run test:lint",
-    "test:lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+    "test": "npm run test:lint && npm run test:smoke",
+    "test:lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "test:smoke": "node --test test/"
   },
   "files": [
     "scss",
@@ -44,6 +45,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rollup": "^3.21.4",
+    "sass": "^1.72.0",
     "svgo": "^3.0.2",
     "typescript": "^5.0.2",
     "vite": "^4.3.0"

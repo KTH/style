@@ -1,7 +1,7 @@
 @use "../tokens/spacing.scss";
 @use "../tokens/icons.scss";
 @use "../tokens/typography.scss";
-@use "../tokens/colors";
+@use "../tokens/colors" as c;
 
 $border-inline: spacing.$space-2;
 $padding-inline: calc(spacing.$space-12 - $border-inline);
@@ -19,16 +19,16 @@ $padding-inline: calc(spacing.$space-12 - $border-inline);
     border-inline-width: $border-inline;
     border-block-end-width: $border-inline;
     border-style: solid;
-    border-color: var(--color-text);
+    border-color: c.var(--color-text);
 
     &:before {
-      background-color: var(--color-text);
+      background-color: c.var(--color-text);
       grid-column-start: 1;
       align-self: center;
     }
 
     &.info {
-      border-color: var(--color-primary, colors.$color-blue-kth);
+      border-color: c.var(--color-primary);
 
       &::before {
         @include icons.icon-info-500;
@@ -36,7 +36,7 @@ $padding-inline: calc(spacing.$space-12 - $border-inline);
     }
 
     &.warning {
-      border-color: var(--color-error);
+      border-color: c.var(--color-error);
 
       &::before {
         @include icons.icon-warning-500;
@@ -44,7 +44,7 @@ $padding-inline: calc(spacing.$space-12 - $border-inline);
     }
 
     &.success {
-      border-color: var(--color-success);
+      border-color: c.var(--color-success);
 
       &::before {
         @include icons.icon-check-500;

@@ -1,31 +1,31 @@
-@use "../tokens/colors.scss";
+@use "../tokens/colors.scss" as c;
 @use "../tokens/spacing.scss";
 @use "../tokens/sizing.scss";
 @use "../utils/mixins.scss";
 
 @layer kth-style {
   .kth-header.intranet {
-    @include colors.theme-intranet;
+    @include c.theme-intranet;
     .kth-logotype img.white {
       display: none;
     }
   }
   .kth-header.external {
-    @include colors.theme-inverse;
+    @include c.theme-inverse;
     .kth-logotype img.blue {
       display: none;
     }
   }
   .kth-header.student-web {
-    @include colors.theme-student-web;
+    @include c.theme-student-web;
     .kth-logotype img.white {
       display: none;
     }
   }
 
   .kth-header {
-    color: var(--color-on-header);
-    background: var(--color-header);
+    color: c.var(--color-on-header);
+    background: c.var(--color-header);
     padding-block: spacing.$space-16;
     position: relative;
 

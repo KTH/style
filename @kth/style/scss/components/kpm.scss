@@ -1,9 +1,9 @@
 @use "../utils/mixins.scss";
-@use "../tokens/colors.scss";
+@use "../tokens/colors.scss" as c;
 
 @layer kth-style {
   .kth-kpm {
-    background: var(--color-background, colors.$color-white);
+    background: c.var(--color-background);
     width: 100%;
 
     &__container {
