@@ -37,14 +37,11 @@
 
       h2 {
         @include typography.font-heading-m;
-        color: var(--color-on-header, colors.$color-blue-marine);
         margin-bottom: spacing.$space-4;
       }
     }
 
     &__content {
-      color: var(--color-on-header, colors.$color-blue-marine);
-
       ul {
         padding: 0;
         list-style-type: none;
