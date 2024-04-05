@@ -6,7 +6,7 @@
 
 @layer kth-style {
   .kth-mobile-menu {
-    background-color: var(--color-background);
+    background-color: var(--color-header);
     position: fixed;
     right: 0;
     left: auto;
@@ -37,13 +37,13 @@
 
       h2 {
         @include typography.font-heading-m;
-        color: var(--color-primary, colors.$color-blue-kth);
+        color: var(--color-on-header, colors.$color-blue-marine);
         margin-bottom: spacing.$space-4;
       }
     }
 
     &__content {
-      color: var(--color-primary, colors.$color-blue-kth);
+      color: var(--color-on-header, colors.$color-blue-marine);
 
       ul {
         padding: 0;
@@ -59,11 +59,11 @@
         background: none;
         border: none;
         padding: 0;
-        color: var(--color-primary, colors.$color-blue-kth);
+        color: var(--color-on-header, colors.$color-blue-marine);
 
         &::after {
           @include icons.icon-caret-right-big;
-          background-color: var(--color-primary, colors.$color-blue-kth);
+          background-color: var(--color-on-header, colors.$color-blue-marine);
           margin-left: 0.75rem;
         }
 
