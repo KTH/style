@@ -9,10 +9,6 @@
       gap: spacing.$space-4;
     }
 
-    a {
-      background: var(--color-header, transparent);
-    }
-
     // Special case for "kth.se" link.
     // It has a fixed width
     a:not([href*="intra"], [href*="student"]) {
@@ -24,6 +20,10 @@
     a[href*="intra"],
     a[href*="student"] {
       padding-inline: spacing.$space-8;
+    }
+
+    a[aria-current="true"] {
+      background: var(--color-header, transparent);
     }
 
     a:not([href*="intra"], [href*="student"])[aria-current="true"] {
