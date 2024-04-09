@@ -5,6 +5,83 @@
 @use "../tokens/sizing.scss";
 @use "../tokens/icons";
 
+@layer legacy-compatibility {
+  .kth-local-navigation--mobile {
+    display: block;
+    width: auto;
+    padding: 0;
+
+    @media (min-width: 992px) {
+      display: none;
+    }
+
+    .nav-item.ancestor {
+      @include typography.font-heading-s;
+      margin-inline-start: 24px;
+      margin-block-start: 12px;
+      margin-block-end: 4px;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      display: flex;
+      padding-block: 8px;
+      padding-inline-start: 24px;
+      color: var(--color-tertiary);
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .nav-item.selected:not(.expandable) {
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background-color: var(--color-primary);
+      }
+    }
+
+    .nav-item.expandable > a {
+      justify-content: space-between;
+
+      &::after {
+        @include icons.icon-caret-right;
+        background-color: var(--color-tertiary);
+        align-self: center;
+      }
+    }
+
+    .nav-item.expandable.expanded > a {
+      @include typography.font-heading-xs;
+      color: var(--color-text);
+
+      &::after {
+        @include icons.icon-caret-down;
+        background-color: var(--color-text);
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    ul {
+      margin-inline-start: 0;
+    }
+
+    .nav-list {
+      margin-inline-start: 24px;
+    }
+  }
+}
+
 @layer kth-style {
   .kth-local-navigation,
   .kth-local-navigation--mobile {
