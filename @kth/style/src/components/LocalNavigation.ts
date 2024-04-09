@@ -1,3 +1,5 @@
+/* eslint no-var: off */
+
 // JavaScript that originally was placed in kth-style
 // It copies the content of the main menu and places it in the left mobile
 window.addEventListener("load", () => {
