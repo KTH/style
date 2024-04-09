@@ -33,7 +33,7 @@ export default [
     plugins: [nodeResolve(), typescript(), commonjs()],
   },
   {
-    input: "src/components/localNavigation.ts",
+    input: "src/localNavigation.ts",
     output: [
       {
         file: "dist/cjs/localNavigation.js",
