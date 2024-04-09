@@ -32,4 +32,18 @@ export default [
     external: ["react", "react-dom"],
     plugins: [nodeResolve(), typescript(), commonjs()],
   },
+  {
+    input: "src/localNavigation.ts",
+    output: [
+      {
+        file: "dist/cjs/localNavigation.js",
+        format: "cjs",
+      },
+      {
+        file: "dist/esm/localNavigation.js",
+        format: "esm",
+      },
+    ],
+    plugins: [nodeResolve(), typescript(), commonjs()],
+  },
 ];
