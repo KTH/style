@@ -93,5 +93,9 @@
         margin-top: spacing.$space-32;
       }
     }
+
+    .block.columnSplitter.row {
+      display: block;
+    }
   }
 }
