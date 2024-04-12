@@ -30,6 +30,7 @@ $secondary-border-width: math.div(1rem, 16);
       color: var(--color-secondary);
       grid-area: input;
       background: transparent;
+      @include typography.font-default;
     }
 
     > button {
