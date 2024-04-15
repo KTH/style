@@ -2,30 +2,28 @@
 @use "../utils/mixins.scss";
 @use "../tokens/sizing.scss";
 
-@layer kth-style {
-  nav.kth-mega-menu {
-    > ul {
-      @include mixins.horizontal-list();
+nav.kth-mega-menu {
+  > ul {
+    @include mixins.horizontal-list();
 
-      // Defensive measurements:
-      // - `flex-wrap: wrap` makes sure that all menus are displayed decently
-      // - `0` in gap (block axis) makes sure that menu spacing is ok all the time
-      flex-wrap: wrap;
-      gap: 0 spacing.$space-16;
-    }
+    // Defensive measurements:
+    // - `flex-wrap: wrap` makes sure that all menus are displayed decently
+    // - `0` in gap (block axis) makes sure that menu spacing is ok all the time
+    flex-wrap: wrap;
+    gap: 0 spacing.$space-16;
   }
+}
 
-  nav.kth-mega-menu--collapsable {
+nav.kth-mega-menu--collapsable {
+  display: none;
+}
+
+@media (max-width: sizing.$breakpoint-64) {
+  nav.kth-mega-menu {
     display: none;
   }
 
-  @media (max-width: sizing.$breakpoint-64) {
-    nav.kth-mega-menu {
-      display: none;
-    }
-
-    nav.kth-mega-menu--collapsable {
-      display: block;
-    }
+  nav.kth-mega-menu--collapsable {
+    display: block;
   }
 }

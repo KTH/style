@@ -2,15 +2,13 @@
 @use "../tokens/spacing.scss";
 @use "../tokens/colors.scss";
 
-@layer kth-style {
-  .kth-kpm {
-    background: var(--color-background, colors.$color-white);
-    width: 100%;
+.kth-kpm {
+  background: var(--color-background, colors.$color-white);
+  width: 100%;
 
-    &__container {
-      @include mixins.container;
-      display: flex;
-    }
+  &__container {
+    @include mixins.container;
+    display: flex;
   }
 
   nav.kth-entrances {

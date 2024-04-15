@@ -4,63 +4,61 @@
 @use "../tokens/icons";
 @use "../utils/mixins";
 
-@layer kth-style {
-  .kth-menu-panel {
-    top: 100%;
-    width: 100%;
-    border: none;
-    background: var(--color-header, c.$color-white);
-    padding: spacing.$space-48 0;
+.kth-menu-panel {
+  top: 100%;
+  width: 100%;
+  border: none;
+  background: var(--color-header, c.$color-white);
+  padding: spacing.$space-48 0;
 
-    &__container {
-      @include mixins.container;
+  &__container {
+    @include mixins.container;
 
-      &.search {
-        display: flex;
-        flex-direction: column;
-
-        .kth-icon-button {
-          align-self: end;
-        }
-      }
-    }
-
-    &__header {
-      width: 100%;
-      padding: 0 0 spacing.$space-32;
+    &.search {
       display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
+      flex-direction: column;
 
-      h2 {
-        @include typography.font-heading-m;
-        margin-bottom: spacing.$space-4;
+      .kth-icon-button {
+        align-self: end;
+      }
+    }
+  }
+
+  &__header {
+    width: 100%;
+    padding: 0 0 spacing.$space-32;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    h2 {
+      @include typography.font-heading-m;
+      margin-bottom: spacing.$space-4;
+    }
+  }
+
+  &__content {
+    .columnSplitter {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: spacing.$space-48;
+
+      .col .block:not(:first-child) {
+        margin-top: spacing.$space-32;
       }
     }
 
-    &__content {
-      .columnSplitter {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-gap: spacing.$space-48;
+    h3 {
+      @include typography.font-heading-s;
+      margin: 0 0 spacing.$space-8;
+    }
 
-        .col .block:not(:first-child) {
-          margin-top: spacing.$space-32;
-        }
-      }
+    ul {
+      padding: 0;
+      list-style-type: none;
 
-      h3 {
-        @include typography.font-heading-s;
-        margin: 0 0 spacing.$space-8;
-      }
-
-      ul {
-        padding: 0;
-        list-style-type: none;
-
-        li:not(:last-child) {
-          margin-bottom: spacing.$space-16;
-        }
+      li:not(:last-child) {
+        margin-bottom: spacing.$space-16;
       }
     }
   }

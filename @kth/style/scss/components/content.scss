@@ -1,10 +1,8 @@
 @use "../tokens/spacing.scss";
 @use "../utils/mixins.scss";
 
-@layer kth-style {
-  .kth-content {
-    @include mixins.container;
-  }
+.kth-content {
+  @include mixins.container;
 }
 
 // TODO: investigate the possibility to expand this `.kth-content` class:

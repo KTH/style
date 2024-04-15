@@ -4,98 +4,96 @@
 @use "../tokens/icons";
 @use "../utils/mixins";
 
-@layer kth-style {
-  .kth-mobile-menu {
-    background-color: var(--color-header);
-    position: fixed;
-    right: 0;
-    left: auto;
-    top: 0;
-    max-width: 32rem;
-    max-height: 100dvh;
-    width: 100dvw;
-    height: 100dvh;
-    padding: 2rem;
-    border: 0;
-    overflow-y: auto;
+.kth-mobile-menu {
+  background-color: var(--color-header);
+  position: fixed;
+  right: 0;
+  left: auto;
+  top: 0;
+  max-width: 32rem;
+  max-height: 100dvh;
+  width: 100dvw;
+  height: 100dvh;
+  padding: 2rem;
+  border: 0;
+  overflow-y: auto;
 
-    &.left {
-      left: 0;
-      right: auto;
+  &.left {
+    left: 0;
+    right: auto;
+  }
+
+  &__navigation {
+    height: 60px;
+
+    .kth-icon-button.close {
+      float: right;
+    }
+  }
+
+  &__header {
+    padding: 0 0 spacing.$space-32;
+
+    h2 {
+      @include typography.font-heading-m;
+      margin-bottom: spacing.$space-4;
+    }
+  }
+
+  &__content {
+    ul {
+      padding: 0;
+      list-style-type: none;
+      margin: 0;
     }
 
-    &__navigation {
-      height: 60px;
+    .kth-mobile-menu__item {
+      @include typography.font-heading-m;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      background: none;
+      border: none;
+      padding: 0;
+      color: var(--color-on-header, colors.$color-blue-marine);
 
-      .kth-icon-button.close {
-        float: right;
-      }
-    }
-
-    &__header {
-      padding: 0 0 spacing.$space-32;
-
-      h2 {
-        @include typography.font-heading-m;
-        margin-bottom: spacing.$space-4;
-      }
-    }
-
-    &__content {
-      ul {
-        padding: 0;
-        list-style-type: none;
-        margin: 0;
+      &::after {
+        @include icons.icon-caret-right-big;
+        background-color: var(--color-on-header, colors.$color-blue-marine);
+        margin-left: 0.75rem;
       }
 
-      .kth-mobile-menu__item {
-        @include typography.font-heading-m;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        background: none;
-        border: none;
-        padding: 0;
-        color: var(--color-on-header, colors.$color-blue-marine);
-
-        &::after {
-          @include icons.icon-caret-right-big;
-          background-color: var(--color-on-header, colors.$color-blue-marine);
-          margin-left: 0.75rem;
-        }
-
-        &:hover {
-          text-decoration: underline;
-          cursor: pointer;
-        }
-      }
-
-      // To avoid it affecting the cortina content
-      .kth-mobile-menu__items {
-        li:not(:last-child) {
-          margin-bottom: spacing.$space-24;
-        }
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
       }
     }
 
-    &__cortina-content {
+    // To avoid it affecting the cortina content
+    .kth-mobile-menu__items {
       li:not(:last-child) {
-        margin-bottom: spacing.$space-16;
-      }
-
-      h3 {
-        @include typography.font-heading-s;
-        margin-bottom: spacing.$space-4;
-      }
-
-      .block:not(:first-child),
-      .col:not(:first-child) {
-        margin-top: spacing.$space-32;
+        margin-bottom: spacing.$space-24;
       }
     }
+  }
 
-    .block.columnSplitter.row {
-      display: block;
+  &__cortina-content {
+    li:not(:last-child) {
+      margin-bottom: spacing.$space-16;
     }
+
+    h3 {
+      @include typography.font-heading-s;
+      margin-bottom: spacing.$space-4;
+    }
+
+    .block:not(:first-child),
+    .col:not(:first-child) {
+      margin-top: spacing.$space-32;
+    }
+  }
+
+  .block.columnSplitter.row {
+    display: block;
   }
 }

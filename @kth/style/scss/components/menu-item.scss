@@ -3,51 +3,49 @@
 @use "../tokens/sizing";
 @use "../tokens/colors";
 
-@layer kth-style {
-  .kth-menu-item {
-    color: var(--color-on-header, colors.$color-blue-marine);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: spacing.$space-4;
-    padding: 0;
-    padding-block: spacing.$space-8;
+.kth-menu-item {
+  color: var(--color-on-header, colors.$color-blue-marine);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: spacing.$space-4;
+  padding: 0;
+  padding-block: spacing.$space-8;
 
-    // Fixes for buttons:
-    border: none;
-    background: none;
+  // Fixes for buttons:
+  border: none;
+  background: none;
 
+  &.collapsable {
+    margin-inline-start: spacing.$space-16;
+  }
+
+  @media (min-width: sizing.$breakpoint-64) {
     &.collapsable {
-      margin-inline-start: spacing.$space-16;
+      display: none;
     }
+  }
 
-    @media (min-width: sizing.$breakpoint-64) {
-      &.collapsable {
-        display: none;
-      }
-    }
+  &:hover {
+    text-decoration: underline;
+    text-decoration-thickness: spacing.$space-4;
+    text-underline-offset: spacing.$space-8;
+  }
 
-    &:hover {
-      text-decoration: underline;
-      text-decoration-thickness: spacing.$space-4;
-      text-underline-offset: spacing.$space-8;
-    }
-
-    &.dropdown::after {
-      @include icons.icon-caret-down;
-      background-color: var(--color-on-header, colors.$color-blue-marine);
-    }
-    &.search::before {
-      @include icons.icon-search;
-      background-color: var(--color-on-header, colors.$color-blue-marine);
-    }
-    &.language::before {
-      @include icons.icon-language;
-      background-color: var(--color-on-header, colors.$color-blue-marine);
-    }
-    &.menu::before {
-      @include icons.icon-menu;
-      background-color: var(--color-on-header, colors.$color-blue-marine);
-    }
+  &.dropdown::after {
+    @include icons.icon-caret-down;
+    background-color: var(--color-on-header, colors.$color-blue-marine);
+  }
+  &.search::before {
+    @include icons.icon-search;
+    background-color: var(--color-on-header, colors.$color-blue-marine);
+  }
+  &.language::before {
+    @include icons.icon-language;
+    background-color: var(--color-on-header, colors.$color-blue-marine);
+  }
+  &.menu::before {
+    @include icons.icon-menu;
+    background-color: var(--color-on-header, colors.$color-blue-marine);
   }
 }

@@ -78,29 +78,35 @@ $kpm-height: 2.5rem !default;
 }
 
 @if $generate-css {
+  html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    scrollbar-gutter: stable;
+  }
+
+  :root {
+    @include colors.theme-default;
+    @include spacing.theme-default;
+    font-family: typography.$font-figtree;
+  }
+
+  body {
+    @include typography.font-default;
+    color: var(--color-text);
+    background: var(--color-background);
+    min-height: 100vh;
+    margin: 0;
+    margin-top: $kpm-height;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
   @layer kth-style {
-    html {
-      -moz-text-size-adjust: none;
-      -webkit-text-size-adjust: none;
-      text-size-adjust: none;
-      scrollbar-gutter: stable;
-    }
-
-    :root {
-      @include colors.theme-default;
-      @include spacing.theme-default;
-      font-family: typography.$font-figtree;
-    }
-
-    body {
-      @include typography.font-default;
-      color: var(--color-text);
-      background: var(--color-background);
-      min-height: 100vh;
-      margin: 0;
-      margin-top: $kpm-height;
-    }
-
     @include reset;
   }
 }

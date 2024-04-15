@@ -1,29 +1,27 @@
 @use "../tokens/spacing.scss";
 @use "../tokens/sizing.scss";
 
-@layer kth-style {
-  a.kth-logotype,
-  figure.kth-logotype {
-    display: inline-block;
-    block-size: 4rem;
-    inline-size: 4rem;
-    border: none;
-    margin: 0;
-    margin-inline-end: spacing.$space-32;
-    padding: 0;
+a.kth-logotype,
+figure.kth-logotype {
+  display: inline-block;
+  block-size: 4rem;
+  inline-size: 4rem;
+  border: none;
+  margin: 0;
+  margin-inline-end: spacing.$space-32;
+  padding: 0;
 
-    // Defensive measurement:
-    // - We prevent logo from shrinking
-    flex: 0 0 auto;
+  // Defensive measurement:
+  // - We prevent logo from shrinking
+  flex: 0 0 auto;
 
-    > figure {
-      block-size: 100%;
-      inline-size: 100%;
-    }
+  > figure {
+    block-size: 100%;
+    inline-size: 100%;
+  }
 
-    img {
-      block-size: 100%;
-      inline-size: 100%;
-    }
+  img {
+    block-size: 100%;
+    inline-size: 100%;
   }
 }
