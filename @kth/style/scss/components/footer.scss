@@ -27,21 +27,28 @@
       padding-bottom: spacing.$space-32;
 
       .columnSplitter {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-column-gap: spacing.$space-48;
+        display: block;
 
-        @media (max-width: sizing.$breakpoint-64) {
-          display: block;
+        .col {
+          break-inside: avoid-column;
+          width: 100%;
+
+          &:not(:first-child) {
+            margin-top: spacing.$space-32;
+          }
+        }
+
+        @media (min-width: sizing.$breakpoint-40) {
           column-count: 2;
+        }
 
-          .col {
-            break-inside: avoid-column;
-            width: 100%;
+        @media (min-width: sizing.$breakpoint-64) {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          grid-column-gap: spacing.$space-48;
 
-            &:not(:first-child) {
-              margin-top: spacing.$space-32;
-            }
+          .col:not(:first-child) {
+            margin-top: 0;
           }
         }
 
