@@ -42,13 +42,18 @@ $icon-size: calc(#{spacing.$space-24} + 2 * var(--space-inner-icon));
     &:hover {
       cursor: pointer;
     }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
   }
 
   .kth-button.primary {
     background: var(--color-primary, colors.$color-blue-kth);
     color: var(--color-on-primary);
 
-    &:hover {
+    &:hover:not(:disabled) {
       background: var(--color-primary-hover);
     }
   }
@@ -59,7 +64,7 @@ $icon-size: calc(#{spacing.$space-24} + 2 * var(--space-inner-icon));
     color: var(--color-secondary);
     background: none;
 
-    &:hover {
+    &:hover:not(:disabled) {
       background: var(--color-secondary-hover);
     }
   }
@@ -69,7 +74,7 @@ $icon-size: calc(#{spacing.$space-24} + 2 * var(--space-inner-icon));
     background: var(--color-success);
     color: var(--color-on-primary);
 
-    &:hover {
+    &:hover:not(:disabled) {
       background: var(--color-success-hover);
     }
   }
@@ -78,7 +83,7 @@ $icon-size: calc(#{spacing.$space-24} + 2 * var(--space-inner-icon));
     background: var(--color-error);
     color: var(--color-on-primary);
 
-    &:hover {
+    &:hover:not(:disabled) {
       background: var(--color-error-hover);
     }
   }
@@ -90,7 +95,7 @@ $icon-size: calc(#{spacing.$space-24} + 2 * var(--space-inner-icon));
     color: var(--color-tertiary);
     @include typography.font-default;
 
-    &:hover {
+    &:hover:not(:disabled) {
       text-decoration-line: underline;
     }
   }
