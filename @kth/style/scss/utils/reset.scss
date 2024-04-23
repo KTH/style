@@ -97,6 +97,7 @@ $generate-css: true !default;
       background: var(--color-background);
       min-height: 100vh;
       margin: 0;
+      margin-top: 2.5rem;
     }
 
     @include reset;
