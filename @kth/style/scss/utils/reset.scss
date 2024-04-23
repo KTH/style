@@ -7,6 +7,7 @@
 /// Set to `false` when importing if you want to use the mixin but don't want
 /// to apply reset to the entire document.
 $generate-css: true !default;
+$kpm-height: 2.5rem !default;
 
 /// Based on https://andy-bell.co.uk/a-more-modern-css-reset/
 @mixin reset {
@@ -97,6 +98,7 @@ $generate-css: true !default;
       background: var(--color-background);
       min-height: 100vh;
       margin: 0;
+      margin-top: $kpm-height;
     }
 
     @include reset;
