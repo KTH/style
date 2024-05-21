@@ -15,17 +15,19 @@
     }
   }
 
-  nav.kth-mega-menu--collapsable {
+  nav.kth-mega-menu {
     display: none;
+
+    @media (min-width: sizing.$breakpoint-64) {
+      display: block;
+    }
   }
 
-  @media (max-width: sizing.$breakpoint-64) {
-    nav.kth-mega-menu {
-      display: none;
-    }
+  nav.kth-mega-menu--collapsable {
+    display: block;
 
-    nav.kth-mega-menu--collapsable {
-      display: block;
+    @media (min-width: sizing.$breakpoint-64) {
+      display: none;
     }
   }
 }
