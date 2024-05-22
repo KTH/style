@@ -4,11 +4,9 @@
 @layer kth-style {
   .kth-translation {
     @include colors.theme-default;
-    width: 22.5rem;
-    left: auto;
-
-    // TODO: this formula should be a token
-    right: clamp(spacing.$space-16, calc(100vw / 30), spacing.$space-32);
+    left: spacing.$space-16;
+    right: spacing.$space-16;
+    width: auto;
     background-color: var(--color-background);
 
     // TODO: tokenize this shadow
@@ -25,10 +23,11 @@
     }
 
     // Let the dialog take up the remaining space
-    @media (max-width: calc(22.5rem + spacing.$space-16 * 2)) {
-      right: spacing.$space-16;
-      left: spacing.$space-16;
-      width: auto;
+    @media (min-width: calc(22.5rem + spacing.$space-16 * 2)) {
+      width: 22.5rem;
+      left: auto;
+      // TODO: this formula should be a token
+      right: clamp(spacing.$space-16, calc(100vw / 30), spacing.$space-32);
     }
 
     &__content {
