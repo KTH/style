@@ -14,6 +14,9 @@ $icon-size: calc(#{spacing.$space-24} + 2 * var(--space-inner-icon));
     width: $icon-size;
     height: $icon-size;
     border-radius: spacing.$space-4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     &:hover {
       background: var(--color-secondary-hover);
@@ -23,8 +26,6 @@ $icon-size: calc(#{spacing.$space-24} + 2 * var(--space-inner-icon));
 
   .kth-icon-button.close::before {
     @include icons.icon-close;
-    width: 100%;
-    height: 100%;
     background-color: var(--color-tertiary);
   }
 
