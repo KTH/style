@@ -11,13 +11,11 @@ title: "Screen resolution and browser support"
 
 As a principle: avoid negative impact to all users; prefer to give the best experience to users with modern browsers and most used devices
 
-This document uses
-
 When writing code or designing, make a decision based on the negative impact for users:
 
 1. Accessibility or major usability issues. For example, a button is unusable or users cannot perform a task.
 
-   You should minimize this, especially if it causes failing accessibility guidelines
+   You should minimize this, especially if it causes failures in accessibility guidelines
 
 2. Minor usability or aesthetic issues (users can use the app but it might not _look_ great). For example: an image is misaligned.
 
@@ -40,21 +38,23 @@ Layouts should be designed (should "look good") for screen widths between 360px 
 
 ## Browser support
 
+These guidelines are created from data extracted from [KTH analytics](https://analytics.sys.kth.se) and the Web Platform Baseline initiative (described below)
+
 - Do not use features marked as [experimental, deprecated or obsolete by MDN](https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete). For example, do not use [`virtualkeyboardpolicy`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/virtualkeyboardpolicy)
-- No accessibility nor major usability issues should be present in any core browser (Chrome, Firefox, Safari and Edge for desktop, Chrome for Android, Firefox for Android and Safari for iOS) released in the **past 24 months**.
+- No accessibility nor major usability issues should be present in any stable version of core browsers released in the **past 24 months**.
 - Things should look good for all major browsers released in the last **6 to 12 months**. Do not use polyfills to increase browser support.
 
-> [!NOTE]
-> The important date is the date when a feature became available in _all_ core browsers.
+Core browsers, at the time of writing, are: Chrome, Firefox, Safari and Edge for desktop, Chrome for Android, Firefox for Android and Safari for iOS
 
-Use initiatives like Baseline to understand which features are safe to use
+> [!NOTE]
+> You should look for the date when a feature becomes available in _all_ core browsers.
 
 ### Web Platform Baseline
 
-[Baseline](https://web.dev/baseline) is an project created by the [Web DX Community Group](https://www.w3.org/blog/2022/webdx-improving-the-experience-for-web-developers/) in collaboration with major browser vendors (Apple, Google, Microsoft and Mozilla).
+[Baseline](https://web.dev/baseline) is an project created by the [Web DX Community Group](https://www.w3.org/blog/2022/webdx-improving-the-experience-for-web-developers/) in collaboration with major browser vendors (Apple, Google, Microsoft and Mozilla). It classifies features in two stages:
 
-- **Baseline newly available** means a feature supported by all core browsers
-- **Baseline widely available** means a feature is supported by all core browsers since at least 30 months.
+- **Newly available** means a feature supported by all core browsers
+- **Widely available** means a feature is supported by all core browsers since at least 30 months.
 
 You can find "Baseline" information for example:
 
