@@ -2,6 +2,10 @@
 @use "../utils/mixins.scss";
 
 @layer kth-style {
+  .kth-content {
+    @include mixins.container;
+  }
+
   .kth-main-content {
     @include mixins.container;
     flex: 1;
