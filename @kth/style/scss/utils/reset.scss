@@ -99,6 +99,8 @@ $kpm-height: 2.5rem !default;
       min-height: calc(100vh - $kpm-height);
       margin: 0;
       margin-top: $kpm-height;
+      display: flex;
+      flex-direction: column;
     }
 
     @include reset;
