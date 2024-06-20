@@ -1,26 +1,21 @@
 ---
 export interface Props {
   alt: string;
+  isIntranet: boolean
 }
 
-const { alt } = Astro.props;
+const { alt, isIntranet } = Astro.props;
+const src = isIntranet ? "logotype-blue.svg" : "logotype-white.svg";
+
 ---
 
 <a href="/" class="kth-logotype">
   <figure>
     <img
-      class="blue"
       alt={alt}
       width="64"
       height="64"
-      src="/style/assets/logotype/logotype-blue.svg"
-    />
-    <img
-      class="white"
-      alt={alt}
-      width="64"
-      height="64"
-      src="/style/assets/logotype/logotype-white.svg"
+      src=`/style/assets/logotype/${src}` 
     />
   </figure>
 </a>
