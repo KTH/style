@@ -1,11 +1,11 @@
 ---
 export interface Props {
   alt: string;
-  isIntranet: boolean
+  theme: string
 }
 
-const { alt, isIntranet } = Astro.props;
-const src = isIntranet ? "logotype-blue.svg" : "logotype-white.svg";
+const { alt, theme } = Astro.props;
+const src = theme === "intranet" || theme === "student-web" ? "logotype-blue.svg" : "logotype-white.svg";
 
 ---
 

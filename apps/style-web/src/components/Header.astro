@@ -41,11 +41,11 @@ const navigationPanelEn = [
 const translatedLink = getTranslatedLink(Astro.url);
 const t = useTranslations(lang);
 const navigationPanel = lang === "sv" ? navigationPanelSv : navigationPanelEn;
-const isIntranet = true; 
+const theme = "intranet"
 ---
-<header class={`kth-header ${isIntranet ?  'intranet' : 'external'}`}>
+<header class={`kth-header ${theme}`}>
   <div class="kth-header__container">
-    <MainHeaderLogotype isIntranet={isIntranet} alt={t("nav.go-home")} />
+    <MainHeaderLogotype theme={theme} alt={t("nav.go-home")} />
     <nav class="kth-mega-menu">
       <ul>
         {
@@ -110,9 +110,5 @@ const isIntranet = true;
     document.querySelector(".kth-menu-item.language"),
     document.querySelector(".kth-translation"),
   );
-
-  // let headerElem = document.getElementById("header");
-  // let isExternal = headerElem.classList.contains("external");
-  // console.log(isExternal)
 
 </script>
