@@ -5,6 +5,11 @@
   .kth-content {
     @include mixins.container;
   }
+
+  .kth-main-content {
+    @include mixins.container;
+    flex: 1;
+  }
 }
 
 // TODO: investigate the possibility to expand this `.kth-content` class:

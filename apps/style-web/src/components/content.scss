@@ -2,9 +2,9 @@
 @use "@kth/style/scss/tokens/spacing";
 @use "@kth/style/scss/tokens/typography";
 @use "@kth/style/scss/utils/mixins";
+@use "@kth/style/scss/components/content";
 
-.kth-content {
-  @include mixins.container;
+.kth-main-content {
   margin-block-start: spacing.$space-20;
   margin-block-end: spacing.$space-64;
   display: grid;

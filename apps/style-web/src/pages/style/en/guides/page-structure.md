@@ -46,7 +46,7 @@ Place the components mentioned before like this:
   <div class="kth-a11y-nav"></div>
   <div class="kth-kpm"></div>
   <header class="kth-header"></header>
-  <div class="kth-content">
+  <div class="kth-main-content">
     <nav class="kth-breadcrumbs"></nav>
     <aside></aside>
     <main></main>
