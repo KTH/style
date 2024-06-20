@@ -1,11 +1,11 @@
 ---
 export interface Props {
   alt: string;
-  theme: string
+  theme: 'intranet' | 'student-web' | 'external'
 }
 
 const { alt, theme } = Astro.props;
-const src = theme === "intranet" || theme === "student-web" ? "logotype-blue.svg" : "logotype-white.svg";
+const logoPath = theme === "external" ? "logotype-white.svg" : "logotype-blue.svg";
 
 ---
 
@@ -15,7 +15,7 @@ const src = theme === "intranet" || theme === "student-web" ? "logotype-blue.svg
       alt={alt}
       width="64"
       height="64"
-      src=`/style/assets/logotype/${src}` 
+      src=`/style/assets/logotype/${logoPath}` 
     />
   </figure>
 </a>
