@@ -96,7 +96,7 @@ $kpm-height: 2.5rem !default;
       @include typography.font-default;
       color: var(--color-text);
       background: var(--color-background);
-      min-height: 100vh;
+      min-height: calc(100vh - $kpm-height);
       margin: 0;
       margin-top: $kpm-height;
     }
