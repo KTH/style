@@ -9,8 +9,11 @@
     inline-size: 4rem;
     border: none;
     margin: 0;
-    margin-inline-end: spacing.$space-32;
     padding: 0;
+
+    @media (min-width: sizing.$breakpoint-40) {
+      margin-inline-end: spacing.$space-32;
+    }
 
     // Defensive measurement:
     // - We prevent logo from shrinking
