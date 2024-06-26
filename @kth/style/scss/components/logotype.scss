@@ -10,6 +10,7 @@
     border: none;
     margin: 0;
     padding: 0;
+    margin-inline-end: spacing.$space-8;
 
     @media (min-width: sizing.$breakpoint-40) {
       margin-inline-end: spacing.$space-32;
