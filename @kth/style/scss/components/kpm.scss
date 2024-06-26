@@ -1,6 +1,7 @@
 @use "../utils/mixins.scss";
 @use "../tokens/spacing.scss";
 @use "../tokens/colors.scss";
+@use "../tokens/sizing.scss";
 
 @layer kth-style {
   .kth-kpm {
@@ -13,7 +14,7 @@
     }
   }
 
-  nav.kth-entrances {
+  .kth-entrances {
     > ul {
       @include mixins.horizontal-list();
       gap: spacing.$space-4;
@@ -46,6 +47,22 @@
 
     a[href*="intra"][aria-current="true"] {
       @include colors.theme-intranet;
+    }
+  }
+
+  // When logged out, show "mobile" version only in small screens
+  // Styling for kpm and entrances when logged in is handled by KPM
+  .kth-entrances {
+    display: none;
+  }
+
+  @media screen and (min-width: sizing.$breakpoint-30) {
+    .kth-entrances {
+      display: block;
+    }
+
+    .kth-entrances-expandable {
+      display: none;
     }
   }
 }
