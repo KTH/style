@@ -59,9 +59,9 @@ The property `flex-wrap` is added to avoid items to leak outside of container:
 
 ## Browser support
 
-1. Use always features supported in all stable versions of core browsers (as defined below).
+1. Always use features supported in **all stable versions** of core browsers (as defined below).
 2. Do not use features marked as [experimental, deprecated or obsolete by MDN](https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete). For example, do not use [`virtualkeyboardpolicy`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/virtualkeyboardpolicy)
-3. No accessibility nor major usability issues should be present for users using a browser that is less than 24 months old
+3. No accessibility or major usability issues should be present in browsers that are less than 24 months old.
 4. It is ok to offer a slightly degraded experience for users that have browsers older than 6 months (see example).
 
    Avoid using polyfills or "hacks" to force an optimal experience to all users
