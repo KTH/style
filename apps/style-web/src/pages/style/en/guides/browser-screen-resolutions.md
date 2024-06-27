@@ -37,33 +37,25 @@ When writing code or designing, make a decision based on the negative impact for
 
 The header should look good for resolutions above 360px.
 
-<figure>
-<img width="360" height="210" src="../../../../images/header_360_bad.png" alt="">
-<figcaption>Don't: menu looks ugly ("Search" on top of "Svenska")in devices with width 360px</figcaption>
-</figure>
+Don't let menu looks ugly ("Search" on top of "Svenska") in devices with width 360px:
 
-Logotype's margin is adjusted:
+![Screenshot of ugly heading](../../../../images/header_360_bad.png)
 
-<figure>
-<img width="360" height="210" src="../../../../images/header_360_good.png" alt="">
-<figcaption>Do: menu items in looks good ("Search", "Svenska" and "Menu" aligned properly</figcaption>
-</figure>
+Logotype's margin is adjusted to avoid misalignment:
+
+![Screenshot of good-looking heading](../../../../images/header_360_good.png)
 
 ### Example: header at KTH in resolutions between 320px and 360px
 
 The header should not present accessibility issues between 320px and 360.
 
-<figure>
-<img width="320" height="189" src="../../../../images/header_320_bad.png" alt="">
-<figcaption>Don't: the "Menu" button leaks outside of the background which causes contrast issues</figcaption>
-</figure>
+Don't let the "Menu" button leak outside of the background. It causes contrast issues:
+
+![Screenshot of problematic heading, half of the button "Menu" (with white text) ends up with white background](../../../../images/header_320_bad.png)
 
 The property `flex-wrap` is added to avoid horizontal scrolling:
 
-<figure>
-<img width="320" height="189" src="../../../../images/header_320_good.png" alt="">
-<figcaption>Do: the "Menu" does not leak outside of the dark container</figcaption>
-</figure>
+![Screenshot of fixed heading, all buttons (with white text) are with a dark background](../../../../images/header_320_good.png)
 
 ## Browser support
 
@@ -91,17 +83,15 @@ The values in this section (including the definition of core browsers) are based
 
 ### Example. `text-wrap: balance`
 
-There is a new CSS feature called `text-wrap: balance`. When added to a header, for example a hero, the text becomes balanced:
+There is a new CSS feature called `text-wrap: balance`. When added to a header, for example a hero, the text becomes balanced.
 
-<figure>
-<img width="683" height="375" src="../../../../images/text-wrap_balance_off.png" alt="">
-<figcaption>Without "text-wrap", the two rows of text in the hero are "Join us to transform yourself and" and "the world"</figcaption>
-</figure>
+Without "text-wrap", the two rows of text in the hero are "Join us to transform yourself and" and "the world":
 
-<figure>
-<img width="683" height="375" src="../../../../images/text-wrap_balance_on.png" alt="">
-<figcaption>With "text-wrap", the two rows of text in the hero are "Join us to transform" and "yourself and the world" making both rows more balanced</figcaption>
-</figure>
+![Screenshot of a "hero" with unbalanced text](../../../../images/text-wrap_balance_off.png)
+
+With "text-wrap", the two rows of text in the hero are "Join us to transform" and "yourself and the world" making both rows more balanced
+
+![Screenshot of a "hero" with balanced text](../../../../images/text-wrap_balance_on.png)
 
 Should `text-wrap` be used in this case?
 
