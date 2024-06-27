@@ -62,7 +62,7 @@ The property `flex-wrap` is added to avoid items to leak outside of container:
 1. Always use features supported in **all stable versions** of core browsers (as defined below).
 2. Do not use features marked as [experimental, deprecated or obsolete by MDN](https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete). For example, do not use [`virtualkeyboardpolicy`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/virtualkeyboardpolicy)
 3. No accessibility or major usability issues should be present in browsers that are less than 24 months old.
-4. It is ok to offer a slightly degraded experience for users that have browsers older than 6 months (see example).
+4. It is ok to offer a slightly degraded experience for users that have browsers older than 6 months.
 
    Avoid using polyfills or "hacks" to force an optimal experience to all users
 
@@ -100,7 +100,7 @@ Should `text-wrap` be used in this case?
 - From which date is `text-wrap` supported by all core browsers: latest browser to release this feature was Firefox on 2024-03-19, around 3 months ago (at the time of writing)
 - What are the negative consequences for users using older browsers: they see an unbalanced text.
 
-In this case, the negative consequences are not accessibility or usability problems, so it is OK to use it.
+In this case, the negative consequences are very small: no accessibility or usability problems are present, so might be OK to use it.
 
 ## Web Platform Baseline
 
