@@ -53,7 +53,7 @@ Don't let the "Menu" button leak outside of the background. It causes contrast i
 
 ![Screenshot of problematic heading, half of the button "Menu" (with white text) ends up with white background](../../../../images/header_320_bad.png)
 
-The property `flex-wrap` is added to avoid horizontal scrolling:
+The property `flex-wrap` is added to avoid items to leak outside of container:
 
 ![Screenshot of fixed heading, all buttons (with white text) are with a dark background](../../../../images/header_320_good.png)
 
