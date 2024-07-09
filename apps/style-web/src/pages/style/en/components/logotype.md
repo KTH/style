@@ -16,6 +16,36 @@ layout: "@layouts/Page.astro"
 - Do not use it for widgets or inside `<iframe>`
 - The image assets in this component are optimized **exclusively** for the KTH header. For other uses, get the logotype from the [KTH graphical profile](https://intra.kth.se/en/administration/kommunikation/varumarke/grafiskprofil/logotyp-1.845049)
 
+### Multi-site logotype
+No CSS is used to dynamically render the logo. 
+
+- Use single img tag in template.
+- The [header component](/style/en/components/header) should display only one logo based on its theme class (`.external`, `student-web` or `intranet`). This rendering should be dynamic and is typically managed within a controller or similar backend logic.
+- To achieve conditional rendering of the logotype you can use the npm package [KTH-node-web-common] (https://github.com/KTH/kth-node-web-common/blob/main/README.md) (helper "conditionalLogotypeSrc" ) or similar logic. 
+
+<details>
+<summary>Code</summary>
+
+<div>
+
+```html
+<figure>
+  <img
+    class="blue"
+    alt="{alt}"
+    srcset="
+      /style/assets/kth-logotype-blue.webp,
+      /style/assets/kth-logotype-blue@2x.webp 2x,
+      /style/assets/kth-logotype-blue@3x.webp 3x
+    "
+    src="/<ASSETS_DIRECTORY>/logotype/{src}" [Note: Dynamically render logotype-blue.svg&#47;logotype-white.svg] />
+</figure>
+```
+
+</div>
+</details>
+
+
 ## When should or should not be a link
 
 Most of the times, the logotype should be inside a link to either [kth.se](https://kth.se), [intranet](https://intra.kth.se) or [student web](https://kth.se/student).
@@ -51,14 +81,7 @@ Use this if the logotype does not include a link anywhere.
     alt="{alt}"
     width="64"
     height="64"
-    src="/<ASSETS_DIRECTORY>/logotype/logotype-blue.svg"
-  />
-  <img
-    class="white"
-    alt="{alt}"
-    width="64"
-    height="64"
-    src="/<ASSETS_DIRECTORY>/logotype/logotype-white.svg"
+    src="/<ASSETS_DIRECTORY>/logotype/{src}" [Note: Dynamically render logotype-blue.svg&#47;logotype-white.svg]
   />
 </figure>
 ```
@@ -89,18 +112,10 @@ Use this if the logotype does inlcude a link.
 <a href="/" class="kth-logotype">
   <figure>
     <img
-      class="blue"
       alt="{alt}"
       width="64"
       height="64"
-      src="/<ASSETS_DIRECTORY>/logotype/logotype-blue.svg"
-    />
-    <img
-      class="white"
-      alt="{alt}"
-      width="64"
-      height="64"
-      src="/<ASSETS_DIRECTORY>/logotype/logotype-white.svg"
+      src="/<ASSETS_DIRECTORY>/logotype/{src}" [Note: Dynamically render logotype-blue.svg&#47;logotype-white.svg]
     />
   </figure>
 </a>
@@ -108,46 +123,6 @@ Use this if the logotype does inlcude a link.
 
 ```scss
 @use "@kth/style/scss/components/header.scss";
-```
-
-</div>
-</details>
-
-### Multi-site logotype
-
-In some cases, you need to use CSS to choose one logotype or the other.
-
-- Render both versions using the classes `blue` and `white` in the `img` tag.
-- The [header component](/style/en/components/header) with the correct class (`.external`, `student-web` or `intranet`) will show only one of the logos.
-
-<details>
-<summary>Code</summary>
-
-<div>
-
-```html
-<figure>
-  <img
-    class="blue"
-    alt="{alt}"
-    srcset="
-      /style/assets/kth-logotype-blue.webp,
-      /style/assets/kth-logotype-blue@2x.webp 2x,
-      /style/assets/kth-logotype-blue@3x.webp 3x
-    "
-    src="/style/assets/kth-logotype-blue.png"
-  />
-  <img
-    class="white"
-    alt="{alt}"
-    srcset="
-      /style/assets/kth-logotype-white.webp,
-      /style/assets/kth-logotype-white@2x.webp 2x,
-      /style/assets/kth-logotype-white@3x.webp 3x
-    "
-    src="/style/assets/kth-logotype-white.png"
-  />
-</figure>
 ```
 
 </div>
