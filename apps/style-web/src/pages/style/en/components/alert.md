@@ -13,7 +13,9 @@ Use alert to inform users that something important has happened or will happen. 
 
 ## When not to use this component
 
-- Do not use the alert for validation of long forms.
+- Be mindful of when you use alerts so that you don't overuse them. People often tend to miss alerts and using them too often is likely to make this problem worse.
+
+- Do not use alerts as the only form of validation of long forms.
 
   - For long forms, always include in-line validation in addition to any error messages that appear at the top of the form.
 
