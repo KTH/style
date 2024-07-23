@@ -1,0 +1,17 @@
+{
+  "name": "ui-components",
+  "version": "0.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "KTH Webb",
+  "license": "MIT",
+  "description": "UI components for KTH Style",
+  "devDependencies": {
+    "react": ">=16",
+    "typescript": "^5.5.4"
+  }
+}
