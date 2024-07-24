@@ -1,8 +1,25 @@
 {
   "compilerOptions": {
+    /* Output */
     "target": "ES2022",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "declaration": true,
+    "outDir": "./dist",
+    "emitDeclarationOnly": true,
+    "allowSyntheticDefaultImports": true,
+
+    /* Bundler mode */
     "moduleResolution": "node",
+    "isolatedModules": true,
     "jsx": "react-jsx",
-    "outDir": "./dist"
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
   },
+  "include": ["src"]
 }
