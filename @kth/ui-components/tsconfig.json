@@ -3,6 +3,7 @@
     "target": "ES2022",
     "moduleResolution": "node",
     "jsx": "react-jsx",
-    "outDir": "./dist"
-  },
+    "outDir": "./dist",
+    "declaration": true
+  }
 }
