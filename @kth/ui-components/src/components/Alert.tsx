@@ -1,8 +1,8 @@
 import "@kth/style/scss/components/alert.scss";
 import "@kth/style/scss/utils/reset.scss";
-import { ButtonHTMLAttributes, ReactNode } from "react";
+import { HTMLAttributes, ReactNode } from "react";
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLDivElement> {
+export interface AlertProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * The variant sets the color and icon for the alert.
    */
@@ -27,7 +27,7 @@ export const Alert = ({
   title,
   headingLevel,
   ...props
-}: ButtonProps) => {
+}: AlertProps) => {
   const HeadingTag = `h${headingLevel}` as keyof JSX.IntrinsicElements;
 
   return (
