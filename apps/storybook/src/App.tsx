@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./App.css";
 import { Button } from "@kth/ui-components";
 
 function App() {
